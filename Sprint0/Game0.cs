@@ -11,9 +11,6 @@ using System;
 
 /*
  * Alex Clayton 2021 CSE 3902
- *  I had issues completing the assingment on time due to travel. This will not be a recurring issue, the only time I will otherwise have any sort of struggle will be the weekend of Fall break,
- *  and on the weekend of 12/03. I arrive back home on 09/6/2021 and plan to fully finish it by the following day at the absolute latest. I also do not percieve lack of motivation to be an issue so 
- *  I am confident in my ability to complete it by then.
  */
 namespace Sprint0
 {
