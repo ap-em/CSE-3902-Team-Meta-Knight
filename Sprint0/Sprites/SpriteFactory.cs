@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Sprint0.Sprites
 {
-    public class SpriteController
+    public class SpriteFactory
     {
         GraphicsDeviceManager GraphicsDeviceManager;
 
