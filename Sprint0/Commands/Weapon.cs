@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
-    class CCyclePlayerItemNext : ICommand
+    class Weapon : ICommand
     {
         public CCyclePlayerItemNext()
         {
