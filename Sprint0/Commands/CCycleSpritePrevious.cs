@@ -7,14 +7,22 @@ namespace Sprint0.Commands
 {
     class CCycleSpritePrevious : ICommand
     {
-        public CCycleSpritePrevious()
+        /*sprites is a linked list of every sprite that needs to be cycled through, 
+         * the first on the list is the current sprite, when cycled to the previous sprite, 
+         * the old last sprite should be removed and added onto the front of the list*/
+        LinkedList<ISprite> sprites;
+        public CCycleSpritePrevious(LinkedList<ISprite> sprites)
         {
-
+            /*sprites created outside command so a CCycleSpriteNext can have the same list*/
+            this.sprites = sprites;
+            
         }
 
         public void Execute()
         {
-            throw new NotImplementedException();
+            LinkedListNode<ISprite> oldSprite = sprites.Last;
+            sprites.RemoveLast();
+            sprites.AddFirst(oldSprite);
         }
     }
 }
