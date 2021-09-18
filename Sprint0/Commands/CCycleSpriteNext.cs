@@ -7,14 +7,15 @@ namespace Sprint0.Commands
 {
     class CCycleSpriteNext : ICommand
     {
-        public CCycleSpriteNext()
+        
+        public CCycleSpriteNext(Queue<ISprite> sprites)
         {
             
         }
 
         public void Execute()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
