@@ -6,7 +6,7 @@ using Sprint0.Sprites;
 
 namespace Sprint0.Commands
 {
-    class CAnimatedFixedSprite : ICommand
+    class IdleLinkLeftState : ICommand
     {
 
         private static Game0 gameHere;
