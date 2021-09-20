@@ -5,12 +5,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Sprint0.Interfaces
+namespace Sprint0.Interfaces.Player
 {
-    public interface ISprite
+    public interface IPlayer
     {
-        // Outdated and only keeping here as a reference
+        // This will control the player
         void Update();
-        void Draw(SpriteBatch spritebatch, Vector2 location);
+        void Draw(SpriteBatch spritebatch, Vector2 location); // idk if we still need this yet
     }
 }
