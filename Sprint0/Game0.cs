@@ -17,7 +17,7 @@ namespace Sprint0
     public class Game0 : Game
     {
         private GraphicsDeviceManager graphics;
-        private SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch;
         public ISprite sprite;
         public SpriteFont font;
         KeyboardController kbController;
@@ -64,9 +64,9 @@ namespace Sprint0
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            SpriteController.Instance.LoadAllTextures(Content); // Functions as sprite factory
+            SpriteFactory.Instance.LoadAllTextures(Content); // Functions as sprite factory
             font = Content.Load<SpriteFont>("font"); // Will use a similar "load all textures" method in the future for this to support multiple fonts. Can use commands to switch betewen fonts too.
-            sprite = SpriteController.Instance.CreateGoldDoggo();
+            sprite = SpriteFactory.Instance.CreateGoldDoggo();
             //  SpriteController
 
             // TODO: use this.Content to load your game content here

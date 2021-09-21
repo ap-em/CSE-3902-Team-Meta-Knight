@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
-    class CCyclePlayerItemPrevious : ICommand
+    class CMovePlayerUp : ICommand
     {
-        public CCyclePlayerItemPrevious()
+        public CMovePlayerUp()
         {
 
         }

@@ -6,7 +6,7 @@ using Sprint0.Sprites;
 
 namespace Sprint0.Commands
 {
-    class IdleLinkLeftState : ICommand
+    class CAnimatedFixedSprite : ICommand
     {
 
         private static Game0 gameHere;
@@ -18,7 +18,7 @@ namespace Sprint0.Commands
         
         public void Execute()
         {
-            gameHere.sprite = SpriteController.Instance.CreateAnimatedFixedSprite(); // This is the fixed sprite. Poorly named.
+            gameHere.sprite = SpriteFactory.Instance.CreateAnimatedFixedSprite(); // This is the fixed sprite. Poorly named.
         }
     }
 }
