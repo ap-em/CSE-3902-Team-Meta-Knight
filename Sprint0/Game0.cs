@@ -17,7 +17,7 @@ namespace Sprint0
     public class Game0 : Game
     {
         private GraphicsDeviceManager graphics;
-        private SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch;
         public ISprite sprite;
         public SpriteFont font;
         KeyboardController kbController;
