@@ -5,12 +5,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Sprint0.Interfaces
+namespace Sprint0.Interfaces.Enemy
 {
-    public interface ISprite
+    public interface IEnemy
     {
-        // Outdated and only keeping here as a reference
+        // We do not need an IEnemyState since the player does not control enemies.
+        void ChangeDirection();
         void Update();
+        void TakeDamage();
         void Draw(SpriteBatch spritebatch, Vector2 location);
     }
 }
