@@ -8,7 +8,6 @@ namespace Sprint0.Controllers
 {
     class KeyboardController : IController
     {
-
         private Dictionary<Keys, ICommand> controllerMappings;
 
         /*
@@ -29,11 +28,12 @@ namespace Sprint0.Controllers
 
             foreach (Keys key in pressedKeys)
             {
+                if (controllerMappings.ContainsKey(key)) // only updates if that key is in the dictionary 
+                {
+                    controllerMappings[key].Execute();
+                }
                 
-                controllerMappings[key].Execute();
             }
         }
-
-
     }
 }
