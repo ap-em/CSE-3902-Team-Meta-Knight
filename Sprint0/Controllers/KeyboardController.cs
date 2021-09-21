@@ -29,8 +29,11 @@ namespace Sprint0.Controllers
 
             foreach (Keys key in pressedKeys)
             {
-                
-                controllerMappings[key].Execute();
+                if (controllerMappings.ContainsKey(key)) // only updates if that key is in the dictionary
+                {
+                    controllerMappings[key].Execute();
+                }
+
             }
         }
 
