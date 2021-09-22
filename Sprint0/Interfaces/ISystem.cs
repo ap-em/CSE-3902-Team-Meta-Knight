@@ -4,13 +4,12 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-
+// Alex Clayton 09/15/2021
 namespace Sprint0.Interfaces
 {
-    public interface ISprite
+    // Systems include: Sound effects, Music, Collision handling, Game State logic (pause, Item selection);
+    public interface ISystem
     {
-        // Outdated and only keeping here as a reference
         void Update();
-        void Draw(SpriteBatch spritebatch, Vector2 location);
     }
 }

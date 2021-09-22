@@ -18,7 +18,7 @@ namespace Sprint0.Commands
         
         public void Execute()
         {
-            gameHere.sprite = SpriteController.Instance.CreateAnimatedMovingSprite(); // This is the fixed sprite. Poorly named.
+            gameHere.sprite = SpriteFactory.Instance.CreateAnimatedMovingSprite(); // This is the fixed sprite. Poorly named.
         }
     }
 }

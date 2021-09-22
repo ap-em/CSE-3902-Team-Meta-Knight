@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Sprint0.Sprites
 {
-    public class SpriteController
+    public class SpriteFactory
     {
         GraphicsDeviceManager GraphicsDeviceManager;
 
@@ -26,9 +26,9 @@ namespace Sprint0.Sprites
         private Texture2D smiley;
         private Texture2D link;
 
-        private static SpriteController instance = new SpriteController();
+        private static SpriteFactory instance = new SpriteFactory();
 
-        public static SpriteController Instance
+        public static SpriteFactory Instance
         {
             get
             {
@@ -36,7 +36,7 @@ namespace Sprint0.Sprites
             }
         }
 
-        public SpriteController()//GraphicsDeviceManager graphicsDeviceManager) // : (base.graphicsDeviceManager)
+        public SpriteFactory()//GraphicsDeviceManager graphicsDeviceManager) // : (base.graphicsDeviceManager)
         {
             //  GraphicsDeviceManager = graphicsDeviceManager;
         }
