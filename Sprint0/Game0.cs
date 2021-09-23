@@ -7,6 +7,7 @@ using Sprint0.Controllers;
 using Sprint0.Sprites;
 using Sprint0.Commands;
 using Sprint0.Interfaces;
+using Sprint0.Enemies;
 using System;
 
 /*
@@ -20,6 +21,7 @@ namespace Sprint0
         public SpriteBatch spriteBatch;
         public ISprite sprite;
         public SpriteFont font;
+        public IEnemy enemy;
         KeyboardController kbController;
         MouseController mouseController;
 
@@ -32,7 +34,6 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-
             kbController = new KeyboardController();
             // Initialize kb contoller 
             // Will make a setup / initialize method for better encapsulation.
@@ -41,6 +42,8 @@ namespace Sprint0
             kbController.RegisterCommand(Keys.D2, new CAnimatedFixedSprite(this));
             kbController.RegisterCommand(Keys.D3, new CMovingStaticSprite(this));
             kbController.RegisterCommand(Keys.D4, new CAnimatedMovingSprite(this));
+            kbController.RegisterCommand(Keys.O, new CCycleNextEnemy(this));
+            kbController.RegisterCommand(Keys.P, new CCyclePreviousEnemy(this));
 
             // Initialize mouse controller
             int rWidth = graphics.PreferredBackBufferWidth; // This is the width of the whole screen
@@ -67,6 +70,7 @@ namespace Sprint0
             SpriteFactory.Instance.LoadAllTextures(Content); // Functions as sprite factory
             font = Content.Load<SpriteFont>("font"); // Will use a similar "load all textures" method in the future for this to support multiple fonts. Can use commands to switch betewen fonts too.
             sprite = SpriteFactory.Instance.CreateGoldDoggo();
+            enemy = new Enemy(this);
             //  SpriteController
 
             // TODO: use this.Content to load your game content here
@@ -78,7 +82,7 @@ namespace Sprint0
             kbController.Update();
             mouseController.Update();
             sprite.Update();
-
+            enemy.Update();
             base.Update(gameTime);
         }
 
@@ -88,6 +92,7 @@ namespace Sprint0
 
             spriteBatch.Begin();
             sprite.Draw(spriteBatch, new Vector2(400, 240));
+            enemy.Draw();
             spriteBatch.DrawString(this.font, "Credits \nProgram Made By: Alex Clayton\n Sprites From: https://www.spriters-resource.com/nes/legendofzelda/", new Vector2(200, 200), Color.White);
             // TODO: Add your drawing code here
 
