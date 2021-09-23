@@ -1,0 +1,7 @@
+{
+  // "spritesheet" // spriteName // Location in sprite sheet (xy)// height (of sprite) // width (of sprite) // row // column
+
+  [ "Sprite":"RightLink", "SpriteSheet":"Zelda", 35, 11, 16, 16, 1, 2 ]
+
+
+}
