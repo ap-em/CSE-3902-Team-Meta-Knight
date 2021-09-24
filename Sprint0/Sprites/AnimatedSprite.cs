@@ -7,6 +7,7 @@ using Sprint0.Interfaces;
 
 namespace Sprint0.Sprites
 {
+    // Alex Contreras
     class AnimatedSprite : ISprite
     {
         public Texture2D Texture { get; set; }
@@ -38,7 +39,7 @@ namespace Sprint0.Sprites
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
 
-            _spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White)
+            _spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
         }
     }
 }
