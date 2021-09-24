@@ -1,25 +1,12 @@
-{
-  // "spritesheet" // spriteName // Location in sprite sheet (xy)// height (of sprite) // width (of sprite) // row // column
-  // We want to use an array of objects.
-
   [
     {
-      "Sprite": "RightLink",
-      "SpriteSheet": "Zelda",
-      "Data": [ 35, 11, 16, 16, 1, 2 ]
+      "Data": [ 35, 11, 16, 16, 1, 2 ],
+      "SpriteName": "RightLink",
+      "SpriteSheet": "Zelda"
     }
 
   ]
 
-  /*
-  {
-    "Sprite": "RightLink",
-    "DataSheet": "Zelda",
-    "Data": [ 3, 11, 16, 16, 1, 2 ]
-  }
-  */
-
-}
 
 
 

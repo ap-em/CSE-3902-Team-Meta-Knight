@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Sprint0.Interfaces;
-using Sprint0.Sprites;
+using Sprint0.Sprites.SpriteFactory;
 
 namespace Sprint0.Commands
 {
@@ -18,7 +18,7 @@ namespace Sprint0.Commands
         
         public void Execute()
         {
-            gameHere.sprite = SpriteFactory.Instance.CreateAnimatedFixedSprite(); // This is the fixed sprite. Poorly named.
+            gameHere.sprite = SpriteFactory.Instance.GetSprite("RightLink"); // This is the fixed sprite. Poorly named.
         }
     }
 }

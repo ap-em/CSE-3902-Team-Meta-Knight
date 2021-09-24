@@ -5,18 +5,20 @@ using Sprint0.Interfaces;
 using Microsoft.Xna.Framework.Content;
 using System.IO;
 using System.Text.Json;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Sprint0.Sprites.SpriteFactory
 {
     public class SpriteFactory
     {
-        GraphicsDeviceManager GraphicsDeviceManager;
+      //  GraphicsDeviceManager GraphicsDeviceManager;
 
         private readonly string _dataSheet;
         private Texture2D texture;
-
-        public static SpriteDataArray spriteData; // This is an array that contains all of the different sprites
-        private static SpriteFactory instance = new SpriteFactory();
+        private readonly ICollection<SpriteData> _spriteData;
+       // ContentManager Content;
+        private static SpriteFactory instance = new SpriteFactory(Path.GetFullPath("Sprites\\SpriteFactory\\DataSheet.json"));
         public static SpriteFactory Instance
         {
             get
@@ -25,32 +27,41 @@ namespace Sprint0.Sprites.SpriteFactory
             }
         }
 
-        public SpriteFactory(String fileName) 
+        public SpriteFactory(String fileName)
         {
               _dataSheet = fileName;
             // parse it here?
-            String jsonString = File.ReadAllText(_dataSheet);
-            spriteData = JsonSerializer.Deserialize<SpriteDataArray>(jsonString);
+            
+            String jsonString = File.ReadAllText(fileName);
+            _spriteData = JsonSerializer.Deserialize<ICollection<SpriteData>>(jsonString);
            
         }
 
-        public void LoadAllTextures(ContentManager content)
+        public void LoadAllTextures(ContentManager content) // Replace with lazy loading in future?
         {
-            //goldDoggo = content.Load<Texture2D>("GoldDoggo"); // Example of how to load
-
-            // have list of all in a datasheet?
+            texture = content.Load<Texture2D>("Zelda");
             // load texture into variable. the variable will be the name of the sprite
             // SpriteName -> spriteFactory. SpriteName(LeftLink / RightLink) = content.Load<Texture2D>(SpriteSheet(Zelda))
 
-            // Technically we can do everything in animated sprite class
+            // Technically we can do everything in animated sprite 
         }
-        public ISprite GetSprite(String sprite)
+        /*
+         * We still need to be able to load content, which this does not do.  
+         * We could make SpriteFactory inherit a contentmanager class that has the sole purpose of having content in it. 
+         * Then, we could just make a loadcontent method there and say "(base).loadContent(name) or whatever. Still figuring it out but this is for the current push.
+         */
+        public ISprite GetSprite(String spriteName)
         {
-            // Texture2D texture // int rows // int 
-            String spriteNme = spriteData.Value[0].SpriteName;
-            String sprName = spriteData.Value1.FindIndex(sprite);
-            return new AnimatedFixedSprite(texture, rows, columns);
-            // return new AnimatedFixedSprite(new SpriteFactoryReader(_datasheet));
+            
+            SpriteData s = _spriteData.FirstOrDefault(p => p.SpriteName == spriteName); // This returns the wanted Sprite value
+
+            String spriteSheet = s.SpriteSheet;
+            int[] data = s.Data; // See DataSheet.json for how this is structured. 
+
+            // How do I load a texture without Content? My only use for it is loading different sprite sheets.
+            //
+
+            return new AnimatedSprite(texture, data[3] ,data[4]); // // Texture2D texture // int rows // int  columns Data[3] is rows, Data[4] is columns
         }
 
     }
