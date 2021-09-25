@@ -29,7 +29,7 @@ namespace Sprint0.Controllers
 
             foreach (Keys key in pressedKeys)
             {
-                
+                //Should we be checking if key is in controllermappings?
                 controllerMappings[key].Execute();
             }
         }
