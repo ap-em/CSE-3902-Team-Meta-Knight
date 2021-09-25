@@ -29,8 +29,7 @@ namespace Sprint0.Sprites.SpriteFactory
 
         public SpriteFactory(String fileName)
         {
-              _dataSheet = fileName;
-            // parse it here?
+              _dataSheet = fileName
             
             String jsonString = File.ReadAllText(fileName);
             _spriteData = JsonSerializer.Deserialize<ICollection<SpriteData>>(jsonString);
@@ -39,12 +38,11 @@ namespace Sprint0.Sprites.SpriteFactory
 
         public void LoadAllTextures(ContentManager content) // Replace with lazy loading in future?
         {
-            texture = content.Load<Texture2D>("Zelda");
+            texture = content.Load<Texture2D>("Zelda"); // name of LoZ spritesheet
             // load texture into variable. the variable will be the name of the sprite
-            // SpriteName -> spriteFactory. SpriteName(LeftLink / RightLink) = content.Load<Texture2D>(SpriteSheet(Zelda))
-
-            // Technically we can do everything in animated sprite 
+            // SpriteName -> spriteFactory. SpriteName(LeftLink / RightLink) = content.Load<Texture2D>(SpriteSheet(Zelda
         }
+
         /*
          * We still need to be able to load content, which this does not do.  
          * We could make SpriteFactory inherit a contentmanager class that has the sole purpose of having content in it. 
@@ -56,10 +54,7 @@ namespace Sprint0.Sprites.SpriteFactory
             SpriteData s = _spriteData.FirstOrDefault(p => p.SpriteName == spriteName); // This returns the wanted Sprite value
 
             String spriteSheet = s.SpriteSheet;
-            int[] data = s.Data; // See DataSheet.json for how this is structured. 
-
-            // How do I load a texture without Content? My only use for it is loading different sprite sheets.
-            //
+            int[] data = s.Data; // See DataSheet.json for how this is structured.  Data: Location in sprite sheet(x) // (y) // height(of sprite) // width(of sprite) // row(for frames) // columns (for frames)
 
             return new AnimatedSprite(texture, data[3] ,data[4]); // // Texture2D texture // int rows // int  columns Data[3] is rows, Data[4] is columns
         }
