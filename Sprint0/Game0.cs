@@ -6,6 +6,7 @@ using Sprint0;
 using Sprint0.Controllers;
 using Sprint0.Sprites;
 using Sprint0.Commands;
+using Sprint0.Blocks;
 using Sprint0.Interfaces;
 using System;
 
@@ -20,8 +21,9 @@ namespace Sprint0
         public SpriteBatch spriteBatch;
         public ISprite sprite;
         public SpriteFont font;
-        KeyboardController kbController;
-        MouseController mouseController;
+        public IBlock block;
+        private KeyboardController kbController;
+        private MouseController mouseController;
 
         public Game0()
         {
@@ -32,6 +34,7 @@ namespace Sprint0
 
         protected override void Initialize()
         {
+            block = new Block(this);
 
             kbController = new KeyboardController();
             // Initialize kb contoller 
@@ -41,6 +44,9 @@ namespace Sprint0
             kbController.RegisterCommand(Keys.D2, new CAnimatedFixedSprite(this));
             kbController.RegisterCommand(Keys.D3, new CMovingStaticSprite(this));
             kbController.RegisterCommand(Keys.D4, new CAnimatedMovingSprite(this));
+
+            kbController.RegisterCommand(Keys.T, new CCyclePreviousBlock(this));
+            kbController.RegisterCommand(Keys.Y, new CCycleNextBlock(this));
 
             // Initialize mouse controller
             int rWidth = graphics.PreferredBackBufferWidth; // This is the width of the whole screen

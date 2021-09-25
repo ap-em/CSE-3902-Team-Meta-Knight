@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
@@ -15,8 +16,8 @@ namespace Sprint0.Blocks
 {
     class Block : IBlock
     {
-        public IBlockState state;
-        public ISprite sprite;
+        private IBlockState state;
+        private ISprite sprite;
         private Vector2 location = new Vector2(200, 200);
         private Game0 gameHere;
 
@@ -24,15 +25,25 @@ namespace Sprint0.Blocks
         {
             gameHere = game;
             state = new Block1State(this);
-            // sprite = SpriteFactory.CreateBlock1();
+            // sprite = SpriteFactory.Instance.CreateNewSprite("block1");
+        }
+        public void SetSprite(ISprite sprite)
+        {
+            this.sprite = sprite;
+        }
+        public void SetState(IBlockState blockState)
+        {
+            state = blockState;
         }
         public void PrevBlock()
         {
             state.PrevBlock();
+            Debug.WriteLine(state.GetType().Name);
         }
         public void NextBlock()
         {
             state.NextBlock();
+            Debug.WriteLine(state.GetType().Name);
         }
         public void Draw()
         {
