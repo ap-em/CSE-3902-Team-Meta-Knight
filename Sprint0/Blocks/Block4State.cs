@@ -8,14 +8,14 @@ using Sprint0.Sprites;
 
 namespace Sprint0.Blocks
 {
-    class Block2State : IBlockState
+    class Block4State : IBlockState
     {
         private Block block;
 
-        public Block2State(Block block)
+        public Block4State(Block block)
         {
             this.block = block;
-            //block.SetSprite(SpriteFactory.Instance.CreateNewSprite("block2"));
+            //block.SetSprite(SpriteFactory.Instance.CreateNewSprite("block4"));
         }
         public void PrevBlock()
         {
@@ -23,7 +23,7 @@ namespace Sprint0.Blocks
         }
         public void NextBlock()
         {
-            block.SetState(new Block1State(block));
+            block.SetState(new Block5State(block));
         }
         public void Draw()
         {

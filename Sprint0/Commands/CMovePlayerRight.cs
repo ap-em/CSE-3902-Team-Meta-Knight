@@ -7,14 +7,16 @@ namespace Sprint0.Commands
 {
     class CMovePlayerRight : ICommand
     {
-        public CMovePlayerRight()
+        private Game0 gameHere;
+        public CMovePlayerRight(Game0 game)
         {
-
+            gameHere = game;
         }
-
         public void Execute()
         {
-            throw new NotImplementedException();
+            gameHere.enemy.SetDirection("right");
+            gameHere.enemy.SetXVelocity(1);
+            gameHere.enemy.SetStateMachineSprite();
         }
     }
 }

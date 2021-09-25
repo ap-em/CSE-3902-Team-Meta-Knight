@@ -9,6 +9,7 @@ using Sprint0.Commands;
 using Sprint0.Interfaces;
 using Sprint0.Enemies;
 using System;
+using System.Collections;
 
 /*
  * Alex Clayton 2021 CSE 3902
@@ -22,8 +23,10 @@ namespace Sprint0
         public ISprite sprite;
         public SpriteFont font;
         public IEnemy enemy;
-        KeyboardController kbController;
-        MouseController mouseController;
+        private EnemyController enemyKeyboard;
+        private KeyboardController playerKeyboard;
+        private MouseController mouseController;
+        private ArrayList keyboardControllerList;
 
         public Game0()
         {
@@ -34,36 +37,70 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            kbController = new KeyboardController();
-            // Initialize kb contoller 
-            // Will make a setup / initialize method for better encapsulation.
-            kbController.RegisterCommand(Keys.Escape, new Quit(this));
-            kbController.RegisterCommand(Keys.D1, new CFixedSprite(this));
-            kbController.RegisterCommand(Keys.D2, new CAnimatedFixedSprite(this));
-            kbController.RegisterCommand(Keys.D3, new CMovingStaticSprite(this));
-            kbController.RegisterCommand(Keys.D4, new CAnimatedMovingSprite(this));
-            kbController.RegisterCommand(Keys.O, new CCycleNextEnemy(this));
-            kbController.RegisterCommand(Keys.P, new CCyclePreviousEnemy(this));
+            enemyKeyboard = new EnemyController();
+            SetUpEnemyKeyboard(enemyKeyboard);
+            enemyKeyboard.SetAvailableKeys();
 
-            // Initialize mouse controller
-            int rWidth = graphics.PreferredBackBufferWidth; // This is the width of the whole screen
-            int rHeight = graphics.PreferredBackBufferHeight;
+            playerKeyboard = new KeyboardController();
+            SetUpPlayerKeyboard(playerKeyboard);
 
-            // rectangles are definde as Rectangle(height, width, x, y)
             mouseController = new MouseController(this);
-            mouseController.RegisterCommand(new Rectangle(0, 0, rWidth / 2, rHeight / 2), new CFixedSprite(this)); // upper left, fixed static
-            mouseController.RegisterCommand(new Rectangle(rWidth / 2 , 0, rWidth / 2, rHeight / 2), new CAnimatedFixedSprite(this)); // upper right, animated fixed
-            mouseController.RegisterCommand(new Rectangle(0, rHeight / 2, rWidth / 2, rHeight / 2), new CMovingStaticSprite(this)); // bottom left, one frame up/dpown
-            mouseController.RegisterCommand(new Rectangle(rWidth / 2, rHeight / 2, rWidth / 2, rHeight / 2), new CAnimatedMovingSprite(this)); //Bottom right, one frame up/down
-            // Sets frame cap at 30fps
+            SetUpMouse();
 
+            keyboardControllerList = new ArrayList();
+            keyboardControllerList.Add(enemyKeyboard);
+            keyboardControllerList.Add(playerKeyboard);
 
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(1 / 30.0f);
 
             base.Initialize();
         }
+        private void SetUpPlayerKeyboard(IKeyboardController keyboard)
+        {
+            keyboard.RegisterCommand(Keys.Escape, new Quit(this));
+            keyboard.RegisterCommand(Keys.D1, new CFixedSprite(this));
+            keyboard.RegisterCommand(Keys.D2, new CAnimatedFixedSprite(this));
+            keyboard.RegisterCommand(Keys.D3, new CMovingStaticSprite(this));
+            keyboard.RegisterCommand(Keys.D4, new CAnimatedMovingSprite(this));
+            
+            keyboard.RegisterCommand(Keys.O, new CCycleNextEnemy(this));
+            keyboard.RegisterCommand(Keys.P, new CCyclePreviousEnemy(this));
 
+            keyboard.RegisterCommand(Keys.W, new CMovePlayerUp(this));
+            keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft(this));
+            keyboard.RegisterCommand(Keys.S, new CMovePlayerDown(this));
+            keyboard.RegisterCommand(Keys.D, new CMovePlayerRight(this));
+
+            keyboard.SetZeroXVelocityCommand(new CZeroPlayerYVelocity(this));
+            keyboard.SetZeroYVelocityCommand(new CZeroPlayerXVelocity(this));
+
+        }
+        private void SetUpEnemyKeyboard(IKeyboardController keyboard)
+        {
+            keyboard.RegisterCommand(Keys.O, new CCycleNextEnemy(this));
+            keyboard.RegisterCommand(Keys.P, new CCyclePreviousEnemy(this));
+
+            keyboard.RegisterCommand(Keys.W, new CMoveEnemyUp(this));
+            keyboard.RegisterCommand(Keys.A, new CMoveEnemyLeft(this));
+            keyboard.RegisterCommand(Keys.S, new CMoveEnemyDown(this));
+            keyboard.RegisterCommand(Keys.D, new CMoveEnemyRight(this));
+            keyboard.RegisterCommand(Keys.Space, new CEnemyAttack(this));
+
+            keyboard.SetZeroXVelocityCommand(new CZeroEnemyYVelocity(this));
+            keyboard.SetZeroYVelocityCommand(new CZeroEnemyXVelocity(this));
+        }
+        private void SetUpMouse()
+        {
+            int rWidth = graphics.PreferredBackBufferWidth; // This is the width of the whole screen
+            int rHeight = graphics.PreferredBackBufferHeight;
+
+            mouseController.RegisterCommand(new Rectangle(0, 0, rWidth / 2, rHeight / 2), new CFixedSprite(this)); // upper left, fixed static
+            mouseController.RegisterCommand(new Rectangle(rWidth / 2, 0, rWidth / 2, rHeight / 2), new CAnimatedFixedSprite(this)); // upper right, animated fixed
+            mouseController.RegisterCommand(new Rectangle(0, rHeight / 2, rWidth / 2, rHeight / 2), new CMovingStaticSprite(this)); // bottom left, one frame up/dpown
+            mouseController.RegisterCommand(new Rectangle(rWidth / 2, rHeight / 2, rWidth / 2, rHeight / 2), new CAnimatedMovingSprite(this)); //Bottom right, one frame up/down
+
+        }
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -78,8 +115,10 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
-
-            kbController.Update();
+            foreach(IKeyboardController controller in keyboardControllerList)
+            {
+                controller.Update();
+            }
             mouseController.Update();
             sprite.Update();
             enemy.Update();

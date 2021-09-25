@@ -15,15 +15,15 @@ namespace Sprint0.Blocks
         public Block3State(Block block)
         {
             this.block = block;
-           // block.sprite = SpriteFactory.CreateBlock3();
+            //block.SetSprite(SpriteFactory.Instance.CreateNewSprite("block3"));
         }
         public void PrevBlock()
         {
-            block.state = new Block2State(block);
+            block.SetState(new Block2State(block));
         }
         public void NextBlock()
         {
-            block.state = new Block1State(block);
+            block.SetState(new Block4State(block));
         }
         public void Draw()
         {

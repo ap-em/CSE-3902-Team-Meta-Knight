@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Microsoft.Xna.Framework;
+using System.Diagnostics;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
 
@@ -10,177 +10,138 @@ using Sprint0.Sprites;
 namespace Sprint0.Enemies
 {
     class E1StateMachine : IEnemyStateMachine
-    {
-        private bool facingLeft = true;
-        private bool facingRight = false;
-        private bool facingUp = false;
-        private bool facingDown = false;
-        
-        private bool moving = false;
-        private bool firing = false;
+    { 
 
         private Enemy enemy;
+        private ISprite sprite;
 
         public E1StateMachine(Enemy enemy)
         {
             this.enemy = enemy;
-            enemy.sprite = SpriteFactory.Instance.CreateE1IdleLeft();
+            SetSprite();
+            enemy.SetSprite(sprite);
         }
-        
-        public void MoveUp()
+        public void SetSprite()
         {
-            /*
-            facingUp = true;
-            facingDown = false;
-            facingLeft = false;
-            facingRight = false;
-            */
-        }
-        public void MoveDown()
-        {
-            /*
-            facingUp = false;
-            facingDown = true;
-            facingLeft = false;
-            facingRight = false;
-            */
-        }
-        public void MoveLeft()
-        {
-            /*
-            facingUp = false;
-            facingDown = false;
-            facingLeft = true;
-            facingRight = false;
-            */
-        }
-        public void MoveRight()
-        {
-            /*
-            facingUp = false;
-            facingDown = false;
-            facingLeft = false;
-            facingRight = true;
-            */
-        }
-        
-        public void PrevEnemy()
-        {
-            enemy.stateMachine = new E3StateMachine(enemy);
-        }
-        public void NextEnemy()
-        {
-            enemy.stateMachine = new E2StateMachine(enemy);
-        }
-        
-        public void FireProjectile()
-        {
-        /*
-            //DECIDE whether we want to be able to fire while moving or not
-            //if not set move to false
+            bool moving = enemy.GetXVelocity() != 0 && enemy.GetYVelocity() != 0;
 
-            if (facingLeft)
+            if(enemy.GetFiring())
             {
-                enemy.sprite = SpriteFactory.Instance.CreateE1IdleLeft();
+                SetFireProjectileSprite();
             }
-            else if (facingRight)
-            {
-                //enemy.sprite = SpriteFactory.Instance.CreateE1ShootRight();
-            }
-            else if (facingUp)
-            {
-                //enemy.sprite = SpriteFactory.Instance.CreateE1ShootUp();
-            }
-            else if (facingDown)
-            {
-                //enemy.sprite = SpriteFactory.Instance.CreateE1ShootDown();
-            }
-        */
-        }
-        private void MoveSprite()
-        {
-        /*
-            if (facingLeft)
-            {
-                enemy.Move(-1, 0);
-            }
-            else if (facingRight)
-            {
-                enemy.Move(1, 0);
-            }
-            else if (facingUp)
-            {
-                enemy.Move(0, -1);
-            }
-            else if (facingDown)
-            {
-                enemy.Move(0, 1);
-            }
-        */
-        }
-        private void ChangeMovingSprite()
-        {
-        /*
-            if (facingLeft)
-            {
-                //enemy.sprite = SpriteFactory.CreateE1MoveLeft();
-            }
-            else if (facingRight)
-            {
-                //enemy.sprite = SpriteFactory.CreateE1MoveRight();
-            }
-            else if (facingUp)
-            {
-                //enemy.sprite = SpriteFactory.CreateE1MoveUp();
-            }
-            else if (facingDown)
-            {
-                //enemy.sprite = SpriteFactory.CreateE1MoveDown();
-            }
-        */
-        }
-        private void ChangeNonMovingSprite()
-        {
-        /*
-            if (facingLeft)
-            {
-                //enemy.sprite = SpriteFactory.CreateE1IdleLeft();
-            }
-            else if (facingRight)
-            {
-                //enemy.sprite = SpriteFactory.CreateE1IdleRight();
-            }
-            else if (facingUp)
-            {
-                //enemy.sprite = SpriteFactory.CreateE1IdleUp();
-            }
-            else if (facingDown)
-            {
-                //enemy.sprite = SpriteFactory.CreateE1IdleDown();
-            }
-        */
-        }
-        public void Update()
-        {
-        /*
-            if (firing)
-            {
-                FireProjectile();
-                if (moving) MoveSprite();
-            }
-            else
-            {
-                if (moving)
-                {
-                    ChangeMovingSprite();
-                    MoveSprite();
+            else 
+            { 
+                if(moving)
+                { 
+                    SetMovingSprite();
                 }
                 else
                 {
-                    ChangeNonMovingSprite();
+                    SetNonMovingSprite();
                 }
             }
-        */
+        }
+        public void SetMovingSprite()
+        {
+            String direction = enemy.GetDirection();
+            switch (direction) {  
+            case "left":
+//                sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1MovingLeft");
+                    Debug.WriteLine("Enemy1MovingLeft");
+                break;
+  
+            case "right":
+                    //sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1MovingRight");
+                    Debug.WriteLine("Enemy1MovingRight");
+                    break;
+
+            case "up":
+//                sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1MovingUp");
+                    Debug.WriteLine("Enemy1MovingUP");
+                    break;
+
+            case "down":
+//                sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1MovingDown");
+                    Debug.WriteLine("Enemy1MovingDown");
+                    break;
+
+            default:
+//                sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1MovingLeft");
+                    Debug.WriteLine("Enemy1MovingLeft");
+                    break;
+            }
+        }
+        public void SetNonMovingSprite()
+        {
+            String direction = enemy.GetDirection();
+            switch (direction) {  
+            case "left":
+//            sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1IdleLeft");
+                    Debug.WriteLine("Enemy1IdleLeft");
+                    break;
+  
+            case "right":
+//                sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1IdleRight");
+                    Debug.WriteLine("Enemy1IdleRight");
+                    break;
+
+            case "up":
+ //               sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1IdleUp");
+                    Debug.WriteLine("Enemy1IdleUp");
+                    break;
+
+            case "down":
+//                sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1IdleDown");
+                    Debug.WriteLine("Enemy1IdleDown");
+                    break;
+
+            default:
+//                sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1IdleLeft");
+                    Debug.WriteLine("Enemy1IdleLeft");
+                    break;
+            }
+        }
+        public void PrevEnemy()
+        {
+            enemy.SetStateMachine(new E3StateMachine(enemy));
+        }
+        public void NextEnemy()
+        {
+            enemy.SetStateMachine(new E2StateMachine(enemy));
+        }
+        public void SetFireProjectileSprite()
+        {
+            String direction = enemy.GetDirection();
+            switch (direction) {  
+            case "left":
+ //           sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1ShootLeft");
+                    Debug.WriteLine("Enemy1ShootLeft");
+                    break;
+  
+            case "right":
+ //               sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1ShootRight");
+                    Debug.WriteLine("Enemy1ShootRight");
+                    break;
+
+            case "up":
+//               sprite =  SpriteFactory.Instance.CreateNewSprite("Enemy1ShootUp");
+                    Debug.WriteLine("Enemy1ShootUp");
+                    break;
+
+            case "down":
+ //               sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1ShootDown");
+                    Debug.WriteLine("Enemy1ShootDown");
+                    break;
+
+            default:
+//              sprite = SpriteFactory.Instance.CreateNewSprite("Enemy1ShootLeft");
+                    Debug.WriteLine("Enemy1ShootLeft");
+                    break;
+            }
+        }
+        public void Update()
+        {
+
         }
     }
 }
