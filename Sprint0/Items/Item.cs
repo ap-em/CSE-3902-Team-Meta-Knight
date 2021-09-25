@@ -7,10 +7,13 @@ namespace Sprint0.Items
 {
     class Item : IItems
     {
+        Game0 game;
+        IItemStateMachine stateMachine;
+        ISprite sprite;
         public Item(Game0 game)
         {
-            gameHere = game;
-            stateMachine = 
+            this.game = game;
+            stateMachine = new Item1StateMachine(this);
         }
 
         public void NextItem()
@@ -32,5 +35,11 @@ namespace Sprint0.Items
         {
             throw new NotImplementedException();
         }
+        public void SetSprite(ISprite sprite)
+        {
+            this.sprite = sprite;
+        }
+
+        
     }
 }

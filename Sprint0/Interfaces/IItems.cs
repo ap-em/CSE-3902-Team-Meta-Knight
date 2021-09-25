@@ -18,5 +18,6 @@ namespace Sprint0.Interfaces
         void PrevItem();
         void NextItem();
         void SetStateMachineSprite();
+        void setSprite(ISprite sprite);
     }
 }

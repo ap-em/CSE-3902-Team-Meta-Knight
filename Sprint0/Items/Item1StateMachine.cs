@@ -7,6 +7,14 @@ namespace Sprint0.Items
 {
     class Item1StateMachine : IItemStateMachine
     {
+        Item item;
+        private ISprite sprite;
+        public Item1StateMachine(Item item)
+        {
+            this.item = item;
+            
+        }
+
         public void NextItem()
         {
             throw new NotImplementedException();

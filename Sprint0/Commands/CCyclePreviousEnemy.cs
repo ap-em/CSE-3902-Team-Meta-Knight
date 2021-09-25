@@ -5,16 +5,17 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
+    /*OG Code written by Owen Huston, modifed by Owen Tishenkel to call enemy rather than game*/
     class CCyclePreviousEnemy : ICommand
     {
-        private Game0 gameHere;
-        public CCyclePreviousEnemy(Game0 game)
+        private IEnemy enemy;
+        public CCyclePreviousEnemy(IEnemy enemy)
         {
-            gameHere = game;
+            this.enemy = enemy;
         }
         public void Execute()
         {
-            gameHere.enemy.PrevEnemy();
+            enemy.PrevEnemy();
         }
     }
 }
