@@ -5,14 +5,8 @@ using System.Text;
 
 namespace Sprint0.Items
 {
-    class Item : IItems
+    class Item1StateMachine : IItemStateMachine
     {
-        public Item(Game0 game)
-        {
-            gameHere = game;
-            stateMachine = 
-        }
-
         public void NextItem()
         {
             throw new NotImplementedException();
@@ -23,7 +17,7 @@ namespace Sprint0.Items
             throw new NotImplementedException();
         }
 
-        public void SetStateMachineSprite()
+        public void SetSprite()
         {
             throw new NotImplementedException();
         }
