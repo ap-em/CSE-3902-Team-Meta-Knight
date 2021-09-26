@@ -6,6 +6,7 @@ using Sprint0;
 using Sprint0.Controllers;
 using Sprint0.Sprites;
 using Sprint0.Commands;
+using Sprint0.Blocks;
 using Sprint0.Interfaces;
 using Sprint0.Enemies;
 using System;
@@ -37,13 +38,14 @@ namespace Sprint0
 
         protected override void Initialize()
         {
+            block = new Block(this);
             enemyKeyboard = new EnemyController();
             SetUpEnemyKeyboard(enemyKeyboard);
             enemyKeyboard.SetAvailableKeys();
 
             playerKeyboard = new KeyboardController();
             SetUpPlayerKeyboard(playerKeyboard);
-
+            
             mouseController = new MouseController(this);
             SetUpMouse();
 

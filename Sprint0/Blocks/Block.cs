@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
@@ -37,10 +38,12 @@ namespace Sprint0.Blocks
         public void PrevBlock()
         {
             state.PrevBlock();
+            Debug.WriteLine(state.GetType().Name);
         }
         public void NextBlock()
         {
             state.NextBlock();
+            Debug.WriteLine(state.GetType().Name);
         }
         public void Draw()
         {
