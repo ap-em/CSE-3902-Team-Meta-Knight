@@ -20,6 +20,7 @@ namespace Sprint0
         public SpriteBatch spriteBatch;
         public ISprite sprite;
         public SpriteFont font;
+        public Link link;
         KeyboardController kbController;
         MouseController mouseController;
 
@@ -32,6 +33,8 @@ namespace Sprint0
 
         protected override void Initialize()
         {
+
+            link = new Link();
 
             kbController = new KeyboardController();
             // Initialize kb contoller 
@@ -74,7 +77,7 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
-
+            link.Update();
             kbController.Update();
             mouseController.Update();
             sprite.Update();
@@ -87,6 +90,7 @@ namespace Sprint0
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
+            link.Draw(spriteBatch);
             sprite.Draw(spriteBatch, new Vector2(400, 240));
             spriteBatch.DrawString(this.font, "Credits \nProgram Made By: Alex Clayton\n Sprites From: https://www.spriters-resource.com/nes/legendofzelda/", new Vector2(200, 200), Color.White);
             // TODO: Add your drawing code here

@@ -35,7 +35,6 @@ namespace Sprint0.Controllers
                 {
                     controllerMappings[key].Execute();
                 }
-
             }
             oldState = newState;
         }
