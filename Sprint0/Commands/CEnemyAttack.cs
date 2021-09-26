@@ -5,17 +5,16 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
-    class CMovePlayerDown : ICommand
+    class CEnemyAttack : ICommand
     {
-        private static Game0 gameHere;
-        public CMovePlayerDown(Game0 game)
+        private Game0 gameHere;
+        public CEnemyAttack(Game0 game)
         {
             gameHere = game;
         }
         public void Execute()
         {
-            gameHere.enemy.SetDirection("down");
-            gameHere.enemy.SetYVelocity(1);
+            gameHere.enemy.FireProjectile();
             gameHere.enemy.SetStateMachineSprite();
         }
     }

@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
-    class CMovePlayerDown : ICommand
+    class CMoveEnemyDown : ICommand
     {
         private static Game0 gameHere;
-        public CMovePlayerDown(Game0 game)
+        public CMoveEnemyDown(Game0 game)
         {
             gameHere = game;
         }

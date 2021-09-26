@@ -5,17 +5,17 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
-    class CMovePlayerDown : ICommand
+    class CMoveEnemyLeft : ICommand
     {
-        private static Game0 gameHere;
-        public CMovePlayerDown(Game0 game)
+         private Game0 gameHere;
+        public CMoveEnemyLeft(Game0 game)
         {
             gameHere = game;
         }
         public void Execute()
         {
-            gameHere.enemy.SetDirection("down");
-            gameHere.enemy.SetYVelocity(1);
+            gameHere.enemy.SetDirection("left");
+            gameHere.enemy.SetXVelocity(-1);
             gameHere.enemy.SetStateMachineSprite();
         }
     }
