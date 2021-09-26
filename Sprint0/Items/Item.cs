@@ -1,15 +1,18 @@
-﻿using Sprint0.Interfaces;
+﻿using Microsoft.Xna.Framework;
+using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Sprint0.Items
 {
+    /*Owen Tishenkel, heavily based on Owen Houston's Enemy class*/
     class Item : IItems
     {
         Game0 game;
         IItemStateMachine stateMachine;
         ISprite sprite;
+        private Vector2 location = new Vector2(100, 200);
         public Item(Game0 game)
         {
             this.game = game;
@@ -18,28 +21,39 @@ namespace Sprint0.Items
 
         public void NextItem()
         {
-            throw new NotImplementedException();
+            stateMachine.NextItem();
         }
 
         public void PrevItem()
         {
-            throw new NotImplementedException();
+            stateMachine.PrevItem();
         }
 
         public void SetStateMachineSprite()
         {
-            throw new NotImplementedException();
+            stateMachine.SetSprite();
         }
 
         public void Update()
         {
-            throw new NotImplementedException();
+            sprite.Update();
         }
-        public void SetSprite(ISprite sprite)
+
+        public void setSprite(ISprite sprite)
         {
             this.sprite = sprite;
         }
-
-        
+        public void SetStateMachine(IItemStateMachine stateMachine)
+        {
+            this.stateMachine = stateMachine;
+        }
+        public void Move(int x, int y)
+        {
+            location = new Vector2(x, y);
+        }
+        public void Draw()
+        {
+            sprite.Draw(game.spriteBatch, location);
+        }
     }
 }

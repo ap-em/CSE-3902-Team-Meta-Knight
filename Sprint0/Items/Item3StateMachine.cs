@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Sprint0.Items
 {
-    class Item1StateMachine : IItemStateMachine
+    class Item3StateMachine : IItemStateMachine
     {
         Item item;
         private ISprite sprite;
-        public Item1StateMachine(Item item)
+        public Item3StateMachine(Item item)
         {
             this.item = item;
             
@@ -18,19 +18,18 @@ namespace Sprint0.Items
 
         public void NextItem()
         {
-            item.SetStateMachine(new Item2StateMachine(item));
+            item.SetStateMachine(new Item1StateMachine(item));
         }
 
         public void PrevItem()
         {
-            item.SetStateMachine(new Item3StateMachine(item));
+            item.SetStateMachine(new Item2StateMachine(item));
         }
 
         public void SetSprite()
         {
-           // sprite = SpriteFactory.Instance.CreateNewSprite("Item1");
-            Debug.WriteLine("Item1");
-            
+            // sprite = SpriteFactory.Instance.CreateNewSprite("Item3");
+            Debug.WriteLine("Item3");
         }
 
         public void Update()
