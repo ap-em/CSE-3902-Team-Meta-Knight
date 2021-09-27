@@ -8,6 +8,7 @@ using Sprint0.Sprites;
 using Sprint0.Commands;
 using Sprint0.Interfaces;
 using System;
+using Sprint0.Sprites.SpriteFactory;
 
 /*
  * Alex Clayton 2021 CSE 3902
@@ -69,7 +70,7 @@ namespace Sprint0
             spriteBatch = new SpriteBatch(GraphicsDevice);
             SpriteFactory.Instance.LoadAllTextures(Content); // Functions as sprite factory
             font = Content.Load<SpriteFont>("font"); // Will use a similar "load all textures" method in the future for this to support multiple fonts. Can use commands to switch betewen fonts too.
-            sprite = SpriteFactory.Instance.CreateGoldDoggo();
+            sprite = SpriteFactory.Instance.GetSprite("RightLink");
             //  SpriteController
 
             // TODO: use this.Content to load your game content here

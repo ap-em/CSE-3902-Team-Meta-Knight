@@ -7,6 +7,7 @@ using Sprint0.Interfaces;
 
 namespace Sprint0.Sprites
 {
+    // Alex Contreras
     class AnimatedSprite : ISprite
     {
         public Texture2D Texture { get; set; }
@@ -14,7 +15,7 @@ namespace Sprint0.Sprites
         public int Columns { get; set; }
         private int currentFrame;
         private int totalFrames;
-        public AnimatedSprite(Texture2D texture, int rows, int columns)
+        public AnimatedSprite(Texture2D texture, int rows, int columns) // probably add in int with width/height
         {
             Texture = texture;
             Rows = rows;
@@ -30,7 +31,7 @@ namespace Sprint0.Sprites
         }
         public void Draw(SpriteBatch _spriteBatch, Vector2 location)
         {
-            int width = Texture.Width / Columns;
+            int width = Texture.Width / Columns;          
             int height = Texture.Height / Rows;
             int row = (int)((float)currentFrame / (float)Columns);
             int column = currentFrame % Columns;
@@ -38,9 +39,7 @@ namespace Sprint0.Sprites
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
 
-            _spriteBatch.Begin();
             _spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-            _spriteBatch.End();
         }
     }
 }
