@@ -17,8 +17,7 @@ namespace Sprint0.Interfaces
    public interface IKeyboardController
     {
         void Update();
-        void SetZeroXVelocityCommand(ICommand command);
-        void SetZeroYVelocityCommand(ICommand command);
         void RegisterCommand(Keys key, ICommand command);
+        void RegisterReleasableKey(Keys key, ICommand command);
     }
 }

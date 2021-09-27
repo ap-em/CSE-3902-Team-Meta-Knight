@@ -23,7 +23,7 @@ namespace Sprint0.Enemies
         }
         public void SetSprite()
         {
-            bool moving = enemy.GetXVelocity() != 0 && enemy.GetYVelocity() != 0;
+            bool moving = enemy.GetXVelocity() != 0 || enemy.GetYVelocity() != 0;
 
             if(enemy.GetFiring())
             {

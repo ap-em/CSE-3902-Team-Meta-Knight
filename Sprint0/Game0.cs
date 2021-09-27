@@ -44,7 +44,6 @@ namespace Sprint0
             link = new Link();
             enemyKeyboard = new EnemyController();
             SetUpEnemyKeyboard(enemyKeyboard, enemy);
-            enemyKeyboard.SetAvailableKeys();
 
             playerKeyboard = new KeyboardController();
             SetUpPlayerKeyboard(playerKeyboard);
@@ -69,6 +68,17 @@ namespace Sprint0
             keyboard.RegisterCommand(Keys.D3, new CMovingStaticSprite(this));
             keyboard.RegisterCommand(Keys.D4, new CAnimatedMovingSprite(this));
 
+            keyboard.RegisterCommand(Keys.W, new CMovePlayerUp());
+            keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft());
+            keyboard.RegisterCommand(Keys.S, new CMovePlayerDown());
+            keyboard.RegisterCommand(Keys.D, new CMovePlayerRight());
+
+            keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(this));
+            keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(this));
+            keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(this));
+            keyboard.RegisterReleasableKey(Keys.D, new CZeroPlayerXVelocity(this));
+
+
             /*
             keyboard.RegisterCommand(Keys.W, new CMovePlayerUp(this));
             keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft(this));
@@ -90,8 +100,13 @@ namespace Sprint0
             keyboard.RegisterCommand(Keys.D, new CMoveEnemyRight(enemy));
             keyboard.RegisterCommand(Keys.Space, new CEnemyAttack(enemy));
 
-            keyboard.SetZeroXVelocityCommand(new CZeroEnemyYVelocity(enemy));
-            keyboard.SetZeroYVelocityCommand(new CZeroEnemyXVelocity(enemy));
+            keyboard.RegisterReleasableKey(Keys.W, new CZeroEnemyYVelocity(enemy));
+            keyboard.RegisterReleasableKey(Keys.S, new CZeroEnemyYVelocity(enemy));
+            keyboard.RegisterReleasableKey(Keys.A, new CZeroEnemyXVelocity(enemy));
+            keyboard.RegisterReleasableKey(Keys.D, new CZeroEnemyXVelocity(enemy));
+
+            //            keyboard.SetZeroXVelocityCommand(new CZeroEnemyYVelocity(enemy));
+            //            keyboard.SetZeroYVelocityCommand(new CZeroEnemyXVelocity(enemy));
         }
         private void SetUpMouse()
         {
