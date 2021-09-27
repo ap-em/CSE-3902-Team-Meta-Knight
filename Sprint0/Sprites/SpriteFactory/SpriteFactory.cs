@@ -15,8 +15,13 @@ namespace Sprint0.Sprites.SpriteFactory
       //  GraphicsDeviceManager GraphicsDeviceManager;
 
         private readonly string _dataSheet;
+        //private Texture2D[] texture;
         private Texture2D texture;
         private readonly ICollection<SpriteData> _spriteData;
+
+        private Dictionary<String, SpriteData> SpriteDict;
+        private HashSet<String> spriteSheetSet;
+
        // ContentManager Content;
         private static SpriteFactory instance = new SpriteFactory(Path.GetFullPath("Sprites\\SpriteFactory\\DataSheet.json"));
         public static SpriteFactory Instance
@@ -33,15 +38,28 @@ namespace Sprint0.Sprites.SpriteFactory
             
             String jsonString = File.ReadAllText(fileName);
             _spriteData = JsonSerializer.Deserialize<ICollection<SpriteData>>(jsonString);
-            foreach (SpriteData : _spriteData) {
+            SpriteDict = new Dictionary<String, SpriteData>();
+            spriteSheetSet = new HashSet<String>();
 
+            foreach (SpriteData sprite in _spriteData) // Constructs dictionary
+            {
+                SpriteDict.Add(sprite.SpriteName, sprite); // can replace sprite with sprite.Data[] if i want array instead
+                spriteSheetSet.Add(sprite.SpriteSheet);
             }
-         // Should I maybe construct a Dictionary here? Once this is initialized it would allow us to load all textures based on the name of the sprite. Could iterate over the dictionary, get each spritesheet, add it to list.  
         }
 
         public void LoadAllTextures(ContentManager content) // Replace with lazy loading in future?
         {
-            texture = content.Load<Texture2D>("Zelda"); // name of LoZ spritesheet
+
+            texture = content.Load<Texture2D>("Zelda");
+            /*for (int i = 0; i < spriteSheetSet.Count; i++)
+            {
+                texture[i] = content.Load<Texture2D>(spriteSheetSet.)
+            }
+            texture[0] = content.Load<Texture2D>("Zelda"); // name of LoZ spritesheet
+            */
+
+
             // SpriteName -> spriteFactory. SpriteName(LeftLink / RightLink) = content.Load<Texture2D>(SpriteSheet(Zelda
         }
 
@@ -58,7 +76,7 @@ namespace Sprint0.Sprites.SpriteFactory
             String spriteSheet = s.SpriteSheet;
             int[] data = s.Data; // Data: Location in sprite sheet(x) // (y) // height(of sprite) // width(of sprite) // row(for frames) // columns (for frames)
 
-            return new AnimatedSprite(texture, data[3] ,data[4]); // // Texture2D texture // int rows // int  columns Data[3] is rows, Data[4] is columns
+            return new AnimatedSprite(texture, data[4] ,data[5], data[3], data[2]); // // Texture2D texture // int rows // int  columns Data[4] is rows, Data[] is columns
         }
 
     }
