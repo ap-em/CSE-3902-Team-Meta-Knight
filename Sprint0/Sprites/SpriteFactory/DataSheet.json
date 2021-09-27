@@ -3,8 +3,58 @@
       "Data": [ 35, 11, 16, 16, 1, 2 ],
       "SpriteName": "RightLink",
       "SpriteSheet": "Zelda"
+    },
+    {
+      "Data": [ 35, 11, 16, 16, 1, 2 ],
+      "SpriteName": "LeftLink",
+      "SpriteSheet": "Zelda"
+    },
+    {
+      "Data": [ 35, 11, 16, 16, 1, 2 ],
+      "SpriteName": "UpLink",
+      "SpriteSheet": "Zelda"
+    },
+    {
+      "Data": [ 35, 11, 16, 16, 1, 2 ],
+      "SpriteName": "DownLink",
+      "SpriteSheet": "Zelda"
+    },
+    {
+      "Data": [ 107, 11, 16, 16, 1, 1 ],
+      "SpriteName": "DownUseLink",
+      "SpriteSheet": "Zelda"
+    },
+    {
+      "Data": [ 124, 11, 16, 16, 1, 1 ],
+      "SpriteName": "RightUseLink",
+      "SpriteSheet": "Zelda"
+    },
+    {
+      "Data": [ 124, 11, 16, 16, 1, 1 ],
+      "SpriteName": "LeftUseLink",
+      "SpriteSheet": "Zelda"
+    },
+    {
+      "Data": [ 141, 11, 16, 16, 1, 1 ],
+      "SpriteName": "UpUseLink",
+      "SpriteSheet": "Zelda"
+    },
+    {
+      "Data": [ 213, 11, 16, 16, 1, 2 ],
+      "SpriteName": "PickupItemLink",
+      "SpriteSheet": "Zelda"
+    },
+    {
+      "Data": [ 289, 11, 16, 16, 1, 2 ],
+      "SpriteName": "DownShieldLink",
+      "SpriteSheet": "Zelda"
+    },
+    {
+      "Data": [ 323, 11, 16, 16, 1, 2 ],
+      "SpriteName": "RightShieldLink",
+      "SpriteSheet": "Zelda"
     }
-
+    
   ]
 
 

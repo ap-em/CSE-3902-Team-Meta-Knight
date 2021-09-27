@@ -29,17 +29,19 @@ namespace Sprint0.Sprites.SpriteFactory
 
         public SpriteFactory(String fileName)
         {
-              _dataSheet = fileName
+            _dataSheet = fileName;
             
             String jsonString = File.ReadAllText(fileName);
             _spriteData = JsonSerializer.Deserialize<ICollection<SpriteData>>(jsonString);
-           
+            foreach (SpriteData : _spriteData) {
+
+            }
+         // Should I maybe construct a Dictionary here? Once this is initialized it would allow us to load all textures based on the name of the sprite. Could iterate over the dictionary, get each spritesheet, add it to list.  
         }
 
         public void LoadAllTextures(ContentManager content) // Replace with lazy loading in future?
         {
             texture = content.Load<Texture2D>("Zelda"); // name of LoZ spritesheet
-            // load texture into variable. the variable will be the name of the sprite
             // SpriteName -> spriteFactory. SpriteName(LeftLink / RightLink) = content.Load<Texture2D>(SpriteSheet(Zelda
         }
 
@@ -54,7 +56,7 @@ namespace Sprint0.Sprites.SpriteFactory
             SpriteData s = _spriteData.FirstOrDefault(p => p.SpriteName == spriteName); // This returns the wanted Sprite value
 
             String spriteSheet = s.SpriteSheet;
-            int[] data = s.Data; // See DataSheet.json for how this is structured.  Data: Location in sprite sheet(x) // (y) // height(of sprite) // width(of sprite) // row(for frames) // columns (for frames)
+            int[] data = s.Data; // Data: Location in sprite sheet(x) // (y) // height(of sprite) // width(of sprite) // row(for frames) // columns (for frames)
 
             return new AnimatedSprite(texture, data[3] ,data[4]); // // Texture2D texture // int rows // int  columns Data[3] is rows, Data[4] is columns
         }
