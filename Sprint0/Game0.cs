@@ -123,6 +123,7 @@ namespace Sprint0
             }
             mouseController.Update();
             sprite.Update();
+            link.Update();
             enemy.Update();
             base.Update(gameTime);
         }
