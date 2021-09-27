@@ -4,49 +4,31 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Interfaces;
-
 namespace Sprint0.Sprites
 {
     class AnimatedFixedSprite : ISprite
     {
 
 
-        public Texture2D Texture { get; set; }
-        public int Rows { get; set; }
-        public int Columns { get; set; }
-        private int currentFrame;
-        private int totalFrames;
+        private Texture2D _texture;
+        private Vector2 position = new Vector2(350, 175);
+        public float Speed = 2f;
+        public float EndOfScreen = -150f;
+        public float BeginningOfScreen = 500f;
+        private AnimatedSprite animatedSprite;
 
-        public AnimatedFixedSprite(Texture2D texture, int rows, int columns)
+        public  AnimatedFixedSprite(Texture2D texture, int row, int column)
         {
-            Texture = texture;
-            Rows = rows;
-            Columns = columns;
-            currentFrame = 0;
-            totalFrames = Rows * Columns;
+            _texture = texture;
+            animatedSprite = new AnimatedSprite(_texture, row, column);
         }
-
-        public void Draw(SpriteBatch spritebatch, Vector2 location)
-        {
-            int width = Texture.Width / Columns;
-            int height = Texture.Height / Rows;
-            int row = currentFrame / Columns;
-            int column = currentFrame % Columns;
-
-
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);  // Source rectangle is the sprite taken off the sprite sheet
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height); // Destnation rectangle is where you want to put the sprite.
-
-            spritebatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-        }
-
         public void Update()
         {
-            currentFrame++;
-            if (currentFrame > 1)
-            {
-                currentFrame = 0;
-            }
+        animatedSprite.Update();
+        }
+        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        {
+            animatedSprite.Draw(spriteBatch, position);
         }
 
 

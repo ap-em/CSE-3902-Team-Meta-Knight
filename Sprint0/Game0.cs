@@ -8,6 +8,7 @@ using Sprint0.Sprites;
 using Sprint0.Commands;
 using Sprint0.Interfaces;
 using Sprint0.Enemies;
+using Sprint0.Blocks;
 using System;
 using System.Collections;
 
@@ -22,7 +23,9 @@ namespace Sprint0
         public SpriteBatch spriteBatch;
         public ISprite sprite;
         public SpriteFont font;
+        public ILink link;
         public IEnemy enemy;
+        public IBlock block;
         private EnemyController enemyKeyboard;
         private KeyboardController playerKeyboard;
         private MouseController mouseController;
@@ -37,6 +40,9 @@ namespace Sprint0
 
         protected override void Initialize()
         {
+            block = new Block(this);
+            enemy = new Enemy(this);
+            link = new Link();
             enemyKeyboard = new EnemyController();
             SetUpEnemyKeyboard(enemyKeyboard);
             enemyKeyboard.SetAvailableKeys();
@@ -107,7 +113,6 @@ namespace Sprint0
             SpriteFactory.Instance.LoadAllTextures(Content); // Functions as sprite factory
             font = Content.Load<SpriteFont>("font"); // Will use a similar "load all textures" method in the future for this to support multiple fonts. Can use commands to switch betewen fonts too.
             sprite = SpriteFactory.Instance.CreateGoldDoggo();
-            enemy = new Enemy(this);
             //  SpriteController
 
             // TODO: use this.Content to load your game content here
@@ -132,6 +137,7 @@ namespace Sprint0
             spriteBatch.Begin();
             sprite.Draw(spriteBatch, new Vector2(400, 240));
             enemy.Draw();
+            link.Draw(spriteBatch);
             spriteBatch.DrawString(this.font, "Credits \nProgram Made By: Alex Clayton\n Sprites From: https://www.spriters-resource.com/nes/legendofzelda/", new Vector2(200, 200), Color.White);
             // TODO: Add your drawing code here
 

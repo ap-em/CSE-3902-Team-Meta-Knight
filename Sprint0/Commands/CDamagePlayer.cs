@@ -16,7 +16,8 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            playerState.TakeDamage();
+            /*change playerstate to type ILinkHealthState */
+            //playerState.TakeDamage();
         }
     }
 }
