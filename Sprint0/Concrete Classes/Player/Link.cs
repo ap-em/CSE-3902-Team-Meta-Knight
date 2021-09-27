@@ -46,7 +46,7 @@ namespace Sprint0
         }
         public void Draw(SpriteBatch spritebatch)
         {
-            currentSprite.Draw(spritebatch, position);
+            //currentSprite.Draw(spritebatch, position);
         }
 
         public void Execute()
