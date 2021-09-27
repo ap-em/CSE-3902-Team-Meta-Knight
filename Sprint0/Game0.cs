@@ -6,6 +6,7 @@ using Sprint0;
 using Sprint0.Controllers;
 using Sprint0.Sprites;
 using Sprint0.Commands;
+using Sprint0.Blocks;
 using Sprint0.Interfaces;
 using Sprint0.Enemies;
 using Sprint0.Blocks;
@@ -49,7 +50,7 @@ namespace Sprint0
 
             playerKeyboard = new KeyboardController();
             SetUpPlayerKeyboard(playerKeyboard);
-
+            
             mouseController = new MouseController(this);
             SetUpMouse();
 

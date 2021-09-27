@@ -19,11 +19,11 @@ namespace Sprint0.Blocks
         }
         public void PrevBlock()
         {
-            block.SetState(new Block3State(block));
+            block.SetState(new Block1State(block));
         }
         public void NextBlock()
         {
-            block.SetState(new Block1State(block));
+            block.SetState(new Block3State(block));
         }
         public void Draw()
         {
