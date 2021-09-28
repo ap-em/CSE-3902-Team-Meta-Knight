@@ -13,6 +13,8 @@ namespace Sprint0
         /*
          * TODO: Eventually we should have a GameObject interface/abstract class that has things like position and current sprite;
          */
+        private int XVelocity = 0;
+        private int YVelocity = 0;
         private Vector2 position = new Vector2(0f, 0f);
         private ISprite currentSprite;
 
@@ -92,6 +94,22 @@ namespace Sprint0
         public void Crouch()
         {
             currentState.Crouch();
+        }
+        public int GetXVelocity()
+        {
+            return XVelocity;
+        }
+        public void SetXVelocity(int x)
+        {
+            XVelocity = x;
+        }
+        public int GetYVelocity()
+        {
+            return YVelocity;
+        }
+        public void SetYVelocity(int y)
+        {
+            YVelocity = y;
         }
     }
 }
