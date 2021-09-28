@@ -10,9 +10,10 @@ namespace Sprint0.Interfaces
     /*
      * This interface can be used for all blocks, which should just involve replacing the texture.
      */
-   public interface IBlock
+   public interface IBlockState
     {
         void PrevBlock();
         void NextBlock();
+        void Draw();
     }
 }

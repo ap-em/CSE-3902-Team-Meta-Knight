@@ -10,7 +10,7 @@ namespace Sprint0.Interfaces
     /*
      * This interface can be used for all entities (maybe this is too like ILink in purpose?).
      */
-   public interface IBlock
+   public interface IEntity
     {
         void Update();
     }

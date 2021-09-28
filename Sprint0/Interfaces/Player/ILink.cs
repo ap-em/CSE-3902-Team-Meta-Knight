@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 // Alex Clayton 09/15/21
-namespace Sprint0.Interfaces.Player
+namespace Sprint0
 {
     public interface ILink
     {
@@ -14,6 +14,6 @@ namespace Sprint0.Interfaces.Player
         // These would be like commands in a way, since having it seleceted and pressing A, for example, would cause Link to attack with his sword, executing the sword attack.
         void Update();
         void Execute();
-        void Draw(SpriteBatch spritebatch, Vector2 location);
+        void Draw(SpriteBatch spritebatch);
     }
 }

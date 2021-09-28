@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Sprint0.Interfaces.Enemy
+namespace Sprint0.Interfaces
 {
     public interface IEnemy
     {
