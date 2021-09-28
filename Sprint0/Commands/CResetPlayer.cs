@@ -6,16 +6,19 @@ using System.Text;
 namespace Sprint0.Commands
 {
     /*Owen Tishenkel 2021 CSE 3902*/
-    class CMovePlayerRight : ICommand
+    class CResetPlayer : ICommand
     {
-        public CMovePlayerRight()
-        {
 
+
+        /*CReset Player is a subcommand for CReset which resets player location and health to the initial value.*/
+        public CResetPlayer()
+        {
+            
         }
 
         public void Execute()
         {
-            throw new NotImplementedException();
+           
         }
     }
 }

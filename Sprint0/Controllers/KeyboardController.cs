@@ -9,6 +9,7 @@ namespace Sprint0.Controllers
     class KeyboardController : IController
     {
         private Dictionary<Keys, ICommand> controllerMappings;
+        private KeyboardState oldState;
 
         /*
          *  Initializes the Control layout
@@ -16,6 +17,7 @@ namespace Sprint0.Controllers
         public KeyboardController()
         {
             controllerMappings = new Dictionary<Keys, ICommand>();
+            oldState = Keyboard.GetState();
         }
 
         public void RegisterCommand(Keys key, ICommand command)
@@ -24,16 +26,17 @@ namespace Sprint0.Controllers
         }
         public void Update()
         {
-            Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
+            KeyboardState newState = Keyboard.GetState();
+            Keys[] pressedKeys = newState.GetPressedKeys();
 
             foreach (Keys key in pressedKeys)
             {
-                if (controllerMappings.ContainsKey(key)) // only updates if that key is in the dictionary 
+                if (!oldState.IsKeyDown(key) && controllerMappings.ContainsKey(key)) // only updates if that key is in the dictionary 
                 {
                     controllerMappings[key].Execute();
                 }
-
             }
+            oldState = newState;
         }
     }
 }

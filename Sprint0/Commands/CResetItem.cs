@@ -6,16 +6,19 @@ using System.Text;
 namespace Sprint0.Commands
 {
     /*Owen Tishenkel 2021 CSE 3902*/
-    class CMovePlayerRight : ICommand
+    class CResetItem : ICommand
     {
-        public CMovePlayerRight()
-        {
 
+
+        /*CResetItem is a subcommand for CReset which resets the item displayed to the original item*/
+        public CResetItem()
+        {
+            
         }
 
         public void Execute()
         {
-            throw new NotImplementedException();
+           
         }
     }
 }

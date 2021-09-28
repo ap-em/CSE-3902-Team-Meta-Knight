@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
+    /*Owen Tishenkel 2021 CSE 3902*/
     class CCycleSpriteNext : ICommand
     {
         /*sprites is a linked list of every sprite that needs to be cycled through, 
