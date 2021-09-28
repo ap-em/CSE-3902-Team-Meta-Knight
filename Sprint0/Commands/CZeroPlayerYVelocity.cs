@@ -5,18 +5,16 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
-    /*Owen Tishenkel 2021 CSE 3902*/
-    class CMovePlayerUp : ICommand
+    class CZeroPlayerYVelocity : ICommand
     {
         private Game0 gameHere;
-        public CMovePlayerUp(Game0 game)
+        public CZeroPlayerYVelocity(Game0 game)
         {
             gameHere = game;
         }
         public void Execute()
         {
-            gameHere.enemy.SetDirection("up");
-            gameHere.enemy.SetYVelocity(-1);
+            gameHere.enemy.SetYVelocity(0);
             gameHere.enemy.SetStateMachineSprite();
         }
     }

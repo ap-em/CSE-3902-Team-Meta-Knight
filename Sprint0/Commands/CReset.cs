@@ -11,10 +11,11 @@ namespace Sprint0.Commands
         /*Commands that must be executed in order to reset the state of the game, 
          * preferably in the order they need to be executed.*/
         private List<ICommand> resetCommands;
-        
+        Game0 gameHere;
 
-        public CReset(List<ICommand>resetCommands)
+        public CReset(List<ICommand>resetCommands, Game0 game)
         {
+            gameHere = game;
             this.resetCommands = resetCommands;
         }
 

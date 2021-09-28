@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -13,8 +14,10 @@ namespace Sprint0.Interfaces
      * Mouse
      * 
      */
-   public interface IController
+   public interface IKeyboardController
     {
         void Update();
+        void RegisterCommand(Keys key, ICommand command);
+        void RegisterReleasableKey(Keys key, ICommand command);
     }
 }

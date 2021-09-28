@@ -9,28 +9,28 @@ using System.Collections;
 
 namespace Sprint0.Controllers
 {
-    class KeyboardController : IKeyboardController
+    class EnemyController : IKeyboardController
     {
         private Dictionary<Keys, ICommand> pressableKeyMappings;
         private Dictionary<Keys, ICommand> releasableKeyMappings;
         private List<Keys> availableKeys;
-        private KeyboardState oldState;
+        private Keys oldKey;
 
         /*
          *  Initializes the Control layout
          */
-        public KeyboardController()
+        public EnemyController()
         {
-            availableKeys = new List<Keys>();
             pressableKeyMappings = new Dictionary<Keys, ICommand>();
             releasableKeyMappings = new Dictionary<Keys, ICommand>();
-
-            oldState = Keyboard.GetState();
+            availableKeys = new List<Keys>();
+            availableKeys.Add(Keys.None);
+            oldKey = Keys.None;
         }
         public void RegisterCommand(Keys key, ICommand command)
         {
             pressableKeyMappings.Add(key, command);
-            if (!availableKeys.Contains(key)) availableKeys.Add(key); 
+            if(!availableKeys.Contains(key)) availableKeys.Add(key);
         }
         public void RegisterReleasableKey(Keys key, ICommand command)
         {
@@ -39,24 +39,25 @@ namespace Sprint0.Controllers
         }
         public void Update()
         {
-            KeyboardState newState = Keyboard.GetState();
+            //choose a random key to press out of available keys
+            Keys newKey = availableKeys.ToArray()[new Random().Next(0,availableKeys.Count)];
 
-
-            foreach (Keys key in availableKeys)
+            //if new input
+            if (oldKey != newKey)
             {
-                //check if key was just released
-                if (releasableKeyMappings.ContainsKey(key) && oldState.IsKeyDown(key) && newState.IsKeyUp(key))
+                //released old key
+                if (releasableKeyMappings.ContainsKey(oldKey))
                 {
-                    releasableKeyMappings[key].Execute();
+                    releasableKeyMappings[oldKey].Execute();
                 }
-                //check if key was just pressed
-                if(pressableKeyMappings.ContainsKey(key) && oldState.IsKeyUp(key) && newState.IsKeyDown(key))
+                //pressed new key
+                if (pressableKeyMappings.ContainsKey(newKey))
                 {
-                    pressableKeyMappings[key].Execute();
+                    pressableKeyMappings[newKey].Execute();
                 }
             }
 
-            oldState = newState;
+            oldKey = newKey;
         }
     }
 }

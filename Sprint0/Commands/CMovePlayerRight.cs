@@ -8,14 +8,16 @@ namespace Sprint0.Commands
     /*Owen Tishenkel 2021 CSE 3902*/
     class CMovePlayerRight : ICommand
     {
-        public CMovePlayerRight()
+        private Game0 gameHere;
+        public CMovePlayerRight(Game0 game)
         {
-
+            gameHere = game;
         }
-
         public void Execute()
         {
-            throw new NotImplementedException();
+            gameHere.enemy.SetDirection("right");
+            gameHere.enemy.SetXVelocity(1);
+            gameHere.enemy.SetStateMachineSprite();
         }
     }
 }

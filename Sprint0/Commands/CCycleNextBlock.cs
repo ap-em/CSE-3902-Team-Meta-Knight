@@ -5,19 +5,16 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
-    /*Owen Tishenkel 2021 CSE 3902*/
-    class CCyclePlayerItemNext : ICommand
+    class CCycleNextBlock : ICommand
     {
-        IItems item;
-        public CCyclePlayerItemNext(IItems item)
+        private IBlock block;
+        public CCycleNextBlock(IBlock block)
         {
-            this.item = item;
-
+            this.block = block;
         }
-
         public void Execute()
         {
-            item.NextItem();
+            block.NextBlock();
         }
     }
 }

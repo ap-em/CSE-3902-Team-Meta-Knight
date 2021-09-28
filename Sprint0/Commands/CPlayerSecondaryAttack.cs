@@ -10,8 +10,10 @@ namespace Sprint0.Commands
     class CPlayerSecondaryAttack : ICommand
     {
         ILink secondaryAttack;
-        public CPlayerSecondaryAttack(ILink secondaryAttack)
+        Game0 gameHere;
+        public CPlayerSecondaryAttack(ILink secondaryAttack, Game0 game)
         {
+            gameHere = game;
             this.secondaryAttack = secondaryAttack;
         }
 
