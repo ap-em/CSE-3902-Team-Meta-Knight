@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
+    /*Owen Tishenkel 2021 CSE 3902*/
     class CReset : ICommand
     {
         /*Commands that must be executed in order to reset the state of the game, 
