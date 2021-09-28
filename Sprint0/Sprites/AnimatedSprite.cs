@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections;
@@ -15,8 +15,12 @@ namespace Sprint0.Sprites
         public int Columns { get; set; }
         private int currentFrame;
         private int totalFrames;
-        public AnimatedSprite(Texture2D texture, int rows, int columns) // probably add in int with width/height
+        private int width;
+        private int height;
+        public AnimatedSprite(Texture2D texture, int rows, int columns, int w, int h) // probably add in int with width/height
         {
+            width = w;
+            height = h;
             Texture = texture;
             Rows = rows;
             Columns = columns;
@@ -31,8 +35,8 @@ namespace Sprint0.Sprites
         }
         public void Draw(SpriteBatch _spriteBatch, Vector2 location)
         {
-            int width = Texture.Width / Columns;          
-            int height = Texture.Height / Rows;
+            width = Texture.Width / Columns;          
+            height = Texture.Height / Rows;
             int row = (int)((float)currentFrame / (float)Columns);
             int column = currentFrame % Columns;
 
