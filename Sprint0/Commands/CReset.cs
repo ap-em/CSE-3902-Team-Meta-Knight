@@ -6,25 +6,26 @@ using System.Text;
 namespace Sprint0.Commands
 {
     /*Owen Tishenkel 2021 CSE 3902*/
+    /*CReset resets every state and location to what it was at startup*/
     class CReset : ICommand
     {
-        /*Commands that must be executed in order to reset the state of the game, 
-         * preferably in the order they need to be executed.*/
-        private List<ICommand> resetCommands;
+        /*Declaration for each command needed to reset every aspect of sprint 2*/
+        ICommand blockReset;
+        ICommand enemyReset;
+        ICommand itemReset;
+        ICommand playerReset;
         Game0 gameHere;
 
-        public CReset(List<ICommand>resetCommands, Game0 game)
+        public CReset(Game0 game)
         {
             gameHere = game;
-            this.resetCommands = resetCommands;
+
+            
         }
 
         public void Execute()
         {
-            for(int index=0; index<resetCommands.Count; index++)
-            {
-                resetCommands[index].Execute();
-            }
+         
         }
     }
 }
