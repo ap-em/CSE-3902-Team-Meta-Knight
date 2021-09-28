@@ -5,27 +5,27 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
+using Sprint0.Enemies;
 
 
 /*OWEN HUSTON - 9/22/2021 */
 
 
-namespace Sprint0.Enemies
+namespace Sprint0
 {
-    class Enemy : IEnemy
+    public class Enemy : IEnemy
     {
         private IEnemyStateMachine stateMachine;
         private ISprite sprite;
         private Vector2 location = new Vector2(100, 100);
-        private Game0 gameHere;
         private String direction = "left"; 
         private int XVelocity = 0;
         private int YVelocity = 0;
         private bool firing = false;
 
-        public Enemy(Game0 game)
+
+        public Enemy()
         { 
-            gameHere = game;
             stateMachine = new E1StateMachine(this);
         }
         public String GetDirection()

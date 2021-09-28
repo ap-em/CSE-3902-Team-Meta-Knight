@@ -7,15 +7,15 @@ namespace Sprint0.Commands
 {
     class CEnemyAttack : ICommand
     {
-        private Game0 gameHere;
-        public CEnemyAttack(Game0 game)
+        private IEnemy enemy;
+        public CEnemyAttack(IEnemy enemy)
         {
-            gameHere = game;
+            this.enemy = enemy;
         }
         public void Execute()
         {
-            gameHere.enemy.FireProjectile();
-            gameHere.enemy.SetStateMachineSprite();
+            enemy.FireProjectile();
+            enemy.SetStateMachineSprite();
         }
     }
 }

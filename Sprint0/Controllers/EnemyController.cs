@@ -11,40 +11,31 @@ namespace Sprint0.Controllers
 {
     class EnemyController : IKeyboardController
     {
-        private Dictionary<Keys, ICommand> controllerMappings;
-        private Keys oldKey;
-        private ICommand zeroXVelocity;
-        private ICommand zeroYVelocity;
+        private Dictionary<Keys, ICommand> pressableKeyMappings;
+        private Dictionary<Keys, ICommand> releasableKeyMappings;
         private List<Keys> availableKeys;
+        private Keys oldKey;
 
         /*
          *  Initializes the Control layout
          */
         public EnemyController()
         {
-            controllerMappings = new Dictionary<Keys, ICommand>();
+            pressableKeyMappings = new Dictionary<Keys, ICommand>();
+            releasableKeyMappings = new Dictionary<Keys, ICommand>();
             availableKeys = new List<Keys>();
+            availableKeys.Add(Keys.None);
             oldKey = Keys.None;
-        }
-        public void SetZeroXVelocityCommand(ICommand command)
-        {
-            zeroXVelocity = command;
-        }
-        public void SetZeroYVelocityCommand(ICommand command)
-        {
-            zeroYVelocity = command;
         }
         public void RegisterCommand(Keys key, ICommand command)
         {
-            controllerMappings.Add(key, command);
+            pressableKeyMappings.Add(key, command);
+            if(!availableKeys.Contains(key)) availableKeys.Add(key);
         }
-        public void SetAvailableKeys()
+        public void RegisterReleasableKey(Keys key, ICommand command)
         {
-            foreach(Keys key in controllerMappings.Keys)
-            {
-                availableKeys.Add(key);
-            }
-            availableKeys.Add(Keys.None);
+            releasableKeyMappings.Add(key, command);
+            if (!availableKeys.Contains(key)) availableKeys.Add(key);
         }
         public void Update()
         {
@@ -54,17 +45,15 @@ namespace Sprint0.Controllers
             //if new input
             if (oldKey != newKey)
             {
-                if (oldKey.Equals(Keys.W) || oldKey.Equals(Keys.S))
+                //released old key
+                if (releasableKeyMappings.ContainsKey(oldKey))
                 {
-                    zeroYVelocity.Execute();
+                    releasableKeyMappings[oldKey].Execute();
                 }
-                else if (oldKey.Equals(Keys.A) || oldKey.Equals(Keys.D))
+                //pressed new key
+                if (pressableKeyMappings.ContainsKey(newKey))
                 {
-                    zeroXVelocity.Execute();
-                }
-                if (controllerMappings.ContainsKey(newKey))
-                {
-                    controllerMappings[newKey].Execute();
+                    pressableKeyMappings[newKey].Execute();
                 }
             }
 

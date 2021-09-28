@@ -5,60 +5,54 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Sprint0.Interfaces;
 using Sprint0.Commands;
+using System.Collections;
+
 namespace Sprint0.Controllers
 {
     class KeyboardController : IKeyboardController
     {
-        private Dictionary<Keys, ICommand> controllerMappings;
+        private Dictionary<Keys, ICommand> pressableKeyMappings;
+        private Dictionary<Keys, ICommand> releasableKeyMappings;
+        private List<Keys> availableKeys;
         private KeyboardState oldState;
-        private ICommand zeroXVelocity;
-        private ICommand zeroYVelocity;
 
         /*
          *  Initializes the Control layout
          */
         public KeyboardController()
         {
-
-            controllerMappings = new Dictionary<Keys, ICommand>();
+            availableKeys = new List<Keys>();
+            pressableKeyMappings = new Dictionary<Keys, ICommand>();
+            releasableKeyMappings = new Dictionary<Keys, ICommand>();
 
             oldState = Keyboard.GetState();
         }
-        public void SetZeroXVelocityCommand(ICommand command)
-        {
-            zeroXVelocity = command;
-        }
-        public void SetZeroYVelocityCommand(ICommand command)
-        {
-            zeroYVelocity = command;
-        }
         public void RegisterCommand(Keys key, ICommand command)
         {
-            controllerMappings.Add(key, command);
+            pressableKeyMappings.Add(key, command);
+            if (!availableKeys.Contains(key)) availableKeys.Add(key); 
+        }
+        public void RegisterReleasableKey(Keys key, ICommand command)
+        {
+            releasableKeyMappings.Add(key, command);
+            if (!availableKeys.Contains(key)) availableKeys.Add(key);
         }
         public void Update()
         {
             KeyboardState newState = Keyboard.GetState();
-            Keys[] pressedKeys = newState.GetPressedKeys();
-            
-            foreach(Keys key in controllerMappings.Keys)
+
+
+            foreach (Keys key in availableKeys)
             {
-                //key was just released
-                if (oldState.IsKeyDown(key) && newState.IsKeyUp(key))
+                //check if key was just released
+                if (releasableKeyMappings.ContainsKey(key) && oldState.IsKeyDown(key) && newState.IsKeyUp(key))
                 {
-                    if (key.Equals(Keys.W) || key.Equals(Keys.S))
-                    {
-                        zeroYVelocity.Execute();
-                    }
-                    else if (key.Equals(Keys.A) || key.Equals(Keys.D))
-                    {
-                        zeroXVelocity.Execute();
-                    }
+                    releasableKeyMappings[key].Execute();
                 }
-                //check if key is just now pressed
-                else if(!oldState.IsKeyDown(key) && newState.IsKeyDown(key))
+                //check if key was just pressed
+                if(pressableKeyMappings.ContainsKey(key) && oldState.IsKeyUp(key) && newState.IsKeyDown(key))
                 {
-                    controllerMappings[key].Execute();
+                    pressableKeyMappings[key].Execute();
                 }
             }
 

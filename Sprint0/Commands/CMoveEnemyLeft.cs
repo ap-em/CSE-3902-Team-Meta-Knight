@@ -7,16 +7,16 @@ namespace Sprint0.Commands
 {
     class CMoveEnemyLeft : ICommand
     {
-         private Game0 gameHere;
-        public CMoveEnemyLeft(Game0 game)
+        private IEnemy enemy;
+        public CMoveEnemyLeft(IEnemy enemy)
         {
-            gameHere = game;
+            this.enemy = enemy;
         }
         public void Execute()
         {
-            gameHere.enemy.SetDirection("left");
-            gameHere.enemy.SetXVelocity(-1);
-            gameHere.enemy.SetStateMachineSprite();
+            enemy.SetDirection("left");
+            enemy.SetXVelocity(-1);
+            enemy.SetStateMachineSprite();
         }
     }
 }

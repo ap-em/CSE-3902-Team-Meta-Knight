@@ -7,15 +7,15 @@ namespace Sprint0.Commands
 {
     class CZeroEnemyXVelocity : ICommand
     {
-        private Game0 gameHere;
-        public CZeroEnemyXVelocity(Game0 game)
+        private IEnemy enemy;
+        public CZeroEnemyXVelocity(IEnemy enemy)
         {
-            gameHere = game;
+            this.enemy = enemy;
         }
         public void Execute()
         {
-            gameHere.enemy.SetXVelocity(0);
-            gameHere.enemy.SetStateMachineSprite();
+            enemy.SetXVelocity(0);
+            enemy.SetStateMachineSprite();
         }
     }
 }

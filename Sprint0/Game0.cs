@@ -6,6 +6,7 @@ using Sprint0;
 using Sprint0.Controllers;
 using Sprint0.Sprites;
 using Sprint0.Commands;
+using Sprint0.Blocks;
 using Sprint0.Interfaces;
 using Sprint0.Enemies;
 using System;
@@ -22,10 +23,12 @@ namespace Sprint0
         public SpriteBatch spriteBatch;
         public ISprite sprite;
         public SpriteFont font;
+        public ILink link;
         public IEnemy enemy;
+        public IBlock block;
         private EnemyController enemyKeyboard;
-        private KeyboardController playerKeyboard;
-        private MouseController mouseController;
+        private IKeyboardController playerKeyboard;
+        private IMouseController mouseController;
         private ArrayList keyboardControllerList;
 
         public Game0()
@@ -37,13 +40,15 @@ namespace Sprint0
 
         protected override void Initialize()
         {
+            block = new Block();
+            enemy = new Enemy();
+            link = new Link();
             enemyKeyboard = new EnemyController();
-            SetUpEnemyKeyboard(enemyKeyboard);
-            enemyKeyboard.SetAvailableKeys();
+            SetUpEnemyKeyboard(enemyKeyboard, enemy);
 
             playerKeyboard = new KeyboardController();
             SetUpPlayerKeyboard(playerKeyboard);
-
+            
             mouseController = new MouseController(this);
             SetUpMouse();
 
@@ -63,32 +68,46 @@ namespace Sprint0
             keyboard.RegisterCommand(Keys.D2, new CAnimatedFixedSprite(this));
             keyboard.RegisterCommand(Keys.D3, new CMovingStaticSprite(this));
             keyboard.RegisterCommand(Keys.D4, new CAnimatedMovingSprite(this));
-            
-            keyboard.RegisterCommand(Keys.O, new CCycleNextEnemy(this));
-            keyboard.RegisterCommand(Keys.P, new CCyclePreviousEnemy(this));
 
+            keyboard.RegisterCommand(Keys.W, new CMovePlayerUp());
+            keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft());
+            keyboard.RegisterCommand(Keys.S, new CMovePlayerDown());
+            keyboard.RegisterCommand(Keys.D, new CMovePlayerRight());
+
+            keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(this));
+            keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(this));
+            keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(this));
+            keyboard.RegisterReleasableKey(Keys.D, new CZeroPlayerXVelocity(this));
+
+
+            /*
             keyboard.RegisterCommand(Keys.W, new CMovePlayerUp(this));
             keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft(this));
             keyboard.RegisterCommand(Keys.S, new CMovePlayerDown(this));
             keyboard.RegisterCommand(Keys.D, new CMovePlayerRight(this));
-
+            
             keyboard.SetZeroXVelocityCommand(new CZeroPlayerYVelocity(this));
             keyboard.SetZeroYVelocityCommand(new CZeroPlayerXVelocity(this));
-
+            */
         }
-        private void SetUpEnemyKeyboard(IKeyboardController keyboard)
+        private void SetUpEnemyKeyboard(IKeyboardController keyboard, IEnemy enemy)
         {
-            keyboard.RegisterCommand(Keys.O, new CCycleNextEnemy(this));
-            keyboard.RegisterCommand(Keys.P, new CCyclePreviousEnemy(this));
+            keyboard.RegisterCommand(Keys.O, new CCycleNextEnemy(enemy));
+            keyboard.RegisterCommand(Keys.P, new CCyclePreviousEnemy(enemy));
 
-            keyboard.RegisterCommand(Keys.W, new CMoveEnemyUp(this));
-            keyboard.RegisterCommand(Keys.A, new CMoveEnemyLeft(this));
-            keyboard.RegisterCommand(Keys.S, new CMoveEnemyDown(this));
-            keyboard.RegisterCommand(Keys.D, new CMoveEnemyRight(this));
-            keyboard.RegisterCommand(Keys.Space, new CEnemyAttack(this));
+            keyboard.RegisterCommand(Keys.W, new CMoveEnemyUp(enemy));
+            keyboard.RegisterCommand(Keys.A, new CMoveEnemyLeft(enemy));
+            keyboard.RegisterCommand(Keys.S, new CMoveEnemyDown(enemy));
+            keyboard.RegisterCommand(Keys.D, new CMoveEnemyRight(enemy));
+            keyboard.RegisterCommand(Keys.Space, new CEnemyAttack(enemy));
 
-            keyboard.SetZeroXVelocityCommand(new CZeroEnemyYVelocity(this));
-            keyboard.SetZeroYVelocityCommand(new CZeroEnemyXVelocity(this));
+            keyboard.RegisterReleasableKey(Keys.W, new CZeroEnemyYVelocity(enemy));
+            keyboard.RegisterReleasableKey(Keys.S, new CZeroEnemyYVelocity(enemy));
+            keyboard.RegisterReleasableKey(Keys.A, new CZeroEnemyXVelocity(enemy));
+            keyboard.RegisterReleasableKey(Keys.D, new CZeroEnemyXVelocity(enemy));
+
+            //            keyboard.SetZeroXVelocityCommand(new CZeroEnemyYVelocity(enemy));
+            //            keyboard.SetZeroYVelocityCommand(new CZeroEnemyXVelocity(enemy));
         }
         private void SetUpMouse()
         {
@@ -121,6 +140,7 @@ namespace Sprint0
             }
             mouseController.Update();
             sprite.Update();
+            link.Update();
             enemy.Update();
             base.Update(gameTime);
         }
@@ -132,6 +152,7 @@ namespace Sprint0
             spriteBatch.Begin();
             sprite.Draw(spriteBatch, new Vector2(400, 240));
             enemy.Draw();
+            link.Draw(spriteBatch);
             spriteBatch.DrawString(this.font, "Credits \nProgram Made By: Alex Clayton\n Sprites From: https://www.spriters-resource.com/nes/legendofzelda/", new Vector2(200, 200), Color.White);
             // TODO: Add your drawing code here
 

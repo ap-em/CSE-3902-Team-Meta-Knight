@@ -7,16 +7,16 @@ namespace Sprint0.Commands
 {
     class CMoveEnemyDown : ICommand
     {
-        private static Game0 gameHere;
-        public CMoveEnemyDown(Game0 game)
+        private IEnemy enemy;
+        public CMoveEnemyDown(IEnemy enemy)
         {
-            gameHere = game;
+            this.enemy = enemy;
         }
         public void Execute()
         {
-            gameHere.enemy.SetDirection("down");
-            gameHere.enemy.SetYVelocity(1);
-            gameHere.enemy.SetStateMachineSprite();
+            enemy.SetDirection("down");
+            enemy.SetYVelocity(1);
+            enemy.SetStateMachineSprite();
         }
     }
 }
