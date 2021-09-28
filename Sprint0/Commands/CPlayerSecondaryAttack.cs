@@ -6,11 +6,14 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
+    /*Owen Tishenkel Cse 3902*/
     class CPlayerSecondaryAttack : ICommand
     {
         ILink secondaryAttack;
-        public CPlayerSecondaryAttack(ILink secondaryAttack)
+        Game0 gameHere;
+        public CPlayerSecondaryAttack(ILink secondaryAttack, Game0 game)
         {
+            gameHere = game;
             this.secondaryAttack = secondaryAttack;
         }
 

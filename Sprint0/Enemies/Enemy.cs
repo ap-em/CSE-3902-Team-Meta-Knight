@@ -23,6 +23,7 @@ namespace Sprint0
         private int YVelocity = 0;
         private bool firing = false;
 
+
         public Enemy()
         { 
             stateMachine = new E1StateMachine(this);

@@ -5,16 +5,18 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
+    /*Owen Tishenkel Cse 3902*/
     class CCyclePlayerItemPrevious : ICommand
     {
-        public CCyclePlayerItemPrevious()
+        IItems item;
+        public CCyclePlayerItemPrevious(IItems item)
         {
-
+            this.item = item;
         }
 
         public void Execute()
         {
-            throw new NotImplementedException();
+            item.PrevItem();
         }
     }
 }

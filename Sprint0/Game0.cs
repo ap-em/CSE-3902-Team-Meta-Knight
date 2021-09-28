@@ -8,6 +8,7 @@ using Sprint0.Sprites;
 using Sprint0.Commands;
 using Sprint0.Blocks;
 using Sprint0.Interfaces;
+using Sprint0.Enemies;
 using System;
 using System.Collections;
 
@@ -125,6 +126,7 @@ namespace Sprint0
             SpriteFactory.Instance.LoadAllTextures(Content); // Functions as sprite factory
             font = Content.Load<SpriteFont>("font"); // Will use a similar "load all textures" method in the future for this to support multiple fonts. Can use commands to switch betewen fonts too.
             sprite = SpriteFactory.Instance.CreateGoldDoggo();
+            enemy = new Enemy(this);
             //  SpriteController
 
             // TODO: use this.Content to load your game content here

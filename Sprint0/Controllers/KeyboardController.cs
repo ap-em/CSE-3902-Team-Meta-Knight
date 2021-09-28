@@ -41,6 +41,7 @@ namespace Sprint0.Controllers
         {
             KeyboardState newState = Keyboard.GetState();
 
+
             foreach (Keys key in availableKeys)
             {
                 //check if key was just released

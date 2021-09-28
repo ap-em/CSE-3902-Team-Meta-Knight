@@ -5,16 +5,19 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
+    /*Owen Tishenkel Cse 3902*/
     class CCyclePlayerItemNext : ICommand
     {
-        public CCyclePlayerItemNext()
+        IItems item;
+        public CCyclePlayerItemNext(IItems item)
         {
+            this.item = item;
 
         }
 
         public void Execute()
         {
-            throw new NotImplementedException();
+            item.NextItem();
         }
     }
 }
