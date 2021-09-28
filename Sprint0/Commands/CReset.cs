@@ -16,7 +16,7 @@ namespace Sprint0.Commands
         ICommand playerReset;
         /*gameHere provides access to game for the purposes of reseting many of the things that it contains*/
         Game0 gameHere;
-
+        /*CReset relys on the fact that the constructors for each Entity class put them in the correct spot at startup*/
         public CReset(Game0 game)
         {
             gameHere = game;
