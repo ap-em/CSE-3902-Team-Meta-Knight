@@ -4,6 +4,7 @@ using System.Text;
 
 /*
  * Alexander Clayton CSE 3902 09/15/2021
+ * Modified by Owen Tishenkel CSE 3902 9/25/2021
  */
 namespace Sprint0.Interfaces
 {
@@ -14,5 +15,11 @@ namespace Sprint0.Interfaces
    public interface IItems
     {
         void Update();
+        void PrevItem();
+        void NextItem();
+        void SetStateMachineSprite();
+        void setSprite(ISprite sprite);
+        void Draw();
+        void Move(int x, int y);
     }
 }
