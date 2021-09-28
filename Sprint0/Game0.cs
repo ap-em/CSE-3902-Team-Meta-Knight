@@ -70,10 +70,10 @@ namespace Sprint0
             keyboard.RegisterCommand(Keys.D3, new CMovingStaticSprite(this));
             keyboard.RegisterCommand(Keys.D4, new CAnimatedMovingSprite(this));
 
-            keyboard.RegisterCommand(Keys.W, new CMovePlayerUp());
-            keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft());
-            keyboard.RegisterCommand(Keys.S, new CMovePlayerDown());
-            keyboard.RegisterCommand(Keys.D, new CMovePlayerRight());
+            keyboard.RegisterCommand(Keys.W, new CMovePlayerUp(this));
+            keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft(this));
+            keyboard.RegisterCommand(Keys.S, new CMovePlayerDown(this));
+            keyboard.RegisterCommand(Keys.D, new CMovePlayerRight(this));
 
             keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(this));
             keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(this));
@@ -127,8 +127,8 @@ namespace Sprint0
             SpriteFactory.Instance.LoadAllTextures(Content); // Functions as sprite factory
             font = Content.Load<SpriteFont>("font"); // Will use a similar "load all textures" method in the future for this to support multiple fonts. Can use commands to switch betewen fonts too.
             sprite = SpriteFactory.Instance.GetSprite("RightLink");
-            sprite = SpriteFactory.Instance.CreateGoldDoggo();
-            enemy = new Enemy(this);
+           // sprite = SpriteFactory.Instance.CreateGoldDoggo();
+            enemy = new Enemy();
             //  SpriteController
 
             // TODO: use this.Content to load your game content here

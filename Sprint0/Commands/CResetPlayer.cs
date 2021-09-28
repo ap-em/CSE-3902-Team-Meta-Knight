@@ -9,16 +9,17 @@ namespace Sprint0.Commands
     class CResetPlayer : ICommand
     {
 
-
+        /*gameHere provides access to game for the purposes of reseting many of the things that it contains*/
+        Game0 gameHere;
         /*CReset Player is a subcommand for CReset which resets player location and health to the initial value.*/
-        public CResetPlayer()
+        public CResetPlayer(Game0 game)
         {
-            
+            gameHere = game;
         }
 
         public void Execute()
         {
-           
+            gameHere.link = new Link();
         }
     }
 }
