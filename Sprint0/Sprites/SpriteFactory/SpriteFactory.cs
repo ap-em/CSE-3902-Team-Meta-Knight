@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
@@ -21,6 +21,7 @@ namespace Sprint0.Sprites.SpriteFactory
 
         private Dictionary<String, SpriteData> SpriteDict;
         private HashSet<String> spriteSheetSet;
+        private String spriteSheet;
 
        // ContentManager Content;
         private static SpriteFactory instance = new SpriteFactory(Path.GetFullPath("Sprites\\SpriteFactory\\DataSheet.json"));
@@ -51,7 +52,7 @@ namespace Sprint0.Sprites.SpriteFactory
         public void LoadAllTextures(ContentManager content) // Replace with lazy loading in future?
         {
 
-            texture = content.Load<Texture2D>("Zelda");
+            texture = content.Load<Texture2D>(spriteSheet);
             /*for (int i = 0; i < spriteSheetSet.Count; i++)
             {
                 texture[i] = content.Load<Texture2D>(spriteSheetSet.)
@@ -73,7 +74,7 @@ namespace Sprint0.Sprites.SpriteFactory
             
             SpriteData s = _spriteData.FirstOrDefault(p => p.SpriteName == spriteName); // This returns the wanted Sprite value
 
-            String spriteSheet = s.SpriteSheet;
+            spriteSheet = s.SpriteSheet;
             int[] data = s.Data; // Data: Location in sprite sheet(x) // (y) // height(of sprite) // width(of sprite) // row(for frames) // columns (for frames)
 
             return new AnimatedSprite(texture, data[4] ,data[5], data[3], data[2]); // // Texture2D texture // int rows // int  columns Data[4] is rows, Data[] is columns
@@ -81,3 +82,4 @@ namespace Sprint0.Sprites.SpriteFactory
 
     }
 }
+
