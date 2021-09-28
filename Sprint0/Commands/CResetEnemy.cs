@@ -9,16 +9,17 @@ namespace Sprint0.Commands
     class CResetEnemy : ICommand
     {
 
-
+        /*gameHere provides access to game for the purposes of reseting many of the things that it contains*/
+        Game0 gameHere;
         /*CResetEnemy is a subcommand for CReset which resets Enemy Location and sprite to the intial value*/
-        public CResetEnemy()
+        public CResetEnemy(Game0 game)
         {
-            
+            gameHere = game;
         }
 
         public void Execute()
         {
-           
+            gameHere.enemy = new Enemy();
         }
     }
 }

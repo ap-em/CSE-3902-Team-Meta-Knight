@@ -14,18 +14,25 @@ namespace Sprint0.Commands
         ICommand enemyReset;
         ICommand itemReset;
         ICommand playerReset;
+        /*gameHere provides access to game for the purposes of reseting many of the things that it contains*/
         Game0 gameHere;
 
         public CReset(Game0 game)
         {
             gameHere = game;
-
+            blockReset = new CResetBlock(game);
+            enemyReset = new CResetEnemy(game);
+            itemReset = new CResetItem(game);
+            playerReset = new CResetPlayer(game);
             
         }
 
         public void Execute()
         {
-         
+            blockReset.Execute();
+            enemyReset.Execute();
+            itemReset.Execute();
+            playerReset.Execute();
         }
     }
 }
