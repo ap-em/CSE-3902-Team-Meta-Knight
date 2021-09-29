@@ -27,9 +27,11 @@ namespace Sprint0
         public ILink link;
         public IEnemy enemy;
         public IBlock block;
+        public IItems item;
+        public ILinkState linkstate;
         private EnemyController enemyKeyboard;
         private IKeyboardController playerKeyboard;
-        private IMouseController mouseController;
+        /*private IMouseController mouseController; not needed for Sprint 2 */
         private ArrayList keyboardControllerList;
 
         public Game0()
@@ -44,15 +46,18 @@ namespace Sprint0
             block = new Block();
             enemy = new Enemy();
             link = new Link();
+
             enemyKeyboard = new EnemyController();
             SetUpEnemyKeyboard(enemyKeyboard, enemy);
 
             playerKeyboard = new KeyboardController();
             SetUpPlayerKeyboard(playerKeyboard);
             
+            //No need for mouse controller for Sprint 2
+            /* 
             mouseController = new MouseController(this);
             SetUpMouse();
-
+            */
             keyboardControllerList = new ArrayList();
             keyboardControllerList.Add(enemyKeyboard);
             keyboardControllerList.Add(playerKeyboard);
@@ -64,32 +69,51 @@ namespace Sprint0
         }
         private void SetUpPlayerKeyboard(IKeyboardController keyboard)
         {
-            keyboard.RegisterCommand(Keys.Escape, new Quit(this));
-            keyboard.RegisterCommand(Keys.D1, new CFixedSprite(this));
-            keyboard.RegisterCommand(Keys.D2, new CAnimatedFixedSprite(this));
-            keyboard.RegisterCommand(Keys.D3, new CMovingStaticSprite(this));
-            keyboard.RegisterCommand(Keys.D4, new CAnimatedMovingSprite(this));
+            keyboard.RegisterCommand(Keys.Q, new Quit(this));
+            keyboard.RegisterCommand(Keys.R, new CReset(this));
 
             keyboard.RegisterCommand(Keys.W, new CMovePlayerUp(this));
             keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft(this));
             keyboard.RegisterCommand(Keys.S, new CMovePlayerDown(this));
             keyboard.RegisterCommand(Keys.D, new CMovePlayerRight(this));
+
+            keyboard.RegisterCommand(Keys.Up, new CMovePlayerUp(this));
+            keyboard.RegisterCommand(Keys.Left, new CMovePlayerLeft(this));
+            keyboard.RegisterCommand(Keys.Down, new CMovePlayerDown(this));
+            keyboard.RegisterCommand(Keys.Right, new CMovePlayerRight(this));
+
+            //need to create a primary attack ilink, but only ilink is link, so link here for now
+            keyboard.RegisterCommand(Keys.Z, new CPlayerPrimaryAttack(link,this));
+            keyboard.RegisterCommand(Keys.N, new CPlayerSecondaryAttack(link, this));
+
+            keyboard.RegisterCommand(Keys.E, new CDamagePlayer(linkstate));
+
+            //need to be able to use all items from number keys, need commands for this
+            //keyboard.RegisterCommand(Keys.D1, new CItem1(item, this));
+            //keyboard.RegisterCommand(Keys.D2, new Citem2(item, this)); 
+            //keyboard.RegisterCommand(Keys.D3, new Citem3(item, this));
+
+            keyboard.RegisterCommand(Keys.U, new CCyclePlayerItemPrevious(item));
+            keyboard.RegisterCommand(Keys.I, new CCyclePlayerItemNext(item));
+
+
+            keyboard.RegisterCommand(Keys.T, new CCyclePreviousBlock(block));
+            keyboard.RegisterCommand(Keys.Y, new CCycleNextBlock(block));
+
+            keyboard.RegisterCommand(Keys.O, new CCyclePreviousEnemy(enemy));
+            keyboard.RegisterCommand(Keys.P, new CCycleNextEnemy(enemy));
 
             keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(this));
             keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(this));
             keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(this));
             keyboard.RegisterReleasableKey(Keys.D, new CZeroPlayerXVelocity(this));
 
-
-            /*
-            keyboard.RegisterCommand(Keys.W, new CMovePlayerUp(this));
-            keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft(this));
-            keyboard.RegisterCommand(Keys.S, new CMovePlayerDown(this));
-            keyboard.RegisterCommand(Keys.D, new CMovePlayerRight(this));
+            keyboard.RegisterReleasableKey(Keys.Up, new CZeroPlayerYVelocity(this));
+            keyboard.RegisterReleasableKey(Keys.Left, new CZeroPlayerYVelocity(this));
+            keyboard.RegisterReleasableKey(Keys.Down, new CZeroPlayerXVelocity(this));
+            keyboard.RegisterReleasableKey(Keys.Right, new CZeroPlayerXVelocity(this));
             
-            keyboard.SetZeroXVelocityCommand(new CZeroPlayerYVelocity(this));
-            keyboard.SetZeroYVelocityCommand(new CZeroPlayerXVelocity(this));
-            */
+
         }
         private void SetUpEnemyKeyboard(IKeyboardController keyboard, IEnemy enemy)
         {
@@ -110,8 +134,11 @@ namespace Sprint0
             //            keyboard.SetZeroXVelocityCommand(new CZeroEnemyYVelocity(enemy));
             //            keyboard.SetZeroYVelocityCommand(new CZeroEnemyXVelocity(enemy));
         }
+        /* No need for mouse for Sprint 2
         private void SetUpMouse()
         {
+           
+            
             int rWidth = graphics.PreferredBackBufferWidth; // This is the width of the whole screen
             int rHeight = graphics.PreferredBackBufferHeight;
 
@@ -119,19 +146,24 @@ namespace Sprint0
             mouseController.RegisterCommand(new Rectangle(rWidth / 2, 0, rWidth / 2, rHeight / 2), new CAnimatedFixedSprite(this)); // upper right, animated fixed
             mouseController.RegisterCommand(new Rectangle(0, rHeight / 2, rWidth / 2, rHeight / 2), new CMovingStaticSprite(this)); // bottom left, one frame up/dpown
             mouseController.RegisterCommand(new Rectangle(rWidth / 2, rHeight / 2, rWidth / 2, rHeight / 2), new CAnimatedMovingSprite(this)); //Bottom right, one frame up/down
-
-        }
+            
+        } */
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            SpriteFactory.Instance.LoadAllTextures(Content); // Functions as sprite factory
+            sprite = SpriteFactory.Instance.GetSprite(Content, "RightLink");
+            //no need for fonts for Sprint 2
+            /*
             font = Content.Load<SpriteFont>("font"); // Will use a similar "load all textures" method in the future for this to support multiple fonts. Can use commands to switch betewen fonts too.
-            sprite = SpriteFactory.Instance.GetSprite("RightLink");
-           // sprite = SpriteFactory.Instance.CreateGoldDoggo();
-            enemy = new Enemy();
-            //  SpriteController
+            */
 
-            // TODO: use this.Content to load your game content here
+            ISprite enemySprite, blockSprite;
+
+            //Not yet in datasheet just showing how the block and enemy/npc would be called
+            /*
+            enemySprite = SpriteFactory.Instance.GetSprite(Content, "Bat");
+            blockSprite = SpriteFactory.Instance.GetSprite(Content, "Block1");
+            */
         }
 
         protected override void Update(GameTime gameTime)
@@ -140,7 +172,23 @@ namespace Sprint0
             {
                 controller.Update();
             }
+           
+            //no need for mouse for sprint 2
+            /*
             mouseController.Update();
+            */
+
+            //Might want to do something similar to controller update, with enemies and sprites -- although this is a job for game object manager - which hasn't been implmeneted yet
+            /*
+            foreach(ISprite sprite in SpriteList)
+            {
+                sprite.Update();
+            }
+            foreach (IEnemy enemy in EnemyList)
+            {
+                enemy.Update();
+            }
+            */
             sprite.Update();
             link.Update();
             enemy.Update();
@@ -153,10 +201,9 @@ namespace Sprint0
 
             spriteBatch.Begin();
             sprite.Draw(spriteBatch, new Vector2(400, 240));
+            //These calls don't seem to be doing anything -- should implment with spriteFactory in some way
             enemy.Draw();
             link.Draw(spriteBatch);
-            spriteBatch.DrawString(this.font, "Credits \nProgram Made By: Alex Clayton\n Sprites From: https://www.spriters-resource.com/nes/legendofzelda/", new Vector2(200, 200), Color.White);
-            // TODO: Add your drawing code here
 
             base.Draw(gameTime);
 
