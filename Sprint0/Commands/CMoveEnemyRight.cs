@@ -14,7 +14,7 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            enemy.MoveRight();
+        //    enemy.MoveRight();
         }
     }
 }

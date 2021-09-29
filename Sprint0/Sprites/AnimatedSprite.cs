@@ -17,7 +17,9 @@ namespace Sprint0.Sprites
         private int totalFrames;
         private int width;
         private int height;
-        public AnimatedSprite(Texture2D texture, int rows, int columns, int w, int h) // probably add in int with width/height
+        private int X;
+        private int Y;
+        public AnimatedSprite(Texture2D texture, int rows, int columns, int w, int h, int x, int y) // probably add in int with width/height
         {
             width = w;
             height = h;
@@ -26,6 +28,8 @@ namespace Sprint0.Sprites
             Columns = columns;
             currentFrame = 0;
             totalFrames = Rows * Columns;
+            X = x;
+            Y = y;
         }
         public void Update()
         {
@@ -39,7 +43,7 @@ namespace Sprint0.Sprites
             int column = currentFrame % Columns;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+            Rectangle destinationRectangle = new Rectangle(X, Y, width, height);
 
             _spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
         }

@@ -12,6 +12,7 @@ using Sprint0.Enemies;
 using System;
 using Sprint0.Sprites.SpriteFactory;
 using System.Collections;
+using Microsoft.Xna.Framework.Content;
 
 /*
  * Alex Clayton 2021 CSE 3902
@@ -33,18 +34,19 @@ namespace Sprint0
         private IKeyboardController playerKeyboard;
         /*private IMouseController mouseController; not needed for Sprint 2 */
         private ArrayList keyboardControllerList;
-
+        public static ContentManager ContentInstance;
         public Game0()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            ContentInstance = Content;
             IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
             block = new Block();
-            enemy = new Enemy();
+            enemy = new Enemy(this);
             link = new Link();
 
             enemyKeyboard = new EnemyController();
@@ -151,7 +153,7 @@ namespace Sprint0
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            sprite = SpriteFactory.Instance.GetSprite(Content, "RightLink");
+            sprite = SpriteFactory.Instance.GetSprite("RightLink");
             //no need for fonts for Sprint 2
             /*
             font = Content.Load<SpriteFont>("font"); // Will use a similar "load all textures" method in the future for this to support multiple fonts. Can use commands to switch betewen fonts too.

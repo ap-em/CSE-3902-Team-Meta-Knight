@@ -19,7 +19,7 @@ namespace Sprint0.Commands
 
         public void Execute()
         {
-            gameHere.enemy = new Enemy();
+        //    gameHere.enemy = new Enemy();
         }
     }
 }
