@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
-    /*Owen Tishenkel 2021 CSE 3902*/
+    /*Owen Tishenkel 2021 CSE 3902 Commit pls*/
     class CMovePlayerLeft : ICommand
     {
          private Game0 gameHere;
@@ -15,9 +15,7 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            gameHere.enemy.SetDirection("left");
-            gameHere.enemy.SetXVelocity(-1);
-            gameHere.enemy.SetStateMachineSprite();
+            gameHere.link.MoveLeft();
         }
     }
 }

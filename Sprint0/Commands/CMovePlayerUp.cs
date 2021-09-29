@@ -15,11 +15,8 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            /*
-            gameHere.enemy.SetDirection("up");
-            gameHere.enemy.SetYVelocity(-1);
-            gameHere.enemy.SetStateMachineSprite();
-            */
+            gameHere.link.MoveUp();
+
         }
     }
 }

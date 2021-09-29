@@ -6,14 +6,16 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class Link :ILink, ILinkState
+    public class Link :ILink
     {
         private LinkHealthStateMachine healthStateMachine;
         public ILinkState currentState;
         /*
          * TODO: Eventually we should have a GameObject interface/abstract class that has things like position and current sprite;
          */
-        private Vector2 position = new Vector2(0f, 0f);
+        private int XVelocity = 0;
+        private int YVelocity = 0;
+        private Vector2 position = new Vector2(10, 10);
         private ISprite currentSprite;
 
 
@@ -62,21 +64,30 @@ namespace Sprint0
         public void MoveLeft()
         {
             currentState.MoveLeft();
+            this.SetXVelocity(-1);
+            position = new Vector2(position.X + XVelocity, position.Y);
+
         }
 
         public void MoveRight()
         {
             currentState.MoveRight();
+            this.SetXVelocity(1);
+            position = new Vector2(position.X + XVelocity, position.Y);
         }
 
         public void MoveUp()
         {
             currentState.MoveUp();
+            this.SetYVelocity(1);
+            position = new Vector2(position.X, position.Y+YVelocity);
         }
 
         public void MoveDown()
         {
             currentState.MoveDown();
+            this.SetYVelocity(-1);
+            position = new Vector2(position.X, position.Y + YVelocity);
         }
 
         public void Jump()
@@ -92,6 +103,22 @@ namespace Sprint0
         public void Crouch()
         {
             currentState.Crouch();
+        }
+        private int GetXVelocity()
+        {
+            return XVelocity;
+        }
+        private void SetXVelocity(int x)
+        {
+            XVelocity = x;
+        }
+        private int GetYVelocity()
+        {
+            return YVelocity;
+        }
+        private void SetYVelocity(int y)
+        {
+            YVelocity = y;
         }
     }
 }
