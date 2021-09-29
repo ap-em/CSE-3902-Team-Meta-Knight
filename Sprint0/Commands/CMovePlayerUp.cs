@@ -16,6 +16,7 @@ namespace Sprint0.Commands
         public void Execute()
         {
             gameHere.link.MoveUp();
+
         }
     }
 }

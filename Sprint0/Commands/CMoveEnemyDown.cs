@@ -14,9 +14,7 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            enemy.SetDirection("down");
-            enemy.SetYVelocity(1);
-            enemy.SetStateMachineSprite();
+            enemy.MoveDown();
         }
     }
 }

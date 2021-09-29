@@ -12,7 +12,7 @@ namespace Sprint0.Interfaces
         void Update();
         void PrevEnemy();
         void NextEnemy();
-        void SetFireProjectileSprite();
+        void FireProjectile();
         void SetSprite();
     }
 }

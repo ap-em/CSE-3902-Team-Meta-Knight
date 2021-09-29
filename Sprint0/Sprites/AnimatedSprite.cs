@@ -35,8 +35,6 @@ namespace Sprint0.Sprites
         }
         public void Draw(SpriteBatch _spriteBatch, Vector2 location)
         {
-            width = Texture.Width / Columns;          
-            height = Texture.Height / Rows;
             int row = (int)((float)currentFrame / (float)Columns);
             int column = currentFrame % Columns;
 
