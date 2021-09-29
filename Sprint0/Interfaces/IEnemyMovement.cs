@@ -7,22 +7,19 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Sprint0.Interfaces
 {
-    public interface IEnemy
+    public interface IEnemyMovement
     {
 
         void Update();
-        void FireProjectile();
-        void SetEnemyType(String enemyType);
-        String GetEnemyType();
-        void SetStateMachineSprite();
+        void Move();
         void MoveRight();
         void MoveLeft();
         void MoveUp();
         void MoveDown();
+        String GetDirection();
         void SetXVelocity(int x);
         void SetYVelocity(int y);
-        void NextEnemy();
-        void PrevEnemy();
-        void Draw();
+        int GetXVelocity();
+        int GetYVelocity();
     }
 }

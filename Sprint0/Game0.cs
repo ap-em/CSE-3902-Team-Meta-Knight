@@ -44,7 +44,7 @@ namespace Sprint0
         protected override void Initialize()
         {
             block = new Block();
-            enemy = new Enemy();
+            enemy = new Enemy(this);
             link = new Link();
 
             enemyKeyboard = new EnemyController();
@@ -72,10 +72,10 @@ namespace Sprint0
             keyboard.RegisterCommand(Keys.Q, new Quit(this));
             keyboard.RegisterCommand(Keys.R, new CReset(this));
 
-            keyboard.RegisterCommand(Keys.W, new CMovePlayerUp(this));
-            keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft(this));
-            keyboard.RegisterCommand(Keys.S, new CMovePlayerDown(this));
-            keyboard.RegisterCommand(Keys.D, new CMovePlayerRight(this));
+            keyboard.RegisterCommand(Keys.W, new CMoveEnemyUp(enemy));
+            keyboard.RegisterCommand(Keys.A, new CMoveEnemyLeft(enemy));
+            keyboard.RegisterCommand(Keys.S, new CMoveEnemyDown(enemy));
+            keyboard.RegisterCommand(Keys.D, new CMoveEnemyRight(enemy));
 
             keyboard.RegisterCommand(Keys.Up, new CMovePlayerUp(this));
             keyboard.RegisterCommand(Keys.Left, new CMovePlayerLeft(this));
@@ -103,10 +103,10 @@ namespace Sprint0
             keyboard.RegisterCommand(Keys.O, new CCyclePreviousEnemy(enemy));
             keyboard.RegisterCommand(Keys.P, new CCycleNextEnemy(enemy));
 
-            keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(this));
-            keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(this));
-            keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(this));
-            keyboard.RegisterReleasableKey(Keys.D, new CZeroPlayerXVelocity(this));
+            keyboard.RegisterReleasableKey(Keys.W, new CZeroEnemyYVelocity(enemy));
+            keyboard.RegisterReleasableKey(Keys.S, new CZeroEnemyYVelocity(enemy));
+            keyboard.RegisterReleasableKey(Keys.A, new CZeroEnemyXVelocity(enemy));
+            keyboard.RegisterReleasableKey(Keys.D, new CZeroEnemyXVelocity(enemy));
 
             keyboard.RegisterReleasableKey(Keys.Up, new CZeroPlayerYVelocity(this));
             keyboard.RegisterReleasableKey(Keys.Left, new CZeroPlayerYVelocity(this));
@@ -117,6 +117,7 @@ namespace Sprint0
         }
         private void SetUpEnemyKeyboard(IKeyboardController keyboard, IEnemy enemy)
         {
+            /*
             keyboard.RegisterCommand(Keys.O, new CCycleNextEnemy(enemy));
             keyboard.RegisterCommand(Keys.P, new CCyclePreviousEnemy(enemy));
 
@@ -131,6 +132,7 @@ namespace Sprint0
             keyboard.RegisterReleasableKey(Keys.A, new CZeroEnemyXVelocity(enemy));
             keyboard.RegisterReleasableKey(Keys.D, new CZeroEnemyXVelocity(enemy));
 
+            */
             //            keyboard.SetZeroXVelocityCommand(new CZeroEnemyYVelocity(enemy));
             //            keyboard.SetZeroYVelocityCommand(new CZeroEnemyXVelocity(enemy));
         }

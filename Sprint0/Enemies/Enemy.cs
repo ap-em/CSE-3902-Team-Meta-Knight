@@ -15,22 +15,19 @@ namespace Sprint0
 {
     public class Enemy : IEnemy
     {
-        private IEnemyStateMachine stateMachine;
+        public IEnemyMovement enemyMovement;
+        public IEnemyStateMachine stateMachine;
         private ISprite sprite;
-        private Vector2 location = new Vector2(100, 100);
-        private String direction = "left"; 
-        private int XVelocity = 0;
-        private int YVelocity = 0;
+        private String enemyType = "Enemy1";
+        private int firingTimer = 10;
         private bool firing = false;
+        private Game0 game;
 
-
-        public Enemy()
-        { 
-            stateMachine = new E1StateMachine(this);
-        }
-        public String GetDirection()
+        public Enemy(Game0 game)
         {
-            return direction;
+            this.game = game;
+            enemyMovement = new EnemyMovement(this, game, new Vector2(100,100));
+            stateMachine = new EnemyStateMachine(this, game, enemyMovement);
         }
         public void PrevEnemy()
         {
@@ -42,31 +39,7 @@ namespace Sprint0
         }
         public void Draw()
         {
-           // sprite.Draw(gameHere.spriteBatch, location);
-        }
-        public void Move(int x, int y)
-        {
-            location = new Vector2(location.X + XVelocity, location.Y + YVelocity);
-        }
-        public void SetDirection(String direction)
-        {
-            this.direction = direction;
-        }
-        public int GetXVelocity()
-        {
-            return XVelocity;
-        }
-        public void SetXVelocity(int x)
-        {
-            XVelocity = x;
-        }
-        public int GetYVelocity()
-        {
-            return YVelocity;
-        }
-        public void SetYVelocity(int y)
-        {
-            YVelocity = y;
+           // sprite.Draw(gameHere.spriteBatch, enemyMovement.GetLocation);
         }
         public void SetSprite(ISprite sprite)
         {
@@ -76,13 +49,13 @@ namespace Sprint0
         {
             stateMachine.SetSprite();
         }
-        public void SetStateMachine(IEnemyStateMachine stateMachine)
-        {
-            this.stateMachine = stateMachine;
-        }
         public void FireProjectile()
         {
-            stateMachine.SetFireProjectileSprite();
+            if (!firing)
+            {
+                stateMachine.FireProjectile();
+                SetFiring(true);
+            }
         }
         public bool GetFiring()
         {
@@ -91,10 +64,68 @@ namespace Sprint0
         public void SetFiring(bool fire)
         {
             firing = fire;
+            //reset timer if firing
+            if (fire) firingTimer = 30;
+        }
+        public void SetEnemyType(string enemyType)
+        {
+            this.enemyType = enemyType;
+        }
+
+        public string GetEnemyType()
+        {
+            return enemyType;
+        }
+
+        public void MoveRight()
+        {
+            enemyMovement.MoveRight();
+            SetStateMachineSprite();
+        }
+
+        public void MoveLeft()
+        {
+            enemyMovement.MoveLeft();
+            SetStateMachineSprite();
+        }
+
+        public void MoveUp()
+        {
+            enemyMovement.MoveUp();
+            SetStateMachineSprite();
+        }
+
+        public void MoveDown()
+        {
+            enemyMovement.MoveDown();
+            SetStateMachineSprite();
+        }
+
+        public void SetXVelocity(int x)
+        {
+            enemyMovement.SetXVelocity(x);
+            SetStateMachineSprite();
+        }
+
+        public void SetYVelocity(int y)
+        {
+            enemyMovement.SetYVelocity(y);
+            SetStateMachineSprite();
         }
         public void Update()
         {
-            Move(XVelocity, YVelocity);
+            enemyMovement.Move();
+            // this is to reset to a different sprite after doing projectil throwing
+            // animation after a few frames
+            if (firing)
+            {
+                firingTimer--;
+            }
+            if(firingTimer < 0)
+            {
+                firing = false;
+                SetStateMachineSprite();
+            }
             //update animation on sprite
            // sprite.Update();
         }
