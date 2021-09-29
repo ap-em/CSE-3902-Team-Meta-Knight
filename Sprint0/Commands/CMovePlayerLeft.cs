@@ -15,9 +15,7 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            gameHere.enemy.SetDirection("left");
-            gameHere.enemy.SetXVelocity(-1);
-            gameHere.enemy.SetStateMachineSprite();
+            gameHere.link.MoveLeft();
         }
     }
 }
