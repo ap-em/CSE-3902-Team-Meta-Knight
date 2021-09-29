@@ -15,7 +15,6 @@ namespace Sprint0.Commands
         public void Execute()
         {
             enemy.SetYVelocity(0);
-            enemy.SetStateMachineSprite();
         }
     }
 }
