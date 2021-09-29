@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class Link :ILink, ILinkState
+    public class Link :ILink
     {
         private LinkHealthStateMachine healthStateMachine;
         public ILinkState currentState;
@@ -15,7 +15,7 @@ namespace Sprint0
          */
         private int XVelocity = 0;
         private int YVelocity = 0;
-        private Vector2 position = new Vector2(0f, 0f);
+        private Vector2 position = new Vector2(10, 10);
         private ISprite currentSprite;
 
 
@@ -64,21 +64,30 @@ namespace Sprint0
         public void MoveLeft()
         {
             currentState.MoveLeft();
+            this.SetXVelocity(-1);
+            position = new Vector2(position.X + XVelocity, position.Y);
+
         }
 
         public void MoveRight()
         {
             currentState.MoveRight();
+            this.SetXVelocity(1);
+            position = new Vector2(position.X + XVelocity, position.Y);
         }
 
         public void MoveUp()
         {
             currentState.MoveUp();
+            this.SetYVelocity(1);
+            position = new Vector2(position.X, position.Y+YVelocity);
         }
 
         public void MoveDown()
         {
             currentState.MoveDown();
+            this.SetYVelocity(-1);
+            position = new Vector2(position.X, position.Y + YVelocity);
         }
 
         public void Jump()
@@ -95,19 +104,19 @@ namespace Sprint0
         {
             currentState.Crouch();
         }
-        public int GetXVelocity()
+        private int GetXVelocity()
         {
             return XVelocity;
         }
-        public void SetXVelocity(int x)
+        private void SetXVelocity(int x)
         {
             XVelocity = x;
         }
-        public int GetYVelocity()
+        private int GetYVelocity()
         {
             return YVelocity;
         }
-        public void SetYVelocity(int y)
+        private void SetYVelocity(int y)
         {
             YVelocity = y;
         }

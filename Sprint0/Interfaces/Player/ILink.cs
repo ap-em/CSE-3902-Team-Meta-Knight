@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-// Alex Clayton 09/15/21
+// Alex Clayton 09/15/21 modified by Owen Tishenkel 9/28/21
 namespace Sprint0
 {
     public interface ILink
@@ -15,5 +15,10 @@ namespace Sprint0
         void Update();
         void Execute();
         void Draw(SpriteBatch spritebatch);
+        /*Movement Centric code, MoveDirection code changes the facing of Link and moves him in that direction*/
+        void MoveLeft();
+        void MoveRight();
+        void MoveUp();
+        void MoveDown();
     }
 }
