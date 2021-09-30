@@ -173,7 +173,7 @@ namespace Sprint0
             {
                 controller.Update();
             }
-           
+
             //no need for mouse for sprint 2
             /*
             mouseController.Update();
@@ -203,7 +203,6 @@ namespace Sprint0
             //These calls don't seem to be doing anything -- should implment with spriteFactory in some way
             enemy.Draw();
             link.Draw(spriteBatch);
-
             base.Draw(gameTime);
 
             spriteBatch.End();

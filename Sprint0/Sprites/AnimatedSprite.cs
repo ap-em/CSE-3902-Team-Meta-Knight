@@ -33,6 +33,7 @@ namespace Sprint0.Sprites
         }
         public void Update()
         {
+        //We can't use thread.sleep, it sleeps the entire game making it run slowly, so we need a better system for slowing down animation!
             //Thread.Sleep(54); //get fps equation
             currentFrame++;
             if (currentFrame == totalFrames)
@@ -45,7 +46,7 @@ namespace Sprint0.Sprites
             Rectangle sourceRectangle = new Rectangle(0, 0,0, 0);
             Rectangle destinationRectangle = new Rectangle(0, 0, 0, 0); 
              sourceRectangle = new Rectangle(Xlist[currentFrame], Ylist[currentFrame], width, height);
-             destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width* 5, height*5);
+             destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width* 2, height*2);
             _spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
         }
     }
