@@ -16,7 +16,6 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            Debug.WriteLine("Mapped key exectute calling ");
             gameHere.link.MoveRight();
         }
     }

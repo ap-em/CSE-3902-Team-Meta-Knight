@@ -30,13 +30,13 @@ namespace Sprint0
 
         public void MoveDown()
         {
-            link.currentState = new DownFacingStaticLink(link);
+            link.currentState = new DownFacingMovingLink(link);
             link.OnStateChange();
         }
 
         public void MoveLeft()
         {
-            link.currentState = new LeftFacingStaticLink(link);
+            link.currentState = new LeftFacingMovingLink(link);
             link.OnStateChange();
         }
 
@@ -48,7 +48,7 @@ namespace Sprint0
 
         public void MoveUp()
         {
-            link.currentState = new UpFacingStaticLink(link);
+            link.currentState = new UpFacingMovingLink(link);
             link.OnStateChange();
         }
 
@@ -57,7 +57,7 @@ namespace Sprint0
             //No op ?
         }
 
-        public void StopMoving()
+        public void StopMoving(string sourceDirection)
         {
            // No op
         }

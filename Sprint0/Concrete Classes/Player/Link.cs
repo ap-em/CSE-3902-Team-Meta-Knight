@@ -17,7 +17,7 @@ namespace Sprint0
          */
         private int XVelocity = 0;
         private int YVelocity = 0;
-        private Vector2 position = new Vector2(10, 10);
+        private Vector2 position = new Vector2(100, 100);
         private ISprite currentSprite;
 
 
@@ -63,6 +63,7 @@ namespace Sprint0
         public void Update()
         {
             currentState.Update();
+            currentSprite.Update();
         }
 
         public void MoveSprite(Vector2 change)
@@ -73,29 +74,21 @@ namespace Sprint0
         public void MoveLeft()
         {
             currentState.MoveLeft();
-            this.SetXVelocity(-10);
-            position = new Vector2(position.X + XVelocity, position.Y);
-
         }
 
         public void MoveRight()
         {
-            Console.WriteLine("Move right called");
             currentState.MoveRight();
         }
 
         public void MoveUp()
         {
             currentState.MoveUp();
-            this.SetYVelocity(10);
-            position = new Vector2(position.X, position.Y+YVelocity);
         }
 
         public void MoveDown()
         {
             currentState.MoveDown();
-            this.SetYVelocity(-10);
-            position = new Vector2(position.X, position.Y + YVelocity);
         }
 
         public void Jump()
@@ -112,9 +105,9 @@ namespace Sprint0
         {
             currentState.Crouch();
         }
-        public void StopMoving()
+        public void StopMoving(string sourceDirection)
         {
-            currentState.StopMoving();
+            currentState.StopMoving(sourceDirection);
         }
         private int GetXVelocity()
         {

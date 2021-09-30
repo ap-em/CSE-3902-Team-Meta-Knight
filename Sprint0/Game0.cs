@@ -105,15 +105,15 @@ namespace Sprint0
             keyboard.RegisterCommand(Keys.O, new CCyclePreviousEnemy(enemy));
             keyboard.RegisterCommand(Keys.P, new CCycleNextEnemy(enemy));
 
-            keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(this));
-            keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(this));
-            keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(this));
-            keyboard.RegisterReleasableKey(Keys.D, new CZeroPlayerXVelocity(this));
+            keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(this,"Up"));
+            keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(this,"Down"));
+            keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(this,"Left"));
+            keyboard.RegisterReleasableKey(Keys.D, new CZeroPlayerXVelocity(this, "Right"));
 
-            keyboard.RegisterReleasableKey(Keys.Up, new CZeroPlayerYVelocity(this));
-            keyboard.RegisterReleasableKey(Keys.Left, new CZeroPlayerYVelocity(this));
-            keyboard.RegisterReleasableKey(Keys.Down, new CZeroPlayerXVelocity(this));
-            keyboard.RegisterReleasableKey(Keys.Right, new CZeroPlayerXVelocity(this));
+            keyboard.RegisterReleasableKey(Keys.Up, new CZeroPlayerYVelocity(this,"Up"));
+            keyboard.RegisterReleasableKey(Keys.Down, new CZeroPlayerYVelocity(this,"Down"));
+            keyboard.RegisterReleasableKey(Keys.Left, new CZeroPlayerXVelocity(this, "Left"));
+            keyboard.RegisterReleasableKey(Keys.Right, new CZeroPlayerXVelocity(this, "Left"));
             
 
         }
