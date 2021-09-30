@@ -34,7 +34,7 @@ namespace Sprint0.Sprites
         public void Update()
         {
         //We can't use thread.sleep, it sleeps the entire game making it run slowly, so we need a better system for slowing down animation!
-            //Thread.Sleep(54); //get fps equation
+            //Thread.Sleep(5); //get fps equation
             currentFrame++;
             if (currentFrame == totalFrames)
                 currentFrame = 0;

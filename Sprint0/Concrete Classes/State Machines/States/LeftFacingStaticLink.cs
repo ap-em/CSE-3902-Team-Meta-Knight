@@ -7,7 +7,7 @@ namespace Sprint0
     public class LeftFacingStaticLink : ILinkState
     {
         private Link link;
-        public string ID { get; } = "RightIdleLink";
+        public string ID { get; } = "LeftIdleLink";
 
         public LeftFacingStaticLink(Link linkRef)
         {

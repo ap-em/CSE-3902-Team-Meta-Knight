@@ -113,7 +113,7 @@ namespace Sprint0
             keyboard.RegisterReleasableKey(Keys.Up, new CZeroPlayerYVelocity(this,"Up"));
             keyboard.RegisterReleasableKey(Keys.Down, new CZeroPlayerYVelocity(this,"Down"));
             keyboard.RegisterReleasableKey(Keys.Left, new CZeroPlayerXVelocity(this, "Left"));
-            keyboard.RegisterReleasableKey(Keys.Right, new CZeroPlayerXVelocity(this, "Left"));
+            keyboard.RegisterReleasableKey(Keys.Right, new CZeroPlayerXVelocity(this, "Right"));
             
 
         }
