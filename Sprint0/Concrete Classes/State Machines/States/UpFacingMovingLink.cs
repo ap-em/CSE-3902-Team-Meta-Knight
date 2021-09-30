@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Sprint0
 {
-    public class DownFacingStaticLink : ILinkState
+    public class UpFacingMovingLink : ILinkState
     {
-        private Link link;
         public string ID { get; } = "RightIdleLink";
-        
+        private Link link;
+        private const float moveVelocity = 2f;
 
-        public DownFacingStaticLink(Link linkRef)
+        public UpFacingMovingLink(Link linkRef)
         {
             link = linkRef;
         }
@@ -50,18 +51,21 @@ namespace Sprint0
 
         public void MoveUp()
         {
-            link.currentState = new UpFacingMovingLink(link);
-            link.OnStateChange();
-        }
-
-        public void Update()
-        {
             //No op
         }
 
         public void StopMoving(string sourceDirection)
         {
-            //No op
+            if (sourceDirection=="Up")
+            {
+                link.currentState = new UpFacingStaticLink(link);
+                link.OnStateChange();
+            }
+        }
+
+        public void Update()
+        {
+            link.MoveSprite(new Vector2(0f, -1*moveVelocity));
         }
     }
 }

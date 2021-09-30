@@ -10,6 +10,7 @@ namespace Sprint0
     {
         public string ID  { get; }="RightIdleLink";
         private Link link;
+        private const float moveVelocity= 2f;
 
         public RightFacingMovingLink(Link linkRef)
         {
@@ -33,12 +34,14 @@ namespace Sprint0
 
         public void MoveDown()
         {
-            throw new NotImplementedException();
+            link.currentState = new DownFacingMovingLink(link);
+            link.OnStateChange();
         }
 
         public void MoveLeft()
         {
-            throw new NotImplementedException();
+            link.currentState = new LeftFacingMovingLink(link);
+            link.OnStateChange();
         }
 
         public void MoveRight()
@@ -48,20 +51,22 @@ namespace Sprint0
 
         public void MoveUp()
         {
-            throw new NotImplementedException();
+            link.currentState = new UpFacingMovingLink(link);
+            link.OnStateChange();
         }
 
         public void Update()
-        {
-            Debug.WriteLine("Right facing moving state update");
-            
-            link.MoveSprite(new Vector2(2f, 0f));
+        {            
+            link.MoveSprite(new Vector2(moveVelocity, 0f));
         }
 
-        public void StopMoving()
+        public void StopMoving(string sourceDirection)
         {
-            link.currentState = new RightFacingStaticLink(link);
-            link.OnStateChange();
+            if (sourceDirection=="Right")
+            {
+                link.currentState = new RightFacingStaticLink(link);
+                link.OnStateChange();
+            }
         }
     }
 }

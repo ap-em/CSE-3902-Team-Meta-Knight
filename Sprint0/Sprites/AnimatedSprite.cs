@@ -33,7 +33,7 @@ namespace Sprint0.Sprites
         }
         public void Update()
         {
-            Thread.Sleep(54); //get fps equation
+            //Thread.Sleep(54); //get fps equation
             currentFrame++;
             if (currentFrame == totalFrames)
                 currentFrame = 0;

@@ -7,7 +7,7 @@ namespace Sprint0
     public class LeftFacingStaticLink : ILinkState
     {
         private Link link;
-        public string ID { get; } = "LeftIdleLink";
+        public string ID { get; } = "RightIdleLink";
 
         public LeftFacingStaticLink(Link linkRef)
         {
@@ -30,24 +30,25 @@ namespace Sprint0
 
         public void MoveDown()
         {
-            link.currentState = new DownFacingStaticLink(link);
+            link.currentState = new DownFacingMovingLink(link);
             link.OnStateChange();
         }
 
         public void MoveLeft()
         {
-            //No op
+            link.currentState = new LeftFacingMovingLink(link);
+            link.OnStateChange();
         }
 
         public void MoveRight()
         {
-            link.currentState = new RightFacingStaticLink(link);
+            link.currentState = new RightFacingMovingLink(link);
             link.OnStateChange();
         }
 
         public void MoveUp()
         {
-            link.currentState = new UpFacingStaticLink(link);
+            link.currentState = new UpFacingMovingLink(link);
             link.OnStateChange();
         }
 
@@ -56,9 +57,9 @@ namespace Sprint0
             //No op?
         }
 
-        public void StopMoving()
+        public void StopMoving(string sourceDirection)
         {
-            throw new NotImplementedException();
+            //No op
         }
     }
 }

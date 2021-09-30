@@ -20,6 +20,6 @@ namespace Sprint0
         void MoveRight();
         void MoveUp();
         void MoveDown();
-        void StopMoving();
+        void StopMoving(string sourceDirection);
     }
 }

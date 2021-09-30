@@ -8,13 +8,15 @@ namespace Sprint0.Commands
     class CZeroPlayerXVelocity : ICommand
     {
         private Game0 gameHere;
-        public CZeroPlayerXVelocity(Game0 game)
+        private string direction;
+        public CZeroPlayerXVelocity(Game0 game, string directionRef)
         {
             gameHere = game;
+            direction = directionRef;
         }
         public void Execute()
         {
-            gameHere.link.StopMoving();
+            gameHere.link.StopMoving(direction);
         }
     }
 }
