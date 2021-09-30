@@ -7,6 +7,7 @@ namespace Sprint0
     class RightFacingStaticLink : ILinkState
     {
         private Link link;
+        public string ID { get; } = "RightIdleLink";
 
         public RightFacingStaticLink(Link linkRef)
         {
@@ -41,7 +42,8 @@ namespace Sprint0
 
         public void MoveRight()
         {
-            //No op
+            link.currentState = new RightFacingMovingLink(link);
+            link.OnStateChange();
         }
 
         public void MoveUp()
@@ -53,6 +55,11 @@ namespace Sprint0
         public void Update()
         {
             //No op ?
+        }
+
+        public void StopMoving()
+        {
+           // No op
         }
     }
 }

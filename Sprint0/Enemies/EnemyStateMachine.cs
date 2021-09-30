@@ -51,7 +51,7 @@ namespace Sprint0.Enemies
                 }
             }
 //           enemy.SetSprite(SpriteFactory.Instance.GetSprite(spriteString));
-            Debug.WriteLine(spriteString);
+           // Debug.WriteLine(spriteString);
         }
 
         public void PrevEnemy()

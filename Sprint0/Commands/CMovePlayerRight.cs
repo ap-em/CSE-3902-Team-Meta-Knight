@@ -1,6 +1,7 @@
 ﻿using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Sprint0.Commands
@@ -15,6 +16,7 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
+            Debug.WriteLine("Mapped key exectute calling ");
             gameHere.link.MoveRight();
         }
     }

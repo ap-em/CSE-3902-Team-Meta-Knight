@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Sprint0.Sprites.SpriteFactory;
+
 
 namespace Sprint0
 {
@@ -23,6 +25,7 @@ namespace Sprint0
         {
             healthStateMachine = new LinkHealthStateMachine();
             currentState = new RightFacingStaticLink(this);
+            OnStateChange();
         }
 
         /*
@@ -35,7 +38,7 @@ namespace Sprint0
              * sprite from the SF every draw method. This will save performance. 
              * Since the sprite factory will return a texture2d given a unique ID, we 
              */
-            //currentSprite = SpriteFactory.GetSprite(GetSpriteID(healthStateMachine, currentState));
+            currentSprite = SpriteFactory.Instance.GetSprite(GetSpriteID(healthStateMachine, currentState));
         }
 
         /*
@@ -44,11 +47,12 @@ namespace Sprint0
          */
         private string GetSpriteID(LinkHealthStateMachine healthStateMachine, ILinkState linkState)
         {
-            return "";
+            //Right now the health state machine has no impact on the sprite ---but in the future might have a sprite that does need that
+            return linkState.ID;
         }
         public void Draw(SpriteBatch spritebatch)
         {
-            //currentSprite.Draw(spritebatch, position);
+            currentSprite.Draw(spritebatch, position);
         }
 
         public void Execute()
@@ -61,32 +65,36 @@ namespace Sprint0
             currentState.Update();
         }
 
+        public void MoveSprite(Vector2 change)
+        {
+            position = new Vector2(position.X + change.X, position.Y + change.Y);
+        }
+
         public void MoveLeft()
         {
             currentState.MoveLeft();
-            this.SetXVelocity(-1);
+            this.SetXVelocity(-10);
             position = new Vector2(position.X + XVelocity, position.Y);
 
         }
 
         public void MoveRight()
         {
+            Console.WriteLine("Move right called");
             currentState.MoveRight();
-            this.SetXVelocity(1);
-            position = new Vector2(position.X + XVelocity, position.Y);
         }
 
         public void MoveUp()
         {
             currentState.MoveUp();
-            this.SetYVelocity(1);
+            this.SetYVelocity(10);
             position = new Vector2(position.X, position.Y+YVelocity);
         }
 
         public void MoveDown()
         {
             currentState.MoveDown();
-            this.SetYVelocity(-1);
+            this.SetYVelocity(-10);
             position = new Vector2(position.X, position.Y + YVelocity);
         }
 
@@ -103,6 +111,10 @@ namespace Sprint0
         public void Crouch()
         {
             currentState.Crouch();
+        }
+        public void StopMoving()
+        {
+            currentState.StopMoving();
         }
         private int GetXVelocity()
         {

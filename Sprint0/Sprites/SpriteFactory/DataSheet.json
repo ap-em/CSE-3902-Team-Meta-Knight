@@ -1,55 +1,77 @@
   [
     {
+      "DataX": [ 35, 52],
+      "DataY": [ 11, 11],
       "Data": [ 35, 11, 16, 16, 1, 2 ],
-      "SpriteName": "RightLink",
+      "SpriteName": "RightIdleLink",
       "SpriteSheet": "Zelda"
     },
     {
+      "DataX": [ 35, 52 ],
+      "DataY": [ 14, 14 ],
       "Data": [ 35, 11, 16, 16, 1, 2 ],
-      "SpriteName": "LeftLink",
+      "SpriteName": "LeftIdleLink",
       "SpriteSheet": "Zelda"
     },
     {
+      "DataX": [ 35, 52 ],
+      "DataY": [ 14, 14 ],
       "Data": [ 35, 11, 16, 16, 1, 2 ],
-      "SpriteName": "UpLink",
+      "SpriteName": "UpIdleLink",
       "SpriteSheet": "Zelda"
     },
     {
+      "DataX": [ 35, 52 ],
+      "DataY": [ 14, 14 ],
       "Data": [ 35, 11, 16, 16, 1, 2 ],
-      "SpriteName": "DownLink",
+      "SpriteName": "DownIdleLink",
       "SpriteSheet": "Zelda"
     },
     {
+      "DataX": [ 35, 52 ],
+      "DataY": [ 14, 14 ],
       "Data": [ 107, 11, 16, 16, 1, 1 ],
       "SpriteName": "DownUseLink",
       "SpriteSheet": "Zelda"
     },
     {
+      "DataX": [ 35, 52 ],
+      "DataY": [ 14, 14 ],
       "Data": [ 124, 11, 16, 16, 1, 1 ],
       "SpriteName": "RightUseLink",
       "SpriteSheet": "Zelda"
     },
     {
+      "DataX": [ 35, 52 ],
+      "DataY": [ 14, 14 ],
       "Data": [ 124, 11, 16, 16, 1, 1 ],
       "SpriteName": "LeftUseLink",
       "SpriteSheet": "Zelda"
     },
     {
+      "DataX": [ 35, 52 ],
+      "DataY": [ 14, 14 ],
       "Data": [ 141, 11, 16, 16, 1, 1 ],
       "SpriteName": "UpUseLink",
       "SpriteSheet": "Zelda"
     },
     {
+      "DataX": [ 35, 52 ],
+      "DataY": [ 14, 14 ],
       "Data": [ 213, 11, 16, 16, 1, 2 ],
       "SpriteName": "PickupItemLink",
       "SpriteSheet": "Zelda"
     },
     {
+      "DataX": [ 35, 52 ],
+      "DataY": [ 14, 14 ],
       "Data": [ 289, 11, 16, 16, 1, 2 ],
       "SpriteName": "DownShieldLink",
       "SpriteSheet": "Zelda"
     },
     {
+      "DataX": [ 35, 52 ],
+      "DataY": [ 14, 14 ],
       "Data": [ 323, 11, 16, 16, 1, 2 ],
       "SpriteName": "RightShieldLink",
       "SpriteSheet": "Zelda"

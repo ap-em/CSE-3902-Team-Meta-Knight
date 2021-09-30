@@ -7,6 +7,7 @@ namespace Sprint0
     public class LeftFacingStaticLink : ILinkState
     {
         private Link link;
+        public string ID { get; } = "LeftIdleLink";
 
         public LeftFacingStaticLink(Link linkRef)
         {
@@ -53,6 +54,11 @@ namespace Sprint0
         public void Update()
         {
             //No op?
+        }
+
+        public void StopMoving()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -17,9 +17,9 @@ namespace Sprint0.Sprites
         private int totalFrames;
         private int width;
         private int height;
-        private int X;
-        private int Y;
-        public AnimatedSprite(Texture2D texture, int rows, int columns, int w, int h, int x, int y) // probably add in int with width/height
+        private int[] Xlist;
+        private int[] Ylist;
+        public AnimatedSprite(Texture2D texture, int[] x, int[] y, int w, int h, int rows, int columns) 
         {
             width = w;
             height = h;
@@ -28,11 +28,12 @@ namespace Sprint0.Sprites
             Columns = columns;
             currentFrame = 0;
             totalFrames = Rows * Columns;
-            X = x;
-            Y = y;
+            Xlist = x;
+            Ylist = y;
         }
         public void Update()
         {
+            Thread.Sleep(54); //get fps equation
             currentFrame++;
             if (currentFrame == totalFrames)
                 currentFrame = 0;
@@ -41,10 +42,10 @@ namespace Sprint0.Sprites
         {
             int row = (int)((float)currentFrame / (float)Columns);
             int column = currentFrame % Columns;
-
-            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle(X, Y, width, height);
-
+            Rectangle sourceRectangle = new Rectangle(0, 0,0, 0);
+            Rectangle destinationRectangle = new Rectangle(0, 0, 0, 0); 
+             sourceRectangle = new Rectangle(Xlist[currentFrame], Ylist[currentFrame], width, height);
+             destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width* 5, height*5);
             _spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
         }
     }

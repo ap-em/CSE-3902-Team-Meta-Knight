@@ -153,7 +153,6 @@ namespace Sprint0
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            sprite = SpriteFactory.Instance.GetSprite("RightLink");
             //no need for fonts for Sprint 2
             /*
             font = Content.Load<SpriteFont>("font"); // Will use a similar "load all textures" method in the future for this to support multiple fonts. Can use commands to switch betewen fonts too.
@@ -191,7 +190,6 @@ namespace Sprint0
                 enemy.Update();
             }
             */
-            sprite.Update();
             link.Update();
             enemy.Update();
             base.Update(gameTime);
@@ -202,7 +200,6 @@ namespace Sprint0
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            sprite.Draw(spriteBatch, new Vector2(400, 240));
             //These calls don't seem to be doing anything -- should implment with spriteFactory in some way
             enemy.Draw();
             link.Draw(spriteBatch);

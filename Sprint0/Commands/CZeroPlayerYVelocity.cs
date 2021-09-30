@@ -14,8 +14,7 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            gameHere.enemy.SetYVelocity(0);
-            gameHere.enemy.SetStateMachineSprite();
+            gameHere.link.StopMoving();
         }
     }
 }

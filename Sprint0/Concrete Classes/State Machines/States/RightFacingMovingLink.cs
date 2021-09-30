@@ -1,18 +1,21 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Sprint0
 {
-    public class UpFacingStaticLink : ILinkState
+    class RightFacingMovingLink : ILinkState
     {
+        public string ID  { get; }="RightIdleLink";
         private Link link;
-        public string ID { get; } = "UpIdleLink";
 
-        public UpFacingStaticLink(Link linkRef)
+        public RightFacingMovingLink(Link linkRef)
         {
             link = linkRef;
         }
+
         public void Attack()
         {
             throw new NotImplementedException();
@@ -30,35 +33,35 @@ namespace Sprint0
 
         public void MoveDown()
         {
-            link.currentState = new DownFacingStaticLink(link);
-            link.OnStateChange();
+            throw new NotImplementedException();
         }
 
         public void MoveLeft()
         {
-            link.currentState = new LeftFacingStaticLink(link);
-            link.OnStateChange();
+            throw new NotImplementedException();
         }
 
         public void MoveRight()
         {
-            link.currentState = new RightFacingStaticLink(link);
-            link.OnStateChange();
+            //No op
         }
 
         public void MoveUp()
         {
-            //No op
+            throw new NotImplementedException();
         }
 
         public void Update()
         {
-            //No op ?
+            Debug.WriteLine("Right facing moving state update");
+            
+            link.MoveSprite(new Vector2(2f, 0f));
         }
 
         public void StopMoving()
         {
-            //No op
+            link.currentState = new RightFacingStaticLink(link);
+            link.OnStateChange();
         }
     }
 }

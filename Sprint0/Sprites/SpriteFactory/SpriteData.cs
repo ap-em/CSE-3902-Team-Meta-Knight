@@ -9,5 +9,7 @@ namespace Sprint0.Sprites.SpriteFactory
         public String SpriteName { get; set; }
         public String SpriteSheet { get; set; }
         public int[] Data { get; set; }
+        public int[] DataX { get; set; }
+        public int[] DataY { get; set; }
     }
 }
