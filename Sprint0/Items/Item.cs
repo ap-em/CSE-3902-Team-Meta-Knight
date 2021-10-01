@@ -1,8 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
+using Sprint0.Sprites.SpriteFactory;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Sprint0.Items
 {
@@ -13,10 +12,12 @@ namespace Sprint0.Items
         IItemStateMachine stateMachine;
         ISprite sprite;
         private Vector2 location = new Vector2(100, 200);
-        public Item(Game0 game)
+        String itemType;
+        public Item(Game0 game, SpriteFactory spriteFactory)
         {
             this.game = game;
-            stateMachine = new Item1StateMachine(this);
+            stateMachine = new ItemStateMachine(this);
+            
         }
 
         public void NextItem()
@@ -29,23 +30,14 @@ namespace Sprint0.Items
             stateMachine.PrevItem();
         }
 
-        public void SetStateMachineSprite()
-        {
-            stateMachine.SetSprite();
-        }
-
         public void Update()
         {
             sprite.Update();
         }
 
-        public void setSprite(ISprite sprite)
+        public void setSprite()
         {
-            this.sprite = sprite;
-        }
-        public void SetStateMachine(IItemStateMachine stateMachine)
-        {
-            this.stateMachine = stateMachine;
+            this.sprite = SpriteFactory.Instance.GetSprite(this.getItemType());
         }
         public void Move(int x, int y)
         {
@@ -54,6 +46,16 @@ namespace Sprint0.Items
         public void Draw()
         {
             sprite.Draw(game.spriteBatch, location);
+        }
+        /*Sets item type*/
+        public void setItemType(String itemType)
+        {
+            this.itemType = itemType;
+        }
+        /*Sets item type*/
+        public string getItemType()
+        {
+            return itemType;
         }
     }
 }
