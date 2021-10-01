@@ -13,6 +13,7 @@ using System;
 using Sprint0.Sprites.SpriteFactory;
 using System.Collections;
 using Microsoft.Xna.Framework.Content;
+using Sprint0.Items;
 
 /*
  * Alex Clayton 2021 CSE 3902
@@ -48,6 +49,7 @@ namespace Sprint0
             block = new Block();
             enemy = new Enemy();
             link = new Link();
+            item = new Item(this);
 
             enemyKeyboard = new EnemyController();
             SetUpEnemyKeyboard(enemyKeyboard, enemy);
@@ -201,7 +203,9 @@ namespace Sprint0
             //These calls don't seem to be doing anything -- should implment with spriteFactory in some way
             enemy.Draw(spriteBatch);
             link.Draw(spriteBatch);
+
             ProjectileController.Instance.Draw(spriteBatch);
+            item.Draw();
             base.Draw(gameTime);
 
             spriteBatch.End();
