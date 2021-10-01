@@ -1,7 +1,13 @@
 CODE REVIEW of Sprint 2-Jared by Alex Clayton9/23/21:
 
-Link.cs: I like the idea of OnStateChange and the HealthStateMachine and currentState both are good too! GetSpriteID: This makes sense but why would you want the string for Link’s state when we’ll just update it based on interacting with an upgrade/taking damage ? It just seems like an extra step but I’m sure there’s merit to doing it in some way.
-LinkHealthStateMachine: Since LoZ isn’t like mario and Link has hearts rathers than concrete states, im assuming the full/half/none refer to full health/damaged/dead. I think the “Linkhealth.half” case will need to be changed since if link takes damage well he is on, say, 2 hearts, he won’t be dead in most cases, but according to this code it would change him to the dead health state. 
+Link.cs: I like the idea of OnStateChange and the HealthStateMachine and currentState both are good too! 
+GetSpriteID: This makes sense but why would you want the string for Link’s state when we’ll just update it based on interacting with an upgrade/taking damage ? 
+It just seems like an extra step but I’m sure there’s merit to doing it in some way.
+LinkHealthStateMachine: Since LoZ isn’t like mario and Link has hearts rathers than concrete states,
+im assuming the full/half/none refer to full health/damaged/dead. I think the “Linkhealth.half” case will
+need to be changed since if link takes damage well he is on, say, 2 hearts, he won’t be dead in most cases,
+but according to this code it would change him to the dead health state. 
 RightFacingStaticLink: This looks good to me.  Same with the other facing states.
 KeyboardController: Keyboard controller was already fixed in another version of Sprint2.
-Game0.cs: Good changes, just initializes the Link and adds him to the update list. We can probably do this in SpriteFactory or elsewhere though but we’ll see as we refactor Game0.
+Game0.cs: Good changes, just initializes the Link and adds him to the update list.
+We can probably do this in SpriteFactory or elsewhere though but we’ll see as we refactor Game0.
