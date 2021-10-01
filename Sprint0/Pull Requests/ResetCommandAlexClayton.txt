@@ -1,0 +1,9 @@
+CODE REVIEW of Sprint2ResetCommand by Alex Clayton 9/28/21:
+
+Creset: Combines all the reset commands and works when the user calls Reset.
+There is duplicated code among all of these files, but doing this code abstracts the code within the CReset itself. 
+CResetBlock: Replaces the existing block with a new one.
+CResetEnemy: Replaces the existing Enemy with a new one.
+CResetItem: Replaces the items with a new instance of item, resetting everything.
+CResetPlayer: Looks good. Replaces the existing Link with a new Link, which will reset his state and any values associated. Probably the best way to do it.
+Overall: Looks good. If this doesn’t work it should be easy to debug.

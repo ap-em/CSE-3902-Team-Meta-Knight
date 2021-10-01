@@ -1,0 +1,21 @@
+CODE REVIEW of Sprint 2 by Alex Contreras 9/18/21:
+CCycleSprinte: I like the idea of doing the Sprite Cycle with Linked Lists, should be good for what we want.
+Although I don't think we'll have a use for the command moving forward after this Sprint, it should work for this instance, just something to note.
+CplayerPrimaryAttack/SecondaryAttack: The Attack commands seem pretty basic and straightforward,
+I'm assuming that the primary attack is just the word swing and that the second attack is the item.
+But if that is the case, we need to check for different test cases and states in both of those classes,
+but that is not the problem of these commands, of course, just noting for the future.
+CReset: Interesting idea to have the reset command be a set of inputs rather than just like one input- that's fine but if we did have a set,
+let's do the Konami code(up, up, down, down, left, right, left, right, B, A, Start) or something like that, because it seems fun
+CDamagePlayer: Damage command seems fine, no comments
+Command Classes: Obv. the command class files are just shells, but it might be better practice for the future to comment out a general plan for each class,
+or at least a note that it's still a to-do thing rather than just leaving a throw exemption in the execute method
+Interfaces: 
+-For the enemy interface, we might need to include an attack() method, as the demo shows enemies that have attacks,
+so it might be good to include that as a possible method, even if many enemies don't utilize it. 
+-Do we know if we need an environment interface? In the long run, it makes sense, but at least for sprint 2 we prob would need it. 
+-Does the IItem interface need a draw method? Or is it going to be the individual items' interfaces that handle that? In any case,
+we need to add each item's interface and each npc/enemy interface as well.
+OVERALL: Overall the code seems to be good, no major issues here, just some things to add here and there.
+
+ALL .CS FILES' AUTHOR IS OWEN TISHENKEL
