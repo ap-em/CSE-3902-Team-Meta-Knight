@@ -1,8 +1,16 @@
 CODE REVIEW of Sprint 2-Owen-Enemies&Items by Owen Tishenkel 9/23/21:
 Owen Huston’s Code.
-CCycleNextEnemy/ CCyclePreviousEnemy:  This style should be implemented for every cycle method, and CCycleNextBlock/CCyclePreviousBlock need to be created due to this overwriting the CCycleSprite classes.
-KeyboardController: Having a Keyboard state object is a good idea, but the if that doesn’t update if the key was being held down in the last state is probably not going to work as well in this Sprint as it did in Sprint 0, bc this sprint isn’t just changing the between different modes, this sprint has player-controlled movement and that means that the player can’t hold down a key i.e. they have to spam a key to move in one direction continuously.
-E1StateMachine:An excellent idea that should also be implemented for blocks, through it really needs a set location method, so that we can easily change where the enemy starts, we could also use one for the player. A way to make this far more open to expansions is a possibility,  would pretty much just need for a generic version of this where the previous state machine and the next state machine are set when this state machine is constructed, essentially making  the state machines into nodes linked to each other.
+CCycleNextEnemy/ CCyclePreviousEnemy:  This style should be implemented for every cycle method,
+and CCycleNextBlock/CCyclePreviousBlock need to be created due to this overwriting the CCycleSprite classes.
+KeyboardController: Having a Keyboard state object is a good idea, but the if that doesn’t update if the key was
+being held down in the last state is probably not going to work as well in this Sprint as it did in Sprint 0,
+bc this sprint isn’t just changing the between different modes, this sprint has player-controlled movement
+and that means that the player can’t hold down a key i.e. they have to spam a key to move in one direction continuously.
+E1StateMachine:An excellent idea that should also be implemented for blocks, through it really needs a set location method,
+so that we can easily change where the enemy starts, we could also use one for the player.
+A way to make this far more open to expansions is a possibility,  would pretty much just need for a generic version of this 
+where the previous state machine and the next state machine are set when this state machine is constructed, essentially making
+the state machines into nodes linked to each other.
 E2StateMachine: same as above
 EIdleSprite: I can’t really find this anywhere, so I’m afraid I can’t really comment on it
 SpriteFactory: looks great, can’t really see any issues apart from lacking some sprites we need for the finished version
