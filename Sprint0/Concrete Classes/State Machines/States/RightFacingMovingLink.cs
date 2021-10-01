@@ -8,7 +8,7 @@ namespace Sprint0
 {
     class RightFacingMovingLink : ILinkState
     {
-        public string ID  { get; }="RightIdleLink";
+        public string ID  { get; }="RightMovingLink";
         private Link link;
         private const float moveVelocity= 2f;
 

@@ -19,13 +19,11 @@ namespace Sprint0
         private String direction = "Left";
         private int XVelocity = 0;
         private int YVelocity = 0;
-        private Game0 game;
         private Enemy enemy;
 
-        public EnemyMovement(Enemy enemy, Game0 game, Vector2 location)
+        public EnemyMovement(Enemy enemy, Vector2 location)
         {
             this.enemy = enemy;
-            this.game = game;
             this.location = location;
         }
         public String GetDirection()

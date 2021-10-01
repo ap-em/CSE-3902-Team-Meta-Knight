@@ -14,21 +14,17 @@ namespace Sprint0.Enemies
     class EnemyStateMachine : IEnemyStateMachine
     { 
         private Enemy enemy;
-        private Game0 game;
         private int projectileXVelocity;
         private int projectileYVelocity;
         private int fuseTime = 30;
-        private SpriteBatch spriteBatch;
         private ISprite sprite;
         private String spriteString;
         private IEnemyMovement enemyMovement;
 
-        public EnemyStateMachine(Enemy enemy, Game0 game, IEnemyMovement enemyMovement)
+        public EnemyStateMachine(Enemy enemy, IEnemyMovement enemyMovement)
         {
             this.enemy = enemy;
-            this.game = game;
             this.enemyMovement = enemyMovement;
-            spriteBatch = game.spriteBatch;
             SetSprite();
         }
         public void SetSprite()
@@ -37,21 +33,21 @@ namespace Sprint0.Enemies
 
             if(enemy.GetFiring())
             {
-                spriteString = enemy.GetEnemyType() + "Shoot" + enemyMovement.GetDirection(); 
+                spriteString = enemyMovement.GetDirection() + "Shooting" + enemy.GetEnemyType();
             }
             else 
             { 
                 if(moving)
                 {
-                    spriteString = enemy.GetEnemyType() + "Move" + enemyMovement.GetDirection();
+                    spriteString = enemyMovement.GetDirection() + "Moving" + enemy.GetEnemyType();
                 }
                 else
                 {
-                    spriteString = enemy.GetEnemyType() + "Idle" + enemyMovement.GetDirection();
+                    spriteString = enemyMovement.GetDirection() + "Idle" + enemy.GetEnemyType();
                 }
             }
-//           enemy.SetSprite(SpriteFactory.Instance.GetSprite(spriteString));
-           // Debug.WriteLine(spriteString);
+            //            Debug.WriteLine(spriteString);
+            enemy.SetSprite(SpriteFactory.Instance.GetSprite(spriteString));
         }
 
         public void PrevEnemy()
@@ -128,9 +124,9 @@ namespace Sprint0.Enemies
                     projectileYVelocity = 0;
                     break;
             }
-//                    ProjectileController.Instance.AddProjectile(
-//                        new Projectile(SpriteFactory.Instance.GetSprite("Enemy1Projectile"), spriteBatch,
-//          enemy.GetLocation(), projectileXVelocity, projectileYVelocity, fuseTime);
+                    ProjectileController.Instance.AddProjectile(
+                        new Projectile(SpriteFactory.Instance.GetSprite("Bomb"),
+          enemyMovement.GetLocation(), projectileXVelocity, projectileYVelocity, fuseTime));
         }
         public void Update()
         {

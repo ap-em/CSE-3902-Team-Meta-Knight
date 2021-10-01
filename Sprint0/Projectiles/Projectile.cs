@@ -21,12 +21,10 @@ namespace Sprint0
         private int XVelocity;
         private int YVelocity;
         private Vector2 location;
-        private SpriteBatch spriteBatch;
-        public Projectile(ISprite sprite, SpriteBatch spriteBatch, 
+        public Projectile(ISprite sprite, 
             Vector2 location, int XVelocity, int YVelocity, int fuseTime)
         {
             this.sprite = sprite;
-            this.spriteBatch = spriteBatch;
             this.XVelocity = XVelocity;
             this.YVelocity = YVelocity;
             this.fuseTime = fuseTime;
@@ -40,14 +38,12 @@ namespace Sprint0
         {
             location = new Vector2(location.X + XVelocity, location.Y + YVelocity);
         }
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, location);
         }
         public void Update()
         {
-            Move();
-            Draw();
             fuseTime--;
         }
     }

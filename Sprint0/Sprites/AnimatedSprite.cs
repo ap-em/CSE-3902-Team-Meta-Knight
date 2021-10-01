@@ -19,6 +19,8 @@ namespace Sprint0.Sprites
         private int height;
         private int[] Xlist;
         private int[] Ylist;
+        private int waitTime = 2;
+        private int currentTime = 0;
         public AnimatedSprite(Texture2D texture, int[] x, int[] y, int w, int h, int rows, int columns) 
         {
             width = w;
@@ -33,11 +35,19 @@ namespace Sprint0.Sprites
         }
         public void Update()
         {
-        //We can't use thread.sleep, it sleeps the entire game making it run slowly, so we need a better system for slowing down animation!
+            //We can't use thread.sleep, it sleeps the entire game making it run slowly, so we need a better system for slowing down animation!
             //Thread.Sleep(5); //get fps equation
-            currentFrame++;
-            if (currentFrame == totalFrames)
-                currentFrame = 0;
+            if (currentTime > waitTime)
+            {
+                currentTime = 0;
+                currentFrame++;
+                if (currentFrame == totalFrames)
+                    currentFrame = 0;
+            }
+            else
+            {
+                currentTime++;
+            }
         }
         public void Draw(SpriteBatch _spriteBatch, Vector2 location)
         {

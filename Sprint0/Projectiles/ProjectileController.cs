@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
 using Sprint0.Enemies;
+using Microsoft.Xna.Framework.Graphics;
 
 
 /*OWEN HUSTON - 9/22/2021 */
@@ -18,11 +19,17 @@ namespace Sprint0
 
         private List<IProjectile> projectiles;
 
-        private static ProjectileController instance = new ProjectileController();
+        private static ProjectileController instance;
         public static ProjectileController Instance
         {
             get
             {
+                if (instance == null)
+                {
+
+                    instance = new ProjectileController(); 
+
+                }
                 return instance;
             }
         }
@@ -39,17 +46,28 @@ namespace Sprint0
         {
             projectiles.Add(projectile);
         }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            for (int i = 0; i < projectiles.Count; i++)
+            {
+                projectiles[i].Draw(spriteBatch);   
+            }
+        }
         public void Update()
         {
             // remove unused projectiles
             for(int i=0;i<projectiles.Count;i++)
             {
-                if (projectiles[i].GetFuseTime() <= 0) RemoveProjectile(projectiles[i]);
+                if (projectiles[i].GetFuseTime() <= 0)
+                {
+                    RemoveProjectile(projectiles[i]);
+                    i--;
+                }
             }
             // move current projectiles
             for(int i=0;i<projectiles.Count;i++)
             {
-                projectiles[i].Update();
+                projectiles[i].Move();
             }
         }
     }

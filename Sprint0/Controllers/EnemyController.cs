@@ -15,6 +15,8 @@ namespace Sprint0.Controllers
         private Dictionary<Keys, ICommand> releasableKeyMappings;
         private List<Keys> availableKeys;
         private Keys oldKey;
+        private int currentTime = 0;
+        private int waitTime = 50;
 
         /*
          *  Initializes the Control layout
@@ -39,25 +41,34 @@ namespace Sprint0.Controllers
         }
         public void Update()
         {
-            //choose a random key to press out of available keys
-            Keys newKey = availableKeys.ToArray()[new Random().Next(0,availableKeys.Count)];
-
-            //if new input
-            if (oldKey != newKey)
+            //wait for a few updates before choosing a new key
+            if (currentTime > waitTime)
             {
-                //released old key
-                if (releasableKeyMappings.ContainsKey(oldKey))
-                {
-                    releasableKeyMappings[oldKey].Execute();
-                }
-                //pressed new key
-                if (pressableKeyMappings.ContainsKey(newKey))
-                {
-                    pressableKeyMappings[newKey].Execute();
-                }
-            }
+                currentTime=0;
+                //choose a random key to press out of available keys
+                Keys newKey = availableKeys.ToArray()[new Random().Next(0, availableKeys.Count)];
 
-            oldKey = newKey;
+                //if new input
+                if (oldKey != newKey)
+                {
+                    //released old key
+                    if (releasableKeyMappings.ContainsKey(oldKey))
+                    {
+                        releasableKeyMappings[oldKey].Execute();
+                    }
+                    //pressed new key
+                    if (pressableKeyMappings.ContainsKey(newKey))
+                    {
+                        pressableKeyMappings[newKey].Execute();
+                    }
+                }
+
+                oldKey = newKey;
+            }
+            else
+            {
+                currentTime++;
+            }
         }
     }
 }

@@ -21,5 +21,6 @@ namespace Sprint0.Interfaces
         void SetYVelocity(int y);
         int GetXVelocity();
         int GetYVelocity();
+        Vector2 GetLocation();
     }
 }
