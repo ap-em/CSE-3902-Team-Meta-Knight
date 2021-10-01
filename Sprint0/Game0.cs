@@ -31,7 +31,7 @@ namespace Sprint0
         public IBlock block;
         public IItems item;
         public ILinkState linkstate;
-        private EnemyController enemyKeyboard;
+        private IKeyboardController enemyKeyboard;
         private IKeyboardController playerKeyboard;
         /*private IMouseController mouseController; not needed for Sprint 2 */
         private ArrayList keyboardControllerList;
@@ -47,7 +47,7 @@ namespace Sprint0
         protected override void Initialize()
         {
             block = new Block();
-            enemy = new Enemy(this);
+            enemy = new Enemy();
             link = new Link();
             item = new Item(this);
 
@@ -121,9 +121,6 @@ namespace Sprint0
         }
         private void SetUpEnemyKeyboard(IKeyboardController keyboard, IEnemy enemy)
         {
-            keyboard.RegisterCommand(Keys.O, new CCycleNextEnemy(enemy));
-            keyboard.RegisterCommand(Keys.P, new CCyclePreviousEnemy(enemy));
-
             keyboard.RegisterCommand(Keys.W, new CMoveEnemyUp(enemy));
             keyboard.RegisterCommand(Keys.A, new CMoveEnemyLeft(enemy));
             keyboard.RegisterCommand(Keys.S, new CMoveEnemyDown(enemy));
@@ -194,6 +191,7 @@ namespace Sprint0
             */
             link.Update();
             enemy.Update();
+            ProjectileController.Instance.Update();
             base.Update(gameTime);
         }
 
@@ -203,8 +201,10 @@ namespace Sprint0
 
             spriteBatch.Begin();
             //These calls don't seem to be doing anything -- should implment with spriteFactory in some way
-            enemy.Draw();
+            enemy.Draw(spriteBatch);
             link.Draw(spriteBatch);
+
+            ProjectileController.Instance.Draw(spriteBatch);
             item.Draw();
             base.Draw(gameTime);
 

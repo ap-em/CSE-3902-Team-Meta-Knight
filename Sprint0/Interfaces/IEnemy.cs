@@ -23,6 +23,6 @@ namespace Sprint0.Interfaces
         void SetYVelocity(int y);
         void NextEnemy();
         void PrevEnemy();
-        void Draw();
+        void Draw(SpriteBatch spriteBatch);
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
 using Sprint0.Enemies;
+using Microsoft.Xna.Framework.Graphics;
 
 
 /*OWEN HUSTON - 9/22/2021 */
@@ -15,31 +16,32 @@ namespace Sprint0
 {
     public class Enemy : IEnemy
     {
-        public IEnemyMovement enemyMovement;
-        public IEnemyStateMachine stateMachine;
+        private IEnemyMovement enemyMovement;
+        private IEnemyStateMachine stateMachine;
         private ISprite sprite;
         private String enemyType = "Enemy1";
-        private int firingTimer = 10;
         private bool firing = false;
-        private Game0 game;
+        private int firingTimer = 4;
 
-        public Enemy(Game0 game)
+
+        public Enemy()
         {
-            this.game = game;
-            enemyMovement = new EnemyMovement(this, game, new Vector2(100,100));
-            stateMachine = new EnemyStateMachine(this, game, enemyMovement);
+            enemyMovement = new EnemyMovement(this, new Vector2(200,200));
+            stateMachine = new EnemyStateMachine(this, enemyMovement);
         }
         public void PrevEnemy()
         {
             stateMachine.PrevEnemy();
+            SetStateMachineSprite();
         }
         public void NextEnemy()
         {
             stateMachine.NextEnemy();
+            SetStateMachineSprite();
         }
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
-           // sprite.Draw(gameHere.spriteBatch, enemyMovement.GetLocation);
+            sprite.Draw(spriteBatch, enemyMovement.GetLocation());
         }
         public void SetSprite(ISprite sprite)
         {
@@ -54,7 +56,7 @@ namespace Sprint0
             if (!firing)
             {
                 stateMachine.FireProjectile();
-                SetFiring(true);
+                firing = true;
             }
         }
         public bool GetFiring()
@@ -64,12 +66,11 @@ namespace Sprint0
         public void SetFiring(bool fire)
         {
             firing = fire;
-            //reset timer if firing
-            if (fire) firingTimer = 30;
         }
         public void SetEnemyType(string enemyType)
         {
-            this.enemyType = enemyType;
+             this.enemyType = enemyType;
+             SetStateMachineSprite();
         }
 
         public string GetEnemyType()
@@ -114,20 +115,21 @@ namespace Sprint0
         }
         public void Update()
         {
-            enemyMovement.Move();
             // this is to reset to a different sprite after doing projectil throwing
             // animation after a few frames
-            if (firing)
+
+            if(firing)
             {
                 firingTimer--;
             }
-            if(firingTimer < 0)
+            if (firingTimer < 0)
             {
                 firing = false;
-                SetStateMachineSprite();
+                firingTimer = 4;
             }
-            //update animation on sprite
-           // sprite.Update();
+
+            enemyMovement.Move();
+            sprite.Update();
         }
     }
 }

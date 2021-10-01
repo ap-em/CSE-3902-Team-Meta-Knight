@@ -7,6 +7,7 @@ using System.IO;
 using System.Text.Json;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 namespace Sprint0.Sprites.SpriteFactory
 {
@@ -64,6 +65,7 @@ namespace Sprint0.Sprites.SpriteFactory
         
         public ISprite GetSprite(String spriteName)
         {
+            Debug.WriteLine(spriteName);
             SpriteData s = SpriteDict.GetValueOrDefault(spriteName);
             spriteSheet = s.SpriteSheet;
             Texture2D texture = LoadTexture(spriteSheet);
