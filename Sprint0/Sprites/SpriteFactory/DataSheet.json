@@ -1,30 +1,58 @@
 [
   {
+    "DataX": [ 90 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "RightIdleLink",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 30 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "LeftIdleLink",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 60 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "UpIdleLink",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "DownIdleLink",
+    "SpriteSheet": "link"
+  },
+  {
     "DataX": [ 90, 90 ],
     "DataY": [ 0, 30 ],
     "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "RightIdleLink",
+    "SpriteName": "RightLink",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 30, 30 ],
     "DataY": [ 0, 30 ],
     "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "LeftIdleLink",
+    "SpriteName": "LeftLink",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 60, 60 ],
     "DataY": [ 0, 30 ],
     "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "UpIdleLink",
+    "SpriteName": "UpLink",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 0, 0 ],
     "DataY": [ 0, 30 ],
     "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "DownIdleLink",
+    "SpriteName": "DownLink",
     "SpriteSheet": "link"
   },
   {
