@@ -13,7 +13,7 @@ namespace Sprint0.Items
         ISprite sprite;
         private Vector2 location = new Vector2(100, 200);
         String itemType;
-        public Item(Game0 game, SpriteFactory spriteFactory)
+        public Item(Game0 game)
         {
             this.game = game;
             stateMachine = new ItemStateMachine(this);
