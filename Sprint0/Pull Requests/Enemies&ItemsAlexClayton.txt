@@ -1,8 +1,16 @@
 CODE REVIEW of Sprint 2-Owen-Enemies&Items by Alex Clayton 9/23/21:
 
 CCycleNextEnemy/ CCyclePreviousEnemy:  Looks good! Just calls the next enemy command and updates the existing enemy.
-KeyboardController: Registers a keyboard state object. That’s a good idea so I like this change. Also updates to make sure that if a key that was previously pressed is still pressed or not. If it is, does not let the command work. I remember you showing this to us before and it looked like a good idea, but I also think it might cause some issues further down the line that we may need to be careful about if the player is trying to do two inputs at once or needs the same key twice in a row. For now it’s good though.
-E1StateMachine: I like how you made states for every possible condition, and I think the private bools are a good way to determine the state. Maybe it would be easier if instead of that, we used an enum and simply named our state that, which would make it so we don’t have to update 4 bools for every time we change directions. Just like an enum called direction with up/down/left/right, and changing what way the enemy is looking would just be replacing the enum with a different direction.
+KeyboardController: Registers a keyboard state object. That’s a good idea so I like this change.
+Also updates to make sure that if a key that was previously pressed is still pressed or not.
+If it is, does not let the command work. I remember you showing this to us before and it looked like a good idea,
+but I also think it might cause some issues further down the line that we may need to be careful about if the player
+is trying to do two inputs at once or needs the same key twice in a row. For now it’s good though.
+E1StateMachine: I like how you made states for every possible condition, and I think the private bools are a good way to determine the state.
+Maybe it would be easier if instead of that, we used an enum and simply named our state that,
+which would make it so we don’t have to update 4 bools for every time we change directions.
+Just like an enum called direction with up/down/left/right, and changing what way the enemy is looking would just be replacing the enum with a different direction.
 E2StateMachine: Same as above
-EIdleSprite: So this is kind of complicated. Once we implement the sprite factory, we do not need to worry about having a bunch of classes like this. We’ll be able to tell the sprite factory we want a certain kind of sprite, and it’ll set up the sprite and give it to us.
+EIdleSprite: So this is kind of complicated. Once we implement the sprite factory, we do not need to worry about having a bunch of classes like this.
+We’ll be able to tell the sprite factory we want a certain kind of sprite, and it’ll set up the sprite and give it to us.
 SpriteFactory: Expected changes to produce what we wanted with that existing code.
