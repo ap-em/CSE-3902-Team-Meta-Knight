@@ -1,0 +1,10 @@
+CODE REVIEW of Sprint 2-Jared by Alex Clayton 9/27/21:
+GameObjectManager: 
+I’m not sure about that Null call at the beginning. Code smells? The rest of it looks good though. I’m not sure if there would be any consequences to updating/drawing everything in one call like that, but I’m sure Kirby will point it out if there is.
+IGameObject: I don’t think we can use Get; methods in interfaces, you can only declare Vector2 there, but I’m not sure. This would be easy to fix and pretty obvious after we start
+ILink.cs: adds an update, good change.
+Game0.cs:  Instantiates the GameObjectManager and adds it to game0. Pretty straightforward change which is good.
+LinkHealthStateMachine: Adds link.OnStateChange() 
+
+
+Overall: This creates the framework for the GameObjectManager class and IGameObject interface. Good changes!

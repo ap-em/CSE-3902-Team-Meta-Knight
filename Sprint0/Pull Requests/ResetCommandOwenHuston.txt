@@ -1,0 +1,7 @@
+CODE REVIEW of Sprint2ResetCommand by Owen Huston 9/28/21:
+CReset: calls execute on all the reset commands.  As our project gets bigger we may need a list of reset commands.
+CResetPlayer/CResetItem/CResetEmeny/CResetBlock: creates a new instance of each object.  Nearly duplicated code here that might be able to be narrowed down to one method in the future.
+
+Overall: This reset works.
+Future reworks: We may be able to rework this to have a reset method on every gameobject.  then loop through each gameobject calling reset, since each gameobject already knows its initial state.
+Another idea could be to pass CReset the gameobject to reset then use reflection to create a new instance of the object.
