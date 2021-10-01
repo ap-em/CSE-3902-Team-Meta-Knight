@@ -1,10 +1,18 @@
 CODE REVIEW of Sprint 2 by Alex Clayton 9/18/21:
 OwenTishenkel-1’s code.
 
-CCycleSpriteNext and Previous: I think using a LinkedList is smart to traverse this. This is likely the easiest way to do it, but we will need a way to load all of this at first, which may be a different command or method. Also, since this is all updating locally, will it load in the correct order for using “next” and “previous” since they both are different versions of the LinkedList<ISprite> sprites ? They might need to be in one file that inherits something. Let me know if I’m thinking about this wrong.
-CCyclePlayerItemNext and Previous: I like the idea but idk if we will need it since in the end, we will allow the player to chose the item with a menu rather than cycling through them. I think it would be useful for states though as a way to transition to like full health link where he has the sword projectile? Maybe.
- CDamagePlayer: This looks good to me. 
-CReset: I’m not sure how useful this would be since we can make one command that resets the game state since that is its only intended purpose, but I’m not sure. I like the idea of it though.
-CPlayerPrimaryAttack and SecondaryAttack: I think both of these are good. Primary attack should remain the same besides when Link is full health, and secondary attack will be his items. SecondaryAttack might need a get/set to replace what the secondary attack is.
+CCycleSpriteNext and Previous: I think using a LinkedList is smart to traverse this. This is likely the easiest way to do it,
+but we will need a way to load all of this at first, which may be a different command or method. Also, since this is all updating locally,
+will it load in the correct order for using “next” and “previous” since they both are different versions of the LinkedList<ISprite> sprites ?
+They might need to be in one file that inherits something. Let me know if I’m thinking about this wrong.
+CCyclePlayerItemNext and Previous: I like the idea but idk if we will need it since in the end,
+we will allow the player to chose the item with a menu rather than cycling through them. 
+I think it would be useful for states though as a way to transition to like full health link where he has the sword projectile? Maybe.
+CDamagePlayer: This looks good to me. 
+CReset: I’m not sure how useful this would be since we can make one command that resets the game state since that is its only intended purpose,
+but I’m not sure. I like the idea of it though.
+CPlayerPrimaryAttack and SecondaryAttack: I think both of these are good. Primary attack should remain the same besides when Link is full health,
+and secondary attack will be his items. SecondaryAttack might need a get/set to replace what the secondary attack is.
 
-Overall: I like the naming convention of using C’s to indicate commands. I think it’s useful to do. The only changes we might need ia a get/set for SecondaryAttack and depending on how CycleSprite works, maybe that.
+Overall: I like the naming convention of using C’s to indicate commands. I think it’s useful to do.
+The only changes we might need ia a get/set for SecondaryAttack and depending on how CycleSprite works, maybe that
