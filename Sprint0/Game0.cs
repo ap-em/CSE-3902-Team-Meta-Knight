@@ -13,6 +13,7 @@ using System;
 using Sprint0.Sprites.SpriteFactory;
 using System.Collections;
 using Microsoft.Xna.Framework.Content;
+using Sprint0.Items;
 
 /*
  * Alex Clayton 2021 CSE 3902
@@ -48,6 +49,7 @@ namespace Sprint0
             block = new Block();
             enemy = new Enemy(this);
             link = new Link();
+            item = new Item(this);
 
             enemyKeyboard = new EnemyController();
             SetUpEnemyKeyboard(enemyKeyboard, enemy);
