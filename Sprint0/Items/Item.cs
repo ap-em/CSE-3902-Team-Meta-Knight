@@ -17,6 +17,8 @@ namespace Sprint0.Items
         {
             this.game = game;
             stateMachine = new ItemStateMachine(this);
+            itemType = "HealHeart";
+            this.setSprite();
             
         }
 

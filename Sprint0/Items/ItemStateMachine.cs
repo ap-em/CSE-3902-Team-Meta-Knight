@@ -42,6 +42,7 @@ namespace Sprint0.Items
                     item.setItemType("HealHeart");
                     break;
             }
+            item.setSprite();
         }
 
         public void PrevItem()
@@ -68,6 +69,7 @@ namespace Sprint0.Items
                     item.setItemType("HealHeart");
                     break;
             }
+            item.setSprite();
         }
 
         public void Update()
