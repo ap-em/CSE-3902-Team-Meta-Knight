@@ -3,7 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using Sprint0.Interfaces;
 using Sprint0.Sprites.SpriteFactory;
-
+/*
+Alex Clayton
+Alex Contreras
+Jared Israel
+Leon Cai
+Owen Tishenkel
+Owen Huston
+*/
 namespace Sprint0.Commands
 {
     class CAnimatedMovingSprite : ICommand
