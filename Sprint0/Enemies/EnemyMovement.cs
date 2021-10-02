@@ -7,7 +7,14 @@ using Sprint0.Interfaces;
 using Sprint0.Sprites;
 using Sprint0.Enemies;
 
-
+/*
+Alex Clayton
+Alex Contreras
+Jared Israel
+Leon Cai
+Owen Tishenkel
+Owen Huston
+*/
 /*OWEN HUSTON - 9/22/2021 */
 
 
