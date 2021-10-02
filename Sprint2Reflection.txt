@@ -41,6 +41,8 @@ do continue to fire from where the enemy was before the reset)
 game0 our god class.  
 5. Need to change the concrete enemy and item classes to what they actually should do in the game but not just show each enemy 
 and item one by one. (Basically refactoring costs)
+
+   Areas to Improve:
 -Try to make comments on files with your name and the date you modified this file.
 - Plan more at the beginning of the Sprint and meet more frequently.
 - Assign more specific tasks to people
