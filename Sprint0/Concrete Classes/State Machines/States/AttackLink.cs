@@ -46,7 +46,7 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
                 case "LeftIdleLink":
                     position.X = position.X + 16;
                     ProjectileController.Instance.AddProjectile(
-                        new Projectile(SpriteFactory.Instance.GetSprite("DownSword"), position, 0, 0, 3));
+                        new Projectile(SpriteFactory.Instance.GetSprite("LeftSword"), position, 0, 0, 3));
                     break;
 
             }
