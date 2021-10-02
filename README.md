@@ -14,7 +14,7 @@ _________
 _____
 **PROGRAM DESCRIPTION**
 
-
+As of Sprint 2, this program implements Link, link movement, primitive attacking and item placement, enemy movement, cyclable enemies, cyclable blocks, cyclable, a quit button and a partial reset button.
 _________
 
 **MOTIVATION**
@@ -55,6 +55,8 @@ Player state transitions: Leon Cai,  Jared Israel,  Owen Huston
 
 Fully planning board is in https://trello.com/b/7FCwThdy/sprint-12
 
+Discord: https://discord.gg/6rHXSp9hYV (we used this for planning so please check it out)
+
 _____
 
 **ZOOM MEETING**
@@ -83,6 +85,12 @@ Our goal for this purpose was to meet together as a group and merge all of our s
 	Next, we took a look at getting the link to move properly. As a group we coded the solution to create moving states for link, as only static states were present previously, and with some modifications to the keyboard controller and certain commands to the player, we were able to get horizontal movement working. At this point, we decided that we had reached a good stopping point, having gotten the sprite factory, player states, player movement, and keyboard controller/command system to work properly. The next steps were all four directions of player movement and reworking the data sheet so all sprites could be used with the player states. We left with our game rendering link like so.
 
 Edited by Jared Israel
+_________
+
+
+
+
+
 
 ______
 **CREDITS**  
