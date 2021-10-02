@@ -1,0 +1,56 @@
+Sprint 2 Reflection - Team Meta Knight - Written by: Alex Clayton, Alex Contreras, Leon Cai
+ 
+Our sprint 2 came together slightly bumpily, but all the necessary parts were constructed when they were needed to.
+In the end, everything was combined. We had bursts of productivity when we would meet as a team and on some random
+days, as well as at the beginning and end of the sprint, but there were some dry periods where progress would halt
+for a few days. Reflecting on the sprint, we thought of some ways to progress more smoothly through the next sprint 
+and some issues we ran into.
+We tried to plan the whole sprint towards the beginning, but our planning phase was too general. We all believe we 
+are good coders, but we did not focus on all the concrete needs for the sprint during our initial planning phase, 
+which led to us writing plenty of duplicated code. This led to merge issues later on and wasted work by people whose 
+newly written code was implemented by someone else already. Similarly, we had some issues keeping our main branch and 
+individual branches updated with our most recent changes. Some of us wanted to upload larger amounts at once rather than 
+pushing small bits of code, which complicated these merge issues and made it hard to keep track of how much progress was 
+being made on a day-to-day basis.
+We plan to address this planning issue by fully documenting every feature we want to include in our next sprint at the 
+beginning rather than only recording the ideas of what we want to do. For example, we would document that we want a working 
+Enemy. From there, we would write out every part of an enemy that needs to be implemented from a glance: movement, 
+attacking, animations, state, etc. From there, we can further divide a feature into what we need to do to implement it and 
+discuss what game design patterns and elements we may need to use to get it working successfully while having to refactor 
+minimal code in the future. After documenting each feature, we can draw connections on what code may interact and possible 
+ways we can refactor initially to avoid problems. We can then assign specific tasks to group members and divide & conquer. 
+Planning out everything that needs to be done more concretely will significantly benefit our team and will allow us to set 
+measurable goals for tasks and deadlines.
+
+Since our team wants to create our own game based on Mario and Jump King, the sprites we need for our end product is totally 
+different from what we did in sprint 2. So before starting the next sprint, we plan to make decisions on what features and 
+environments are needed in our game and then dig into concrete classes like players, enemies, and items to make those classes fit into our new game.
+
+
+
+
+
+   BurnChart for Sprint 2:
+1. Need to create a decorator class for damage link, the system we have for damage link right now can be improved
+2. There is a small bug that occurs after you reset the program, where the sword/items from link’s primary/secondary 
+attacks stays out where you had it before you reset the program instead of being right in front of link. Also the 
+cycling of the blocks, items, and enemies are disable as well as the animation of the enemy. (Although the projectiles 
+do continue to fire from where the enemy was before the reset)
+3. Need to convert the registering keyboard keys into a data problem, similar to our sprite factory.
+4. Need to create a Game Object Manager to easily update and draw all the objects in the game. It will also greatly decouple 
+game0 our god class.  
+5. Need to change the concrete enemy and item classes to what they actually should do in the game but not just show each enemy 
+and item one by one. (Basically refactoring costs)
+-Try to make comments on files with your name and the date you modified this file.
+- Plan more at the beginning of the Sprint and meet more frequently.
+- Assign more specific tasks to people
+- Coding in groups goes better
+- Aim for stricter individual deadlines (measurable goals)
+- Better our communication
+- Work on doing more code reviews + merging working code frequently
+- Make sure to push our code to individual branches to make note of progress.
+- Get confirmation from others before pulling to the main branch to avoid any conflicts that may accidentally occur.
+- Make sure everyone has a good understanding of code and how it works. I know I struggle with the player because I didn't work 
+with it that much but I understand the sprites, texture, and trying to data-drive all of the things pretty well.
+- Make more of a push at the beginning of the sprint since the deadline approaches faster than it appears.
+- Follow the course website more for additional guidance we might want to use.
