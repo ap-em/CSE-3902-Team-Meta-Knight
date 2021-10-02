@@ -9,15 +9,17 @@ namespace Sprint0.Commands
     /*Owen Tishenkel 2021 CSE 3902*/
     class CDamagePlayer : ICommand
     {
-        ILinkState playerState;
-        public CDamagePlayer(ILinkState playerState) 
+        ILink link;
+        Game0 gameHere;
+        public CDamagePlayer(ILink link, Game0 game)
         {
-            this.playerState = playerState;
-            
+            gameHere = game;
+            this.link = link;
         }
+
         public void Execute()
         {
-         //   playerState.TakeDamage();
+            link.TakeDamage();
         }
     }
 }

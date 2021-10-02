@@ -17,6 +17,7 @@ namespace Sprint0
         private Vector2 position = new Vector2(100, 100);
         private ISprite currentSprite;
         private ILinkState attack;
+        private int damageTimer = 100;
 
 
         public Link()
@@ -45,8 +46,21 @@ namespace Sprint0
          */
         private string GetSpriteID(LinkHealthStateMachine healthStateMachine, ILinkState linkState)
         {
+            String ID = linkState.ID;
+
+            if(damageTimer > 0)
+            {
+                ID = ID + healthStateMachine.GetHealth();
+            }
+            else
+            {
+                //after 8 updates go back to rendering at full health
+                ID = ID + "Full";
+            }
+
+
             //Right now the health state machine has no impact on the sprite ---but in the future might have a sprite that does need that
-            return linkState.ID;
+            return ID;
         }
         public void Draw(SpriteBatch spritebatch)
         {
@@ -60,6 +74,15 @@ namespace Sprint0
 
         public void Update()
         {
+            if(damageTimer >= 0)
+            {
+                damageTimer--;
+            }
+            //when damage timer is done change back to regular link
+            if(damageTimer == 0)
+            {
+                OnStateChange();
+            }
             currentState.Update();
             currentSprite.Update();
         }
@@ -92,6 +115,12 @@ namespace Sprint0
         public void Jump()
         {
             currentState.Jump();
+        }
+        public void TakeDamage()
+        {
+            healthStateMachine.TakeDamage();
+            damageTimer = 100;
+            OnStateChange();
         }
 
         public void PrimaryAttack()

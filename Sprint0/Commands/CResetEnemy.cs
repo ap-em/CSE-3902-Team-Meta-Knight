@@ -1,4 +1,5 @@
-﻿using Sprint0.Interfaces;
+﻿using Sprint0.Controllers;
+using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +20,7 @@ namespace Sprint0.Commands
 
         public void Execute()
         {
-        //    gameHere.enemy = new Enemy();
+            gameHere.enemy = new Enemy();
         }
     }
 }
