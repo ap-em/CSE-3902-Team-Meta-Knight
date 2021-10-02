@@ -204,9 +204,8 @@ namespace Sprint0
             enemy.Draw(spriteBatch);
             ProjectileController.Instance.Draw(spriteBatch);
             link.Draw(spriteBatch);
-
-            
             item.Draw();
+            block.Draw(spriteBatch);
             base.Draw(gameTime);
 
             spriteBatch.End();

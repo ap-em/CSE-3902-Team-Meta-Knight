@@ -12,9 +12,6 @@ namespace Sprint0
     {
         private LinkHealthStateMachine healthStateMachine;
         public ILinkState currentState;
-        /*
-         * TODO: Eventually we should have a GameObject interface/abstract class that has things like position and current sprite;
-         */
         private int XVelocity = 0;
         private int YVelocity = 0;
         private Vector2 position = new Vector2(100, 100);

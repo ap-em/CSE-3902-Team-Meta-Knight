@@ -3,31 +3,31 @@ using System.Collections.Generic;
 using System.Text;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
-
-/*TODO: WORK with Sprite factory to create the sprite*/
+using Sprint0.Sprites.SpriteFactory;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Blocks
 {
-    class Block2State : IBlockState
+    class BlueBlockState : IBlockState
     {
         private Block block;
 
-        public Block2State(Block block)
+        public BlueBlockState(Block block)
         {
             this.block = block;
-            //block.SetSprite(SpriteFactory.Instance.CreateNewSprite("block2"));
+            block.SetSprite(SpriteFactory.Instance.GetSprite("BlueBlock"));
         }
         public void PrevBlock()
         {
-            block.SetState(new Block1State(block));
+            block.SetState(new OrangeBlockState(block));
         }
         public void NextBlock()
         {
-            block.SetState(new Block3State(block));
+            block.SetState(new BlueStatueBlockState(block));
         }
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
-            block.Draw();
+            block.Draw(spriteBatch);
         }
     }
 }

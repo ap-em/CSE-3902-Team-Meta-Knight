@@ -33,7 +33,7 @@ namespace Sprint0.Enemies
 
             if(enemy.GetFiring())
             {
-                // spriteString = enemyMovement.GetDirection() + "Shooting" + enemy.GetEnemyType();
+                // spriteString = enemyMovement.GetDirection() + "Shooting" + enemy.GetEnemyType(); Get to this once we implment an enemy that has a unique attack animation  
             }
             else 
             { 
