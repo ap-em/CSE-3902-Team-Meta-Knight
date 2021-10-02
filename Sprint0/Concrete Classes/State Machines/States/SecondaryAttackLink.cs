@@ -11,11 +11,13 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
 
         ILinkState currentState;
         Vector2 position;
+        String currentSecondary;
 
-        public SecondaryAttackLink(ILinkState currentState, Vector2 position)
+        public SecondaryAttackLink(ILinkState currentState, Vector2 position, String currentSecondary)
         {
             this.currentState = currentState;
             this.position = position;
+            this.currentSecondary = currentSecondary;
         }
 
         public string ID => currentState.ID;
@@ -28,25 +30,25 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
                 case "DownMovingLink":
                     position.Y = position.Y + 16;
                     ProjectileController.Instance.AddProjectile(
-                        new Projectile(SpriteFactory.Instance.GetSprite("DownSword"), position, 0, 0, 3));
+                        new Projectile(SpriteFactory.Instance.GetSprite(currentSecondary), position, 0, 0, 3));
                     break;
                 case "UpMovingLink":
                 case "UpIdleLink":
                     position.Y = position.Y - 16;
                     ProjectileController.Instance.AddProjectile(
-                        new Projectile(SpriteFactory.Instance.GetSprite("UpSword"), position, 0, 0, 3));
+                        new Projectile(SpriteFactory.Instance.GetSprite(currentSecondary), position, 0, 0, 3));
                     break;
                 case "RightMovingLink":
                 case "RightIdleLink":
                     position.X = position.X + 16;
                     ProjectileController.Instance.AddProjectile(
-                        new Projectile(SpriteFactory.Instance.GetSprite("RightSword"), position, 0, 0, 3));
+                        new Projectile(SpriteFactory.Instance.GetSprite(currentSecondary), position, 0, 0, 3));
                     break;
                 case "LeftMovingLink":
                 case "LeftIdleLink":
                     position.X = position.X + 16;
                     ProjectileController.Instance.AddProjectile(
-                        new Projectile(SpriteFactory.Instance.GetSprite("LeftSword"), position, 0, 0, 3));
+                        new Projectile(SpriteFactory.Instance.GetSprite(currentSecondary), position, 0, 0, 3));
                     break;
 
             }

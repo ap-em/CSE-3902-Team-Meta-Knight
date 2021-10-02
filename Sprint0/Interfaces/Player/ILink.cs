@@ -23,6 +23,6 @@ namespace Sprint0
         void StopMoving(string sourceDirection);
         void PrimaryAttack();
 
-        void SecondaryAttack();
+        void SecondaryAttack(String attackType);
     }
 }
