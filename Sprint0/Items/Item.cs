@@ -2,7 +2,14 @@
 using Sprint0.Interfaces;
 using Sprint0.Sprites.SpriteFactory;
 using System;
-
+/*
+Alex Clayton
+Alex Contreras
+Jared Israel
+Leon Cai
+Owen Tishenkel
+Owen Huston
+*/
 namespace Sprint0.Items
 {
     /*Owen Tishenkel, heavily based on Owen Houston's Enemy class*/
