@@ -1,0 +1,7 @@
+CODE REVIEW of SecondaryAttackLink related classes of Owen tishenkel by Leon Cai 10/1/21 (sprint2)
+
+SecondaryAttackLink.cs & game0.cs: Changing specific attackType to a string that pass from the game0 class is a great way to reduce duplicate code and to achieve single responsibility.
+Same thing for the currentSecondary. Also, I really like the idea to merge the switch cases so that one body can handle 2 similar cases which I have never thought before. This definitly reduce the duplicate code.
+ 
+Time to complete the review: 10 minutes.
+
