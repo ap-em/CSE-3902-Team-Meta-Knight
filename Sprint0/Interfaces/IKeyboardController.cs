@@ -2,7 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+/*
+Alex Clayton
+Alex Contreras
+Jared Israel
+Leon Cai
+Owen Tishenkel
+Owen Huston
+*/
 /*
  * Alexander Clayton CSE 3902 09/02/2021
  */
