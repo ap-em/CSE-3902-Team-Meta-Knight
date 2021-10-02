@@ -5,11 +5,11 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
+using Sprint0.Sprites.SpriteFactory;
+using Microsoft.Xna.Framework.Graphics;
 
 
 /*OWEN HUSTON - 9/20/2021 */
-
-/*TODO: work with sprite factory to make block created*/
 
 
 namespace Sprint0.Blocks
@@ -19,12 +19,11 @@ namespace Sprint0.Blocks
         private IBlockState state;
         private ISprite sprite;
         private Vector2 location = new Vector2(200, 200);
-        public Game0 gameHere;
 
         public Block()
         {
-            state = new Block1State(this);
-            // sprite = SpriteFactory.Instance.CreateNewSprite("block1");
+            state = new OrangeBlockState(this);
+            sprite = SpriteFactory.Instance.GetSprite("OrangeBlock");
         }
         public void SetSprite(ISprite sprite)
         {
@@ -44,9 +43,9 @@ namespace Sprint0.Blocks
             state.NextBlock();
             Debug.WriteLine(state.GetType().Name);
         }
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(gameHere.spriteBatch, location);
+            sprite.Draw(spriteBatch, location);
         }
     }
 }
