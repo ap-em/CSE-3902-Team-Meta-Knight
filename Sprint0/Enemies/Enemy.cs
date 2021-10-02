@@ -19,7 +19,7 @@ namespace Sprint0
         private IEnemyMovement enemyMovement;
         private IEnemyStateMachine stateMachine;
         private ISprite sprite;
-        private String enemyType = "Enemy1";
+        private String enemyType = "Octorok";
         private bool firing = false;
         private int firingTimer = 4;
 

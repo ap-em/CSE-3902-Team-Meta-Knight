@@ -88,14 +88,14 @@ namespace Sprint0
 
             //need to create a primary attack ilink, but only ilink is link, so link here for now
             keyboard.RegisterCommand(Keys.Z, new CPlayerPrimaryAttack(link,this));
-            keyboard.RegisterCommand(Keys.N, new CPlayerSecondaryAttack(link, this));
+            keyboard.RegisterCommand(Keys.N, new CPlayerPrimaryAttack(link, this));
 
             keyboard.RegisterCommand(Keys.E, new CDamagePlayer(linkstate));
 
             //need to be able to use all items from number keys, need commands for this
-            //keyboard.RegisterCommand(Keys.D1, new CItem1(item, this));
-            //keyboard.RegisterCommand(Keys.D2, new Citem2(item, this)); 
-            //keyboard.RegisterCommand(Keys.D3, new Citem3(item, this));
+            keyboard.RegisterCommand(Keys.D1, new CPlayerSecondaryAttack(link, this));
+            keyboard.RegisterCommand(Keys.D2, new CPlayerSecondaryAttack(link, this)); 
+            keyboard.RegisterCommand(Keys.D3, new CPlayerSecondaryAttack(link, this));
 
             keyboard.RegisterCommand(Keys.U, new CCyclePlayerItemPrevious(item));
             keyboard.RegisterCommand(Keys.I, new CCyclePlayerItemNext(item));
