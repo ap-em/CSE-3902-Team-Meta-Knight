@@ -19,7 +19,7 @@ namespace Sprint0.Commands
 
         public void Execute()
         {
-            secondaryAttack.Execute();
+            secondaryAttack.SecondaryAttack();
         }
     }
 }

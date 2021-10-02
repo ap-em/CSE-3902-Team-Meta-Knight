@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Sprint0.Sprites.SpriteFactory;
-
+using Sprint0.Concrete_Classes.State_Machines.States;
 
 namespace Sprint0
 {
@@ -19,6 +19,7 @@ namespace Sprint0
         private int YVelocity = 0;
         private Vector2 position = new Vector2(100, 100);
         private ISprite currentSprite;
+        private ILinkState attack;
 
 
         public Link()
@@ -96,9 +97,15 @@ namespace Sprint0
             currentState.Jump();
         }
 
-        public void Attack()
+        public void PrimaryAttack()
         {
-            currentState.Attack();
+            attack = new AttackLink(currentState, position);
+            attack.Attack();
+        }
+        public void SecondaryAttack()
+        {
+            attack = new SecondaryAttackLink(currentState, position);
+            attack.Attack();
         }
 
         public void Crouch()
