@@ -95,3 +95,5 @@ _________
 ______
 **CREDITS**  
 Sprites sheets taken from https://www.spriters-resource.com/nes/legendofzelda/
+
+Link sprites and enemy sprites: http://www.zeldagalaxy.com/sprites-nes-loz/
