@@ -21,5 +21,8 @@ namespace Sprint0
         void MoveUp();
         void MoveDown();
         void StopMoving(string sourceDirection);
+        void PrimaryAttack();
+
+        void SecondaryAttack(String attackType);
     }
 }

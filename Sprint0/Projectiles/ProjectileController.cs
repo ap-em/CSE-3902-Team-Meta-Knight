@@ -68,6 +68,7 @@ namespace Sprint0
             for(int i=0;i<projectiles.Count;i++)
             {
                 projectiles[i].Move();
+                projectiles[i].Update();
             }
         }
     }

@@ -93,9 +93,9 @@ namespace Sprint0
             keyboard.RegisterCommand(Keys.E, new CDamagePlayer(linkstate));
 
             //need to be able to use all items from number keys, need commands for this
-            keyboard.RegisterCommand(Keys.D1, new CPlayerSecondaryAttack(link, this));
-            keyboard.RegisterCommand(Keys.D2, new CPlayerSecondaryAttack(link, this)); 
-            keyboard.RegisterCommand(Keys.D3, new CPlayerSecondaryAttack(link, this));
+            keyboard.RegisterCommand(Keys.D1, new CPlayerSecondaryAttack(link, this,"Bomb"));
+            keyboard.RegisterCommand(Keys.D2, new CPlayerSecondaryAttack(link, this,"Key")); 
+            keyboard.RegisterCommand(Keys.D3, new CPlayerSecondaryAttack(link, this, "HealHeart"));
 
             keyboard.RegisterCommand(Keys.U, new CCyclePlayerItemPrevious(item));
             keyboard.RegisterCommand(Keys.I, new CCyclePlayerItemNext(item));
@@ -202,8 +202,8 @@ namespace Sprint0
             spriteBatch.Begin();
             //These calls don't seem to be doing anything -- should implment with spriteFactory in some way
             enemy.Draw(spriteBatch);
-            link.Draw(spriteBatch);
             ProjectileController.Instance.Draw(spriteBatch);
+            link.Draw(spriteBatch);
             item.Draw();
             block.Draw(spriteBatch);
             base.Draw(gameTime);
