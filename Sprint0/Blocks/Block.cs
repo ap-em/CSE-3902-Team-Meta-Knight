@@ -9,7 +9,12 @@ using Sprint0.Sprites.SpriteFactory;
 using Microsoft.Xna.Framework.Graphics;
 
 
-/*OWEN HUSTON - 9/20/2021 */
+/*Alex Clayton
+Alex Contreras
+Jared Israel
+Leon Cai
+Owen Tishenkel
+Owen Huston*/
 
 
 namespace Sprint0.Blocks
