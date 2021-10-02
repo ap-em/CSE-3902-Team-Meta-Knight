@@ -202,9 +202,10 @@ namespace Sprint0
             spriteBatch.Begin();
             //These calls don't seem to be doing anything -- should implment with spriteFactory in some way
             enemy.Draw(spriteBatch);
+            ProjectileController.Instance.Draw(spriteBatch);
             link.Draw(spriteBatch);
 
-            ProjectileController.Instance.Draw(spriteBatch);
+            
             item.Draw();
             base.Draw(gameTime);
 

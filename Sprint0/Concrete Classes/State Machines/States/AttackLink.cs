@@ -26,27 +26,27 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
             {
                 case "DownIdleLink":
                 case "DownMovingLink":
-                    position.Y = position.Y + 16;
+                    position.Y = position.Y + 32;
                     ProjectileController.Instance.AddProjectile(
-                        new Projectile(SpriteFactory.Instance.GetSprite("DownSword"), position, 0, 0, 3));
+                        new Projectile(SpriteFactory.Instance.GetSprite("DownSword"), position, 0, 0, 6));
                     break;
                 case "UpMovingLink":
                 case "UpIdleLink":
-                    position.Y = position.Y - 16;
+                    position.Y = position.Y - 32;
                     ProjectileController.Instance.AddProjectile(
-                        new Projectile(SpriteFactory.Instance.GetSprite("UpSword"), position, 0, 0, 3));
+                        new Projectile(SpriteFactory.Instance.GetSprite("UpSword"), position, 0, 0, 6));
                     break;
                 case "RightMovingLink":
                 case "RightIdleLink":
-                    position.X = position.X + 16;
+                    position.X = position.X + 32;
                     ProjectileController.Instance.AddProjectile(
-                        new Projectile(SpriteFactory.Instance.GetSprite("RightSword"), position, 0, 0, 3));
+                        new Projectile(SpriteFactory.Instance.GetSprite("RightSword"), position, 0, 0, 6));
                     break;
                 case "LeftMovingLink":
                 case "LeftIdleLink":
-                    position.X = position.X + 16;
+                    position.X = position.X - 32;
                     ProjectileController.Instance.AddProjectile(
-                        new Projectile(SpriteFactory.Instance.GetSprite("LeftSword"), position, 0, 0, 3));
+                        new Projectile(SpriteFactory.Instance.GetSprite("LeftSword"), position, 0, 0, 6));
                     break;
 
             }
