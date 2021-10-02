@@ -8,7 +8,14 @@ using System.Text.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
-
+/*
+Alex Clayton
+Alex Contreras
+Jared Israel
+Leon Cai
+Owen Tishenkel
+Owen Huston
+*/
 namespace Sprint0.Sprites.SpriteFactory
 {
     public class SpriteFactory
