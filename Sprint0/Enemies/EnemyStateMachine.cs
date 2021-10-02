@@ -33,7 +33,7 @@ namespace Sprint0.Enemies
 
             if(enemy.GetFiring())
             {
-                spriteString = enemyMovement.GetDirection() + "Shooting" + enemy.GetEnemyType();
+                // spriteString = enemyMovement.GetDirection() + "Shooting" + enemy.GetEnemyType();
             }
             else 
             { 
@@ -55,20 +55,28 @@ namespace Sprint0.Enemies
             String enemyType = enemy.GetEnemyType();
             switch (enemyType)
             {
-                case "Enemy1":
-                    enemy.SetEnemyType("Enemy3");
+                case "Octorok":
+                    enemy.SetEnemyType("Bat");
                     break;
 
-                case "Enemy2":
-                    enemy.SetEnemyType("Enemy1");
+                case "Moblin":
+                    enemy.SetEnemyType("Octorok");
                     break;
 
-                case "Enemy3":
-                    enemy.SetEnemyType("Enemy2");
+                case "Like-Like":
+                    enemy.SetEnemyType("Moblin");
+                    break;
+
+                case "Stalfos":
+                    enemy.SetEnemyType("Like-Like");
+                    break;
+
+                case "Bat":
+                    enemy.SetEnemyType("Stalfos");
                     break;
 
                 default:
-                    enemy.SetEnemyType("Enemy1");
+                    enemy.SetEnemyType("Octorok");
                     break;
             }
         }
@@ -77,20 +85,28 @@ namespace Sprint0.Enemies
             String enemyType = enemy.GetEnemyType();
             switch (enemyType)
             {
-                case "Enemy1":
-                    enemy.SetEnemyType("Enemy2");
+                case "Octorok":
+                    enemy.SetEnemyType("Moblin");
                     break;
 
-                case "Enemy2":
-                    enemy.SetEnemyType("Enemy3");
+                case "Moblin":
+                    enemy.SetEnemyType("Like-Like");
                     break;
 
-                case "Enemy3":
-                    enemy.SetEnemyType("Enemy1");
+                case "Like-Like":
+                    enemy.SetEnemyType("Stalfos");
+                    break;
+
+                case "Stalfos":
+                    enemy.SetEnemyType("Bat");
+                    break;
+
+                case "Bat":
+                    enemy.SetEnemyType("Octorok");
                     break;
 
                 default:
-                    enemy.SetEnemyType("Enemy1");
+                    enemy.SetEnemyType("Octorok");
                     break;
             }
         }
