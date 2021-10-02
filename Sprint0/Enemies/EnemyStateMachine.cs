@@ -6,7 +6,14 @@ using Sprint0.Interfaces;
 using Sprint0.Sprites;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.SpriteFactory;
-
+/*
+Alex Clayton
+Alex Contreras
+Jared Israel
+Leon Cai
+Owen Tishenkel
+Owen Huston
+*/
 /*Owen Huston 9/22/21 */
 
 namespace Sprint0.Enemies
