@@ -26,7 +26,7 @@ namespace Sprint0
 
         public Enemy()
         {
-            enemyMovement = new EnemyMovement(this, new Vector2(200,200));
+            enemyMovement = new EnemyMovement(this, new Vector2(300,300));
             stateMachine = new EnemyStateMachine(this, enemyMovement);
         }
         public void PrevEnemy()

@@ -24,5 +24,6 @@ namespace Sprint0
         void PrimaryAttack();
 
         void SecondaryAttack(String attackType);
+        void TakeDamage();
     }
 }

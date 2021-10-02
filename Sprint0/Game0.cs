@@ -71,7 +71,7 @@ namespace Sprint0
 
             base.Initialize();
         }
-        private void SetUpPlayerKeyboard(IKeyboardController keyboard)
+        public void SetUpPlayerKeyboard(IKeyboardController keyboard)
         {
             keyboard.RegisterCommand(Keys.Q, new Quit(this));
             keyboard.RegisterCommand(Keys.R, new CReset(this));
@@ -90,7 +90,7 @@ namespace Sprint0
             keyboard.RegisterCommand(Keys.Z, new CPlayerPrimaryAttack(link,this));
             keyboard.RegisterCommand(Keys.N, new CPlayerPrimaryAttack(link, this));
 
-            keyboard.RegisterCommand(Keys.E, new CDamagePlayer(linkstate));
+            keyboard.RegisterCommand(Keys.E, new CDamagePlayer(link, this));
 
             //need to be able to use all items from number keys, need commands for this
             keyboard.RegisterCommand(Keys.D1, new CPlayerSecondaryAttack(link, this,"Bomb"));
@@ -119,7 +119,7 @@ namespace Sprint0
             
 
         }
-        private void SetUpEnemyKeyboard(IKeyboardController keyboard, IEnemy enemy)
+        public void SetUpEnemyKeyboard(IKeyboardController keyboard, IEnemy enemy)
         {
             keyboard.RegisterCommand(Keys.W, new CMoveEnemyUp(enemy));
             keyboard.RegisterCommand(Keys.A, new CMoveEnemyLeft(enemy));
@@ -132,8 +132,6 @@ namespace Sprint0
             keyboard.RegisterReleasableKey(Keys.A, new CZeroEnemyXVelocity(enemy));
             keyboard.RegisterReleasableKey(Keys.D, new CZeroEnemyXVelocity(enemy));
 
-            //            keyboard.SetZeroXVelocityCommand(new CZeroEnemyYVelocity(enemy));
-            //            keyboard.SetZeroYVelocityCommand(new CZeroEnemyXVelocity(enemy));
         }
         /* No need for mouse for Sprint 2
         private void SetUpMouse()

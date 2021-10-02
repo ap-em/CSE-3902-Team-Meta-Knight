@@ -3,84 +3,196 @@
     "DataX": [ 90 ],
     "DataY": [ 0 ],
     "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightIdleLink",
+    "SpriteName": "RightIdleLinkFull",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 30 ],
     "DataY": [ 0 ],
     "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftIdleLink",
+    "SpriteName": "LeftIdleLinkFull",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 60 ],
     "DataY": [ 0 ],
     "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpIdleLink",
+    "SpriteName": "UpIdleLinkFull",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 0 ],
     "DataY": [ 0 ],
     "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownIdleLink",
+    "SpriteName": "DownIdleLinkFull",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 90, 90 ],
     "DataY": [ 0, 30 ],
     "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "RightMovingLink",
+    "SpriteName": "RightMovingLinkFull",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 30, 30 ],
     "DataY": [ 0, 30 ],
     "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "LeftMovingLink",
+    "SpriteName": "LeftMovingLinkFull",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 60, 60 ],
     "DataY": [ 0, 30 ],
     "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "UpMovingLink",
+    "SpriteName": "UpMovingLinkFull",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 0, 0 ],
     "DataY": [ 0, 30 ],
     "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "DownMovingLink",
+    "SpriteName": "DownMovingLinkFull",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 0 ],
     "DataY": [ 60 ],
     "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownUseLink",
+    "SpriteName": "DownUseLinkFull",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 90 ],
     "DataY": [ 60 ],
     "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightUseLink",
+    "SpriteName": "RightUseLinkFull",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 30 ],
     "DataY": [ 60 ],
     "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftUseLink",
+    "SpriteName": "LeftUseLinkFull",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 60 ],
     "DataY": [ 60 ],
     "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpUseLink",
+    "SpriteName": "UpUseLinkFull",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 90, 211, 330 ],
+    "DataY": [ 0, 0, 0 ],
+    "Data": [ 16, 16, 3, 1 ],
+    "SpriteName": "RightIdleLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 30, 150, 270 ],
+    "DataY": [ 0, 0, 0 ],
+    "Data": [ 16, 16, 3, 1 ],
+    "SpriteName": "LeftIdleLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 60, 180, 300 ],
+    "DataY": [ 0, 0, 0 ],
+    "Data": [ 16, 16, 3, 1 ],
+    "SpriteName": "UpIdleLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 0, 120, 240 ],
+    "DataY": [ 0, 0, 0 ],
+    "Data": [ 16, 16, 3, 1 ],
+    "SpriteName": "DownIdleLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 90, 210, 330, 210 ],
+    "DataY": [ 0, 30, 0, 30 ],
+    "Data": [ 16, 16, 4, 1 ],
+    "SpriteName": "RightMovingLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 30, 150, 270, 150 ],
+    "DataY": [ 0, 30, 0, 30 ],
+    "Data": [ 16, 16, 4, 1 ],
+    "SpriteName": "LeftMovingLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 60, 180, 300, 180 ],
+    "DataY": [ 0, 30, 0, 30 ],
+    "Data": [ 16, 16, 4, 1 ],
+    "SpriteName": "UpMovingLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 0, 120, 240, 120 ],
+    "DataY": [ 0, 30, 0, 30 ],
+    "Data": [ 16, 16, 4, 1 ],
+    "SpriteName": "DownMovingLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 0, 120, 240, 120 ],
+    "DataY": [ 60, 60, 60, 60 ],
+    "Data": [ 16, 16, 4, 1 ],
+    "SpriteName": "DownUseLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 90, 210, 330, 210 ],
+    "DataY": [ 60, 60, 0, 0 ],
+    "Data": [ 16, 16, 4, 1 ],
+    "SpriteName": "RightUseLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 30, 150, 270, 150 ],
+    "DataY": [ 60, 60, 60, 60 ],
+    "Data": [ 16, 16, 4, 1 ],
+    "SpriteName": "LeftUseLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 60, 180, 300, 180 ],
+    "DataY": [ 60, 60, 60, 60 ],
+    "Data": [ 16, 16, 4, 1 ],
+    "SpriteName": "UpUseLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 0, 120, 240, 120 ],
+    "DataY": [ 90, 90, 90,  90 ],
+    "Data": [ 16, 32, 4, 1 ],
+    "SpriteName": "DownSwordLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 90, 210, 330, 210 ],
+    "DataY": [ 90, 90,  90,  90 ],
+    "Data": [ 16, 32, 4, 1 ],
+    "SpriteName": "RightSwordLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 30, 150, 270, 150 ],
+    "DataY": [ 90, 90,  90,  90 ],
+    "Data": [ 16, 32, 4, 1 ],
+    "SpriteName": "LeftSwordLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 60, 180, 300, 180 ],
+    "DataY": [ 90, 90, 90, 90 ],
+    "Data": [ 16, 16, 4, 1 ],
+    "SpriteName": "UpSwordLinkHalf",
     "SpriteSheet": "link"
   },
   {
@@ -558,62 +670,6 @@
     "Data": [ 16, 16, 1, 1 ],
     "SpriteName": "DownIdleBat",
     "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 330 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightIdleDamagedLink",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 270 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftIdleDamagedLink",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 300 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpIdleDamagedLink",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 240 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownIdleDamagedLink",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 330, 330 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "RightMovingDamagedLink",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 270, 270 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "LeftMovingDamagedLink",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 300, 300 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "UpMovingDamagedLink",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 240, 240 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "DownMovingDamagedLink",
-    "SpriteSheet": "link"
   },
   {
     "DataX": [ 0 ],
