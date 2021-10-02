@@ -11,15 +11,17 @@ namespace Sprint0.Commands
     {
         ILink secondaryAttack;
         Game0 gameHere;
-        public CPlayerSecondaryAttack(ILink secondaryAttack, Game0 game)
+        String attackType;
+        public CPlayerSecondaryAttack(ILink secondaryAttack, Game0 game, String attackType)
         {
             gameHere = game;
             this.secondaryAttack = secondaryAttack;
+            this.attackType = attackType;
         }
 
         public void Execute()
         {
-            secondaryAttack.SecondaryAttack();
+            secondaryAttack.SecondaryAttack(attackType);
         }
     }
 }

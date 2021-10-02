@@ -102,9 +102,9 @@ namespace Sprint0
             attack = new AttackLink(currentState, position);
             attack.Attack();
         }
-        public void SecondaryAttack()
+        public void SecondaryAttack(String attackType)
         {
-            attack = new SecondaryAttackLink(currentState, position);
+            attack = new SecondaryAttackLink(currentState, position, attackType);
             attack.Attack();
         }
 
