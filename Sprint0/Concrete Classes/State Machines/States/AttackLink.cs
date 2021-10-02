@@ -3,7 +3,14 @@ using Sprint0.Sprites.SpriteFactory;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+/*
+Alex Clayton
+Alex Contreras
+Jared Israel
+Leon Cai
+Owen Tishenkel
+Owen Huston
+*/
 namespace Sprint0.Concrete_Classes.State_Machines.States
 {
     class AttackLink : ILinkState
