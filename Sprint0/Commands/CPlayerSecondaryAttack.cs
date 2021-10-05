@@ -6,17 +6,30 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
+    /*
+Alex Clayton
+Alex Contreras
+Jared Israel
+Leon Cai
+Owen Tishenkel
+Owen Huston
+*/
+    /*Owen Tishenkel 2021 CSE 3902*/
     class CPlayerSecondaryAttack : ICommand
     {
         ILink secondaryAttack;
-        public CPlayerSecondaryAttack(ILink secondaryAttack)
+        Game0 gameHere;
+        String attackType;
+        public CPlayerSecondaryAttack(ILink secondaryAttack, Game0 game, String attackType)
         {
+            gameHere = game;
             this.secondaryAttack = secondaryAttack;
+            this.attackType = attackType;
         }
 
         public void Execute()
         {
-            secondaryAttack.Execute();
+            secondaryAttack.SecondaryAttack(attackType);
         }
     }
 }

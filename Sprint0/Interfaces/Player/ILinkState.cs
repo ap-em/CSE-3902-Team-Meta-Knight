@@ -1,19 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-
-// Alex Clayton 09/15/21
-namespace Sprint0.Interfaces.Player
+/*
+Alex Clayton
+Alex Contreras
+Jared Israel
+Leon Cai
+Owen Tishenkel
+Owen Huston
+*/
+namespace Sprint0
 {
     public interface ILinkState
     {
-        // Interface for Link's sprite state
-        void ChangeDirection();
-        void Update();
-        void TakeDamage(); // This would update Link's state since his sword beam depends on being full health
-        void Draw(SpriteBatch spritebatch, Vector2 location);
+        string ID { get; }
+        public void MoveLeft();
+        public void MoveRight();
+        public void MoveUp();
+        public void MoveDown();
+        public void StopMoving(string sourceDirection);
+        public void Jump();
+        public void Attack();
+        public void Crouch();
+        public void Update();
     }
 }

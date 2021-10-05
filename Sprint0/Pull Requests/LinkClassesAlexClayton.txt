@@ -1,0 +1,15 @@
+CODE REVIEW of sprint2_Leon by Alex Clayton 10/1/21:
+downAttackLink.cs: setting attack as a Boolean wouldn’t work out. The sword beam idea is good under TakeDamage()
+but that depends on the link state machine, which this also doesn’t have a connection to.
+downLink.cs: I like using a global constant variable for movement. That’s a good way to avoid magic numbers.
+downUseItemLink.cs: Same as other files but the useItem() function has code. It would be better if on useItem(), 
+Link’s animation was just updated, so this class is redundant.
+leftAttackLink.cs: Same as down attack link
+leftLink.cs: Same as other links. 
+leftUseItemLink.cs: Same ^
+rightAttackLink.cs: Same ^
+
+Overall: We didn’t end up going with this code since another pushed state machine worked better, 
+but some ideas here were still valid. The sprite machine used here was the old kind and would still work here, 
+but they were done in a good way. I like the idea of using a global constant variable within the code and that 
+is probably the best idea here. Code smells with repeated code which could be handled in less cases with states.

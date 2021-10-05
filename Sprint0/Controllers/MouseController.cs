@@ -5,14 +5,25 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Sprint0.Interfaces;
 using Sprint0.Commands;
+/*
+Alex Clayton
+Alex Contreras
+Jared Israel
+Leon Cai
+Owen Tishenkel
+Owen Huston
+*/
 namespace Sprint0.Controllers
 {
-    class MouseController : IController
+    class MouseController : IMouseController
     {
         MouseState state;
         private Dictionary<Rectangle, ICommand> mouseMappings;
         private List<Rectangle> rectangles;
         private Game0 gameHere;
+        private ICommand zeroXVelocity;
+        private ICommand zeroYVelocity;
+
         public MouseController(Game0 game)
         {
             gameHere = game;
@@ -26,6 +37,17 @@ namespace Sprint0.Controllers
             mouseMappings.Add(rectangle, command);
             rectangles.Add(rectangle);
         }
+
+        public void SetZeroXVelocityCommand(ICommand command)
+        {
+            zeroXVelocity = command;
+        }
+
+        public void SetZeroYVelocityCommand(ICommand command)
+        {
+            zeroYVelocity = command;
+        }
+
         public void Update()
         {
             // Mouse.GetState().

@@ -1,0 +1,15 @@
+CODE REVIEW of Sprint 2 by Alex Contreras 9/22/21:
+Block: Good idea to have the block class handle all the calls from all the different blocks we need to implement. 
+Good de-coupling as well as abstraction here. A similar thing can be done for the enemies and items!
+Though a state machine would be needed for the enemies, items, and blocks later on. For what we want in this sprint 2, this should suffice. 
+Good commenting throughout, especially with the call to sprite factory.
+
+Block1State/Block2State/Block3State: Great implementation, however, we're going to need more than 3 blocks, from what I counted on the demo, we should need 9 blocks. 
+But that's an easy addition just a lot of copying and pasting, but just noting it here.
+
+IBlock: We might need an additional method to trigger a change in state if we want environmental interaction, but for now it should be good.
+
+OVERALL: Overall the code seems to be good, no major issues here, obv. we won't know if everything will work until the sprite factory is up and running,
+but a good shell for the blocks for now.
+
+ALL.CS FILES' AUTHOR IS Owen Huston

@@ -1,0 +1,12 @@
+CODE REVIEW of PULL request #38 by Leon Cai 10/1/21
+
+Enemy.cs: It is good to change the enemy "enemy1" to have the actual name of it so the client could understand our code better.
+
+EnemyStateMachine.cs: Since the animation for sprint 2 do not need sprites for enemy get attacked, so it is good to make the getfiring() into comment for now,
+but make sure to make comments on it so we could change it for the future sprints. Also, 
+changing Enemy1, Enemy2, and Enemy3 to the acutal name of enemy is great.
+In the preEnemy() and nextEnemy() methods, the switch cases is not the best idea here since 
+it reminds me the duplicate code of the code smell. I think it is better to make those enemies in to an enum.
+
+DataSheet.json: It is really great to set all the sprites data into a single file so we could load the whole sprites once. 
+This calls on the decoupling professor Kirby mentioned a lot during the class.

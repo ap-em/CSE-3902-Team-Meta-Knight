@@ -1,0 +1,73 @@
+Code Review From Neil Kirby 10/1/21
+Written by Alex Clayton --- Uploaded by Alex Contreras
+
+Can either group interfaces as a group, or can group 
+
+
+Can have the data file in "Content.load" at the very beginning
+
+
+
+Link: LinkHealthStateMachine
+
+
+- have a single concrete class
+- state pattern: interface with many diff concrete
+
+
+
+(using state machine for health)
+- hard coupling between Link player and other one
+- if interface, can decouple.
+- why not once you pull out the state machine for link, drop in any state machine for link's health using an interface
+- 
+
+- "currentState" is movement state, needs to reflect that.
+
+- 
+
+OnStateChange() is a good move since all state changes funnel through it 
+
+
+- right moving link has velocity, we call move and it has state as a velocity
+
+- move velocity could be changed?
+
+- takeDamage could be an interface
+
+
+KeyboardControllerList should manage all controllers at some point
+that way it can hand out updates to the individual controllers
+
+
+
+- cant we just cycle through th blocks better? we just cycle through the textures
+maybe by iterating or using a "Get Block"
+
+sprite factory owns blocks
+
+blocks do not update. good
+
+Our blocks thing is a statemachine, really
+
+
+
+refactor list will be heavy with this
+
+* i need code out today
+
+* I know i have features coming, but if I have all of them I don't have the stuff for today
+
+- can consolidate 
+
+generic projectile class in one class. this is good
+
+
+
+projectile -> draw in update GET RID OF
+
+Draw needs to be called from within ProjectileController and not Update
+
+
+
+**** AT LEVEL LOAD TIME, CAN DO ART SWAP AND NO ONE KNOWS

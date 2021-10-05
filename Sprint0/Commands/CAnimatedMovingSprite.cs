@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 using Sprint0.Interfaces;
-using Sprint0.Sprites;
-
+using Sprint0.Sprites.SpriteFactory;
+/*
+Alex Clayton
+Alex Contreras
+Jared Israel
+Leon Cai
+Owen Tishenkel
+Owen Huston
+*/
 namespace Sprint0.Commands
 {
     class CAnimatedMovingSprite : ICommand
@@ -18,7 +25,7 @@ namespace Sprint0.Commands
         
         public void Execute()
         {
-            gameHere.sprite = SpriteController.Instance.CreateAnimatedMovingSprite(); // This is the fixed sprite. Poorly named.
+                gameHere.sprite = SpriteFactory.Instance.GetSprite("RightLink");
         }
     }
 }
