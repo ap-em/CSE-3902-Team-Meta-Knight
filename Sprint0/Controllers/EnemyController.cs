@@ -20,6 +20,7 @@ namespace Sprint0.Controllers
     {
         private Dictionary<Keys, ICommand> pressableKeyMappings;
         private Dictionary<Keys, ICommand> releasableKeyMappings;
+        private Dictionary<Keys, ICommand> holdableKeyMappings;
         private List<Keys> availableKeys;
         private Keys oldKey;
         private int currentTime = 0;
@@ -32,6 +33,7 @@ namespace Sprint0.Controllers
         {
             pressableKeyMappings = new Dictionary<Keys, ICommand>();
             releasableKeyMappings = new Dictionary<Keys, ICommand>();
+            holdableKeyMappings = new Dictionary<Keys, ICommand>();
             availableKeys = new List<Keys>();
             availableKeys.Add(Keys.None);
             oldKey = Keys.None;
@@ -40,6 +42,11 @@ namespace Sprint0.Controllers
         {
             pressableKeyMappings.Add(key, command);
             if(!availableKeys.Contains(key)) availableKeys.Add(key);
+        }
+        public void RegisterHoldableKey(Keys key, ICommand command)
+        {
+            holdableKeyMappings.Add(key, command);
+            if (!availableKeys.Contains(key)) availableKeys.Add(key);
         }
         public void RegisterReleasableKey(Keys key, ICommand command)
         {
