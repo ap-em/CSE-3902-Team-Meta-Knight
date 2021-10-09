@@ -87,112 +87,196 @@
     "DataX": [ 90, 211, 330 ],
     "DataY": [ 0, 0, 0 ],
     "Data": [ 16, 16, 3, 1 ],
-    "SpriteName": "RightIdleLinkHalf",
+    "SpriteName": "RightIdleLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 30, 150, 270 ],
     "DataY": [ 0, 0, 0 ],
     "Data": [ 16, 16, 3, 1 ],
-    "SpriteName": "LeftIdleLinkHalf",
+    "SpriteName": "LeftIdleLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 60, 180, 300 ],
     "DataY": [ 0, 0, 0 ],
     "Data": [ 16, 16, 3, 1 ],
-    "SpriteName": "UpIdleLinkHalf",
+    "SpriteName": "UpIdleLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 0, 120, 240 ],
     "DataY": [ 0, 0, 0 ],
     "Data": [ 16, 16, 3, 1 ],
-    "SpriteName": "DownIdleLinkHalf",
+    "SpriteName": "DownIdleLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 90, 210, 330, 210 ],
     "DataY": [ 0, 30, 0, 30 ],
     "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "RightMovingLinkHalf",
+    "SpriteName": "RightMovingLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 30, 150, 270, 150 ],
     "DataY": [ 0, 30, 0, 30 ],
     "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "LeftMovingLinkHalf",
+    "SpriteName": "LeftMovingLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 60, 180, 300, 180 ],
     "DataY": [ 0, 30, 0, 30 ],
     "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "UpMovingLinkHalf",
+    "SpriteName": "UpMovingLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 0, 120, 240, 120 ],
     "DataY": [ 0, 30, 0, 30 ],
     "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "DownMovingLinkHalf",
+    "SpriteName": "DownMovingLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 0, 120, 240, 120 ],
     "DataY": [ 60, 60, 60, 60 ],
     "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "DownUseLinkHalf",
+    "SpriteName": "DownUseLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 90, 210, 330, 210 ],
     "DataY": [ 60, 60, 0, 0 ],
     "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "RightUseLinkHalf",
+    "SpriteName": "RightUseLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 30, 150, 270, 150 ],
     "DataY": [ 60, 60, 60, 60 ],
     "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "LeftUseLinkHalf",
+    "SpriteName": "LeftUseLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 60, 180, 300, 180 ],
     "DataY": [ 60, 60, 60, 60 ],
     "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "UpUseLinkHalf",
+    "SpriteName": "UpUseLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 0, 120, 240, 120 ],
-    "DataY": [ 90, 90, 90,  90 ],
+    "DataY": [ 90, 90, 90, 90 ],
     "Data": [ 16, 32, 4, 1 ],
-    "SpriteName": "DownSwordLinkHalf",
+    "SpriteName": "DownSwordLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 90, 210, 330, 210 ],
-    "DataY": [ 90, 90,  90,  90 ],
+    "DataY": [ 90, 90, 90, 90 ],
     "Data": [ 16, 32, 4, 1 ],
-    "SpriteName": "RightSwordLinkHalf",
+    "SpriteName": "RightSwordLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 30, 150, 270, 150 ],
-    "DataY": [ 90, 90,  90,  90 ],
+    "DataY": [ 90, 90, 90, 90 ],
     "Data": [ 16, 32, 4, 1 ],
-    "SpriteName": "LeftSwordLinkHalf",
+    "SpriteName": "LeftSwordLinkFullDamaged",
     "SpriteSheet": "link"
   },
   {
     "DataX": [ 60, 180, 300, 180 ],
     "DataY": [ 90, 90, 90, 90 ],
     "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "UpSwordLinkHalf",
+    "SpriteName": "UpSwordLinkFullDamaged",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 90 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "RightIdleLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 30 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "LeftIdleLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 60 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "UpIdleLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "DownIdleLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 90, 90 ],
+    "DataY": [ 0, 30 ],
+    "Data": [ 16, 16, 2, 1 ],
+    "SpriteName": "RightMovingLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 30, 30 ],
+    "DataY": [ 0, 30 ],
+    "Data": [ 16, 16, 2, 1 ],
+    "SpriteName": "LeftMovingLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 60, 60 ],
+    "DataY": [ 0, 30 ],
+    "Data": [ 16, 16, 2, 1 ],
+    "SpriteName": "UpMovingLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 0, 0 ],
+    "DataY": [ 0, 30 ],
+    "Data": [ 16, 16, 2, 1 ],
+    "SpriteName": "DownMovingLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 60 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "DownUseLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 90 ],
+    "DataY": [ 60 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "RightUseLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 30 ],
+    "DataY": [ 60 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "LeftUseLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 60 ],
+    "DataY": [ 60 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "UpUseLinkHalf",
     "SpriteSheet": "link"
   },
   {
