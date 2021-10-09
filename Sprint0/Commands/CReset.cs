@@ -22,12 +22,9 @@ Owen Huston
         ICommand enemyReset;
         ICommand itemReset;
         ICommand playerReset;
-        /*gameHere provides access to game for the purposes of reseting many of the things that it contains*/
-        Game0 gameHere;
         /*CReset relys on the fact that the constructors for each Entity class put them in the correct spot at startup*/
         public CReset(Game0 game)
         {
-            gameHere = game;
             blockReset = new CResetBlock(game);
             enemyReset = new CResetEnemy(game);
             itemReset = new CResetItem(game);
@@ -37,10 +34,10 @@ Owen Huston
 
         public void Execute()
         {
+            playerReset.Execute();
             blockReset.Execute();
             enemyReset.Execute();
             itemReset.Execute();
-            playerReset.Execute();
         }
     }
 }

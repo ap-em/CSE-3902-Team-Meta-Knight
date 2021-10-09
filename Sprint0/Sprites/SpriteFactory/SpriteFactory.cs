@@ -80,7 +80,7 @@ namespace Sprint0.Sprites.SpriteFactory
             int[] data = s.Data; // Data: Location in sprite sheet(x) // (y) // height(of sprite) // width(of sprite) // row(for frames) // columns (for frames)
             int[] x = s.DataX;
             int[] y = s.DataY;
-            return new AnimatedSprite(texture, x , y, data[0], data[1], data[2], data[3]); // // Texture2D texture // int rows // int  columns Data[4] is rows, Data[] is columns [0]=x [1]=y
+            return new AnimatedSprite(texture, x , y, data[0], data[1], data[2]); // // Texture2D texture // int rows // int  columns Data[4] is rows, Data[] is columns [0]=x [1]=y
         }
 
     }

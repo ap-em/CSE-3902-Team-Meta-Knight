@@ -28,15 +28,15 @@ namespace Sprint0.Sprites
         private int[] Ylist;
         private int waitTime = 2;
         private int currentTime = 0;
-        public AnimatedSprite(Texture2D texture, int[] x, int[] y, int w, int h, int rows, int columns) 
+        private Rectangle sourceRectangle = new Rectangle(0, 0, 0, 0);
+        private Rectangle destinationRectangle = new Rectangle(0, 0, 0, 0);
+        public AnimatedSprite(Texture2D texture, int[] x, int[] y, int w, int h, int frames) 
         {
             width = w;
             height = h;
             Texture = texture;
-            Rows = rows;
-            Columns = columns;
             currentFrame = 0;
-            totalFrames = Rows * Columns;
+            totalFrames = frames;
             Xlist = x;
             Ylist = y;
         }
@@ -58,10 +58,6 @@ namespace Sprint0.Sprites
         }
         public void Draw(SpriteBatch _spriteBatch, Vector2 location)
         {
-            int row = (int)((float)currentFrame / (float)Columns);
-            int column = currentFrame % Columns;
-            Rectangle sourceRectangle = new Rectangle(0, 0,0, 0);
-            Rectangle destinationRectangle = new Rectangle(0, 0, 0, 0); 
              sourceRectangle = new Rectangle(Xlist[currentFrame], Ylist[currentFrame], width, height);
              destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width* 2, height*2);
             _spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
