@@ -1,0 +1,4 @@
+﻿<objects>
+  <Block>OrangeBlock,BlueBlock,BlueStatueLeft,BlueStatueRight,GreenStatueLeft,GreenStatueRight,GreenTile,BlueTile,BlackTile,Stairs,OrangeSand,GreenSand,BlueSand</Block>
+  <Item>HealHeart,RedRupee,BlueRupee,Bomb,Key</Item>
+</objects>

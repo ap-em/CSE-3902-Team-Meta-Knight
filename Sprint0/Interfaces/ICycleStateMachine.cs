@@ -18,10 +18,9 @@ namespace Sprint0.Interfaces
     /*
      * This interface can be used for all blocks, which should just involve replacing the texture.
      */
-   public interface IBlockState
+   public interface ICycleStateMachine
     {
-        void PrevBlock();
-        void NextBlock();
-        void Draw(SpriteBatch spriteBatch);
+        void PrevSprite();
+        void NextSprite();
     }
 }

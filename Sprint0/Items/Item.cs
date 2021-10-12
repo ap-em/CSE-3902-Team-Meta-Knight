@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
+using Sprint0.Cycle;
 using Sprint0.Sprites.SpriteFactory;
 using System;
 /*
@@ -13,40 +14,41 @@ Owen Huston
 namespace Sprint0.Items
 {
     /*Owen Tishenkel, heavily based on Owen Houston's Enemy class*/
-    class Item : IItems
+    class Item : IItems, ICyclable
     {
         Game0 game;
-        IItemStateMachine stateMachine;
+        ICycleStateMachine stateMachine;
+        String spriteName;
         ISprite sprite;
         private Vector2 location = new Vector2(100, 200);
-        String itemType;
+
         public Item(Game0 game)
         {
             this.game = game;
-            stateMachine = new ItemStateMachine(this);
-            itemType = "HealHeart";
-            this.setSprite();
+            stateMachine = new CycleStateMachine(this);
+            spriteName = "HealHeart";
+            this.SetSprite(spriteName);
             
         }
 
-        public void NextItem()
+        public void NextSprite()
         {
-            stateMachine.NextItem();
+            stateMachine.NextSprite();
         }
 
-        public void PrevItem()
+        public void PrevSprite()
         {
-            stateMachine.PrevItem();
+            stateMachine.PrevSprite();
         }
 
-        public void Update()
+        public void SetSprite(String spriteName)
         {
-            sprite.Update();
+            this.spriteName = spriteName;
+            this.sprite = SpriteFactory.Instance.GetSprite(spriteName);
         }
-
-        public void setSprite()
+        public string GetSpriteName()
         {
-            this.sprite = SpriteFactory.Instance.GetSprite(this.getItemType());
+            return spriteName;
         }
         public void Move(int x, int y)
         {
@@ -56,15 +58,9 @@ namespace Sprint0.Items
         {
             sprite.Draw(game.spriteBatch, location);
         }
-        /*Sets item type*/
-        public void setItemType(String itemType)
+        public void Update()
         {
-            this.itemType = itemType;
-        }
-        /*Sets item type*/
-        public string getItemType()
-        {
-            return itemType;
+            sprite.Update();
         }
     }
 }

@@ -23,9 +23,8 @@ namespace Sprint0.Interfaces
    public interface IItems
     {
         void Update();
-        void PrevItem();
-        void NextItem();
-        void setSprite();
+        void PrevSprite();
+        void NextSprite();
         void Draw();
         void Move(int x, int y);
     }

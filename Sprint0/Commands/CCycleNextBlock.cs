@@ -21,7 +21,7 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            block.NextBlock();
+            block.NextSprite();
         }
     }
 }
