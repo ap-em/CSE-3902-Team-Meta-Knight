@@ -1,0 +1,32 @@
+﻿<Levels>
+  <Level1>
+    <obj>0,292,Block,GreenSand</obj>
+    <obj>0,324,Block,OrangeSand</obj>
+    <obj>0,356,Block,GreenSand</obj>
+    <obj>0,388,Block,OrangeSand</obj>
+    <obj>0,420,Block,GreenSand</obj>
+    <obj>0,452,Block,OrangeSand</obj>
+
+    <obj>32,292,Block,GreenSand</obj>
+    <obj>32,324,Block,OrangeSand</obj>
+    <obj>32,356,Block,GreenSand</obj>
+    <obj>32,388,Block,OrangeSand</obj>
+    <obj>32,420,Block,GreenSand</obj>
+    <obj>32,452,Block,OrangeSand</obj>
+
+    <obj>64,292,Block,GreenSand</obj>
+    <obj>64,324,Block,OrangeSand</obj>
+    <obj>64,356,Block,GreenSand</obj>
+    <obj>64,388,Block,OrangeSand</obj>
+    <obj>64,420,Block,GreenSand</obj>
+    <obj>64,452,Block,OrangeSand</obj>
+
+    <obj>96,292,Block,GreenSand</obj>
+    <obj>96,324,Block,OrangeSand</obj>
+    <obj>96,356,Block,GreenSand</obj>
+    <obj>96,388,Block,OrangeSand</obj>
+    <obj>96,420,Block,GreenSand</obj>
+    <obj>96,452,Block,OrangeSand</obj>
+
+  </Level1>
+</Levels>
