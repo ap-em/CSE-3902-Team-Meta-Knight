@@ -37,15 +37,17 @@ namespace Sprint0.Cycle
                 String objString = reader.ReadElementContentAsString();
                 String[] objValues = objString.Split(',');
 
+                //loop through objects
                 for (int i = 0; i < objValues.Length; i++)
                 {
                     if (objValues[i].Equals(spriteName))
                     {
-
+                        //if object is last in the list change the object name to the first object in list
                         if (i == objValues.Length - 1)
                         {
                             newName = objValues[0];
                         }
+                        //change object name to the next object in list
                         else
                         {
                             newName = objValues[i + 1];
@@ -72,14 +74,17 @@ namespace Sprint0.Cycle
                 String objString = reader.ReadElementContentAsString();
                 String[] objValues = objString.Split(',');
 
+                //loop through objects
                 for(int i = 0; i < objValues.Length; i++)
                 {
                     if(objValues[i].Equals(spriteName))
                     {
+                        //if object is first in list then change the name to the last object in list
                         if(i == 0)
                         {
                             newName = objValues[objValues.Length - 1];
                         }
+                        // change object name to the prev name in the list
                         else
                         {
                             newName = objValues[i-1];
