@@ -24,7 +24,7 @@ namespace Sprint0
 {
     class Level
     {
-        /*TODO: convert change sprites/positions to gameObjects*/
+        /*TODO: convert sprites/positions to gameObjects*/
 
         private int maxRowLength = 1000;
         private int maxNumberOfRows = 100;
