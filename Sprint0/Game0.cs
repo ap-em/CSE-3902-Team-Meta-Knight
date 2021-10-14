@@ -187,10 +187,11 @@ namespace Sprint0
                 enemy.Update();
             }
             */
-            link.Update();
-            enemy.Update();
+            //link.Update();
+           // enemy.Update();
             ProjectileController.Instance.Update();
             base.Update(gameTime);
+            GameObjectManager.Instance.UpdateGameObjects();
         }
 
         protected override void Draw(GameTime gameTime)
@@ -199,9 +200,12 @@ namespace Sprint0
 
             spriteBatch.Begin();
             //These calls don't seem to be doing anything -- should implment with spriteFactory in some way
-            enemy.Draw(spriteBatch);
+            //enemy.Draw(spriteBatch);
             ProjectileController.Instance.Draw(spriteBatch);
-            link.Draw(spriteBatch);
+           // link.Draw(spriteBatch);
+
+            GameObjectManager.Instance.DrawGameObjects(spriteBatch);
+
             item.Draw();
             block.Draw(spriteBatch);
             base.Draw(gameTime);
