@@ -22,7 +22,7 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            enemy.NextEnemy();
+            enemy.NextSprite();
         }
     }
 }

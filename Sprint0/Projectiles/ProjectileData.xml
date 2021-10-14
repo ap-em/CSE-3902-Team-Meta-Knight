@@ -1,0 +1,8 @@
+﻿<objects>
+  <!-- fusetime, projectile sprite, direction, xVel, yVel, direction, xVel, yVel, ... etc -->
+  <Octorok>30,HealHeart,Left,-4,0,Right,4,0,Up,0,-4,Down,0,4</Octorok>
+  <Moblin>30,RedRupee,Left,-4,0,Right,4,0,Up,0,-4,Down,0,4</Moblin>
+  <Like-Like>30,BlueRupee,Left,-4,0,Right,4,0,Up,0,-4,Down,0,4</Like-Like>
+  <Stalfos>30,BlueRupee,Left,-4,0,Right,4,0,Up,0,-4,Down,0,4</Stalfos>
+  <Bat>30,Bomb,Left,-4,0,Right,4,0,Up,0,-4,Down,0,4</Bat>
+</objects>

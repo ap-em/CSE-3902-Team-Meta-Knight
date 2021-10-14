@@ -5,8 +5,9 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
-using Sprint0.Enemies;
+using Sprint0.Cycle;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Sprites.SpriteFactory;
 
 /*
 Alex Clayton
@@ -19,51 +20,77 @@ Owen Huston
 /*OWEN HUSTON - 9/22/2021 */
 
 
-namespace Sprint0
+namespace Sprint0.Enemies
 {
-    public class Enemy : IEnemy
+    public class Enemy : IEnemy, ICyclable
     {
         private IEnemyMovement enemyMovement;
-        private IEnemyStateMachine stateMachine;
+        private ICycleStateMachine cycleStateMachine;
         private ISprite sprite;
         private String enemyType = "Octorok";
+        private String spriteName = "RightIdleOctorok";
         private bool firing = false;
         private int firingTimer = 4;
 
 
         public Enemy()
         {
-            enemyMovement = new EnemyMovement(this, new Vector2(300,300));
-            stateMachine = new EnemyStateMachine(this, enemyMovement);
+            enemyMovement = new EnemyMovement(this, new Vector2(300, 300));
+            spriteName = enemyMovement.GetDirection() + "Idle" + enemyType;
+            sprite = SpriteFactory.Instance.GetSprite(spriteName);
+            cycleStateMachine = new CycleStateMachine(this);
         }
-        public void PrevEnemy()
+        public void PrevSprite()
         {
-            stateMachine.PrevEnemy();
-            SetStateMachineSprite();
+            cycleStateMachine.PrevSprite();
+            SetSprite(enemyType);
         }
-        public void NextEnemy()
+        public void NextSprite()
         {
-            stateMachine.NextEnemy();
-            SetStateMachineSprite();
+            cycleStateMachine.PrevSprite();
+            SetSprite(enemyType);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, enemyMovement.GetLocation());
         }
-        public void SetSprite(ISprite sprite)
+        public void SetSprite(String enemyType)
         {
-            this.sprite = sprite;
+            this.enemyType = enemyType;
+            bool moving = enemyMovement.GetXVelocity() != 0 || enemyMovement.GetYVelocity() != 0;
+            String direction = enemyMovement.GetDirection();
+            if (firing)
+            {
+                // spriteString = enemyMovement.GetDirection() + "Shooting" + enemy.GetEnemyType(); Get to this once we implment an enemy that has a unique attack animation  
+            }
+            else
+            {
+                if (moving)
+                {
+                    this.spriteName = enemyMovement.GetDirection() + "Moving" + enemyType;
+                }
+                else
+                {
+                    this.spriteName = enemyMovement.GetDirection() + "Idle" + enemyType;
+                }
+            }
+
+            this.sprite = SpriteFactory.Instance.GetSprite(this.spriteName);
+        }
+        public String GetSpriteName()
+        {
+            return enemyType;
         }
         public void SetStateMachineSprite()
         {
-            stateMachine.SetSprite();
+           // stateMachine.SetSprite();
         }
         public void FireProjectile()
         {
             if (!firing)
             {
-                stateMachine.FireProjectile();
                 firing = true;
+                ProjectileCreator.Instance.CreateProjectile(enemyType, enemyMovement.GetDirection(), enemyMovement.GetLocation());
             }
         }
         public bool GetFiring()
@@ -74,51 +101,41 @@ namespace Sprint0
         {
             firing = fire;
         }
-        public void SetEnemyType(string enemyType)
-        {
-             this.enemyType = enemyType;
-             SetStateMachineSprite();
-        }
-
-        public string GetEnemyType()
-        {
-            return enemyType;
-        }
 
         public void MoveRight()
         {
             enemyMovement.MoveRight();
-            SetStateMachineSprite();
+            SetSprite(enemyType);
         }
 
         public void MoveLeft()
         {
             enemyMovement.MoveLeft();
-            SetStateMachineSprite();
+            SetSprite(enemyType);
         }
 
         public void MoveUp()
         {
             enemyMovement.MoveUp();
-            SetStateMachineSprite();
+            SetSprite(enemyType);
         }
 
         public void MoveDown()
         {
             enemyMovement.MoveDown();
-            SetStateMachineSprite();
+            SetSprite(enemyType);
         }
 
         public void SetXVelocity(int x)
         {
             enemyMovement.SetXVelocity(x);
-            SetStateMachineSprite();
+            SetSprite(enemyType);
         }
 
         public void SetYVelocity(int y)
         {
             enemyMovement.SetYVelocity(y);
-            SetStateMachineSprite();
+            SetSprite(enemyType);
         }
         public void Update()
         {
