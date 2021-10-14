@@ -15,7 +15,7 @@ Owen Huston
 */
 namespace Sprint0
 {
-    public class Link :ILink
+    public class Link :ILink, IGameObject
     {
         private LinkHealthStateMachine healthStateMachine;
         public ILinkState currentState;
@@ -26,9 +26,13 @@ namespace Sprint0
         private ILinkState attack;
         private int damageTimer = 100;
 
+        public Vector2 Position { get => position; set => throw new NotImplementedException(); }
+
+        public ISprite Sprite => currentSprite;
 
         public Link()
         {
+            GameObjectManager.Instance.AddToObjectList(this);
             healthStateMachine = new LinkHealthStateMachine();
             currentState = new RightFacingStaticLink(this);
             OnStateChange();
