@@ -47,25 +47,53 @@ namespace Sprint0.Blocks
         {
 
             XmlReader reader = XmlReader.Create(Path.GetFullPath("Levels\\LevelsData.xml"));
-            String objType;
-            Vector2 pos;
-            String objString;
-            String[] objValues;
 
             reader.ReadToFollowing("Levels");
 
             reader.ReadToFollowing("Level" + LevelNumber);
 
+            int rowIndex = 0;
+            
+            // read rows
+            while (reader.ReadToFollowing("row" + rowIndex))
+            {
+                // read objects
+                ReadObjects(reader.ReadSubtree(), rowIndex);
+                rowIndex++;
+            }
+        }
+        public void ReadObjects(XmlReader reader, int rowIndex)
+        {
             while (reader.ReadToFollowing("obj"))
             {
+                //get strings
+                String objString = reader.ReadElementContentAsString();
+                String[] objValues = objString.Split(',');
 
-                objString = reader.ReadElementContentAsString();
-                objValues = objString.Split(',');
+                //convert strings to ints
+                int xPos = Convert.ToInt32(objValues[0]);
+                int yPos = Convert.ToInt32(objValues[1]);
+                int numOfObj = Convert.ToInt32(objValues[2]);
 
-                pos = new Vector2(Convert.ToInt32(objValues[0]), Convert.ToInt32(objValues[1]));
+                // create the number of objects specified by the second field in the xml obj element
+                for(int i=0;i<numOfObj;i++)
+                {
+                    Vector2 pos = new Vector2(xPos, yPos);
+                    //convert position to worldspace
+                    pos = BlockToWorldSpace(pos);
 
-                Level.Instance.CreateObj(pos, objValues[2], objValues[3]);
+                    Level.Instance.CreateObj(pos, rowIndex,objValues[3], objValues[4]);
+
+                    //xPos += 1 to keep spawning objects to the right
+                    xPos += 1;
+                }
             }
+            reader.Close();
+        }
+
+        public Vector2 BlockToWorldSpace(Vector2 pos)
+        {
+            return new Vector2(pos.X * 32, pos.Y * 32);
         }
     }
 }
