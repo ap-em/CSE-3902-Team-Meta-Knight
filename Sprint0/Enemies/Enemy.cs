@@ -21,7 +21,7 @@ Owen Huston
 
 namespace Sprint0
 {
-    public class Enemy : IEnemy
+    public class Enemy : IEnemy, IGameObject
     {
         private IKeyboardController keyboard;
         private IEnemyMovement enemyMovement;
@@ -31,11 +31,15 @@ namespace Sprint0
         private bool firing = false;
         private int firingTimer = 4;
 
+        public Vector2 Position { get => enemyMovement.Position; set => throw new NotImplementedException(); }
+
+        public ISprite Sprite => sprite;
 
         public Enemy()
         {
             enemyMovement = new EnemyMovement(this, new Vector2(300,300));
             stateMachine = new EnemyStateMachine(this, enemyMovement);
+            GameObjectManager.Instance.AddToObjectList(this);
         }
         public void SetKeyboard(IKeyboardController keyboard)
         {
