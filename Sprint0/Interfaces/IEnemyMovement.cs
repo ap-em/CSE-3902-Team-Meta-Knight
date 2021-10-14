@@ -16,6 +16,7 @@ namespace Sprint0.Interfaces
 {
     public interface IEnemyMovement
     {
+        public Vector2 Position { get; }
 
         void Update();
         void Move();

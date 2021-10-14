@@ -3,9 +3,38 @@
     "DataX": [ 90 ],
     "DataY": [ 0 ],
     "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "RightJumpingLinkFull",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 30 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "LeftJumpingLinkFull",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 90 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "RightJumpingLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 30 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "LeftJumpingLinkHalf",
+    "SpriteSheet": "link"
+  },
+  {
+    "DataX": [ 90 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 16, 1, 1 ],
     "SpriteName": "RightIdleLinkFull",
     "SpriteSheet": "link"
   },
+
   {
     "DataX": [ 30 ],
     "DataY": [ 0 ],

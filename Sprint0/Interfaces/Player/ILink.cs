@@ -29,6 +29,7 @@ namespace Sprint0
         void MoveDown();
         void StopMoving(string sourceDirection);
         void PrimaryAttack();
+        void Jump();
 
         void SecondaryAttack(String attackType);
         void TakeDamage();
