@@ -1,0 +1,28 @@
+﻿<Levels>
+  <Level1>
+    <!--Rows currently go from bottom to top-->
+    <row0>
+  
+      <!--xPosition, yPosition, numOfObj, Namespace.classname, spritename-->
+  
+      <!--if numOfObj > 1, it continues placing the same object horizontally-->
+      <obj>0,13,999,Sprint0.Blocks.Block,GreenSand</obj>
+    
+    </row0>
+    <row1>
+      <obj>0,12,999,Sprint0.Blocks.Block,OrangeSand</obj>
+    </row1>
+    <row2>
+      <obj>0,11,999,Sprint0.Blocks.Block,GreenSand</obj>
+    </row2>
+    <row3>
+      <obj>0,10,999,Sprint0.Blocks.Block,OrangeSand</obj>
+    </row3>
+    <row4>
+      <obj>0,9,999,Sprint0.Blocks.Block,GreenSand</obj>
+    </row4>
+    <row5>
+      <obj>0,8,999,Sprint0.Blocks.Block,GreenSand</obj>
+    </row5>
+  </Level1>
+</Levels>

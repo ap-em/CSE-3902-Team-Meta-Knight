@@ -46,10 +46,11 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            block = new Block();
+            block = new Block("OrangeBlock", new Vector2(200,200));
             enemy = new Enemy();
             link = new Link();
             item = new Item(this);
+            LevelFactory.Instance.CreateLevel(1);
 
             enemyKeyboard = new EnemyController();
             SetUpEnemyKeyboard(enemyKeyboard, enemy);
@@ -203,14 +204,16 @@ namespace Sprint0
 
             spriteBatch.Begin();
             //These calls don't seem to be doing anything -- should implment with spriteFactory in some way
+
             //enemy.Draw(spriteBatch);
+
             ProjectileController.Instance.Draw(spriteBatch);
            // link.Draw(spriteBatch);
 
             GameObjectManager.Instance.DrawGameObjects(spriteBatch);
 
             item.Draw();
-            block.Draw(spriteBatch);
+            block.Draw(spriteBatch, new Vector2(200,200));
             base.Draw(gameTime);
 
             spriteBatch.End();
