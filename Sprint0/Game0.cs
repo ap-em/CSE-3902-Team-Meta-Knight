@@ -107,6 +107,9 @@ namespace Sprint0
             keyboard.RegisterCommand(Keys.O, new CCyclePreviousEnemy(enemy));
             keyboard.RegisterCommand(Keys.P, new CCycleNextEnemy(enemy));
 
+            keyboard.RegisterHoldableKey(Keys.Space, new CPlayerJump(this));
+
+
             keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(this,"Up"));
             keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(this,"Down"));
             keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(this,"Left"));
