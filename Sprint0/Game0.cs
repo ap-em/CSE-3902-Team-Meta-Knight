@@ -213,7 +213,7 @@ namespace Sprint0
             GameObjectManager.Instance.DrawGameObjects(spriteBatch);
 
             item.Draw();
-            block.Draw(spriteBatch, new Vector2(200,200));
+            block.Draw(spriteBatch);
             base.Draw(gameTime);
 
             spriteBatch.End();
