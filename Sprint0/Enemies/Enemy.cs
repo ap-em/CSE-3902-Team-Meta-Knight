@@ -23,6 +23,7 @@ namespace Sprint0
 {
     public class Enemy : IEnemy, IGameObject
     {
+        private IKeyboardController keyboard;
         private IEnemyMovement enemyMovement;
         private IEnemyStateMachine stateMachine;
         private ISprite sprite;
@@ -39,6 +40,14 @@ namespace Sprint0
             enemyMovement = new EnemyMovement(this, new Vector2(300,300));
             stateMachine = new EnemyStateMachine(this, enemyMovement);
             GameObjectManager.Instance.AddToObjectList(this);
+        }
+        public void SetKeyboard(IKeyboardController keyboard)
+        {
+            this.keyboard = keyboard;
+        }
+        public IKeyboardController GetKeyboard()
+        {
+            return keyboard;
         }
         public void PrevEnemy()
         {

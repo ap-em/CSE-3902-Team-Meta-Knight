@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Text;
 /*
@@ -26,7 +27,7 @@ namespace Sprint0.Interfaces
         void PrevItem();
         void NextItem();
         void setSprite();
-        void Draw();
+        void Draw(SpriteBatch spriteBatch);
         void Move(int x, int y);
     }
 }
