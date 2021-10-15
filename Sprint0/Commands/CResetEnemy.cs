@@ -19,17 +19,21 @@ Owen Huston
     class CResetEnemy : ICommand
     {
 
-        /*gameHere provides access to game for the purposes of reseting many of the things that it contains*/
-        Game0 gameHere;
-        /*CResetEnemy is a subcommand for CReset which resets Enemy Location and sprite to the intial value*/
+        /*TODO: Find a way to remove the enemy keyboard from controller list in Game0 before creating a new one*/
+
+        Game0 game;
+        IKeyboardController enemyKeyboard;
         public CResetEnemy(Game0 game)
         {
-            gameHere = game;
+            enemyKeyboard = new EnemyController();
+            this.game = game;
         }
 
         public void Execute()
         {
-            gameHere.enemy = new Enemy();
+            game.RemoveKeyboard(game.enemy.GetKeyboard());
+            game.enemy = new Enemy();
+            game.SetUpEnemyKeyboard(enemyKeyboard, game.enemy);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Text;
 /*
@@ -32,7 +33,8 @@ namespace Sprint0
 
         public void Jump()
         {
-            throw new NotImplementedException();
+            link.currentState = new RightFacingJumpingLink(link, new Vector2(0, -5), 15, true);
+            link.OnStateChange();
         }
 
         public void MoveDown()

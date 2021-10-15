@@ -29,6 +29,8 @@ namespace Sprint0.Interfaces
         void SetYVelocity(int y);
         void NextSprite();
         void PrevSprite();
+        void SetKeyboard(IKeyboardController keyboard);
+        IKeyboardController GetKeyboard();
         void Draw(SpriteBatch spriteBatch);
     }
 }

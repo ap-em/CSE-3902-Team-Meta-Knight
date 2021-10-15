@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Interfaces;
 using Sprint0.Cycle;
 using Sprint0.Sprites.SpriteFactory;
@@ -54,9 +55,9 @@ namespace Sprint0.Items
         {
             location = new Vector2(x, y);
         }
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(game.spriteBatch, location);
+            sprite.Draw(spriteBatch, location);
         }
         public void Update()
         {

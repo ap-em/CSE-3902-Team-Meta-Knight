@@ -27,6 +27,8 @@ namespace Sprint0.Enemies
         private int YVelocity = 0;
         private Enemy enemy;
 
+        public Vector2 Position => location;
+
         public EnemyMovement(Enemy enemy, Vector2 location)
         {
             this.enemy = enemy;

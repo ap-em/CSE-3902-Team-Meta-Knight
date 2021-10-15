@@ -16,15 +16,15 @@ namespace Sprint0.Commands
     class CCyclePlayerItemPrevious : ICommand
 
     {
-        IItems item;
-        public CCyclePlayerItemPrevious(IItems item)
+        private Game0 game;
+        public CCyclePlayerItemPrevious(Game0 game)
         {
-            this.item = item;
+            this.game = game;
         }
 
         public void Execute()
         {
-            item.PrevSprite();
+            game.item.PrevItem();
         }
     }
 }

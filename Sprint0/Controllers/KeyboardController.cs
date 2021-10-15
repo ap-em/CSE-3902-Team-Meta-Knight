@@ -20,6 +20,7 @@ namespace Sprint0.Controllers
     {
         private Dictionary<Keys, ICommand> pressableKeyMappings;
         private Dictionary<Keys, ICommand> releasableKeyMappings;
+        private Dictionary<Keys, ICommand> holdableKeyMappings;
         private List<Keys> availableKeys;
         private KeyboardState oldState;
 
@@ -31,6 +32,7 @@ namespace Sprint0.Controllers
             availableKeys = new List<Keys>();
             pressableKeyMappings = new Dictionary<Keys, ICommand>();
             releasableKeyMappings = new Dictionary<Keys, ICommand>();
+            holdableKeyMappings = new Dictionary<Keys, ICommand>();
 
             oldState = Keyboard.GetState();
         }
@@ -44,6 +46,11 @@ namespace Sprint0.Controllers
             releasableKeyMappings.Add(key, command);
             if (!availableKeys.Contains(key)) availableKeys.Add(key);
         }
+        public void RegisterHoldableKey(Keys key, ICommand command)
+        {
+            holdableKeyMappings.Add(key, command);
+            if (!availableKeys.Contains(key)) availableKeys.Add(key);
+        }
         public void Update()
         {
             KeyboardState newState = Keyboard.GetState();
@@ -55,6 +62,11 @@ namespace Sprint0.Controllers
                 if (releasableKeyMappings.ContainsKey(key) && oldState.IsKeyDown(key) && newState.IsKeyUp(key))
                 {
                     releasableKeyMappings[key].Execute();
+                }
+                //check if key is being held
+                if(holdableKeyMappings.ContainsKey(key) && oldState.IsKeyDown(key) && newState.IsKeyDown(key))
+                {
+                    holdableKeyMappings[key].Execute();
                 }
                 //check if key was just pressed
                 if(pressableKeyMappings.ContainsKey(key) && oldState.IsKeyUp(key) && newState.IsKeyDown(key))

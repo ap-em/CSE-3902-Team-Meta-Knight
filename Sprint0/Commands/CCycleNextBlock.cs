@@ -14,14 +14,14 @@ namespace Sprint0.Commands
 {
     class CCycleNextBlock : ICommand
     {
-        private IBlock block;
-        public CCycleNextBlock(IBlock block)
+        private Game0 game;
+        public CCycleNextBlock(Game0 game)
         {
-            this.block = block;
+            this.game = game;
         }
         public void Execute()
         {
-            block.NextSprite();
+            game.block.NextBlock();
         }
     }
 }

@@ -15,7 +15,7 @@ Owen Huston
 */
 namespace Sprint0
 {
-    public class Link :ILink
+    public class Link :ILink, IGameObject
     {
         private LinkHealthStateMachine healthStateMachine;
         public ILinkState currentState;
@@ -24,12 +24,16 @@ namespace Sprint0
         private Vector2 position = new Vector2(100, 100);
         private ISprite currentSprite;
         private ILinkState attack;
-        private int damageTimer = 100;
 
+        public Vector2 Position { get => position; set => throw new NotImplementedException(); }
+
+        public ISprite Sprite => currentSprite;
 
         public Link()
         {
-            healthStateMachine = new LinkHealthStateMachine();
+            GameObjectManager.Instance.AddToObjectList(this);
+            healthStateMachine = new LinkHealthStateMachine(this);
+
             currentState = new RightFacingStaticLink(this);
             OnStateChange();
         }
@@ -53,21 +57,8 @@ namespace Sprint0
          */
         private string GetSpriteID(LinkHealthStateMachine healthStateMachine, ILinkState linkState)
         {
-            String ID = linkState.ID;
 
-            if(damageTimer > 0)
-            {
-                ID = ID + healthStateMachine.GetHealth();
-            }
-            else
-            {
-                //after 8 updates go back to rendering at full health
-                ID = ID + "Full";
-            }
-
-
-            //Right now the health state machine has no impact on the sprite ---but in the future might have a sprite that does need that
-            return ID;
+            return linkState.ID + healthStateMachine.GetHealth();
         }
         public void Draw(SpriteBatch spritebatch)
         {
@@ -81,15 +72,7 @@ namespace Sprint0
 
         public void Update()
         {
-            if(damageTimer >= 0)
-            {
-                damageTimer--;
-            }
-            //when damage timer is done change back to regular link
-            if(damageTimer == 0)
-            {
-                OnStateChange();
-            }
+            healthStateMachine.Update();
             currentState.Update();
             currentSprite.Update();
         }
@@ -126,8 +109,10 @@ namespace Sprint0
         public void TakeDamage()
         {
             healthStateMachine.TakeDamage();
-            damageTimer = 100;
-            OnStateChange();
+        }
+        public void StarPower()
+        {
+            healthStateMachine.StarPower();
         }
 
         public void PrimaryAttack()

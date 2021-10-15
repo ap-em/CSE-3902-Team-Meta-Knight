@@ -36,7 +36,8 @@ namespace Sprint0
 
         public void Jump()
         {
-            throw new NotImplementedException();
+            link.currentState = new RightFacingJumpingLink(link, new Vector2(2, -5), 15, true);
+            link.OnStateChange();
         }
 
         public void MoveDown()

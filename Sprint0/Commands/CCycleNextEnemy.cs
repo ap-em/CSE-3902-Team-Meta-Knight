@@ -15,14 +15,14 @@ namespace Sprint0.Commands
     class CCycleNextEnemy : ICommand
     {
         /*OG Code written by Owen Huston, modifed by Owen Tishenkel to call enemy rather than game*/
-        private IEnemy enemy;
-        public CCycleNextEnemy(IEnemy enemy)
+        private Game0 game;
+        public CCycleNextEnemy(Game0 game)
         {
-            this.enemy = enemy;
+            this.game = game;
         }
         public void Execute()
         {
-            enemy.NextSprite();
+            game.enemy.NextEnemy();
         }
     }
 }

@@ -22,8 +22,9 @@ Owen Huston
 
 namespace Sprint0.Enemies
 {
-    public class Enemy : IEnemy, ICyclable
+    public class Enemy : IEnemy, ICyclable, IGameObject
     {
+        private IKeyboardController keyboard;
         private IEnemyMovement enemyMovement;
         private ICycleStateMachine cycleStateMachine;
         private ISprite sprite;
@@ -32,6 +33,9 @@ namespace Sprint0.Enemies
         private bool firing = false;
         private int firingTimer = 4;
 
+        public Vector2 Position { get => enemyMovement.Position; set => throw new NotImplementedException(); }
+
+        public ISprite Sprite => sprite;
 
         public Enemy()
         {
@@ -39,6 +43,14 @@ namespace Sprint0.Enemies
             spriteName = enemyMovement.GetDirection() + "Idle" + enemyType;
             sprite = SpriteFactory.Instance.GetSprite(spriteName);
             cycleStateMachine = new CycleStateMachine(this);
+        }
+        public void SetKeyboard(IKeyboardController keyboard)
+        {
+            this.keyboard = keyboard;
+        }
+        public IKeyboardController GetKeyboard()
+        {
+            return keyboard;
         }
         public void PrevSprite()
         {
