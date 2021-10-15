@@ -61,6 +61,7 @@ namespace Sprint0.Blocks
                 ReadObjects(reader.ReadSubtree(), rowIndex);
                 rowIndex++;
             }
+            reader.Close();
         }
         public void ReadObjects(XmlReader reader, int rowIndex)
         {

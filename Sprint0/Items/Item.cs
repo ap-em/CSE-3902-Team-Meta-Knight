@@ -29,7 +29,7 @@ namespace Sprint0.Items
             stateMachine = new CycleStateMachine(this);
             spriteName = "HealHeart";
             this.SetSprite(spriteName);
-            
+
         }
 
         public void NextSprite()

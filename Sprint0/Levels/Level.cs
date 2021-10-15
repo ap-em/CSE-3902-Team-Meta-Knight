@@ -28,8 +28,6 @@ namespace Sprint0
 
         private int maxRowLength = 1000;
         private int maxNumberOfRows = 100;
-        private Vector2[][] positions = new Vector2[100][];
-        private ISprite[][] sprites = new ISprite[100][];
         private int[] rowLength = new int[100];
 
         private IGameObject[][] gameObjects = new IGameObject[100][];
@@ -53,8 +51,6 @@ namespace Sprint0
             //add space for gameObjects on each row
             for(int i = 0; i < maxNumberOfRows; i++)
             {
-//                sprites[i] = new ISprite[maxRowLength];
-//                positions[i] = new Vector2[maxRowLength];
                 gameObjects[i] = new IGameObject[maxRowLength];
             }
         }
@@ -72,9 +68,6 @@ namespace Sprint0
 
             GameObjectManager.Instance.AddToObjectList(gameObjects[rowIndex][rowLength[rowIndex]]);
             
-
-          //  sprites[rowIndex][rowLength[rowIndex]] = SpriteFactory.Instance.GetSprite(spriteName);
-         //   positions[rowIndex][rowLength[rowIndex]] = position;
             rowLength[rowIndex] += 1;
         }
         /* this Draw is for testing, this should be moved to gameObjectManager later */

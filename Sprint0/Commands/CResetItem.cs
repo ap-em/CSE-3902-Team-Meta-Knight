@@ -6,14 +6,14 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
-/*
-Alex Clayton
-Alex Contreras
-Jared Israel
-Leon Cai
-Owen Tishenkel
-Owen Huston
-*/
+    /*
+    Alex Clayton
+    Alex Contreras
+    Jared Israel
+    Leon Cai
+    Owen Tishenkel
+    Owen Huston
+    */
     /*Owen Tishenkel 2021 CSE 3902*/
     class CResetItem : ICommand
     {
@@ -28,7 +28,7 @@ Owen Huston
 
         public void Execute()
         {
-            gameHere.item = new Item();
+            gameHere.item = new Item(gameHere);
         }
     }
 }

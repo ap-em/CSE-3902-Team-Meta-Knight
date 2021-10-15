@@ -46,14 +46,14 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            block = new Block("OrangeBlock", new Vector2(200,200));
+            LevelFactory.Instance.CreateLevel(1);
+            block = new Block("OrangeBlock", new Vector2(200, 200));
             enemy = new Enemy();
             link = new Link();
 
             keyboardControllerList = new ArrayList();
 
             item = new Item(this);
-            LevelFactory.Instance.CreateLevel(1);
 
 
             enemyKeyboard = new EnemyController();
@@ -89,14 +89,14 @@ namespace Sprint0
             keyboard.RegisterCommand(Keys.Right, new CMovePlayerRight(this));
 
             //need to create a primary attack ilink, but only ilink is link, so link here for now
-            keyboard.RegisterCommand(Keys.Z, new CPlayerPrimaryAttack(link,this));
+            keyboard.RegisterCommand(Keys.Z, new CPlayerPrimaryAttack(link, this));
             keyboard.RegisterCommand(Keys.N, new CPlayerPrimaryAttack(link, this));
 
             keyboard.RegisterCommand(Keys.E, new CDamagePlayer(link, this));
 
             //need to be able to use all items from number keys, need commands for this
-            keyboard.RegisterCommand(Keys.D1, new CPlayerSecondaryAttack(link, this,"Bomb"));
-            keyboard.RegisterCommand(Keys.D2, new CPlayerSecondaryAttack(link, this,"Key")); 
+            keyboard.RegisterCommand(Keys.D1, new CPlayerSecondaryAttack(link, this, "Bomb"));
+            keyboard.RegisterCommand(Keys.D2, new CPlayerSecondaryAttack(link, this, "Key"));
             keyboard.RegisterCommand(Keys.D3, new CPlayerSecondaryAttack(link, this, "HealHeart"));
 
             keyboard.RegisterCommand(Keys.U, new CCyclePlayerItemPrevious(this));
@@ -112,13 +112,13 @@ namespace Sprint0
             keyboard.RegisterHoldableKey(Keys.Space, new CPlayerJump(this));
 
 
-            keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(this,"Up"));
-            keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(this,"Down"));
-            keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(this,"Left"));
+            keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(this, "Up"));
+            keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(this, "Down"));
+            keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(this, "Left"));
             keyboard.RegisterReleasableKey(Keys.D, new CZeroPlayerXVelocity(this, "Right"));
 
-            keyboard.RegisterReleasableKey(Keys.Up, new CZeroPlayerYVelocity(this,"Up"));
-            keyboard.RegisterReleasableKey(Keys.Down, new CZeroPlayerYVelocity(this,"Down"));
+            keyboard.RegisterReleasableKey(Keys.Up, new CZeroPlayerYVelocity(this, "Up"));
+            keyboard.RegisterReleasableKey(Keys.Down, new CZeroPlayerYVelocity(this, "Down"));
             keyboard.RegisterReleasableKey(Keys.Left, new CZeroPlayerXVelocity(this, "Left"));
             keyboard.RegisterReleasableKey(Keys.Right, new CZeroPlayerXVelocity(this, "Right"));
 
@@ -202,7 +202,7 @@ namespace Sprint0
             }
             */
             //link.Update();
-           // enemy.Update();
+            // enemy.Update();
             ProjectileController.Instance.Update();
             base.Update(gameTime);
             GameObjectManager.Instance.UpdateGameObjects();
@@ -218,7 +218,7 @@ namespace Sprint0
             //enemy.Draw(spriteBatch);
 
             ProjectileController.Instance.Draw(spriteBatch);
-           // link.Draw(spriteBatch);
+            // link.Draw(spriteBatch);
 
             GameObjectManager.Instance.DrawGameObjects(spriteBatch);
 
