@@ -30,6 +30,10 @@ namespace Sprint0
         {
             gameObjects.Add(gameObject);
         }
+        public void RemoveFromObjectList(IGameObject gameObject)
+        {
+            gameObjects.Remove(gameObject);
+        }
 
         public void UpdateGameObjects()
         {

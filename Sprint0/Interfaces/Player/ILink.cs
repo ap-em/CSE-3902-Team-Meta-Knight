@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Sprint0.Interfaces;
 /*
 Alex Clayton
 Alex Contreras
@@ -34,5 +35,7 @@ namespace Sprint0
         void SecondaryAttack(String attackType);
         void TakeDamage();
         void OnStateChange();
+        void SetKeyboard(IKeyboardController keyboard);
+        IKeyboardController GetKeyboard();
     }
 }

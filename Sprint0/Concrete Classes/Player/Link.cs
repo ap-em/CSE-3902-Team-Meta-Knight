@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Sprint0.Sprites.SpriteFactory;
 using Sprint0.Concrete_Classes.State_Machines.States;
+using Sprint0.Interfaces;
 /*
 Alex Clayton
 Alex Contreras
@@ -17,6 +18,7 @@ namespace Sprint0
 {
     public class Link :ILink, IGameObject
     {
+        private IKeyboardController keyboard;
         private LinkHealthStateMachine healthStateMachine;
         public ILinkState currentState;
         private int XVelocity = 0;
@@ -36,6 +38,15 @@ namespace Sprint0
 
             currentState = new RightFacingStaticLink(this);
             OnStateChange();
+        }
+
+        public void SetKeyboard(IKeyboardController keyboard)
+        {
+            this.keyboard = keyboard;
+        }
+        public IKeyboardController GetKeyboard()
+        {
+            return keyboard;
         }
 
         /*

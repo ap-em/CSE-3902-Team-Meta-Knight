@@ -32,6 +32,7 @@ Owen Huston
         public void Execute()
         {
             game.RemoveKeyboard(game.enemy.GetKeyboard());
+            GameObjectManager.Instance.RemoveFromObjectList((IGameObject)game.enemy);
             game.enemy = new Enemy();
             game.SetUpEnemyKeyboard(enemyKeyboard, game.enemy);
         }
