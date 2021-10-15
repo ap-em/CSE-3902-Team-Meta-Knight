@@ -38,17 +38,17 @@ namespace Sprint0.Controllers
         }
         public void RegisterCommand(Keys key, ICommand command)
         {
-            pressableKeyMappings.Add(key, command);
+            if(!pressableKeyMappings.ContainsKey(key))pressableKeyMappings.Add(key, command);
             if (!availableKeys.Contains(key)) availableKeys.Add(key); 
         }
         public void RegisterReleasableKey(Keys key, ICommand command)
         {
-            releasableKeyMappings.Add(key, command);
+            if(!releasableKeyMappings.ContainsKey(key))releasableKeyMappings.Add(key, command);
             if (!availableKeys.Contains(key)) availableKeys.Add(key);
         }
         public void RegisterHoldableKey(Keys key, ICommand command)
         {
-            holdableKeyMappings.Add(key, command);
+            if (!holdableKeyMappings.ContainsKey(key)) holdableKeyMappings.Add(key, command);
             if (!availableKeys.Contains(key)) availableKeys.Add(key);
         }
         public void Update()
