@@ -32,7 +32,7 @@ namespace Sprint0
         private ISprite[][] sprites = new ISprite[100][];
         private int[] rowLength = new int[100];
 
-        //      private GameObjects[][] gameObjects = new GameObjects[100][];
+        private IGameObject[][] gameObjects = new IGameObject[100][];
 
         private static Level instance;
         public static Level Instance
@@ -53,29 +53,28 @@ namespace Sprint0
             //add space for gameObjects on each row
             for(int i = 0; i < maxNumberOfRows; i++)
             {
-                sprites[i] = new ISprite[maxRowLength];
-                positions[i] = new Vector2[maxRowLength];
-//                gameObjects[i] = new GameObjects[maxRowLength];
+//                sprites[i] = new ISprite[maxRowLength];
+//                positions[i] = new Vector2[maxRowLength];
+                gameObjects[i] = new IGameObject[maxRowLength];
             }
         }
         public void CreateObj(Vector2 position, int rowIndex, String objType, String spriteName)
         {
-            /*
-            Type t = Type.GetType("Sprint0.Blocks." + objType);
+            
+            Type t = Type.GetType(objType);
             Type[] types = { typeof(string), typeof(Vector2) };
-            object[] param = { spriteName };
+            object[] param = { spriteName, position };
 
             ConstructorInfo constructorInfoObj = t.GetConstructor(types);
 
 
             gameObjects[rowIndex][rowLength[rowIndex]] = (IGameObject)constructorInfoObj.Invoke(param);
-            gameObjects[rowIndex][rowLength[rowIndex]].position = position;
 
-            GameObjectManager.Instance.AddToObjectList(this);
-            */
+            GameObjectManager.Instance.AddToObjectList(gameObjects[rowIndex][rowLength[rowIndex]]);
+            
 
-            sprites[rowIndex][rowLength[rowIndex]] = SpriteFactory.Instance.GetSprite(spriteName);
-            positions[rowIndex][rowLength[rowIndex]] = position;
+          //  sprites[rowIndex][rowLength[rowIndex]] = SpriteFactory.Instance.GetSprite(spriteName);
+         //   positions[rowIndex][rowLength[rowIndex]] = position;
             rowLength[rowIndex] += 1;
         }
         /* this Draw is for testing, this should be moved to gameObjectManager later */
@@ -85,7 +84,7 @@ namespace Sprint0
             {
                 for (int i = 0; i < rowLength[row]; i++)
                 {
-                    sprites[row][i].Draw(spriteBatch, positions[row][i]);
+                    gameObjects[row][i].Draw(spriteBatch);
                 }
             }
         }
