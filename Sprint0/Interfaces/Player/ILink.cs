@@ -33,5 +33,6 @@ namespace Sprint0
 
         void SecondaryAttack(String attackType);
         void TakeDamage();
+        void OnStateChange();
     }
 }
