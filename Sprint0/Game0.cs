@@ -49,23 +49,24 @@ namespace Sprint0
             block = new Block("OrangeBlock", new Vector2(200,200));
             enemy = new Enemy();
             link = new Link();
+
+            keyboardControllerList = new ArrayList();
+
             item = new Item(this);
             LevelFactory.Instance.CreateLevel(1);
+
 
             enemyKeyboard = new EnemyController();
             SetUpEnemyKeyboard(enemyKeyboard, enemy);
 
             playerKeyboard = new KeyboardController();
             SetUpPlayerKeyboard(playerKeyboard);
-            
+
             //No need for mouse controller for Sprint 2
             /* 
             mouseController = new MouseController(this);
             SetUpMouse();
             */
-            keyboardControllerList = new ArrayList();
-            keyboardControllerList.Add(enemyKeyboard);
-            keyboardControllerList.Add(playerKeyboard);
 
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(1 / 30.0f);
@@ -98,15 +99,15 @@ namespace Sprint0
             keyboard.RegisterCommand(Keys.D2, new CPlayerSecondaryAttack(link, this,"Key")); 
             keyboard.RegisterCommand(Keys.D3, new CPlayerSecondaryAttack(link, this, "HealHeart"));
 
-            keyboard.RegisterCommand(Keys.U, new CCyclePlayerItemPrevious(item));
-            keyboard.RegisterCommand(Keys.I, new CCyclePlayerItemNext(item));
+            keyboard.RegisterCommand(Keys.U, new CCyclePlayerItemPrevious(this));
+            keyboard.RegisterCommand(Keys.I, new CCyclePlayerItemNext(this));
 
 
-            keyboard.RegisterCommand(Keys.T, new CCyclePreviousBlock(block));
-            keyboard.RegisterCommand(Keys.Y, new CCycleNextBlock(block));
+            keyboard.RegisterCommand(Keys.T, new CCyclePreviousBlock(this));
+            keyboard.RegisterCommand(Keys.Y, new CCycleNextBlock(this));
 
-            keyboard.RegisterCommand(Keys.O, new CCyclePreviousEnemy(enemy));
-            keyboard.RegisterCommand(Keys.P, new CCycleNextEnemy(enemy));
+            keyboard.RegisterCommand(Keys.O, new CCyclePreviousEnemy(this));
+            keyboard.RegisterCommand(Keys.P, new CCycleNextEnemy(this));
 
             keyboard.RegisterHoldableKey(Keys.Space, new CPlayerJump(this));
 
@@ -120,11 +121,13 @@ namespace Sprint0
             keyboard.RegisterReleasableKey(Keys.Down, new CZeroPlayerYVelocity(this,"Down"));
             keyboard.RegisterReleasableKey(Keys.Left, new CZeroPlayerXVelocity(this, "Left"));
             keyboard.RegisterReleasableKey(Keys.Right, new CZeroPlayerXVelocity(this, "Right"));
-            
+
+            keyboardControllerList.Add(keyboard);
 
         }
         public void SetUpEnemyKeyboard(IKeyboardController keyboard, IEnemy enemy)
         {
+            enemy.SetKeyboard(keyboard);
             keyboard.RegisterCommand(Keys.W, new CMoveEnemyUp(enemy));
             keyboard.RegisterCommand(Keys.A, new CMoveEnemyLeft(enemy));
             keyboard.RegisterCommand(Keys.S, new CMoveEnemyDown(enemy));
@@ -136,6 +139,11 @@ namespace Sprint0
             keyboard.RegisterReleasableKey(Keys.A, new CZeroEnemyXVelocity(enemy));
             keyboard.RegisterReleasableKey(Keys.D, new CZeroEnemyXVelocity(enemy));
 
+            keyboardControllerList.Add(keyboard);
+        }
+        public void RemoveKeyboard(IKeyboardController keyboard)
+        {
+            keyboardControllerList.Remove(keyboard);
         }
         /* No need for mouse for Sprint 2
         private void SetUpMouse()
@@ -170,7 +178,9 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
-            foreach(IKeyboardController controller in keyboardControllerList)
+            //needs a copy of keyboard list just in case a keyboard is removed during the loop
+            ArrayList keyboardListCopy = new ArrayList(keyboardControllerList);
+            foreach (IKeyboardController controller in keyboardListCopy)
             {
                 controller.Update();
             }
@@ -212,8 +222,10 @@ namespace Sprint0
 
             GameObjectManager.Instance.DrawGameObjects(spriteBatch);
 
-            item.Draw();
-            block.Draw(spriteBatch);
+
+            //item.Draw();
+            //block.Draw(spriteBatch);
+
             base.Draw(gameTime);
 
             spriteBatch.End();

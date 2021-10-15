@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Interfaces;
 using Sprint0.Sprites.SpriteFactory;
 using System;
@@ -20,9 +21,9 @@ namespace Sprint0.Items
         ISprite sprite;
         private Vector2 location = new Vector2(100, 200);
         String itemType;
-        public Item(Game0 game)
+        public Item()
         {
-            this.game = game;
+            
             stateMachine = new ItemStateMachine(this);
             itemType = "HealHeart";
             this.setSprite();
@@ -52,9 +53,9 @@ namespace Sprint0.Items
         {
             location = new Vector2(x, y);
         }
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(game.spriteBatch, location);
+            sprite.Draw(spriteBatch, location);
         }
         /*Sets item type*/
         public void setItemType(String itemType)
