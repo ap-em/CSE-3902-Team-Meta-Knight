@@ -21,7 +21,7 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            game.block.PrevBlock();
+            game.block.PrevSprite();
         }
     }
 }

@@ -28,7 +28,7 @@ Owen Huston
 
         public void Execute()
         {
-            gameHere.item = new Item();
+            gameHere.item = new Item(gameHere);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Sprint0.Commands
 
         public void Execute()
         {
-            game.item.NextItem();
+            game.item.NextSprite();
         }
     }
 }

@@ -10,19 +10,19 @@
     
     </row0>
     <row1>
-      <obj>0,14,999,Sprint0.Blocks.Block,OrangeSand</obj>
+      <obj>0,14,2,Sprint0.Blocks.Block,OrangeSand</obj>
     </row1>
     <row2>
-      <obj>0,13,999,Sprint0.Blocks.Block,GreenSand</obj>
+      <obj>0,13,2,Sprint0.Blocks.Block,GreenSand</obj>
     </row2>
     <row3>
-      <obj>0,12,999,Sprint0.Blocks.Block,OrangeSand</obj>
+      <obj>0,12,2,Sprint0.Blocks.Block,OrangeSand</obj>
     </row3>
     <row4>
-      <obj>0,11,999,Sprint0.Blocks.Block,GreenSand</obj>
+      <obj>0,11,2,Sprint0.Blocks.Block,GreenSand</obj>
     </row4>
     <row5>
-      <obj>0,10,999,Sprint0.Blocks.Block,GreenSand</obj>
+      <obj>0,10,2,Sprint0.Blocks.Block,GreenSand</obj>
     </row5>
   </Level1>
 </Levels>

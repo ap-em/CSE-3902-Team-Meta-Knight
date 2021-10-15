@@ -20,18 +20,23 @@ Owen Huston*/
 
 namespace Sprint0.Blocks
 {
-    class Block : IBlock, ICyclable
+    class Block : IBlock, ICyclable, IGameObject
     {
         private ICycleStateMachine stateMachine;
         private ISprite sprite;
         private String spriteName;
         private Vector2 location = new Vector2(200, 200);
 
-        public Block()
+        public Vector2 Position { get => location; set => throw new NotImplementedException(); }
+
+        public ISprite Sprite => sprite;
+
+        public Block(String spriteName, Vector2 position)
         {
             stateMachine = new CycleStateMachine(this);
-            sprite = SpriteFactory.Instance.GetSprite("OrangeBlock");
-            spriteName = "OrangeBlock";
+            location = position;
+            this.spriteName = spriteName;
+            sprite = SpriteFactory.Instance.GetSprite(spriteName);
         }
         public String GetSpriteName()
         {
@@ -54,6 +59,11 @@ namespace Sprint0.Blocks
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, location);
+        }
+
+        public void Update()
+        {
+            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Sprint0.Blocks;
+﻿using Microsoft.Xna.Framework;
+using Sprint0.Blocks;
 using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ Owen Huston
 
         public void Execute()
         {
-            gameHere.block = new Block();
+            gameHere.block = new Block("OrangeBlock", new Vector2(100,100));
         }
     }
 }

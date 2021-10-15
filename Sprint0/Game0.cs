@@ -46,6 +46,7 @@ namespace Sprint0
 
         protected override void Initialize()
         {
+            LevelFactory.Instance.CreateLevel(1);
             block = new Block("OrangeBlock", new Vector2(200,200));
             enemy = new Enemy();
             link = new Link();
@@ -53,7 +54,6 @@ namespace Sprint0
             keyboardControllerList = new ArrayList();
 
             item = new Item(this);
-            LevelFactory.Instance.CreateLevel(1);
 
 
             enemyKeyboard = new EnemyController();

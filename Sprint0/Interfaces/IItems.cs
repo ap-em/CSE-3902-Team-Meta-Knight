@@ -26,10 +26,8 @@ namespace Sprint0.Interfaces
         void Update();
         void PrevSprite();
         void NextSprite();
-        void Draw();
-        void PrevItem();
-        void NextItem();
-        void setSprite();
+        void Draw(SpriteBatch spriteBatch);
+        void SetSprite(String spriteName);
 
         void Move(int x, int y);
     }
