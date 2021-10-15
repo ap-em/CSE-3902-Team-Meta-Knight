@@ -5,7 +5,6 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
-using Sprint0.Enemies;
 
 /*
 Alex Clayton
@@ -18,7 +17,7 @@ Owen Huston
 /*OWEN HUSTON - 9/22/2021 */
 
 
-namespace Sprint0
+namespace Sprint0.Enemies
 {
     public class EnemyMovement : IEnemyMovement
     {

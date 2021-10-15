@@ -24,10 +24,13 @@ namespace Sprint0.Interfaces
    public interface IItems
     {
         void Update();
+        void PrevSprite();
+        void NextSprite();
+        void Draw();
         void PrevItem();
         void NextItem();
         void setSprite();
-        void Draw(SpriteBatch spriteBatch);
+
         void Move(int x, int y);
     }
 }
