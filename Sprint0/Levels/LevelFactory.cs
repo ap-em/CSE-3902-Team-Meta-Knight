@@ -52,6 +52,8 @@ namespace Sprint0.Blocks
 
             reader.ReadToFollowing("Level" + LevelNumber);
 
+            reader = reader.ReadSubtree();
+
             int rowIndex = 0;
             
             // read rows

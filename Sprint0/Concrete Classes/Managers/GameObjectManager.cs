@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Sprint0
@@ -47,6 +48,10 @@ namespace Sprint0
         {
             foreach (IGameObject go in gameObjects)
             {
+                if (go.ToString().Equals("Sprint0.Link"))
+                {
+                    Level.Instance.Draw(spriteBatch, go.Position);
+                }
                 go.Draw(spriteBatch);
             }
         }
