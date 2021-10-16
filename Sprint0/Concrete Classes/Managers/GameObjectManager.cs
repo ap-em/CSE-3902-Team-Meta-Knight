@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Commands;
+using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -58,6 +60,8 @@ namespace Sprint0
 
         public void DetectCollisions()
         {
+            //Here for implementation of collisions when neccesary
+            ICommand collision;
             foreach (IGameObject go in gameObjects)
             {
                 /*
@@ -67,6 +71,73 @@ namespace Sprint0
                  * If there is a collision we should have a data table with commands similar to what was shown in lecture, 
                  * we can then use reflection to create these commands and execute them.
                  */
+                //Get the surronding blocks of whatever the game object is.
+                IGameObject[] levelCollides = Level.Instance.GetCollidables(go.Position);
+                List<IGameObject> collided = new List<IGameObject>();
+                //Go through each colliding block
+                foreach (IGameObject block in levelCollides)
+                {
+                    //Check if the block the object is colliding with actually exists
+                    if(block != null)
+                    {
+                        if(block.Position.Y < go.Position.Y)
+                        {
+                            //14 should be temporary until game object has a way to get the dimensions of its object
+                            if (block.Position.Y + 14 > go.Position.Y)
+                            {
+                                //Change this to be data table driven
+                                collision = new CCollideDown();
+                                collision.Execute();
+                            }
+                        } else if(block.Position.Y > go.Position.Y)
+                        {
+                            //16 should be temporary until game object has a way to get the dimensions of its object
+                            if (block.Position.Y < go.Position.Y+16)
+                            {
+                                //Change this to be data table driven
+                                collision = new CCollideDown();
+                                collision.Execute();
+                            }
+                        }
+                        else
+                        {
+                            //if this happens we have a big problem as the block and game object are in the same place
+                        }
+                        if (block.Position.X < go.Position.X)
+                        {
+                            //14 should be temporary until game object has a way to get the dimensions of its object
+                            if (block.Position.X + 14 > go.Position.X)
+                            {
+                                //Change this to be data table driven
+                                collision = new CCollideLeft();
+                                collision.Execute();
+                            }
+                        }
+                        else if (block.Position.X > go.Position.X)
+                        {
+                            //16 should be temporary until game object has a way to get the dimensions of its object
+                            if (block.Position.X < go.Position.X + 16)
+                            {
+                                //Change this to be data table driven
+                                collision = new CCollideRight();
+                                collision.Execute();
+                            }
+                        }
+                        else
+                        {
+                            //if this happens we have a big problem as the block and game object are in the same place
+                        }
+
+                    }
+                }
+                /*blocks[0] = gameObjects[(int)Math.Round(position.X - 1)][(int)Math.Round(position.Y + 1)];
+            blocks[1] = gameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y + 1)];
+            blocks[2] = gameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y + 1)];
+            blocks[3] = gameObjects[(int)Math.Round(position.X - 1)][(int)Math.Round(position.Y)];
+            blocks[4] = gameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y)];
+            blocks[5] = gameObjects[(int)Math.Round(position.X - 1)][(int)Math.Round(position.Y - 1)];
+            blocks[6] = gameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y - 1)];
+            blocks[7] = gameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y - 1)];*/
             }
         }
     }
