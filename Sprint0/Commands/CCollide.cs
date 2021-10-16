@@ -5,11 +5,15 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
-    class CCollideDown : ICommand
+    class CCollide : ICommand
     {
+        public CCollide(IGameObject collided, IGameObject collider)
+        {
+
+        }
         public void Execute()
         {
-            throw new NotImplementedException();
+            //Based on non-existant data sheet
         }
     }
 }

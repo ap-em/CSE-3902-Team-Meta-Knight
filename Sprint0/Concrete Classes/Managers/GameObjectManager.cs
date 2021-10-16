@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Commands;
 using Sprint0.Interfaces;
 using System;
@@ -73,60 +74,19 @@ namespace Sprint0
                  */
                 //Get the surronding blocks of whatever the game object is.
                 IGameObject[] levelCollides = Level.Instance.GetCollidables(go.Position);
-                List<IGameObject> collided = new List<IGameObject>();
+                Rectangle goRec = new Rectangle(new Point((int)go.Position.X, (int)go.Position.Y), new Point(16, 16));
                 //Go through each colliding block
                 foreach (IGameObject block in levelCollides)
                 {
                     //Check if the block the object is colliding with actually exists
                     if(block != null)
                     {
-                        if(block.Position.Y < go.Position.Y)
+                        Rectangle blockRec = new Rectangle(new Point((int)block.Position.X, (int)block.Position.Y), new Point(14, 14));
+                        if (goRec.Intersects(blockRec))
                         {
-                            //14 should be temporary until game object has a way to get the dimensions of its object
-                            if (block.Position.Y + 14 > go.Position.Y)
-                            {
-                                //Change this to be data table driven
-                                collision = new CCollideDown();
-                                collision.Execute();
-                            }
-                        } else if(block.Position.Y > go.Position.Y)
-                        {
-                            //16 should be temporary until game object has a way to get the dimensions of its object
-                            if (block.Position.Y < go.Position.Y+16)
-                            {
-                                //Change this to be data table driven
-                                collision = new CCollideDown();
-                                collision.Execute();
-                            }
+                            collision = new CCollide(block,go);
                         }
-                        else
-                        {
-                            //if this happens we have a big problem as the block and game object are in the same place
-                        }
-                        if (block.Position.X < go.Position.X)
-                        {
-                            //14 should be temporary until game object has a way to get the dimensions of its object
-                            if (block.Position.X + 14 > go.Position.X)
-                            {
-                                //Change this to be data table driven
-                                collision = new CCollideLeft();
-                                collision.Execute();
-                            }
-                        }
-                        else if (block.Position.X > go.Position.X)
-                        {
-                            //16 should be temporary until game object has a way to get the dimensions of its object
-                            if (block.Position.X < go.Position.X + 16)
-                            {
-                                //Change this to be data table driven
-                                collision = new CCollideRight();
-                                collision.Execute();
-                            }
-                        }
-                        else
-                        {
-                            //if this happens we have a big problem as the block and game object are in the same place
-                        }
+
 
                     }
                 }
