@@ -68,6 +68,7 @@ namespace Sprint0
         //draws all the blocks that player should be able to see
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
+            
             position = WorldToBlockSpace(position);
 
             int xPos = (int)position.X;
@@ -89,10 +90,15 @@ namespace Sprint0
                     }
                 }
             }
+            
         }
         //returns the gameobjects that the are collidable from the given position
         public IGameObject[] GetCollidables(Vector2 position)
         {
+            //subtract .5 to put the player in the middle of the block
+            position.X -= .5f;
+            position.Y += .5f;
+
             position = WorldToBlockSpace(position);
 
             IGameObject[] blocks = new IGameObject[8];
@@ -111,7 +117,7 @@ namespace Sprint0
             blocks[5] = gameObjects[(int)Math.Round(position.X - 1)][(int)Math.Round(position.Y - 1)];
             blocks[6] = gameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y - 1)];
             blocks[7] = gameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y - 1)];
-
+            
             return blocks;
         }
         public Vector2 WorldToBlockSpace(Vector2 position)
