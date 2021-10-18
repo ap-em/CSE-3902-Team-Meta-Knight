@@ -1,417 +1,237 @@
 [
   {
-    "DataX": [ 90 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightJumpingLinkFull",
-    "SpriteSheet": "link"
+    "DataX": [ 359 ],
+    "DataY": [ 52 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "RightJumpingMarioFull",
+    "SpriteSheet": "mario"
   },
   {
     "DataX": [ 30 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftJumpingLinkFull",
-    "SpriteSheet": "link"
+    "DataY": [ 52 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "LeftJumpingMarioFull",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 90 ],
+    "DataX": [ 359 ],
     "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightJumpingLinkHalf",
-    "SpriteSheet": "link"
+    "Data": [ 17, 16, 1 ],
+    "SpriteName": "RightJumpingMarioHalf",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 30 ],
+    "DataX": [ 29 ],
     "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftJumpingLinkHalf",
-    "SpriteSheet": "link"
+    "Data": [ 17, 16, 1 ],
+    "SpriteName": "LeftJumpingMarioHalf",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 90 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightIdleLinkFull",
-    "SpriteSheet": "link"
+    "DataX": [ 209 ],
+    "DataY": [ 52 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "RightIdleMarioFull",
+    "SpriteSheet": "mario"
   },
 
   {
-    "DataX": [ 30 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftIdleLinkFull",
-    "SpriteSheet": "link"
+    "DataX": [ 180 ],
+    "DataY": [ 52 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "LeftIdleMarioFull",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 60 ],
+    "DataX": [ 211 ],
     "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpIdleLinkFull",
-    "SpriteSheet": "link"
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "RightIdleMarioHalf",
+    "SpriteSheet": "mario"
+  },
+
+  {
+    "DataX": [ 181 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "LeftIdleMarioHalf",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 389 ],
+    "DataY": [ 57 ],
+    "Data": [ 16, 22, 1 ],
+    "SpriteName": "RightCrouchedMarioFull",
+    "SpriteSheet": "mario"
   },
   {
     "DataX": [ 0 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownIdleLinkFull",
-    "SpriteSheet": "link"
+    "DataY": [ 57 ],
+    "Data": [ 16, 22, 1 ],
+    "SpriteName": "LeftCrouchedMarioFull",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 90, 90 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "RightMovingLinkFull",
-    "SpriteSheet": "link"
+    "DataX": [ 239, 270, 299 ],
+    "DataY": [ 52, 52, 53 ],
+    "Data": [ 16, 32, 3 ],
+    "SpriteName": "RightMovingMarioFull",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 30, 30 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "LeftMovingLinkFull",
-    "SpriteSheet": "link"
+    "DataX": [ 150, 121, 90 ],
+    "DataY": [ 52, 52, 53 ],
+    "Data": [ 16, 32, 3 ],
+    "SpriteName": "LeftMovingMarioFull",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 60, 60 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "UpMovingLinkFull",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 0, 0 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "DownMovingLinkFull",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 0 ],
-    "DataY": [ 60 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownUseLinkFull",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 90 ],
-    "DataY": [ 60 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightUseLinkFull",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 30 ],
-    "DataY": [ 60 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftUseLinkFull",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 60 ],
-    "DataY": [ 60 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpUseLinkFull",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 90, 211, 330 ],
+    "DataX": [ 241, 272, 300 ],
     "DataY": [ 0, 0, 0 ],
-    "Data": [ 16, 16, 3, 1 ],
-    "SpriteName": "RightIdleLinkFullDamaged",
-    "SpriteSheet": "link"
+    "Data": [ 16, 16, 3 ],
+    "SpriteName": "RightMovingMarioHalf",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 30, 150, 270 ],
+    "DataX": [ 150, 121, 89 ],
     "DataY": [ 0, 0, 0 ],
-    "Data": [ 16, 16, 3, 1 ],
-    "SpriteName": "LeftIdleLinkFullDamaged",
-    "SpriteSheet": "link"
+    "Data": [ 16, 16, 3 ],
+    "SpriteName": "LeftMovingMarioHalf",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 60, 180, 300 ],
-    "DataY": [ 0, 0, 0 ],
-    "Data": [ 16, 16, 3, 1 ],
-    "SpriteName": "UpIdleLinkFullDamaged",
-    "SpriteSheet": "link"
+    "DataX": [ 362 ],
+    "DataY": [ 122 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "RightJumpingMarioFire",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 0, 120, 240 ],
-    "DataY": [ 0, 0, 0 ],
-    "Data": [ 16, 16, 3, 1 ],
-    "SpriteName": "DownIdleLinkFullDamaged",
-    "SpriteSheet": "link"
+    "DataX": [ 27 ],
+    "DataY": [ 122 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "LeftJumpingMarioFire",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 90, 210, 330, 210 ],
-    "DataY": [ 0, 30, 0, 30 ],
-    "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "RightMovingLinkFullDamaged",
-    "SpriteSheet": "link"
+    "DataX": [ 209 ],
+    "DataY": [ 122 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "RightIdleMarioFire",
+    "SpriteSheet": "mario"
+  },
+
+  {
+    "DataX": [ 180 ],
+    "DataY": [ 122 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "LeftIdleMarioFire",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 30, 150, 270, 150 ],
-    "DataY": [ 0, 30, 0, 30 ],
-    "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "LeftMovingLinkFullDamaged",
-    "SpriteSheet": "link"
+    "DataX": [ 389 ],
+    "DataY": [ 127 ],
+    "Data": [ 16, 22, 1 ],
+    "SpriteName": "RightCrouchedMarioFire",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 60, 180, 300, 180 ],
-    "DataY": [ 0, 30, 0, 30 ],
-    "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "UpMovingLinkFullDamaged",
-    "SpriteSheet": "link"
+    "DataX": [ 0 ],
+    "DataY": [ 127 ],
+    "Data": [ 16, 22, 1 ],
+    "SpriteName": "LeftCrouchedMarioFire",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 0, 120, 240, 120 ],
-    "DataY": [ 0, 30, 0, 30 ],
-    "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "DownMovingLinkFullDamaged",
-    "SpriteSheet": "link"
+    "DataX": [ 237, 263, 287 ],
+    "DataY": [ 122, 122, 123 ],
+    "Data": [ 16, 32, 3 ],
+    "SpriteName": "RightMovingMarioFire",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 0, 120, 240, 120 ],
-    "DataY": [ 60, 60, 60, 60 ],
-    "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "DownUseLinkFullDamaged",
-    "SpriteSheet": "link"
+    "DataX": [ 152, 128, 102 ],
+    "DataY": [ 122, 122, 123 ],
+    "Data": [ 16, 32, 3 ],
+    "SpriteName": "LeftMovingMarioFire",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 90, 210, 330, 210 ],
-    "DataY": [ 60, 60, 0, 0 ],
-    "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "RightUseLinkFullDamaged",
-    "SpriteSheet": "link"
+    "DataX": [ 0 ],
+    "DataY": [ 16 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "MarioDead",
+    "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 30, 150, 270, 150 ],
-    "DataY": [ 60, 60, 60, 60 ],
-    "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "LeftUseLinkFullDamaged",
-    "SpriteSheet": "link"
+    "DataX": [ 80, 96, 112 ],
+    "DataY": [ 112, 112, 112 ],
+    "Data": [ 16, 16, 3 ],
+    "SpriteName": "ItemBlock",
+    "SpriteSheet": "blocks"
   },
   {
-    "DataX": [ 60, 180, 300, 180 ],
-    "DataY": [ 60, 60, 60, 60 ],
-    "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "UpUseLinkFullDamaged",
-    "SpriteSheet": "link"
+    "DataX": [ 144 ],
+    "DataY": [ 112 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "UsedItemBlock",
+    "SpriteSheet": "blocks"
   },
   {
-    "DataX": [ 0, 120, 240, 120 ],
-    "DataY": [ 90, 90, 90, 90 ],
-    "Data": [ 16, 32, 4, 1 ],
-    "SpriteName": "DownSwordLinkFullDamaged",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 90, 210, 330, 210 ],
-    "DataY": [ 90, 90, 90, 90 ],
-    "Data": [ 16, 32, 4, 1 ],
-    "SpriteName": "RightSwordLinkFullDamaged",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 30, 150, 270, 150 ],
-    "DataY": [ 90, 90, 90, 90 ],
-    "Data": [ 16, 32, 4, 1 ],
-    "SpriteName": "LeftSwordLinkFullDamaged",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 60, 180, 300, 180 ],
-    "DataY": [ 90, 90, 90, 90 ],
-    "Data": [ 16, 16, 4, 1 ],
-    "SpriteName": "UpSwordLinkFullDamaged",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 90 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightIdleLinkHalf",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 30 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftIdleLinkHalf",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 60 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpIdleLinkHalf",
-    "SpriteSheet": "link"
+    "DataX": [ 272 ],
+    "DataY": [ 112 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "BrickBlock",
+    "SpriteSheet": "blocks"
   },
   {
     "DataX": [ 0 ],
     "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownIdleLinkHalf",
-    "SpriteSheet": "link"
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "Mushroom",
+    "SpriteSheet": "items"
   },
   {
-    "DataX": [ 90, 90 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "RightMovingLinkHalf",
-    "SpriteSheet": "link"
+    "DataX": [ 0, 16, 32, 48 ],
+    "DataY": [ 32, 32, 32, 32 ],
+    "Data": [ 16, 16, 4 ],
+    "SpriteName": "Fireflower",
+    "SpriteSheet": "items"
   },
   {
-    "DataX": [ 30, 30 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "LeftMovingLinkHalf",
-    "SpriteSheet": "link"
+    "DataX": [ 0, 16, 32, 48 ],
+    "DataY": [ 48, 48, 48, 48 ],
+    "Data": [ 16, 16, 4 ],
+    "SpriteName": "Star",
+    "SpriteSheet": "items"
   },
   {
-    "DataX": [ 60, 60 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "UpMovingLinkHalf",
-    "SpriteSheet": "link"
+    "DataX": [ 0, 16, 32, 48 ],
+    "DataY": [ 80, 80, 80, 80 ],
+    "Data": [ 16, 16, 4 ],
+    "SpriteName": "Coin",
+    "SpriteSheet": "items"
   },
   {
-    "DataX": [ 0, 0 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "DownMovingLinkHalf",
-    "SpriteSheet": "link"
+    "DataX": [ 1 ],
+    "DataY": [ 131 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "Ground",
+    "SpriteSheet": "tiles"
   },
   {
-    "DataX": [ 0 ],
-    "DataY": [ 60 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownUseLinkHalf",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 90 ],
-    "DataY": [ 60 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightUseLinkHalf",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 30 ],
-    "DataY": [ 60 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftUseLinkHalf",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 60 ],
-    "DataY": [ 60 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpUseLinkHalf",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 0 ],
-    "DataY": [ 150 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "PickupItemLinkOneHand",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 30 ],
-    "DataY": [ 150 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "PickupItemLinkBothHands",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 242 ],
-    "DataY": [ 129 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "OrangeBlock",
+    "DataX": [ 86 ],
+    "DataY": [ 63 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "Block",
     "SpriteSheet": "blocks"
   },
   {
-    "DataX": [ 261 ],
-    "DataY": [ 129 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "BlueBlock",
-    "SpriteSheet": "blocks"
-  },
-  {
-    "DataX": [ 280 ],
-    "DataY": [ 129 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "BlueStatueRight",
-    "SpriteSheet": "blocks"
-  },
-  {
-    "DataX": [ 299 ],
-    "DataY": [ 129 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "BlueStatueLeft",
-    "SpriteSheet": "blocks"
-  },
-  {
-    "DataX": [ 318 ],
-    "DataY": [ 129 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "GreenStatueLeft",
-    "SpriteSheet": "blocks"
-  },
-  {
-    "DataX": [ 337 ],
-    "DataY": [ 129 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "GreenStatueRight",
-    "SpriteSheet": "blocks"
-  },
-  {
-    "DataX": [ 242 ],
-    "DataY": [ 148 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "GreenTile",
-    "SpriteSheet": "blocks"
-  },
-  {
-    "DataX": [ 261 ],
-    "DataY": [ 148 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "BlueTile",
-    "SpriteSheet": "blocks"
-  },
-  {
-    "DataX": [ 280 ],
-    "DataY": [ 148 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "BlackTile",
-    "SpriteSheet": "blocks"
-  },
-  {
-    "DataX": [ 299 ],
-    "DataY": [ 148 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "Stairs",
-    "SpriteSheet": "blocks"
-  },
-  {
-    "DataX": [ 318 ],
-    "DataY": [ 148 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "OrangeSand",
-    "SpriteSheet": "blocks"
-  },
-  {
-    "DataX": [ 337 ],
-    "DataY": [ 148 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "GreenSand",
-    "SpriteSheet": "blocks"
-  },
-  {
-    "DataX": [ 356 ],
-    "DataY": [ 148 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "BlueSand",
-    "SpriteSheet": "blocks"
+    "DataX": [ 364 ],
+    "DataY": [ 188 ],
+    "Data": [ 8, 8, 1 ],
+    "SpriteName": "fireball",
+    "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 0 ],

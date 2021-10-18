@@ -14,7 +14,7 @@ namespace Sprint0
 {
     public class DownFacingMovingLink : ILinkState
     {
-        public string ID { get; } = "DownMovingLink";
+        public string ID { get; } = "DownMovingMario";
         private Link link;
         private const float moveVelocity = 2f;
 

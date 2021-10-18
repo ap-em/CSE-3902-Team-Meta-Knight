@@ -42,8 +42,8 @@ namespace Sprint0
                     return "FullDamaged";
                 case LinkHealth.half:
                     return "Half";
- //               case LinkHealth.none:
- //                   return "none";
+//                case LinkHealth.none:
+//                    return "Dead";
                 default:
                     return "Full";
             }
