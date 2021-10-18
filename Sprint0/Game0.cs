@@ -47,7 +47,7 @@ namespace Sprint0
         protected override void Initialize()
         {
             LevelFactory.Instance.CreateLevel(1);
-            block = new Block("OrangeBlock", new Vector2(200, 200));
+            block = new Block("ItemBlock", new Vector2(200, 200));
             enemy = new Enemy();
             link = new Link();
 

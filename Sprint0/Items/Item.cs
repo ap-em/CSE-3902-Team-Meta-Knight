@@ -23,6 +23,11 @@ namespace Sprint0.Items
         ISprite sprite;
         private Vector2 location = new Vector2(100, 200);
 
+        public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public ISprite Sprite => throw new NotImplementedException();
+
         public Item(Game0 game)
         {
             this.game = game;

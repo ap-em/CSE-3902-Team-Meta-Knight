@@ -14,7 +14,7 @@ namespace Sprint0
 {
     public class RightFacingJumpingLink : ILinkState
     {
-        public string ID { get; } = "RightJumpingLink";
+        public string ID { get; } = "RightJumpingMario";
         private Vector2 velocity;
         private int jumpTimer;
         private bool jumpHold;
