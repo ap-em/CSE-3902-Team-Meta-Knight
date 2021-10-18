@@ -22,8 +22,9 @@ namespace Sprint0.Sprites
         public int Columns { get; set; }
         private int currentFrame;
         private int totalFrames;
-        private int width;
-        private int height;
+        public int width { get; }
+        public int height { get; }
+
         private int[] Xlist;
         private int[] Ylist;
         private int waitTime = 2;

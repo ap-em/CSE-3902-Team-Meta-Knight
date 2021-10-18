@@ -11,25 +11,26 @@ Leon Cai
 Owen Tishenkel
 Owen Huston
 */
-namespace Sprint0.Items
+/*
+ * namespace Sprint0.Items
 {
-    /*Owen Tishenkel, heavily based on Owen Houston's Enemy class*/
+    /*Owen Tishenkel, heavily based on Owen Houston's Enemy class
     class star : IItems
     {
         Game0 game;
-        public Vector2 position { get; set }
+        public Vector2 position { get; set; }
         String spriteName;
         ISprite sprite;
         public bool IsCollected { get; set; } = false;
-        public Vector2 velocity { get; set }
+        public Vector2 velocity { get; set; }
 
         public Star(Vector2 location)
         {
             position = location;
             spriteName = "Star";
             velocity = new Vector2(0, -1.0f);
-         
-            detectionRec = ((int)position.X, (int)position.Y, width, height) // width and height should from data sheet 
+
+            detectionRec = ((int)position.X, (int)position.Y, width, height); // width and height should from data sheet 
                                                                              // better to create an abstract class in ISprite to create rectangle for objects
 
         }
@@ -64,3 +65,4 @@ namespace Sprint0.Items
 
     }
 }
+*/

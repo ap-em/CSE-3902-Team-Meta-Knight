@@ -14,7 +14,7 @@ namespace Sprint0
     public class DownFacingStaticLink : ILinkState
     {
         private Link link;
-        public string ID { get; } = "DownIdleLink";
+        public string ID { get; } = "DownIdleMario";
         
 
         public DownFacingStaticLink(Link linkRef)

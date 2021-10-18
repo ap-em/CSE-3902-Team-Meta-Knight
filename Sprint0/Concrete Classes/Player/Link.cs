@@ -23,7 +23,7 @@ namespace Sprint0
         public ILinkState currentState;
         private int XVelocity = 0;
         private int YVelocity = 0;
-        private Vector2 position = new Vector2(100, 100);
+        private Vector2 position = new Vector2(100, 353);
         private ISprite currentSprite;
         private ILinkState attack;
 
