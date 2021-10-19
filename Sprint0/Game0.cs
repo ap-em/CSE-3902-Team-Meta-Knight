@@ -26,16 +26,23 @@ namespace Sprint0
         public SpriteBatch spriteBatch;
         public ISprite sprite;
         public SpriteFont font;
-        public ILink link;
-        public IEnemy enemy;
-        public IBlock block;
-        public IItems item;
-        public ILinkState linkstate;
-        private IKeyboardController enemyKeyboard;
-        private IKeyboardController playerKeyboard;
-        /*private IMouseController mouseController; not needed for Sprint 2 */
-        private ArrayList keyboardControllerList;
         public static ContentManager ContentInstance;
+
+        private static Game0 instance;
+        public static Game0 Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+
+                    instance = new Game0();
+
+                }
+                return instance;
+            }
+        }
+
         public Game0()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -47,20 +54,6 @@ namespace Sprint0
         protected override void Initialize()
         {
             LevelFactory.Instance.CreateLevel(1);
-            block = new Block("ItemBlock", new Vector2(200, 200));
-            enemy = new Enemy();
-            link = new Link();
-
-            keyboardControllerList = new ArrayList();
-
-            item = new Item(this);
-
-
-            enemyKeyboard = new EnemyController();
-            SetUpEnemyKeyboard(enemyKeyboard, enemy);
-
-            playerKeyboard = new KeyboardController();
-            SetUpPlayerKeyboard(playerKeyboard);
 
             //No need for mouse controller for Sprint 2
             /* 
@@ -73,61 +66,45 @@ namespace Sprint0
 
             base.Initialize();
         }
-        public void SetUpPlayerKeyboard(IKeyboardController keyboard)
+        public IKeyboardController SetUpPlayerKeyboard(ILink link)
         {
-            keyboard.RegisterCommand(Keys.Q, new Quit(this));
-            keyboard.RegisterCommand(Keys.R, new CReset(this));
+            IKeyboardController keyboard = new KeyboardController();
+            keyboard.ClearController();
 
-            keyboard.RegisterCommand(Keys.W, new CMovePlayerUp(this));
-            keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft(this));
-            keyboard.RegisterCommand(Keys.S, new CMovePlayerDown(this));
-            keyboard.RegisterCommand(Keys.D, new CMovePlayerRight(this));
+            keyboard.RegisterCommand(Keys.Q, new Quit(link));
+            keyboard.RegisterCommand(Keys.R, new CReset(link));
 
-            keyboard.RegisterCommand(Keys.Up, new CMovePlayerUp(this));
-            keyboard.RegisterCommand(Keys.Left, new CMovePlayerLeft(this));
-            keyboard.RegisterCommand(Keys.Down, new CMovePlayerDown(this));
-            keyboard.RegisterCommand(Keys.Right, new CMovePlayerRight(this));
+            keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft(link));
+            keyboard.RegisterCommand(Keys.D, new CMovePlayerRight(link));
+
+            keyboard.RegisterCommand(Keys.Left, new CMovePlayerLeft(link));
+            keyboard.RegisterCommand(Keys.Right, new CMovePlayerRight(link));
 
             //need to create a primary attack ilink, but only ilink is link, so link here for now
-            keyboard.RegisterCommand(Keys.Z, new CPlayerPrimaryAttack(link, this));
-            keyboard.RegisterCommand(Keys.N, new CPlayerPrimaryAttack(link, this));
+            keyboard.RegisterCommand(Keys.Z, new CPlayerPrimaryAttack(link));
+            keyboard.RegisterCommand(Keys.N, new CPlayerPrimaryAttack(link));
 
-            keyboard.RegisterCommand(Keys.E, new CDamagePlayer(link, this));
+            keyboard.RegisterCommand(Keys.E, new CDamagePlayer(link));
 
-            //need to be able to use all items from number keys, need commands for this
-            keyboard.RegisterCommand(Keys.D1, new CPlayerSecondaryAttack(link, this, "Bomb"));
-            keyboard.RegisterCommand(Keys.D2, new CPlayerSecondaryAttack(link, this, "Key"));
-            keyboard.RegisterCommand(Keys.D3, new CPlayerSecondaryAttack(link, this, "HealHeart"));
+            keyboard.RegisterHoldableKey(Keys.Space, new CPlayerJump(link));
 
-            keyboard.RegisterCommand(Keys.U, new CCyclePlayerItemPrevious(this));
-            keyboard.RegisterCommand(Keys.I, new CCyclePlayerItemNext(this));
+            keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(link));
+            keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(link));
+            keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(link));
+            keyboard.RegisterReleasableKey(Keys.D, new CZeroPlayerXVelocity(link));
 
+            keyboard.RegisterReleasableKey(Keys.Up, new CZeroPlayerYVelocity(link));
+            keyboard.RegisterReleasableKey(Keys.Down, new CZeroPlayerYVelocity(link));
+            keyboard.RegisterReleasableKey(Keys.Left, new CZeroPlayerXVelocity(link));
+            keyboard.RegisterReleasableKey(Keys.Right, new CZeroPlayerXVelocity(link));
 
-            keyboard.RegisterCommand(Keys.T, new CCyclePreviousBlock(this));
-            keyboard.RegisterCommand(Keys.Y, new CCycleNextBlock(this));
-
-            keyboard.RegisterCommand(Keys.O, new CCyclePreviousEnemy(this));
-            keyboard.RegisterCommand(Keys.P, new CCycleNextEnemy(this));
-
-            keyboard.RegisterHoldableKey(Keys.Space, new CPlayerJump(this));
-
-
-            keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(this, "Up"));
-            keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(this, "Down"));
-            keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(this, "Left"));
-            keyboard.RegisterReleasableKey(Keys.D, new CZeroPlayerXVelocity(this, "Right"));
-
-            keyboard.RegisterReleasableKey(Keys.Up, new CZeroPlayerYVelocity(this, "Up"));
-            keyboard.RegisterReleasableKey(Keys.Down, new CZeroPlayerYVelocity(this, "Down"));
-            keyboard.RegisterReleasableKey(Keys.Left, new CZeroPlayerXVelocity(this, "Left"));
-            keyboard.RegisterReleasableKey(Keys.Right, new CZeroPlayerXVelocity(this, "Right"));
-
-            keyboardControllerList.Add(keyboard);
-
+            return keyboard;
         }
-        public void SetUpEnemyKeyboard(IKeyboardController keyboard, IEnemy enemy)
+        public IKeyboardController SetUpEnemyKeyboard(IEnemy enemy)
         {
-            enemy.SetKeyboard(keyboard);
+            IKeyboardController keyboard = new EnemyController();
+
+            keyboard.ClearController();
             keyboard.RegisterCommand(Keys.W, new CMoveEnemyUp(enemy));
             keyboard.RegisterCommand(Keys.A, new CMoveEnemyLeft(enemy));
             keyboard.RegisterCommand(Keys.S, new CMoveEnemyDown(enemy));
@@ -139,11 +116,7 @@ namespace Sprint0
             keyboard.RegisterReleasableKey(Keys.A, new CZeroEnemyXVelocity(enemy));
             keyboard.RegisterReleasableKey(Keys.D, new CZeroEnemyXVelocity(enemy));
 
-            keyboardControllerList.Add(keyboard);
-        }
-        public void RemoveKeyboard(IKeyboardController keyboard)
-        {
-            keyboardControllerList.Remove(keyboard);
+            return keyboard;
         }
         /* No need for mouse for Sprint 2
         private void SetUpMouse()
@@ -178,31 +151,6 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
-            //needs a copy of keyboard list just in case a keyboard is removed during the loop
-            ArrayList keyboardListCopy = new ArrayList(keyboardControllerList);
-            foreach (IKeyboardController controller in keyboardListCopy)
-            {
-                controller.Update();
-            }
-
-            //no need for mouse for sprint 2
-            /*
-            mouseController.Update();
-            */
-
-            //Might want to do something similar to controller update, with enemies and sprites -- although this is a job for game object manager - which hasn't been implmeneted yet
-            /*
-            foreach(ISprite sprite in SpriteList)
-            {
-                sprite.Update();
-            }
-            foreach (IEnemy enemy in EnemyList)
-            {
-                enemy.Update();
-            }
-            */
-            //link.Update();
-            // enemy.Update();
             ProjectileController.Instance.Update();
             base.Update(gameTime);
             GameObjectManager.Instance.UpdateGameObjects();
@@ -213,18 +161,9 @@ namespace Sprint0
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            //These calls don't seem to be doing anything -- should implment with spriteFactory in some way
-
-            //enemy.Draw(spriteBatch);
 
             ProjectileController.Instance.Draw(spriteBatch);
-            // link.Draw(spriteBatch);
-
             GameObjectManager.Instance.DrawGameObjects(spriteBatch);
-
-
-            //item.Draw();
-            //block.Draw(spriteBatch);
 
             base.Draw(gameTime);
 
