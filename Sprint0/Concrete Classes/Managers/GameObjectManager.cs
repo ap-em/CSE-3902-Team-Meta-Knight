@@ -61,8 +61,7 @@ namespace Sprint0
 
         public void DetectCollisions()
         {
-            //Here for implementation of collisions when neccesary
-            ICommand collision;
+            
             foreach (IGameObject go in gameObjects)
             {
                 /*
@@ -72,27 +71,75 @@ namespace Sprint0
                  * If there is a collision we should have a data table with commands similar to what was shown in lecture, 
                  * we can then use reflection to create these commands and execute them.
                  */
-                //Get the surronding blocks of whatever the game object is.
-                IGameObject[] levelCollides = Level.Instance.GetCollidables(go.Position);
-                Rectangle goRec = new Rectangle(new Point((int)go.Position.X, (int)go.Position.Y), new Point(go.Sprite.width, go.Sprite.height));
-                //Go through each colliding block
-                foreach (IGameObject block in levelCollides)
-                {
-                    //Check if the block the object is colliding with actually exists
-                    if(block != null)
-                    {
-                        Rectangle blockRec = new Rectangle(new Point((int)block.Position.X, (int)block.Position.Y), new Point(block.Sprite.width, block.Sprite.height));
-                        if (goRec.Intersects(blockRec))
-                        {
-                            collision = new CCollide(block,go);
-                            collision.Execute();
-                        }
+                //Handles collision with the level as it differs somewhat to other collisions
+                LevelCollision(go);
 
-
-                    }
-                }
+                //Non-block collisions should be working based on wheather the object is within a certain height first,
+                //essentially basing it on rows
+                EntityCollision(go);
                 
             }
         }
+
+        /*Handles Level Collision for DetectCollisions method*/
+        private void LevelCollision(IGameObject go)
+        {
+            //Here for implementation of collisions when neccesary
+            ICommand collision;
+            //Get the surronding blocks of whatever the game object is as blocks are not added to the game object list on creation.
+            IGameObject[] levelCollides = Level.Instance.GetCollidables(go.Position);
+            Rectangle goRec = new Rectangle(new Point((int)go.Position.X, (int)go.Position.Y), new Point(go.Sprite.width, go.Sprite.height));
+            //Go through each colliding block
+            foreach (IGameObject block in levelCollides)
+            {
+                //Check if the block the object is colliding with actually exists
+                if (block != null)
+                {
+                    //Create Rectangle for block and check to see if game object rectangle intersects with it
+                    Rectangle blockRec = new Rectangle(new Point((int)block.Position.X, (int)block.Position.Y), new Point(block.Sprite.width, block.Sprite.height));
+                    if (goRec.Intersects(blockRec))
+                    {
+                        //Create the correct collision command based on the block and the game object
+                        collision = new CCollide(block, go);
+                        //Execute the correct response to interfering with personal space
+                        collision.Execute();
+                    }
+
+
+                }
+            }
+        }
+
+        private void EntityCollision(IGameObject go)
+        {
+            //Here for implementation of collisions when neccesary
+            ICommand collision;
+            //Rectangle for go we are looking at
+            Rectangle goRec = new Rectangle(new Point((int)go.Position.X, (int)go.Position.Y), new Point(go.Sprite.width, go.Sprite.height));
+            //Check each entity in gameObjects
+            foreach (IGameObject entity in gameObjects)
+            {
+                if (!entity.Equals(go))
+                {
+                    //If the entity is within 10 heights of the game object we are looking at, check if it intersects
+                    if(entity.Position.Y>(goRec.Height*5) && entity.Position.Y < (goRec.Height*5))
+                    {
+                        //create an entity rec for the collision here so we don't use up time creating one for every possible entity
+                        Rectangle entityRec = new Rectangle(new Point((int)entity.Position.X, (int)entity.Position.Y), new Point(entity.Sprite.width, entity.Sprite.height));
+                        //Do they collide?
+                        if (goRec.Intersects(entityRec))
+                        {
+                            //Create the correct collision command based on the entity and the game object
+                            collision = new CCollide(entity, go);
+                            //Execute the correct response to interfering with personal space
+                            collision.Execute();
+                        }
+                    }
+                }
+            }
+
+        }
     }
+
+   
 }
