@@ -21,8 +21,6 @@ namespace Sprint0
         private IKeyboardController keyboard;
         private LinkHealthStateMachine healthStateMachine;
         public ILinkState currentState;
-        private int XVelocity = 0;
-        private int YVelocity = 0;
         private Vector2 position = new Vector2(100, 100);
         private ISprite currentSprite;
         private ILinkState attack;
@@ -31,22 +29,15 @@ namespace Sprint0
 
         public ISprite Sprite => currentSprite;
 
-        public Link()
+        public Link(String spriteName, Vector2 position)
         {
-            GameObjectManager.Instance.AddToObjectList(this);
             healthStateMachine = new LinkHealthStateMachine(this);
 
+            this.position = position;
             currentState = new RightFacingStaticLink(this);
             OnStateChange();
-        }
-
-        public void SetKeyboard(IKeyboardController keyboard)
-        {
-            this.keyboard = keyboard;
-        }
-        public IKeyboardController GetKeyboard()
-        {
-            return keyboard;
+            keyboard = Game0.Instance.SetUpPlayerKeyboard(this);
+            GameObjectManager.Instance.AddToObjectList(this);
         }
 
         /*
@@ -76,16 +67,12 @@ namespace Sprint0
             currentSprite.Draw(spritebatch, position);
         }
 
-        public void Execute()
-        {
-           throw new NotImplementedException();
-        }
-
         public void Update()
         {
             healthStateMachine.Update();
             currentState.Update();
             currentSprite.Update();
+            keyboard.Update();
         }
 
         public void MoveSprite(Vector2 change)
@@ -102,17 +89,6 @@ namespace Sprint0
         {
             currentState.MoveRight();
         }
-
-        public void MoveUp()
-        {
-            currentState.MoveUp();
-        }
-
-        public void MoveDown()
-        {
-            currentState.MoveDown();
-        }
-
         public void Jump()
         {
             currentState.Jump();
@@ -131,35 +107,18 @@ namespace Sprint0
             attack = new AttackLink(currentState, position);
             attack.Attack();
         }
-        public void SecondaryAttack(String attackType)
-        {
-            attack = new SecondaryAttackLink(currentState, position, attackType);
-            attack.Attack();
-        }
 
         public void Crouch()
         {
             currentState.Crouch();
         }
-        public void StopMoving(string sourceDirection)
+        public void StopMovingHorizontal()
         {
-            currentState.StopMoving(sourceDirection);
+            currentState.StopMovingHorizontal();
         }
-        private int GetXVelocity()
+        public void StopMovingVertical()
         {
-            return XVelocity;
-        }
-        private void SetXVelocity(int x)
-        {
-            XVelocity = x;
-        }
-        private int GetYVelocity()
-        {
-            return YVelocity;
-        }
-        private void SetYVelocity(int y)
-        {
-            YVelocity = y;
+            currentState.StopMovingVertical();
         }
     }
 }

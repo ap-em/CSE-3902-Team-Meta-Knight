@@ -15,14 +15,14 @@ namespace Sprint0.Commands
     /*Owen Tishenkel 2021 CSE 3902 Commit pls*/
     class CMovePlayerLeft : ICommand
     {
-         private Game0 gameHere;
-        public CMovePlayerLeft(Game0 game)
+         private ILink link;
+        public CMovePlayerLeft(ILink link)
         {
-            gameHere = game;
+            this.link = link;
         }
         public void Execute()
         {
-            gameHere.link.MoveLeft();
+            link.MoveLeft();
         }
     }
 }

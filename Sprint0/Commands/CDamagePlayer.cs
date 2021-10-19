@@ -17,10 +17,8 @@ namespace Sprint0.Commands
     class CDamagePlayer : ICommand
     {
         ILink link;
-        Game0 gameHere;
-        public CDamagePlayer(ILink link, Game0 game)
+        public CDamagePlayer(ILink link)
         {
-            gameHere = game;
             this.link = link;
         }
 

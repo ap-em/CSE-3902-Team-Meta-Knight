@@ -53,6 +53,13 @@ namespace Sprint0.Controllers
             if (!releasableKeyMappings.ContainsKey(key))releasableKeyMappings.Add(key, command);
             if (!availableKeys.Contains(key)) availableKeys.Add(key);
         }
+        public void ClearController()
+        {
+            availableKeys.Clear();
+            pressableKeyMappings.Clear();
+            releasableKeyMappings.Clear();
+            holdableKeyMappings.Clear();
+        }
         public void Update()
         {
             //wait for a few updates before choosing a new key
