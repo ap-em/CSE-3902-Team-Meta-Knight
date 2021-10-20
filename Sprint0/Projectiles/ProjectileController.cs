@@ -62,19 +62,9 @@ namespace Sprint0
         }
         public void Update()
         {
-            // remove unused projectiles
-            for(int i=0;i<projectiles.Count;i++)
-            {
-                if (projectiles[i].GetFuseTime() <= 0)
-                {
-                    RemoveProjectile(projectiles[i]);
-                    i--;
-                }
-            }
             // move current projectiles
             for(int i=0;i<projectiles.Count;i++)
             {
-                projectiles[i].Move();
                 projectiles[i].Update();
             }
         }

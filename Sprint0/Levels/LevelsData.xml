@@ -10,6 +10,7 @@
 	  </row1>
 	  <row2>
 		  <obj>3,11,1,Sprint0.Mario,RightIdleMarioFull</obj>
+      <obj>4,11,1,Sprint0.Enemies.Enemy,RightMovingLike-Like</obj>
 	  </row2>
   </Level1>
 </Levels>

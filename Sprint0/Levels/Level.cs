@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
 using Sprint0.Blocks;
+using Sprint0.Enemies;
 using Sprint0.Sprites.SpriteFactory;
 using Microsoft.Xna.Framework.Graphics;
 using System.Reflection;
@@ -61,7 +62,18 @@ namespace Sprint0
 
             ConstructorInfo constructorInfoObj = t.GetConstructor(types);
 
-            gameObjects[rowLength[rowIndex]][rowIndex] = (IGameObject)constructorInfoObj.Invoke(param);
+            //this should be changed in the future so that gameObjectManager holds blocks instead
+
+            // add blocks to array
+            if (objType.Equals("Sprint0.Blocks.Block"))
+            {
+                gameObjects[rowLength[rowIndex]][rowIndex] = (IGameObject)constructorInfoObj.Invoke(param);
+            }
+            // add player, enemy, etc. to gameObject manager
+            else
+            {
+               GameObjectManager.Instance.AddToObjectList((IGameObject)constructorInfoObj.Invoke(param));
+            }
             
             rowLength[rowIndex] += 1;
         }
