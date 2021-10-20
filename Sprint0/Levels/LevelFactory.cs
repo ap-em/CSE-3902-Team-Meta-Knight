@@ -19,7 +19,7 @@ Owen Tishenkel
 Owen Huston*/
 
 
-namespace Sprint0.Blocks
+namespace Sprint0
 {
     class LevelFactory 
     {

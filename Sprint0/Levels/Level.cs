@@ -142,9 +142,20 @@ namespace Sprint0
         {
             return new Vector2(pos.X * 32, pos.Y * 32);
         }
-        public void Update()
+        public void Reset()
         {
-
+            for (int i = 0; i < maxNumberOfRows; i++)
+            {
+                Array.Clear(gameObjects[i], 0, gameObjects[i].Length);
+                rowLength[i] = 0;
+            }
+            /*
+            for (int i = 0; i < maxRowLength; i++)
+            {
+                gameObjects[i] = new IGameObject[maxNumberOfRows];
+            }
+            */
+            LevelFactory.Instance.CreateLevel(1);
         }
     }
 }
