@@ -16,15 +16,15 @@ namespace Sprint0.Commands
     /*Owen Tishenkel 2021 CSE 3902*/
     class CDamagePlayer : ICommand
     {
-        ILink link;
-        public CDamagePlayer(ILink link)
+        IMario mario;
+        public CDamagePlayer(IMario mario)
         {
-            this.link = link;
+            this.mario = mario;
         }
 
         public void Execute()
         {
-            link.TakeDamage();
+            mario.TakeDamage();
         }
     }
 }

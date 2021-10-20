@@ -16,25 +16,25 @@ Owen Huston
 */
 namespace Sprint0
 {
-    public class Link :ILink, IGameObject
+    public class Mario :IMario, IGameObject
     {
         private IKeyboardController keyboard;
-        private LinkHealthStateMachine healthStateMachine;
-        public ILinkState currentState;
+        private MarioHealthStateMachine healthStateMachine;
+        public IMarioState currentState;
         private Vector2 position = new Vector2(100, 100);
         private ISprite currentSprite;
-        private ILinkState attack;
+        private IMarioState attack;
 
         public Vector2 Position { get => position; set => throw new NotImplementedException(); }
 
         public ISprite Sprite => currentSprite;
 
-        public Link(String spriteName, Vector2 position)
+        public Mario(String spriteName, Vector2 position)
         {
-            healthStateMachine = new LinkHealthStateMachine(this);
+            healthStateMachine = new MarioHealthStateMachine(this);
 
             this.position = position;
-            currentState = new RightFacingStaticLink(this);
+            currentState = new RightFacingStaticMario(this);
             OnStateChange();
             keyboard = Game0.Instance.SetUpPlayerKeyboard(this);
             GameObjectManager.Instance.AddToObjectList(this);
@@ -54,13 +54,13 @@ namespace Sprint0
         }
 
         /*
-         * This is used to create the string passsed to sprite factory from links current states.
+         * This is used to create the string passsed to sprite factory from marios current states.
          * Once SF is implemented this can be done as well.
          */
-        private string GetSpriteID(LinkHealthStateMachine healthStateMachine, ILinkState linkState)
+        private string GetSpriteID(MarioHealthStateMachine healthStateMachine, IMarioState marioState)
         {
 
-            return linkState.ID + healthStateMachine.GetHealth();
+            return marioState.ID + healthStateMachine.GetHealth();
         }
         public void Draw(SpriteBatch spritebatch)
         {
@@ -104,7 +104,7 @@ namespace Sprint0
 
         public void PrimaryAttack()
         {
-            attack = new AttackLink(currentState, position);
+            attack = new AttackMario(currentState, position);
             attack.Attack();
         }
 

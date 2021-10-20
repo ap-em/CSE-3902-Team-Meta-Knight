@@ -13,13 +13,13 @@ Owen Huston
 */
 namespace Sprint0.Concrete_Classes.State_Machines.States
 {
-    class AttackLink : ILinkState
+    class AttackMario : IMarioState
     {
 
-        ILinkState currentState;
+        IMarioState currentState;
         Vector2 position;
 
-        public AttackLink(ILinkState currentState, Vector2 position)
+        public AttackMario(IMarioState currentState, Vector2 position)
         {
             this.currentState = currentState;
             this.position = position;
@@ -31,26 +31,26 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
         {
             switch (currentState.ID)
             {
-                case "DownIdleLink":
-                case "DownMovingLink":
+                case "DownIdleMario":
+                case "DownMovingMario":
                     position.Y = position.Y + 32;
                     ProjectileController.Instance.AddProjectile(
                         new Projectile(SpriteFactory.Instance.GetSprite("DownSword"), position, 0, 0, 6));
                     break;
-                case "UpMovingLink":
-                case "UpIdleLink":
+                case "UpMovingMario":
+                case "UpIdleMario":
                     position.Y = position.Y - 32;
                     ProjectileController.Instance.AddProjectile(
                         new Projectile(SpriteFactory.Instance.GetSprite("UpSword"), position, 0, 0, 6));
                     break;
-                case "RightMovingLink":
-                case "RightIdleLink":
+                case "RightMovingMario":
+                case "RightIdleMario":
                     position.X = position.X + 32;
                     ProjectileController.Instance.AddProjectile(
                         new Projectile(SpriteFactory.Instance.GetSprite("RightSword"), position, 0, 0, 6));
                     break;
-                case "LeftMovingLink":
-                case "LeftIdleLink":
+                case "LeftMovingMario":
+                case "LeftIdleMario":
                     position.X = position.X - 32;
                     ProjectileController.Instance.AddProjectile(
                         new Projectile(SpriteFactory.Instance.GetSprite("LeftSword"), position, 0, 0, 6));

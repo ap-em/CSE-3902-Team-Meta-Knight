@@ -66,37 +66,37 @@ namespace Sprint0
 
             base.Initialize();
         }
-        public IKeyboardController SetUpPlayerKeyboard(ILink link)
+        public IKeyboardController SetUpPlayerKeyboard(IMario mario)
         {
             IKeyboardController keyboard = new KeyboardController();
             keyboard.ClearController();
 
-            keyboard.RegisterCommand(Keys.Q, new Quit(link));
-            keyboard.RegisterCommand(Keys.R, new CReset(link));
+            keyboard.RegisterCommand(Keys.Q, new Quit(mario));
+            keyboard.RegisterCommand(Keys.R, new CReset(mario));
 
-            keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft(link));
-            keyboard.RegisterCommand(Keys.D, new CMovePlayerRight(link));
+            keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft(mario));
+            keyboard.RegisterCommand(Keys.D, new CMovePlayerRight(mario));
 
-            keyboard.RegisterCommand(Keys.Left, new CMovePlayerLeft(link));
-            keyboard.RegisterCommand(Keys.Right, new CMovePlayerRight(link));
+            keyboard.RegisterCommand(Keys.Left, new CMovePlayerLeft(mario));
+            keyboard.RegisterCommand(Keys.Right, new CMovePlayerRight(mario));
 
-            //need to create a primary attack ilink, but only ilink is link, so link here for now
-            keyboard.RegisterCommand(Keys.Z, new CPlayerPrimaryAttack(link));
-            keyboard.RegisterCommand(Keys.N, new CPlayerPrimaryAttack(link));
+            //need to create a primary attack imario, but only imario is mario, so mario here for now
+            keyboard.RegisterCommand(Keys.Z, new CPlayerPrimaryAttack(mario));
+            keyboard.RegisterCommand(Keys.N, new CPlayerPrimaryAttack(mario));
 
-            keyboard.RegisterCommand(Keys.E, new CDamagePlayer(link));
+            keyboard.RegisterCommand(Keys.E, new CDamagePlayer(mario));
 
-            keyboard.RegisterHoldableKey(Keys.Space, new CPlayerJump(link));
+            keyboard.RegisterHoldableKey(Keys.Space, new CPlayerJump(mario));
 
-            keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(link));
-            keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(link));
-            keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(link));
-            keyboard.RegisterReleasableKey(Keys.D, new CZeroPlayerXVelocity(link));
+            keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(mario));
+            keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(mario));
+            keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(mario));
+            keyboard.RegisterReleasableKey(Keys.D, new CZeroPlayerXVelocity(mario));
 
-            keyboard.RegisterReleasableKey(Keys.Up, new CZeroPlayerYVelocity(link));
-            keyboard.RegisterReleasableKey(Keys.Down, new CZeroPlayerYVelocity(link));
-            keyboard.RegisterReleasableKey(Keys.Left, new CZeroPlayerXVelocity(link));
-            keyboard.RegisterReleasableKey(Keys.Right, new CZeroPlayerXVelocity(link));
+            keyboard.RegisterReleasableKey(Keys.Up, new CZeroPlayerYVelocity(mario));
+            keyboard.RegisterReleasableKey(Keys.Down, new CZeroPlayerYVelocity(mario));
+            keyboard.RegisterReleasableKey(Keys.Left, new CZeroPlayerXVelocity(mario));
+            keyboard.RegisterReleasableKey(Keys.Right, new CZeroPlayerXVelocity(mario));
 
             return keyboard;
         }

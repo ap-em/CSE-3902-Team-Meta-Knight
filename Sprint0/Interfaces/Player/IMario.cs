@@ -16,13 +16,13 @@ Owen Huston
 // Alex Clayton 09/15/21 modified by Owen Tishenkel 9/28/21
 namespace Sprint0
 {
-    public interface ILink
+    public interface IMario
     {
-        // Interface for items that link has such as his Sword, arrows, boomerang, bombs, blue candle, etc.
-        // These would be like commands in a way, since having it seleceted and pressing A, for example, would cause Link to attack with his sword, executing the sword attack.
+        // Interface for items that Mario has such as his Sword, arrows, boomerang, bombs, blue candle, etc.
+        // These would be like commands in a way, since having it seleceted and pressing A, for example, would cause Mario to attack with his sword, executing the sword attack.
         void Update();
         void Draw(SpriteBatch spritebatch);
-        /*Movement Centric code, MoveDirection code changes the facing of Link and moves him in that direction*/
+        /*Movement Centric code, MoveDirection code changes the facing of Mario and moves him in that direction*/
         void MoveLeft();
         void MoveRight();
         void PrimaryAttack();

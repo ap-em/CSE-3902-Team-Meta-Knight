@@ -12,37 +12,37 @@ Owen Huston
 */
 namespace Sprint0
 {
-    class LinkHealthStateMachine
+    class MarioHealthStateMachine
     {
-        private ILink link;
-        private enum LinkHealth { star, fire, fireDamaged, full, fullDamaged, half, none };
-        private LinkHealth currentHealth = LinkHealth.full;
-        private LinkHealth previousHealth = LinkHealth.full;
+        private IMario mario;
+        private enum MarioHealth { star, fire, fireDamaged, full, fullDamaged, half, none };
+        private MarioHealth currentHealth = MarioHealth.full;
+        private MarioHealth previousHealth = MarioHealth.full;
         private int invinsibleTimer = 20;
 
 
-        public LinkHealthStateMachine(ILink link)
+        public MarioHealthStateMachine(IMario mario)
         {
-            this.link = link;
+            this.mario = mario;
         }
 
         public String GetHealth()
         {
             switch (currentHealth)
             {
-                case LinkHealth.star:
+                case MarioHealth.star:
                     return "Star";
-                case LinkHealth.fire:
+                case MarioHealth.fire:
                     return "Fire";
-                case LinkHealth.fireDamaged:
+                case MarioHealth.fireDamaged:
                     return "FireDamaged";
-                case LinkHealth.full:
+                case MarioHealth.full:
                     return "Full";
-                case LinkHealth.fullDamaged:
+                case MarioHealth.fullDamaged:
                     return "FullDamaged";
-                case LinkHealth.half:
+                case MarioHealth.half:
                     return "Half";
-//                case LinkHealth.none:
+//                case MarioHealth.none:
 //                    return "Dead";
                 default:
                     return "Full";
@@ -56,32 +56,32 @@ namespace Sprint0
                 invinsibleTimer = 20;
                 switch (currentHealth)
                 {
-                    case LinkHealth.star:
-                        currentHealth = LinkHealth.star;
+                    case MarioHealth.star:
+                        currentHealth = MarioHealth.star;
                         break;
-                    case LinkHealth.fire:
-                        currentHealth = LinkHealth.fireDamaged;
+                    case MarioHealth.fire:
+                        currentHealth = MarioHealth.fireDamaged;
                         break;
-                    case LinkHealth.full:
-                        currentHealth = LinkHealth.fullDamaged;
+                    case MarioHealth.full:
+                        currentHealth = MarioHealth.fullDamaged;
                         break;
-                    case LinkHealth.half:
-                        currentHealth = LinkHealth.none;
+                    case MarioHealth.half:
+                        currentHealth = MarioHealth.none;
                         break;
-                    case LinkHealth.none:
+                    case MarioHealth.none:
                         break;
                     default:
                         break;
                 }
-                link.OnStateChange();
+                mario.OnStateChange();
             }
         }
         public void StarPower()
         {
             invinsibleTimer = 100;
             previousHealth = currentHealth;
-            currentHealth = LinkHealth.star;
-            link.OnStateChange();
+            currentHealth = MarioHealth.star;
+            mario.OnStateChange();
         }
         public void Update()
         {
@@ -91,23 +91,23 @@ namespace Sprint0
             }
             if(invinsibleTimer == 0) 
             {
-                if (currentHealth == LinkHealth.star)
+                if (currentHealth == MarioHealth.star)
                 {
                     // go back to previous health after star power
                     currentHealth = previousHealth;
-                    link.OnStateChange();
+                    mario.OnStateChange();
                 }
-                else if(currentHealth == LinkHealth.fireDamaged)
+                else if(currentHealth == MarioHealth.fireDamaged)
                 {
                     // go to new health after taking damage animation
-                    currentHealth = LinkHealth.full;
-                    link.OnStateChange();
+                    currentHealth = MarioHealth.full;
+                    mario.OnStateChange();
                 }
-                else if(currentHealth == LinkHealth.fullDamaged)
+                else if(currentHealth == MarioHealth.fullDamaged)
                 {
                     // go to new health after taking damage animation
-                    currentHealth = LinkHealth.half;
-                    link.OnStateChange();
+                    currentHealth = MarioHealth.half;
+                    mario.OnStateChange();
                 }
             }
         }

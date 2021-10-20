@@ -12,18 +12,18 @@ Owen Huston
 */
 namespace Sprint0
 {
-    public class LeftFacingJumpingLink : ILinkState
+    public class RightFacingJumpingMario : IMarioState
     {
-        public string ID { get; } = "LeftJumpingMario";
+        public string ID { get; } = "RightJumpingMario";
         private Vector2 velocity;
         private int jumpTimer;
         private bool jumpHold;
 
-        private Link link;
+        private Mario mario;
 
-        public LeftFacingJumpingLink(Link linkRef, Vector2 velocity, int jumpTimer, bool jumpHold)
+        public RightFacingJumpingMario(Mario marioRef, Vector2 velocity, int jumpTimer, bool jumpHold)
         {
-            link = linkRef;
+            mario = marioRef;
             this.velocity = velocity;
             this.jumpTimer = jumpTimer;
             this.jumpHold = jumpHold;
@@ -31,12 +31,12 @@ namespace Sprint0
 
         public void Attack()
         {
-
+            
         }
 
         public void Crouch()
         {
-
+            
         }
         public void Jump()
         {
@@ -53,36 +53,24 @@ namespace Sprint0
                 }
             }
         }
-
-        public void MoveDown()
-        {
-
-        }
-
         public void MoveLeft()
         {
-            velocity.X = -2;
+            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(-2,velocity.Y), jumpTimer, jumpHold);
+            mario.OnStateChange();
         }
 
         public void MoveRight()
         {
-            link.currentState = new RightFacingJumpingLink(link, new Vector2(2, velocity.Y), jumpTimer, jumpHold);
-            link.OnStateChange();
+            velocity.X = 2;
         }
-
-        public void MoveUp()
-        {
-
-        }
-
         public void StopMovingHorizontal()
         {
             velocity.X = 0;
         }
         public void StopMovingVertical()
         {
-            link.currentState = new LeftFacingStaticLink(link);
-            link.OnStateChange();
+            mario.currentState = new RightFacingStaticMario(mario);
+            mario.OnStateChange();
         }
 
         public void Update()
@@ -103,7 +91,7 @@ namespace Sprint0
             {
                 velocity = velocity + new Vector2(0, 5) * .15f;
             }
-            link.MoveSprite(velocity);
+            mario.MoveSprite(velocity);
 
         }
     }

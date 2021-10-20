@@ -12,14 +12,14 @@ Owen Huston
 */
 namespace Sprint0
 {
-    class RightFacingStaticLink : ILinkState
+    public class LeftFacingStaticMario : IMarioState
     {
-        private Link link;
-        public string ID { get; } = "RightIdleMario";
+        private Mario mario;
+        public string ID { get; } = "LeftIdleMario";
 
-        public RightFacingStaticLink(Link linkRef)
+        public LeftFacingStaticMario(Mario marioRef)
         {
-            link = linkRef;
+            mario = marioRef;
         }
         public void Attack()
         {
@@ -33,24 +33,25 @@ namespace Sprint0
 
         public void Jump()
         {
-            link.currentState = new RightFacingJumpingLink(link, new Vector2(0, -5), 15, true);
-            link.OnStateChange();
+            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(0, -5), 15, true);
+            mario.OnStateChange();
         }
 
         public void MoveLeft()
         {
-            link.currentState = new LeftFacingMovingLink(link);
-            link.OnStateChange();
+            mario.currentState = new LeftFacingMovingMario(mario);
+            mario.OnStateChange();
         }
 
         public void MoveRight()
         {
-            link.currentState = new RightFacingMovingLink(link);
-            link.OnStateChange();
+            mario.currentState = new RightFacingMovingMario(mario);
+            mario.OnStateChange();
         }
+
         public void StopMovingHorizontal()
         {
-           // no op
+            // no op
         }
         public void StopMovingVertical()
         {
@@ -59,7 +60,7 @@ namespace Sprint0
 
         public void Update()
         {
-            //No op ?
+            //No op?
         }
     }
 }

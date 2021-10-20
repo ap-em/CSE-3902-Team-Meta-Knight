@@ -11,7 +11,7 @@ Owen Huston
 */
 namespace Sprint0
 {
-    public interface ILinkState
+    public interface IMarioState
     {
         string ID { get; }
         public void MoveLeft();

@@ -17,15 +17,15 @@ Owen Huston
     /*Owen Tishenkel 2021 CSE 3902*/
     class CPlayerPrimaryAttack : ICommand
     {
-        ILink link;
-        public CPlayerPrimaryAttack(ILink link)
+        IMario mario;
+        public CPlayerPrimaryAttack(IMario mario)
         {
-            this.link = link;
+            this.mario = mario;
         }
 
         public void Execute()
         {
-            link.PrimaryAttack();
+            mario.PrimaryAttack();
         }
     }
 }

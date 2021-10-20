@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Text;
 /*
 Alex Clayton
@@ -13,15 +12,16 @@ Owen Huston
 */
 namespace Sprint0
 {
-    class RightFacingMovingLink : ILinkState
+    public class LeftFacingMovingMario : IMarioState
     {
-        public string ID  { get; }= "RightMovingMario";
-        private Link link;
-        private const float moveVelocity= 2f;
+        public string ID { get; } = "LeftMovingMario";
+        private const float moveVelocity = 2f;
 
-        public RightFacingMovingLink(Link linkRef)
+        private Mario mario;
+
+        public LeftFacingMovingMario(Mario marioRef)
         {
-            link = linkRef;
+            mario = marioRef;
         }
 
         public void Attack()
@@ -36,31 +36,34 @@ namespace Sprint0
 
         public void Jump()
         {
-            link.currentState = new RightFacingJumpingLink(link, new Vector2(2, -5), 15, true);
-            link.OnStateChange();
+            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(-2, -5), 15, true);
+            mario.OnStateChange();
         }
+
         public void MoveLeft()
         {
-            link.currentState = new LeftFacingMovingLink(link);
-            link.OnStateChange();
+            //No op
         }
 
         public void MoveRight()
         {
-            //No op
+            mario.currentState = new RightFacingMovingMario(mario);
+            mario.OnStateChange();
         }
+
         public void StopMovingHorizontal()
         {
-            link.currentState = new RightFacingStaticLink(link);
-            link.OnStateChange();
+            mario.currentState = new LeftFacingStaticMario(mario);
+            mario.OnStateChange();
         }
         public void StopMovingVertical()
         {
             // no op
         }
+
         public void Update()
-        {            
-            link.MoveSprite(new Vector2(moveVelocity, 0f));
+        {
+            mario.MoveSprite(new Vector2(-1 * moveVelocity, 0f));
         }
     }
 }
