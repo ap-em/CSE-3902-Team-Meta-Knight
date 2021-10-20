@@ -151,5 +151,18 @@ namespace Sprint0
             blocks[7] = gameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y - 1)];*/
             }
         }
+        public void RemoveAllObjects()
+        {
+            gameObjectRemovalQueue.Clear();
+            projectileRemovalQueue.Clear();
+            foreach(IGameObject go in gameObjects)
+            {
+                gameObjectRemovalQueue.Add(go);
+            }
+            foreach(IProjectile projectile in projectiles)
+            {
+                projectileRemovalQueue.Add(projectile);
+            }
+        }
     }
 }
