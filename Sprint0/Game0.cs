@@ -151,7 +151,6 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
-            ProjectileController.Instance.Update();
             base.Update(gameTime);
             GameObjectManager.Instance.UpdateGameObjects();
         }
