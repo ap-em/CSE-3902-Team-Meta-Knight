@@ -15,15 +15,13 @@ namespace Sprint0.Commands
     class Quit:ICommand
     {
 
-        private static Game0 gameHere;
-        public Quit(Game0 game)
+        public Quit(ILink link)
         {
-            gameHere = game;
             
         }
         public void Execute()
         {
-            gameHere.Exit();
+            Game0.Instance.Exit();
         }
     }
 }

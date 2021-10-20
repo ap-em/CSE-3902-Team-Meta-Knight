@@ -51,6 +51,13 @@ namespace Sprint0.Controllers
             if (!holdableKeyMappings.ContainsKey(key)) holdableKeyMappings.Add(key, command);
             if (!availableKeys.Contains(key)) availableKeys.Add(key);
         }
+        public void ClearController()
+        {
+            availableKeys.Clear();
+            pressableKeyMappings.Clear();
+            releasableKeyMappings.Clear();
+            holdableKeyMappings.Clear();
+        }
         public void Update()
         {
             KeyboardState newState = Keyboard.GetState();

@@ -75,18 +75,14 @@ namespace Sprint0
 
         }
 
-        public void StopMoving(string sourceDirection)
+        public void StopMovingHorizontal()
         {
-
-            if (sourceDirection == "Left" || sourceDirection == "Right")
-            {
-                velocity.X = 0;
-            }
-            else if (sourceDirection == "Down")
-            {
-                link.currentState = new RightFacingStaticLink(link);
-                link.OnStateChange();
-            }
+            velocity.X = 0;
+        }
+        public void StopMovingVertical()
+        {
+            link.currentState = new LeftFacingStaticLink(link);
+            link.OnStateChange();
         }
 
         public void Update()

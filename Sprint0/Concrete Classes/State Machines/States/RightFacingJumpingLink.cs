@@ -53,12 +53,6 @@ namespace Sprint0
                 }
             }
         }
-
-        public void MoveDown()
-        {
-
-        }
-
         public void MoveLeft()
         {
             link.currentState = new LeftFacingJumpingLink(link, new Vector2(-2,velocity.Y), jumpTimer, jumpHold);
@@ -69,24 +63,14 @@ namespace Sprint0
         {
             velocity.X = 2;
         }
-
-        public void MoveUp()
+        public void StopMovingHorizontal()
         {
-
+            velocity.X = 0;
         }
-
-        public void StopMoving(string sourceDirection)
+        public void StopMovingVertical()
         {
-
-            if (sourceDirection=="Left" || sourceDirection == "Right")
-            {
-                velocity.X = 0;
-            }
-            else if(sourceDirection == "Down")
-            {
-                link.currentState = new RightFacingStaticLink(link);
-                link.OnStateChange();
-            }
+            link.currentState = new RightFacingStaticLink(link);
+            link.OnStateChange();
         }
 
         public void Update()

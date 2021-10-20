@@ -43,15 +43,8 @@ namespace Sprint0.Enemies
             spriteName = enemyMovement.GetDirection() + "Idle" + enemyType;
             sprite = SpriteFactory.Instance.GetSprite(spriteName);
             cycleStateMachine = new CycleStateMachine(this);
+            keyboard = Game0.Instance.SetUpEnemyKeyboard(this);
             GameObjectManager.Instance.AddToObjectList(this);
-        }
-        public void SetKeyboard(IKeyboardController keyboard)
-        {
-            this.keyboard = keyboard;
-        }
-        public IKeyboardController GetKeyboard()
-        {
-            return keyboard;
         }
         public void PrevSprite()
         {
@@ -167,6 +160,7 @@ namespace Sprint0.Enemies
 
             enemyMovement.Move();
             sprite.Update();
+            keyboard.Update();
         }
     }
 }

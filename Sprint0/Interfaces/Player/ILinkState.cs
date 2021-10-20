@@ -16,9 +16,8 @@ namespace Sprint0
         string ID { get; }
         public void MoveLeft();
         public void MoveRight();
-        public void MoveUp();
-        public void MoveDown();
-        public void StopMoving(string sourceDirection);
+        public void StopMovingHorizontal();
+        public void StopMovingVertical();
         public void Jump();
         public void Attack();
         public void Crouch();

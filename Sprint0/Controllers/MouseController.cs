@@ -75,7 +75,7 @@ namespace Sprint0.Controllers
             }
             if (state.RightButton == ButtonState.Pressed)
             {
-                new Quit(gameHere).Execute();
+   //             new Quit(gameHere).Execute();
             }
         }
 

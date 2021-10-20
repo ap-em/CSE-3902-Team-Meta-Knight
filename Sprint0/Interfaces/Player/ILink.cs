@@ -21,21 +21,15 @@ namespace Sprint0
         // Interface for items that link has such as his Sword, arrows, boomerang, bombs, blue candle, etc.
         // These would be like commands in a way, since having it seleceted and pressing A, for example, would cause Link to attack with his sword, executing the sword attack.
         void Update();
-        void Execute();
         void Draw(SpriteBatch spritebatch);
         /*Movement Centric code, MoveDirection code changes the facing of Link and moves him in that direction*/
         void MoveLeft();
         void MoveRight();
-        void MoveUp();
-        void MoveDown();
-        void StopMoving(string sourceDirection);
         void PrimaryAttack();
         void Jump();
-
-        void SecondaryAttack(String attackType);
         void TakeDamage();
         void OnStateChange();
-        void SetKeyboard(IKeyboardController keyboard);
-        IKeyboardController GetKeyboard();
+        void StopMovingHorizontal();
+        void StopMovingVertical();
     }
 }

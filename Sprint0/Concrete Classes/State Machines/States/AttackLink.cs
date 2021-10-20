@@ -70,11 +70,6 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
             currentState.Jump();
         }
 
-        public void MoveDown()
-        {
-            currentState.MoveDown();
-        }
-
         public void MoveLeft()
         {
             currentState.MoveLeft();
@@ -84,17 +79,14 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
         {
             currentState.MoveRight();
         }
-
-        public void MoveUp()
+        public void StopMovingHorizontal()
         {
-            currentState.MoveUp();
+            // no op
         }
-
-        public void StopMoving(string sourceDirection)
+        public void StopMovingVertical()
         {
-            currentState.StopMoving(sourceDirection);
+            // no op
         }
-
         public void Update()
         {
             currentState.Update();

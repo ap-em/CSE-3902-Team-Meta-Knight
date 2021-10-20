@@ -27,5 +27,6 @@ namespace Sprint0.Interfaces
         void RegisterCommand(Keys key, ICommand command);
         void RegisterHoldableKey(Keys key, ICommand command);
         void RegisterReleasableKey(Keys key, ICommand command);
+        void ClearController();
     }
 }
