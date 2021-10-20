@@ -51,6 +51,8 @@ namespace Sprint0
         }
         public void Update()
         {
+            Move();
+            if (fuseTime < 0) GameObjectManager.Instance.RemoveFromProjectileList(this);
             fuseTime--;
         }
     }

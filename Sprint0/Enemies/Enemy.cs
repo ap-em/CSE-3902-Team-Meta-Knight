@@ -37,14 +37,13 @@ namespace Sprint0.Enemies
 
         public ISprite Sprite => sprite;
 
-        public Enemy()
+        public Enemy(String spriteName, Vector2 position)
         {
-            enemyMovement = new EnemyMovement(this, new Vector2(300, 300));
-            spriteName = enemyMovement.GetDirection() + "Idle" + enemyType;
+            enemyMovement = new EnemyMovement(this, position);
+            this.spriteName = enemyMovement.GetDirection() + "Idle" + enemyType;
             sprite = SpriteFactory.Instance.GetSprite(spriteName);
             cycleStateMachine = new CycleStateMachine(this);
             keyboard = Game0.Instance.SetUpEnemyKeyboard(this);
-            GameObjectManager.Instance.AddToObjectList(this);
         }
         public void PrevSprite()
         {

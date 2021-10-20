@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
 using Sprint0.Blocks;
+using Sprint0.Enemies;
 using Sprint0.Sprites.SpriteFactory;
 using Microsoft.Xna.Framework.Graphics;
 using System.Reflection;
@@ -52,23 +53,36 @@ namespace Sprint0
                 gameObjects[i] = new IGameObject[maxNumberOfRows];
             }
         }
-        public void CreateObj(Vector2 position, int rowIndex, String objType, String spriteName)
+        public void CreateObj(Vector2 position, String objType, String spriteName)
         {
-            
+            int rowIndex = (int)position.Y;
+
+            position = BlockToWorldSpace(position);
+
             Type t = Type.GetType(objType);
             Type[] types = { typeof(string), typeof(Vector2) };
             object[] param = { spriteName, position };
 
             ConstructorInfo constructorInfoObj = t.GetConstructor(types);
 
-            gameObjects[rowLength[rowIndex]][rowIndex] = (IGameObject)constructorInfoObj.Invoke(param);
+            //this should be changed in the future so that gameObjectManager holds blocks instead
+
+            // add blocks to array
+            if (objType.Equals("Sprint0.Blocks.Block"))
+            {
+                gameObjects[rowLength[rowIndex]][rowIndex] = (IGameObject)constructorInfoObj.Invoke(param);
+            }
+            // add player, enemy, etc. to gameObject manager
+            else
+            {
+               GameObjectManager.Instance.AddToObjectList((IGameObject)constructorInfoObj.Invoke(param));
+            }
             
             rowLength[rowIndex] += 1;
         }
         //draws all the blocks that player should be able to see
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            
             position = WorldToBlockSpace(position);
 
             int xPos = (int)position.X;
@@ -123,6 +137,10 @@ namespace Sprint0
         public Vector2 WorldToBlockSpace(Vector2 position)
         {
             return new Vector2(position.X / 32, position.Y / 32);
+        }
+        public Vector2 BlockToWorldSpace(Vector2 pos)
+        {
+            return new Vector2(pos.X * 32, pos.Y * 32);
         }
         public void Update()
         {

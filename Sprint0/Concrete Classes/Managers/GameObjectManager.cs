@@ -15,8 +15,12 @@ namespace Sprint0
      */
     public class GameObjectManager
     {
-
+        public List<IProjectile> projectiles = new List<IProjectile>();
+        public List<IProjectile> projectileRemovalQueue = new List<IProjectile>();
+        public List<IProjectile> projectileInsertQueue = new List<IProjectile>();
         public List<IGameObject> gameObjects = new List<IGameObject>();
+        public List<IGameObject> gameObjectRemovalQueue = new List<IGameObject>();
+        public List<IGameObject> gameObjectInsertQueue = new List<IGameObject>();
         private static GameObjectManager instance;
         public static GameObjectManager Instance
         {
@@ -32,18 +36,60 @@ namespace Sprint0
 
         public void AddToObjectList(IGameObject gameObject)
         {
-            gameObjects.Add(gameObject);
+            gameObjectInsertQueue.Add(gameObject);
         }
         public void RemoveFromObjectList(IGameObject gameObject)
         {
-            gameObjects.Remove(gameObject);
+            gameObjectRemovalQueue.Add(gameObject);
+        }
+        public void AddToProjectileList(IProjectile projectile)
+        {
+            projectileInsertQueue.Add(projectile);
+        }
+        public void RemoveFromProjectileList(IProjectile projectile)
+        {
+            projectileRemovalQueue.Add(projectile);
         }
 
+        public void AddObjects()
+        {
+            foreach (IGameObject go in gameObjectInsertQueue)
+            {
+                gameObjects.Add(go);
+            }
+            foreach (IProjectile projectile in projectileInsertQueue)
+            {
+                projectiles.Add(projectile);
+            }
+
+            gameObjectInsertQueue.Clear();
+            projectileInsertQueue.Clear();
+        }
+        public void RemoveObjects()
+        {
+            foreach (IGameObject go in gameObjectRemovalQueue)
+            {
+                gameObjects.Remove(go);
+            }
+            foreach (IProjectile projectile in projectileRemovalQueue)
+            {
+                projectiles.Remove(projectile);
+            }
+
+            gameObjectRemovalQueue.Clear();
+            projectileRemovalQueue.Clear();
+        }
         public void UpdateGameObjects()
         {
+            AddObjects();
+            RemoveObjects();
             foreach (IGameObject go in gameObjects)
             {
                 go.Update();
+            }
+            foreach(IProjectile projectile in projectiles)
+            {
+                projectile.Update();
             }
         }
         
@@ -53,9 +99,14 @@ namespace Sprint0
             {
                 if (go.ToString().Equals("Sprint0.Mario"))
                 {
+                    //draw the surround blocks around mario
                     Level.Instance.Draw(spriteBatch, go.Position);
                 }
                 go.Draw(spriteBatch);
+            }
+            foreach(IProjectile projectile in projectiles)
+            {
+                projectile.Draw(spriteBatch);
             }
         }
 

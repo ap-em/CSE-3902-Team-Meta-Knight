@@ -151,7 +151,6 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
-            ProjectileController.Instance.Update();
             base.Update(gameTime);
             GameObjectManager.Instance.UpdateGameObjects();
         }
@@ -161,10 +160,7 @@ namespace Sprint0
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-
-            ProjectileController.Instance.Draw(spriteBatch);
             GameObjectManager.Instance.DrawGameObjects(spriteBatch);
-            Level.Instance.Draw(spriteBatch, new Vector2(100, 100));
             base.Draw(gameTime);
 
             spriteBatch.End();

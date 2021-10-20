@@ -1,15 +1,16 @@
 ﻿<Levels>
   <Level1>
-    <row0>
+    <row>
       <!--xPosition, yPosition, numOfObj, Namespace.classname, spritename-->
       <!--if numOfObj > 1, it continues placing the same object horizontally-->
+      <obj>3,11,1,Sprint0.Mario,RightIdleMarioFull</obj>
+      <obj>8,11,1,Sprint0.Enemies.Enemy,RightMovingLike-Like</obj>
+    </row>
+	  <row>
       <obj>0,13,999,Sprint0.Blocks.Block,Ground</obj>
-    </row0>
-	  <row1>
-		  <obj>0,14,999,Sprint0.Blocks.Block,Ground</obj>
-	  </row1>
-	  <row2>
-		  <obj>3,11,1,Sprint0.Mario,RightIdleMarioFull</obj>
-	  </row2>
+	  </row>
+	  <row>
+      <obj>0,14,999,Sprint0.Blocks.Block,Ground</obj>
+	  </row>
   </Level1>
 </Levels>
