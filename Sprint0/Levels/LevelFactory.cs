@@ -57,15 +57,15 @@ namespace Sprint0.Blocks
             int rowIndex = 0;
             
             // read rows
-            while (reader.ReadToFollowing("row" + rowIndex))
+            while (reader.ReadToFollowing("row"))
             {
                 // read objects
-                ReadObjects(reader.ReadSubtree(), rowIndex);
+                ReadObjects(reader.ReadSubtree());
                 rowIndex++;
             }
             reader.Close();
         }
-        public void ReadObjects(XmlReader reader, int rowIndex)
+        public void ReadObjects(XmlReader reader)
         {
             while (reader.ReadToFollowing("obj"))
             {
@@ -82,21 +82,14 @@ namespace Sprint0.Blocks
                 for(int i=0;i<numOfObj;i++)
                 {
                     Vector2 pos = new Vector2(xPos, yPos);
-                    //convert position to worldspace
-                    pos = BlockToWorldSpace(pos);
 
-                    Level.Instance.CreateObj(pos, rowIndex,objValues[3], objValues[4]);
+                    Level.Instance.CreateObj(pos,objValues[3], objValues[4]);
 
                     //xPos += 1 to keep spawning objects to the right
                     xPos += 1;
                 }
             }
             reader.Close();
-        }
-
-        public Vector2 BlockToWorldSpace(Vector2 pos)
-        {
-            return new Vector2(pos.X * 32, pos.Y * 32);
         }
     }
 }

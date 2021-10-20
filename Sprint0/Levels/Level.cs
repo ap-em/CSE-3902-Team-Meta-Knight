@@ -53,9 +53,12 @@ namespace Sprint0
                 gameObjects[i] = new IGameObject[maxNumberOfRows];
             }
         }
-        public void CreateObj(Vector2 position, int rowIndex, String objType, String spriteName)
+        public void CreateObj(Vector2 position, String objType, String spriteName)
         {
-            
+            int rowIndex = (int)position.Y;
+
+            position = BlockToWorldSpace(position);
+
             Type t = Type.GetType(objType);
             Type[] types = { typeof(string), typeof(Vector2) };
             object[] param = { spriteName, position };
@@ -80,7 +83,6 @@ namespace Sprint0
         //draws all the blocks that player should be able to see
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            
             position = WorldToBlockSpace(position);
 
             int xPos = (int)position.X;
@@ -135,6 +137,10 @@ namespace Sprint0
         public Vector2 WorldToBlockSpace(Vector2 position)
         {
             return new Vector2(position.X / 32, position.Y / 32);
+        }
+        public Vector2 BlockToWorldSpace(Vector2 pos)
+        {
+            return new Vector2(pos.X * 32, pos.Y * 32);
         }
         public void Update()
         {

@@ -162,7 +162,6 @@ namespace Sprint0
 
             spriteBatch.Begin();
             GameObjectManager.Instance.DrawGameObjects(spriteBatch);
-            Level.Instance.Draw(spriteBatch, new Vector2(100, 100));
             base.Draw(gameTime);
 
             spriteBatch.End();
