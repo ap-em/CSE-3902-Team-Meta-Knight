@@ -14,14 +14,14 @@ namespace Sprint0.Commands
 {
     class CZeroPlayerYVelocity : ICommand
     {
-        ILink link;
-        public CZeroPlayerYVelocity(ILink link)
+        IMario mario;
+        public CZeroPlayerYVelocity(IMario mario)
         {
-            this.link = link;
+            this.mario = mario;
         }
         public void Execute()
         {
-            link.StopMovingVertical();
+            mario.StopMovingVertical();
         }
     }
 }

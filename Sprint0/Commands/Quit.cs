@@ -15,7 +15,7 @@ namespace Sprint0.Commands
     class Quit:ICommand
     {
 
-        public Quit(ILink link)
+        public Quit(IMario mario)
         {
             
         }

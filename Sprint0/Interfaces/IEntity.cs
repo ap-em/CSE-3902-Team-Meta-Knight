@@ -15,7 +15,7 @@ Owen Huston
 namespace Sprint0.Interfaces
 {
     /*
-     * This interface can be used for all entities (maybe this is too like ILink in purpose?).
+     * This interface can be used for all entities (maybe this is too like IMario in purpose?).
      */
    public interface IEntity
     {

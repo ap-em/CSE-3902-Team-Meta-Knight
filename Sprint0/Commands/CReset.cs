@@ -23,7 +23,7 @@ Owen Huston
         ICommand itemReset;
         ICommand playerReset;
         /*CReset relys on the fact that the constructors for each Entity class put them in the correct spot at startup*/
-        public CReset(ILink link)
+        public CReset(IMario mario)
         {
             /*
             blockReset = new CResetBlock(game);

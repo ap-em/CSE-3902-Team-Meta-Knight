@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 /*
 Alex Clayton
@@ -12,16 +13,15 @@ Owen Huston
 */
 namespace Sprint0
 {
-    public class LeftFacingMovingLink : ILinkState
+    class RightFacingMovingMario : IMarioState
     {
-        public string ID { get; } = "LeftMovingMario";
-        private const float moveVelocity = 2f;
+        public string ID  { get; }= "RightMovingMario";
+        private Mario mario;
+        private const float moveVelocity= 2f;
 
-        private Link link;
-
-        public LeftFacingMovingLink(Link linkRef)
+        public RightFacingMovingMario(Mario marioRef)
         {
-            link = linkRef;
+            mario = marioRef;
         }
 
         public void Attack()
@@ -36,34 +36,31 @@ namespace Sprint0
 
         public void Jump()
         {
-            link.currentState = new LeftFacingJumpingLink(link, new Vector2(-2, -5), 15, true);
-            link.OnStateChange();
+            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(2, -5), 15, true);
+            mario.OnStateChange();
         }
-
         public void MoveLeft()
         {
-            //No op
+            mario.currentState = new LeftFacingMovingMario(mario);
+            mario.OnStateChange();
         }
 
         public void MoveRight()
         {
-            link.currentState = new RightFacingMovingLink(link);
-            link.OnStateChange();
+            //No op
         }
-
         public void StopMovingHorizontal()
         {
-            link.currentState = new LeftFacingStaticLink(link);
-            link.OnStateChange();
+            mario.currentState = new RightFacingStaticMario(mario);
+            mario.OnStateChange();
         }
         public void StopMovingVertical()
         {
             // no op
         }
-
         public void Update()
-        {
-            link.MoveSprite(new Vector2(-1 * moveVelocity, 0f));
+        {            
+            mario.MoveSprite(new Vector2(moveVelocity, 0f));
         }
     }
 }

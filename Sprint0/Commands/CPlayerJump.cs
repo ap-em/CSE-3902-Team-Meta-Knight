@@ -17,14 +17,14 @@ Owen Huston
     /*Owen Tishenkel 2021 CSE 3902*/
     class CPlayerJump : ICommand
     {
-        private ILink link;
-        public CPlayerJump(ILink link)
+        private IMario mario;
+        public CPlayerJump(IMario mario)
         {
-            this.link = link;
+            this.mario = mario;
         }
         public void Execute()
         {
-            link.Jump();
+            mario.Jump();
 
         }
     }
