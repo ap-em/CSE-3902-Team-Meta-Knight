@@ -57,34 +57,27 @@ namespace Sprint0
                 String keyVal = objValues[0];
                 String m = objValues[1];
                 String t = objValues[2];
-                // Need to use reflection here to get the right value for the command
-                Type mType = Type.GetType(m);
+                // Need to use reflection here to get the commands
+
+                
+                Type mType = Type.GetType(m); 
                 Type tType = Type.GetType(t);
-                Type[] types = { typeof(string), typeof(Vector2) };
-                object[] param = { spriteName, position };
+                /*
+                var mParams = typeof(m).GetConstructors();
+                Type[] types = { typeof(ICommand) };
 
-                ConstructorInfo constructorInfoObj = t.GetConstructor(types);
+                ConstructorInfo cInfoM = mType.GetConstructor(types);
+                var param 
+                */
 
-                //this should be changed in the future so that gameObjectManager holds blocks instead
-
-                // add blocks to array
-                if (objType.Equals("Sprint0.Blocks.Block"))
-                {
-                    gameObjects[rowLength[rowIndex]][rowIndex] = (IGameObject)constructorInfoObj.Invoke(param);
-                }
-                // add player, enemy, etc. to gameObject manager
-                else
-                {
-                    GameObjectManager.Instance.AddToObjectList((IGameObject)constructorInfoObj.Invoke(param));
-                }
-                MoverResponse.Add(keyVal, mover);
-                TargetResponse.Add(keyVal, target);
+                //ConstructorInfo cInfoT = tType.GetConstructor(types);
+                object mover = Activator.CreateInstance(mType);
+                object target = Activator.CreateInstance(tType);
+                //object mover = cInfoM.Invoke(new object[] )
+                MoverResponse.Add(keyVal, (ICommand) mover);
+                TargetResponse.Add(keyVal, (ICommand) target);
                 // create the number of objects specified by the second field in the xml obj element
-                for (int i = 0; i < numOfObj; i++)
-                {
-                    Vector2 pos = new Vector2(xPos, yPos);
-
-                }
+      
             }
             reader.Close();
         }
