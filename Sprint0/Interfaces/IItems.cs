@@ -24,10 +24,10 @@ namespace Sprint0.Interfaces
      */
     public interface IItems : IGameObject
     {
-        void PrevSprite();
-        void NextSprite();
-        public Vector2 Velocity { get; set; }
-      
+        Vector2 Velocity { get; set; }
+        bool isCollected { get; set; }
+        void collect();
+
 
     }
 }

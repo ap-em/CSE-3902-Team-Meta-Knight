@@ -14,6 +14,7 @@ using Sprint0.Sprites.SpriteFactory;
 using System.Collections;
 using Microsoft.Xna.Framework.Content;
 using Sprint0.Items;
+using Sprint0.Cameras;
 
 /*
  * Alex Clayton 2021 CSE 3902
@@ -26,8 +27,11 @@ namespace Sprint0
         public SpriteBatch spriteBatch;
         public ISprite sprite;
         public SpriteFont font;
+        public Mario mario;
         public static ContentManager ContentInstance;
-
+        public static int screenHeight;
+        public static int screenWidth;
+        Camera camera;
         private static Game0 instance;
         public static Game0 Instance
         {
@@ -53,6 +57,7 @@ namespace Sprint0
 
         protected override void Initialize()
         {
+            camera = new Camera(GraphicsDevice.Viewport);
             LevelFactory.Instance.CreateLevel(1);
 
             //No need for mouse controller for Sprint 2
@@ -135,6 +140,7 @@ namespace Sprint0
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            mario = new Mario("RightIdleMarioFull", new Vector2(100, 100)); // Not the right way to get the mario
             //no need for fonts for Sprint 2
             /*
             font = Content.Load<SpriteFont>("font"); // Will use a similar "load all textures" method in the future for this to support multiple fonts. Can use commands to switch betewen fonts too.
@@ -151,6 +157,7 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
+            camera.Update(gameTime, this);
             base.Update(gameTime);
             GameObjectManager.Instance.UpdateGameObjects();
         }
@@ -159,7 +166,7 @@ namespace Sprint0
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, camera.transform);
             GameObjectManager.Instance.DrawGameObjects(spriteBatch);
             base.Draw(gameTime);
 

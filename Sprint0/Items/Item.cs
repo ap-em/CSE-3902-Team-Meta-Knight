@@ -12,9 +12,10 @@ Leon Cai
 Owen Tishenkel
 Owen Huston
 */
+/*
 namespace Sprint0.Items
 {
-    /*Owen Tishenkel, heavily based on Owen Houston's Enemy class*/
+ 
     class Item : IItems, ICyclable
     {
         Game0 game;
@@ -69,4 +70,4 @@ namespace Sprint0.Items
             sprite.Update();
         }
     }
-}
+}*/
