@@ -99,8 +99,34 @@ namespace Sprint0
                     Rectangle blockRec = new Rectangle(new Point((int)block.Position.X, (int)block.Position.Y), new Point(block.Sprite.width, block.Sprite.height));
                     if (goRec.Intersects(blockRec))
                     {
-                        //Create the correct collision command based on the block and the game object
-                        collision = new CCollide(block, go);
+                        //Determine collision side based on how much it's intersecting in either dimension
+                        String collisionSide ="";
+                        Rectangle collisionRec = Rectangle.Intersect(goRec, blockRec);
+                        if (collisionRec.X <= collisionRec.Y)
+                        {
+                            if (collisionRec.Top > blockRec.Top)
+                            {
+                                collisionSide = "Top";
+                            }
+                            else
+                            {
+                                collisionSide = "Bottom";
+                            }
+                        }
+                        else
+                        {
+                            if (collisionRec.Right > blockRec.Right)
+                            {
+                                collisionSide = "Right";
+                            }
+                            else
+                            {
+                                collisionSide = "Left";
+                            }
+                        }
+                        
+                        //Create the correct collision command based on the block and the game object and the side its collding most with
+                        collision = new CCollide(block, go, collisionSide);
                         //Execute the correct response to interfering with personal space
                         collision.Execute();
                     }
@@ -122,15 +148,41 @@ namespace Sprint0
                 if (!entity.Equals(go))
                 {
                     //If the entity is within 10 heights of the game object we are looking at, check if it intersects
-                    if(entity.Position.Y>(goRec.Height*5) && entity.Position.Y < (goRec.Height*5))
+                    if(entity.Position.Y>(goRec.Y+goRec.Height*5) && entity.Position.Y < (goRec.Y+ goRec.Height*5))
                     {
                         //create an entity rec for the collision here so we don't use up time creating one for every possible entity
                         Rectangle entityRec = new Rectangle(new Point((int)entity.Position.X, (int)entity.Position.Y), new Point(entity.Sprite.width, entity.Sprite.height));
                         //Do they collide?
                         if (goRec.Intersects(entityRec))
                         {
-                            //Create the correct collision command based on the entity and the game object
-                            collision = new CCollide(entity, go);
+                            //Determine collision side based on how much it's intersecting in either dimension
+                            String collisionSide = "";
+                            Rectangle collisionRec = Rectangle.Intersect(goRec, entityRec);
+                            if (collisionRec.X <= collisionRec.Y)
+                            {
+                                if (collisionRec.Top > entityRec.Top)
+                                {
+                                    collisionSide = "Top";
+                                }
+                                else
+                                {
+                                    collisionSide = "Bottom";
+                                }
+                            }
+                            else
+                            {
+                                if (collisionRec.Right > entityRec.Right)
+                                {
+                                    collisionSide = "Right";
+                                }
+                                else
+                                {
+                                    collisionSide = "Left";
+                                }
+                            }
+                           
+                            //Create the correct collision command based on the entity and the game object and the side its collding most with
+                            collision = new CCollide(entity, go, collisionSide);
                             //Execute the correct response to interfering with personal space
                             collision.Execute();
                         }
