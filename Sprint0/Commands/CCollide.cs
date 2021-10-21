@@ -7,7 +7,7 @@ namespace Sprint0.Commands
 {
     class CCollide : ICommand
     {
-        public CCollide(IGameObject collided, IGameObject collider)
+        public CCollide(IGameObject collided, IGameObject collider, String collisionSide)
         {
 
         }
