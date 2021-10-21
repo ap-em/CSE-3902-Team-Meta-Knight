@@ -1,0 +1,25 @@
+﻿<Collision>
+	<row>
+		<!--Object1, Object2, Direction, Command1, Command2-->
+		<obj>Mario,Ground,Left,CMoveMarioLeft,CNothing</obj>
+		<obj>Mario,Ground,Right,CMoveMarioRight,CNothing</obj>
+		<obj>Mario,Ground,Up,CMoveMarioUp,CNothing</obj>
+		<obj>Mario,Ground,Down,CMoveMarioDown,CNothing</obj>
+		<obj>Mario,Goomba,Left,CDamagePlayer,CNothing</obj>
+		<obj>Mario,Goomba,Right,CDamagePlayer,CNothing</obj>
+		<obj>Mario,Goomba,Up,CPlayerBounce,CDamageEnemy</obj>
+		<obj>Mario,Goomba,Down,CDamagePlayer,CNothing</obj>
+		<obj>Mario,Koopa,Left,CDamagePlayer,CNothing</obj>
+		<obj>Mario,Koopa,Right,CDamagePlayer,CNothing</obj>
+		<obj>Mario,Koopa,Up,CPlayerBounce,CDamageEnemy</obj>
+		<obj>Mario,Koopa,Down,CDamagePlayer,CNothing</obj>
+		<obj>Mario,ItemBlock,Left,CMoveMarioLeft,CNothing</obj>
+		<obj>Mario,ItemBlock,Right,CMoveMarioRight,CNothing</obj>
+		<obj>Mario,ItemBlock,Up,CMoveMarioUp,CNothing</obj>
+		<obj>Mario,ItemBlock,Down,CMoveMarioDown,CGetItem</obj>
+		<obj>Mario,Block,Left,CMoveMarioLeft,CNothing</obj>
+		<obj>Mario,Block,Right,CMoveMarioRight,CNothing</obj>
+		<obj>Mario,Block,Up,CMoveMarioUp,CNothing</obj>
+		<obj>Mario,Block,Down,CMoveMarioDown,CBreak</obj>
+	</row>
+</Collision>
