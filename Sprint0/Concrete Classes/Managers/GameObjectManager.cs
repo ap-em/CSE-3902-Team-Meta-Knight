@@ -104,7 +104,7 @@ namespace Sprint0
                         Rectangle collisionRec = Rectangle.Intersect(goRec, blockRec);
                         if (collisionRec.X <= collisionRec.Y)
                         {
-                            if (collisionRec.Top > blockRec.Top)
+                            if (collisionRec.Top == blockRec.Top)
                             {
                                 collisionSide = "Top";
                             }
@@ -115,7 +115,7 @@ namespace Sprint0
                         }
                         else
                         {
-                            if (collisionRec.Right > blockRec.Right)
+                            if (collisionRec.Right == blockRec.Right)
                             {
                                 collisionSide = "Right";
                             }
@@ -160,7 +160,7 @@ namespace Sprint0
                             Rectangle collisionRec = Rectangle.Intersect(goRec, entityRec);
                             if (collisionRec.X <= collisionRec.Y)
                             {
-                                if (collisionRec.Top > entityRec.Top)
+                                if (collisionRec.Top == entityRec.Top)
                                 {
                                     collisionSide = "Top";
                                 }
@@ -171,7 +171,7 @@ namespace Sprint0
                             }
                             else
                             {
-                                if (collisionRec.Right > entityRec.Right)
+                                if (collisionRec.Right == entityRec.Right)
                                 {
                                     collisionSide = "Right";
                                 }
