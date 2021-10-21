@@ -161,5 +161,25 @@ namespace Sprint0.Enemies
             sprite.Update();
             keyboard.Update();
         }
+
+        public void CollideRight()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CollideLeft()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CollideDown()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CollideUp()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

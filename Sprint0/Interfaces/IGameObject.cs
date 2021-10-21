@@ -14,7 +14,7 @@ namespace Sprint0
         public Vector2 Position { get; set; }
         public ISprite Sprite { get; }
         public void Update();
-
         public void Draw(SpriteBatch spritebatch);
+
     }
 }

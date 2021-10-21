@@ -135,7 +135,11 @@ namespace Sprint0
                         Rectangle blockRec = new Rectangle(new Point((int)block.Position.X, (int)block.Position.Y), new Point(14, 14));
                         if (goRec.Intersects(blockRec))
                         {
-                            collision = new CCollide(block,go);
+                            /*
+                             * PROPER DIRECTION STRING SHOULD BE PASSED HERE
+                             */
+                            collision = new CCollide(block,go, "down");
+                            collision.Execute();
                         }
 
 
