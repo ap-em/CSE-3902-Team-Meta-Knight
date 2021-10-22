@@ -1,11 +1,7 @@
 ﻿<Collision>
 	<row>
 		<!--Object1, Object2, Direction, Command1, Command2-->
-		<Sprint0.Mario>
-      <Top>
-        <Sprint0.Blocks.Block>Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</Sprint0.Blocks.Block>
-      </Top>
-    </Sprint0.Mario>
+		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Top,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</obj>
 		<!--	<obj>Mario,Ground,Right,CMovePlayerRight,CNothing</obj>
 		<obj>Mario,Ground,Up,CMovePlayerUp,CNothing</obj>
 		<obj>Mario,Ground,Down,CMovePlayerDown,CNothing</obj>
