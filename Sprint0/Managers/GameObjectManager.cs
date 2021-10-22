@@ -15,6 +15,8 @@ namespace Sprint0
      */
     public class GameObjectManager
     {
+        //Scales dimensions of sprites for collision to accuratelly reflect their real size in game
+        private static int dimensionScale = 2;
         public List<IProjectile> projectiles = new List<IProjectile>();
         public List<IProjectile> projectileRemovalQueue = new List<IProjectile>();
         public List<IProjectile> projectileInsertQueue = new List<IProjectile>();
@@ -139,7 +141,7 @@ namespace Sprint0
             ICommand collision;
             //Get the surronding blocks of whatever the game object is as blocks are not added to the game object list on creation.
             IGameObject[] levelCollides = Level.Instance.GetCollidables(go.Position);
-            Rectangle goRec = new Rectangle(new Point((int)go.Position.X, (int)go.Position.Y), new Point(go.Sprite.width, go.Sprite.height));
+            Rectangle goRec = new Rectangle(new Point((int)go.Position.X, (int)go.Position.Y), new Point(go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale));
             //Go through each colliding block
             foreach (IGameObject block in levelCollides)
             {
@@ -147,7 +149,7 @@ namespace Sprint0
                 if (block != null)
                 {
                     //Create Rectangle for block and check to see if game object rectangle intersects with it
-                    Rectangle blockRec = new Rectangle(new Point((int)block.Position.X, (int)block.Position.Y), new Point(block.Sprite.width, block.Sprite.height));
+                    Rectangle blockRec = new Rectangle(new Point((int)block.Position.X, (int)block.Position.Y), new Point(block.Sprite.width*dimensionScale, block.Sprite.height*dimensionScale));
                     if (goRec.Intersects(blockRec))
                     {
                         //Determine collision side based on how much it's intersecting in either dimension
@@ -192,17 +194,17 @@ namespace Sprint0
             //Here for implementation of collisions when neccesary
             ICommand collision;
             //Rectangle for go we are looking at
-            Rectangle goRec = new Rectangle(new Point((int)go.Position.X, (int)go.Position.Y), new Point(go.Sprite.width, go.Sprite.height));
+            Rectangle goRec = new Rectangle(new Point((int)go.Position.X, (int)go.Position.Y), new Point(go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale));
             //Check each entity in gameObjects
             foreach (IGameObject entity in gameObjects)
             {
                 if (!entity.Equals(go))
                 {
                     //If the entity is within 10 heights of the game object we are looking at, check if it intersects
-                    if(entity.Position.Y>(goRec.Y+goRec.Height*5) && entity.Position.Y < (goRec.Y+ goRec.Height*5))
+                    if(entity.Position.Y>(goRec.Y+goRec.Height*dimensionScale*5) && entity.Position.Y < (goRec.Y+ goRec.Height*dimensionScale*5))
                     {
                         //create an entity rec for the collision here so we don't use up time creating one for every possible entity
-                        Rectangle entityRec = new Rectangle(new Point((int)entity.Position.X, (int)entity.Position.Y), new Point(entity.Sprite.width, entity.Sprite.height));
+                        Rectangle entityRec = new Rectangle(new Point((int)entity.Position.X, (int)entity.Position.Y), new Point(entity.Sprite.width*dimensionScale, entity.Sprite.height*dimensionScale));
                         //Do they collide?
                         if (goRec.Intersects(entityRec))
                         {
