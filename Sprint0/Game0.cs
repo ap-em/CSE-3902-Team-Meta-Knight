@@ -57,7 +57,7 @@ namespace Sprint0
         protected override void Initialize()
         {
             LevelFactory.Instance.CreateLevel(1);
-
+            camera = new Camera(GraphicsDevice.Viewport);
             //No need for mouse controller for Sprint 2
             /* 
             mouseController = new MouseController(this);
@@ -139,6 +139,7 @@ namespace Sprint0
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+             mario = new Mario("RightIdleMarioFull", new Vector2(100, 100));
             //no need for fonts for Sprint 2
             /*
             font = Content.Load<SpriteFont>("font"); // Will use a similar "load all textures" method in the future for this to support multiple fonts. Can use commands to switch betewen fonts too.
