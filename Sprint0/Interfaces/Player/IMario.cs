@@ -31,5 +31,9 @@ namespace Sprint0
         void OnStateChange();
         void StopMovingHorizontal();
         void StopMovingVertical();
+        public void UpBounce();
+        public void DownBounce();
+        public void RightBounce();
+        public void LeftBounce();
     }
 }

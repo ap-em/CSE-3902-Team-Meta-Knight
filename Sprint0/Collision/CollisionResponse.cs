@@ -78,7 +78,7 @@ namespace Sprint0
             String commandName1 = MoverResponse[collider.ToString() + direction];
             String commandName2 = TargetResponse[collided.ToString() + direction];
 
-
+            Debug.WriteLine(commandName1);
             Type t1 = Type.GetType(commandName1);
             Type[] types1 = { Type.GetType(collider.ToString()) };
             object[] param1 = { collider };

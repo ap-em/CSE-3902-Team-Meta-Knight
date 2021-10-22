@@ -16,6 +16,8 @@ namespace Sprint0
     {
         private Mario mario;
         public string ID { get; } = "LeftIdleMario";
+        private Vector2 velocity = new Vector2(0, 0);
+        private Boolean onBlock = false;
 
         public LeftFacingStaticMario(Mario marioRef)
         {
@@ -57,10 +59,35 @@ namespace Sprint0
         {
             // no op
         }
-
+        public void UpBounce()
+        {
+            onBlock = true;
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 14);
+            StopMovingVertical();
+        }
+        public void DownBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 1);
+        }
+        public void RightBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X - 1, mario.Position.Y);
+            StopMovingHorizontal();
+        }
+        public void LeftBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X + 1, mario.Position.Y);
+            StopMovingHorizontal();
+        }
         public void Update()
         {
-            //No op?
+         velocity = velocity + new Vector2(0, 5 * .15f);
+           if (onBlock)
+           {
+           velocity = new Vector2(0f, 0f);
+           }
+         onBlock = false;
+         mario.MoveSprite(velocity);
         }
     }
 }

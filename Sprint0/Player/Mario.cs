@@ -26,7 +26,7 @@ namespace Sprint0
         private ISprite currentSprite;
         private IMarioState attack;
 
-        public Vector2 Position { get => position; set => throw new NotImplementedException(); }
+        public Vector2 Position { get => position; set => position = value; }
 
         public ISprite Sprite => currentSprite;
 
@@ -108,7 +108,22 @@ namespace Sprint0
             attack = new AttackMario(this, currentState, position);
             attack.Attack();
         }
-
+        public void UpBounce()
+        {
+            currentState.UpBounce();
+        }
+        public void DownBounce()
+        {
+            currentState.DownBounce();
+        }
+        public void RightBounce()
+        {
+            currentState.RightBounce();
+        }
+        public void LeftBounce()
+        {
+            currentState.LeftBounce();
+        }
         public void Crouch()
         {
             currentState.Crouch();

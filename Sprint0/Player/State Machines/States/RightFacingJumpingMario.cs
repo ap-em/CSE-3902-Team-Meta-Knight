@@ -72,7 +72,26 @@ namespace Sprint0
             mario.currentState = new RightFacingStaticMario(mario);
             mario.OnStateChange();
         }
-
+        public void UpBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 14);
+            StopMovingVertical();
+        }
+        public void DownBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 1);
+            velocity = new Vector2(velocity.X, 0);
+        }
+        public void RightBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X - 1, mario.Position.Y);
+            StopMovingHorizontal();
+        }
+        public void LeftBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X + 1, mario.Position.Y);
+            StopMovingHorizontal();
+        }
         public void Update()
         {
             // if timer is up player can no longer hold key down

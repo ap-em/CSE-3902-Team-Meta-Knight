@@ -18,13 +18,13 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
 
         IMarioState currentState;
         Vector2 position;
-        IMario mario;
+        Mario mario;
 
-        public AttackMario(IMario marioRef, IMarioState currentState, Vector2 position)
+        public AttackMario(Mario marioRef, IMarioState currentState, Vector2 position)
         {
             this.currentState = currentState;
             this.position = position;
-            this.mario = marioRef;
+            mario = marioRef;
         }
 
         public string ID => currentState.ID;
@@ -78,6 +78,22 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
         public void StopMovingVertical()
         {
             // no op
+        }
+        public void UpBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 14);
+        }
+        public void DownBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 1);
+        }
+        public void RightBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X - 1, mario.Position.Y);
+        }
+        public void LeftBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X + 1, mario.Position.Y);
         }
         public void Update()
         {

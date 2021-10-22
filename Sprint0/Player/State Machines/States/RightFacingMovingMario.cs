@@ -17,7 +17,8 @@ namespace Sprint0
     {
         public string ID  { get; }= "RightMovingMario";
         private Mario mario;
-        private const float moveVelocity= 4f;
+        private Vector2 velocity= new Vector2(4f, 0);
+        private Boolean onBlock = false;
 
         public RightFacingMovingMario(Mario marioRef)
         {
@@ -58,9 +59,36 @@ namespace Sprint0
         {
             // no op
         }
+        public void UpBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 12);
+            onBlock = true;
+            StopMovingVertical();
+        }
+        public void DownBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 1);
+            velocity = new Vector2(velocity.X, 0);
+        }
+        public void RightBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X - 1, mario.Position.Y);
+            StopMovingHorizontal();
+        }
+        public void LeftBounce()
+        {
+            mario.Position = new Vector2(mario.Position.X + 1, mario.Position.Y);
+            StopMovingHorizontal();
+        }
         public void Update()
-        {            
-            mario.MoveSprite(new Vector2(moveVelocity, 0f));
+        {
+            velocity = velocity + new Vector2(0, 5 * .15f) ;
+            if (onBlock)
+            {
+                velocity = new Vector2(velocity.X, 0f);
+            }
+            onBlock = false;
+            mario.MoveSprite(velocity);
         }
     }
 }
