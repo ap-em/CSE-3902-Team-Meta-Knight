@@ -15,7 +15,7 @@ namespace Sprint0
     public class LeftFacingMovingMario : IMarioState
     {
         public string ID { get; } = "LeftMovingMario";
-        private const float moveVelocity = 2f;
+        private const float moveVelocity = 4f;
 
         private Mario mario;
 
@@ -36,7 +36,7 @@ namespace Sprint0
 
         public void Jump()
         {
-            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(-2, -5), 15, true);
+            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(-4, -5), 15, true);
             mario.OnStateChange();
         }
 
