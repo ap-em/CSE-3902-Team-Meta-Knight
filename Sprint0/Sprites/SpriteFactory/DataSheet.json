@@ -354,408 +354,59 @@
     "SpriteSheet": "enemies"
   },
   {
+    "DataX": [ 0, 30 ],
+    "DataY": [ 4, 4 ],
+    "Data": [ 16, 16, 2, 1 ],
+    "SpriteName": "LeftMovingGoomba",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 0, 30 ],
+    "DataY": [ 4, 4 ],
+    "Data": [ 16, 16, 2, 1 ],
+    "SpriteName": "RightMovingGoomba",
+    "SpriteSheet": "enemies"
+  },
+  {
     "DataX": [ 0 ],
-    "DataY": [ 195 ],
+    "DataY": [ 4 ],
     "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownSword",
-    "SpriteSheet": "link"
+    "SpriteName": "LeftIdleGoomba",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 4 ],
+    "Data": [ 16, 16, 1, 1 ],
+    "SpriteName": "RightIdleGoomba",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 90, 120 ],
+    "DataY": [ 0, 0 ],
+    "Data": [ 16, 24, 2, 1 ],
+    "SpriteName": "LeftMovingKoopa",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 270, 300  ],
+    "DataY": [ 0, 0 ],
+    "Data": [ 16, 24, 2, 1 ],
+    "SpriteName": "RightMovingKoopa",
+    "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 90 ],
-    "DataY": [ 195 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightSword",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 60 ],
-    "DataY": [ 195 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpSword",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 30 ],
-    "DataY": [ 195 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftSword",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 120 ],
-    "DataY": [ 195 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownArrow",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 150 ],
-    "DataY": [ 195 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftArrow",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 180 ],
-    "DataY": [ 195 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpArrow",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 210 ],
-    "DataY": [ 195 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightArrow",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 240 ],
-    "DataY": [ 195 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "HealHeart",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 240 ],
-    "DataY": [ 225 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RedRupee",
-    "SpriteSheet": "link"
+    "DataY": [ 0 ],
+    "Data": [ 16, 24, 1, 1 ],
+    "SpriteName": "LeftIdleKoopa",
+    "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 270 ],
-    "DataY": [ 225 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "BlueRupee",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 360 ],
-    "DataY": [ 224 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "Bomb",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 360 ],
-    "DataY": [ 255 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "Key",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 0, 0 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "DownMovingOctorok",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 30, 30 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "LeftMovingOctorok",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 60, 60 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "UpMovingOctorok",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 90, 90 ],
-    "DataY": [ 0, 30 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "RightMovingOctorok",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 120, 120 ],
-    "DataY": [ 120, 150 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "DownMovingMoblin",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 150, 150 ],
-    "DataY": [ 120, 150 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "LeftMovingMoblin",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 180, 180 ],
-    "DataY": [ 120, 150 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "UpMovingMoblin",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 210, 210 ],
-    "DataY": [ 120, 150 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "RightMovingMoblin",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 240, 270, 300 ],
-    "DataY": [ 240, 240, 240 ],
-    "Data": [ 16, 16, 1, 3 ],
-    "SpriteName": "RightMovingLike-Like",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 240, 270, 300 ],
-    "DataY": [ 240, 240, 240 ],
-    "Data": [ 16, 16, 1, 3 ],
-    "SpriteName": "LeftMovingLike-Like",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 240, 270, 300 ],
-    "DataY": [ 240, 240, 240 ],
-    "Data": [ 16, 16, 1, 3 ],
-    "SpriteName": "UpMovingLike-Like",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 240, 270, 300 ],
-    "DataY": [ 240, 240, 240 ],
-    "Data": [ 16, 16, 1, 3 ],
-    "SpriteName": "DownMovingLike-Like",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 420, 420 ],
-    "DataY": [ 120, 150 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "RightMovingStalfos",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 420, 420 ],
-    "DataY": [ 120, 150 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "LeftMovingStalfos",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 420, 420 ],
-    "DataY": [ 120, 150 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "UpMovingStalfos",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 420, 420 ],
-    "DataY": [ 120, 150 ],
-    "Data": [ 16, 16, 2, 1 ],
-    "SpriteName": "DownMovingStalfos",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 240, 270 ],
-    "DataY": [ 170, 170 ],
-    "Data": [ 16, 16, 1, 2 ],
-    "SpriteName": "RightMovingBat",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 240, 270 ],
-    "DataY": [ 170, 170 ],
-    "Data": [ 16, 16, 1, 2 ],
-    "SpriteName": "LeftMovingBat",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 240, 270 ],
-    "DataY": [ 170, 170 ],
-    "Data": [ 16, 16, 1, 2 ],
-    "SpriteName": "UpMovingBat",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 240, 270 ],
-    "DataY": [ 170, 170 ],
-    "Data": [ 16, 16, 1, 2 ],
-    "SpriteName": "DownMovingBat",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 0 ],
     "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownIdleOctorok",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 30 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftIdleOctorok",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 60 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpIdleOctorok",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 90 ],
-    "DataY": [ 0 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightIdleOctorok",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 120 ],
-    "DataY": [ 120 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownIdleMoblin",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 150 ],
-    "DataY": [ 120 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftIdleMoblin",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 180 ],
-    "DataY": [ 120 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpIdleMoblin",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 210 ],
-    "DataY": [ 120 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightIdleMoblin",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 300 ],
-    "DataY": [ 240 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpIdleLike-Like",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 300 ],
-    "DataY": [ 240 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightIdleLike-Like",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 300 ],
-    "DataY": [ 240 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftIdleLike-Like",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 300 ],
-    "DataY": [ 240 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownIdleLike-Like",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 420 ],
-    "DataY": [ 120 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightIdleStalfos",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 420 ],
-    "DataY": [ 120 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpIdleStalfos",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 420 ],
-    "DataY": [ 120 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownIdleStalfos",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 420 ],
-    "DataY": [ 120 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftIdleStalfos",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 240 ],
-    "DataY": [ 170 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "RightIdleBat",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 240 ],
-    "DataY": [ 170 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "LeftIdleBat",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 240 ],
-    "DataY": [ 170 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpIdleBat",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 240 ],
-    "DataY": [ 170 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "DownIdleBat",
-    "SpriteSheet": "Enemies"
-  },
-  {
-    "DataX": [ 0 ],
-    "DataY": [ 90 ],
-    "Data": [ 16, 32, 1, 1 ],
-    "SpriteName": "DownSwordLink",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 90 ],
-    "DataY": [ 90 ],
-    "Data": [ 16, 32, 1, 1 ],
-    "SpriteName": "RightSwordLink",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 30 ],
-    "DataY": [ 90 ],
-    "Data": [ 16, 32, 1, 1 ],
-    "SpriteName": "LeftSwordLink",
-    "SpriteSheet": "link"
-  },
-  {
-    "DataX": [ 60 ],
-    "DataY": [ 90 ],
-    "Data": [ 16, 16, 1, 1 ],
-    "SpriteName": "UpSwordLink",
-    "SpriteSheet": "link"
+    "Data": [ 16, 24, 1, 1 ],
+    "SpriteName": "RightIdleKoopa",
+    "SpriteSheet": "enemies"
   }
 ]
-
-
-
-
-
-
