@@ -1,0 +1,24 @@
+CODE REVIEW of Sprint 3 - Owen - Jumping by Alex Contreras 10/13/21:
+
+CPlayerJump: This goes along with all the code, but we really should change the player object from link to 
+Mario for readability.
+
+Jumping Classes: In LeftFacingJumpingLink, in terms of readability we should change the comment "if(jumpHold) 
+prevents us from pressing letting go then holding jump" to "prevents double jump" as it makes more sense and 
+is clearer. 
+
+    Better code management would be to get rid of the if-else at lines 46-53; and instead just have 
+"jumpHold= jumpTimer> 0;"
+
+    Good maintainability with using OnStateChange and jumpTimer to be able to extend the jumping class if 
+need be in the future.
+
+RegisterHoldableKey: Love this idea to have the holdable key register, as it will be useful outside of the 
+context of jumping. 
+
+DataSheet: Again for readability sake should really change all the datasheet sprite names from Link to Mario, 
+and trade out the Sprite Sheet, and update the sprites. 
+
+OVERALL: Overall the code seems to be good, no major issues here, just some things to add here and there.
+
+ALL .CS FILES' AUTHOR IS OWEN HUSTON

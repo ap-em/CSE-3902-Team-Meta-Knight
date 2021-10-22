@@ -59,50 +59,6 @@ namespace Sprint0
 
             base.Initialize();
         }
-        public IKeyboardController SetUpPlayerKeyboard(IMario mario)
-        {
-            IKeyboardController keyboard = new KeyboardController();
-            keyboard.ClearController();
-
-            keyboard.RegisterCommand(Keys.Q, new Quit(mario));
-            keyboard.RegisterCommand(Keys.R, new CReset(mario));
-
-            keyboard.RegisterCommand(Keys.A, new CMovePlayerLeft(mario));
-            keyboard.RegisterCommand(Keys.D, new CMovePlayerRight(mario));
-
-            keyboard.RegisterCommand(Keys.Left, new CMovePlayerLeft(mario));
-            keyboard.RegisterCommand(Keys.Right, new CMovePlayerRight(mario));
-
-            //need to create a primary attack imario, but only imario is mario, so mario here for now
-            keyboard.RegisterCommand(Keys.Z, new CPlayerPrimaryAttack(mario));
-            keyboard.RegisterCommand(Keys.N, new CPlayerPrimaryAttack(mario));
-
-            keyboard.RegisterCommand(Keys.E, new CDamagePlayer(mario));
-
-            keyboard.RegisterHoldableKey(Keys.Space, new CPlayerJump(mario));
-
-            keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(mario));
-            keyboard.RegisterReleasableKey(Keys.D, new CZeroPlayerXVelocity(mario));
-
-            keyboard.RegisterReleasableKey(Keys.Left, new CZeroPlayerXVelocity(mario));
-            keyboard.RegisterReleasableKey(Keys.Right, new CZeroPlayerXVelocity(mario));
-
-            return keyboard;
-        }
-        public IKeyboardController SetUpEnemyKeyboard(IEnemy enemy)
-        {
-            IKeyboardController keyboard = new EnemyController();
-
-            keyboard.ClearController();
-
-            keyboard.RegisterCommand(Keys.A, new CMoveEnemyLeft(enemy));
-            keyboard.RegisterCommand(Keys.D, new CMoveEnemyRight(enemy));
-
-            keyboard.RegisterReleasableKey(Keys.A, new CZeroEnemyXVelocity(enemy));
-            keyboard.RegisterReleasableKey(Keys.D, new CZeroEnemyXVelocity(enemy));
-
-            return keyboard;
-        }
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);

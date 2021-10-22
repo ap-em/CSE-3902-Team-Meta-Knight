@@ -1,0 +1,19 @@
+CODE REVIEW of Sprint 3 - Jared- Game Object Manager by Alex Contreras 10/14/21:
+
+GameObjectManager: Good implementation of the manager, iterating through the lists, however, the variable 
+"go" may create confusion as it's not directly and immediately obvious.
+
+We might want to have detectCollisions call a class that handles all the detection of a collision, as it 
+might need its own methods and abstractions to implement. I agree with creating the datasheet and map manager 
+type and passing info into them. 
+
+Enemy: I don't know if we need to have a set for the Position, though I can see the usefulness in being able 
+to set the enemy position at any time, it isn't something that would necessarily be triggered in my opinion.
+
+Game0: For the future, I wouldn't comment out any code we aren't going to use but actually delete it, if we 
+need to refer back to how we had working code earlier we can access the Sprint 2, no need to needlessly add 
+lines of code that only worsen the readability the code.
+
+OVERALL: Overall the code seems to be good, no major issues here, just some things to add here and there.
+
+ALL.CS FILES' AUTHOR IS JARED ISRAEL

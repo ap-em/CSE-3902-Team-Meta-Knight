@@ -121,18 +121,6 @@ namespace Sprint0.Enemies
             SetSprite(enemyType);
         }
 
-        public void MoveUp()
-        {
-            enemyMovement.MoveUp();
-            SetSprite(enemyType);
-        }
-
-        public void MoveDown()
-        {
-            enemyMovement.MoveDown();
-            SetSprite(enemyType);
-        }
-
         public void SetXVelocity(int x)
         {
             enemyMovement.SetXVelocity(x);
