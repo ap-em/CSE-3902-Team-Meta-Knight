@@ -9,7 +9,7 @@ namespace Sprint0.Commands
     {
 
 
-        public CNothing()
+        public CNothing(IBlock block)
         {
    
         }

@@ -62,7 +62,7 @@ namespace Sprint0
                         command1.Execute();
 
                         Type t2 = Type.GetType(objValues[1]);
-                        Type[] types2 = { Type.GetType(collider.ToString()) };
+                        Type[] types2 = { Type.GetType(collided.ToString()) };
                         object[] param2 = { collided };
 
                         ConstructorInfo constructorInfoObj2 = t2.GetConstructor(types2);
