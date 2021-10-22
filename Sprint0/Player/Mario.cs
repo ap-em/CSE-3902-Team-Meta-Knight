@@ -37,7 +37,8 @@ namespace Sprint0
             this.position = position;
             currentState = new RightFacingStaticMario(this);
             OnStateChange();
-            keyboard = Game0.Instance.SetUpPlayerKeyboard(this);
+            keyboard = ControllerLoader.Instance.SetUpPlayerKeyboard(this); 
+
         }
 
         /*
