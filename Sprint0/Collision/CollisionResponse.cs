@@ -18,6 +18,11 @@ namespace Sprint0
 
     public class CollisionResponse
     {
+
+        public Dictionary<String, ICommand> MoverResponse;
+        public Dictionary<String, ICommand> TargetResponse;
+        Type mType;
+        Type tType;
         private static CollisionResponse instance;
         public static CollisionResponse Instance
         {
@@ -34,48 +39,60 @@ namespace Sprint0
         }
         public CollisionResponse()
         {
-        }
-        public void Response(IGameObject collider, IGameObject collided, String direction)
-        {
+            MoverResponse = new Dictionary<String, ICommand>();
+            TargetResponse = new Dictionary<String, ICommand>();
+
             XmlReader reader = XmlReader.Create(Path.GetFullPath("Collision\\CollisionData.xml"));
 
-            if (reader.ReadToFollowing(collider.ToString()))
+            reader.ReadToFollowing("Collision");
+            while (reader.ReadToFollowing("row"))
             {
-                reader = reader.ReadSubtree();
-                if (reader.ReadToFollowing(direction))
-                {
-                    reader = reader.ReadSubtree();
-                    if (reader.ReadToFollowing(collided.ToString()))
-                    {
-                        //get strings
-                        String objString = reader.ReadElementContentAsString();
-                        String[] objValues = objString.Split(',');
+             ConstructDictionary(reader.ReadSubtree());
+            }
+            reader.Close(); // Closes the reader for the XML document
 
-                        Type t1 = Type.GetType(objValues[0]);
-                        Type[] types1 = { Type.GetType(collider.ToString()) };
-                        object[] param1 = { collider };
+        }
+        public void ConstructDictionary(XmlReader reader)
+        {
+            while (reader.ReadToFollowing("obj"))
+            {
+                Console.Write("Building Dictionary");
+                //get strings
+                String objString = reader.ReadElementContentAsString();
+                String[] objValues = objString.Split(',');
 
-                        ConstructorInfo constructorInfoObj1 = t1.GetConstructor(types1);
+                //convert strings to ints
+                String obj1 = objValues[0];
+                String obj2 = objValues[1];
+                String direction = objValues[2];
+                String command1 = objValues[3];
+                String command2 = objValues[4];
+                // Need to use reflection here to get the commands
+                mType = Type.GetType(command1);
+                tType = Type.GetType(command2);
 
-                        ICommand command1 = (ICommand)constructorInfoObj1.Invoke(param1);
+               // var test1 = typeof(mType);
+                var mParams = mType.GetConstructors();
+                var tParams = tType.GetConstructors();
+                Type[] types = { typeof(ICommand) };
 
-                        command1.Execute();
+                ConstructorInfo cInfoM = mType.GetConstructor(types);
+                ConstructorInfo cInfoT = tType.GetConstructor(types);
 
-                        Type t2 = Type.GetType(objValues[1]);
-                        Type[] types2 = { Type.GetType(collided.ToString()) };
-                        object[] param2 = { collided };
-
-                        ConstructorInfo constructorInfoObj2 = t2.GetConstructor(types2);
-
-                        ICommand command2 = (ICommand)constructorInfoObj2.Invoke(param2);
-
-                        command2.Execute();
-
-                    }
-                }
-
+                //ConstructorInfo cInfoT = tType.GetConstructor(types);
+                object mover = Activator.CreateInstance(mType);
+                object target = Activator.CreateInstance(tType);
+                //object mover = cInfoM.Invoke(new object[] )
+                MoverResponse.Add(obj1+direction, (ICommand) mover);
+                TargetResponse.Add(obj2+direction, (ICommand) target);
             }
             reader.Close(); // Closes the local reader for the object
+        }
+
+        public void CollisionOccurrence(IGameObject collider, IGameObject collided, String direction)
+        {
+            MoverResponse[collider.ToString() + direction].Execute();
+            TargetResponse[collided.ToString() + direction].Execute();
         }
     }
 }
