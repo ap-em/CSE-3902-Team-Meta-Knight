@@ -91,6 +91,7 @@ namespace Sprint0
             {
                 projectile.Update();
             }
+            
             DetectCollisions(); // FIXME
         }
         

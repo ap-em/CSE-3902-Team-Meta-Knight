@@ -105,14 +105,9 @@ namespace Sprint0
             IKeyboardController keyboard = new EnemyController();
 
             keyboard.ClearController();
-            keyboard.RegisterCommand(Keys.W, new CMoveEnemyUp(enemy));
             keyboard.RegisterCommand(Keys.A, new CMoveEnemyLeft(enemy));
-            keyboard.RegisterCommand(Keys.S, new CMoveEnemyDown(enemy));
             keyboard.RegisterCommand(Keys.D, new CMoveEnemyRight(enemy));
-            keyboard.RegisterCommand(Keys.Space, new CEnemyAttack(enemy));
 
-            keyboard.RegisterReleasableKey(Keys.W, new CZeroEnemyYVelocity(enemy));
-            keyboard.RegisterReleasableKey(Keys.S, new CZeroEnemyYVelocity(enemy));
             keyboard.RegisterReleasableKey(Keys.A, new CZeroEnemyXVelocity(enemy));
             keyboard.RegisterReleasableKey(Keys.D, new CZeroEnemyXVelocity(enemy));
 

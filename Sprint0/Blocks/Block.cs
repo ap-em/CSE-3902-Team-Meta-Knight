@@ -63,7 +63,7 @@ namespace Sprint0.Blocks
 
         public void Update()
         {
-
+            sprite.Update();
         }
     }
 }
