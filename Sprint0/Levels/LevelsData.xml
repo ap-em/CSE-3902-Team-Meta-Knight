@@ -3,6 +3,7 @@
     <row>
       <!--xPosition, yPosition, numOfObj, Namespace.classname, spritename-->
       <!--if numOfObj > 1, it continues placing the same object horizontally-->
+      <obj>1,11,1,Sprint0.Blocks.Block,Ground</obj>
       <obj>3,11,1,Sprint0.Mario,RightIdleMarioFull</obj>
       <obj>8,11,1,Sprint0.Enemies.Enemy,RightMovingLike-Like</obj>
     </row>
