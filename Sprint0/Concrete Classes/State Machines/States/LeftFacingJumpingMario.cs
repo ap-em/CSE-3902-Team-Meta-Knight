@@ -84,7 +84,26 @@ namespace Sprint0
             mario.currentState = new LeftFacingStaticMario(mario);
             mario.OnStateChange();
         }
-
+        public void Bounce(string direction)
+        {
+            switch (direction)
+            {
+                case "up":
+                    velocity = new Vector2(velocity.X, 0);
+                    break;
+                case "down":
+                    mario.currentState = new LeftFacingStaticMario(mario);
+                    mario.OnStateChange();
+                    break;
+                case "left":
+                    velocity = new Vector2(velocity.X*-1, velocity.Y);
+                    break;
+                case "right":
+                    break;
+                default:
+                    break;
+            }
+        }
         public void Update()
         {
             // if timer is up player can no longer hold key down

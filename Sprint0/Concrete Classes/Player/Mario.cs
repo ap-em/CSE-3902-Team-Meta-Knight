@@ -121,23 +121,7 @@ namespace Sprint0
         }
         public void Bounce(string direction)
         {
-            switch (direction)
-            {
-                case "right":
-                    //Change current state to left?
-                    break;
-                case "left":
-                    //Change current state to right?
-                    break;
-                case "down":
-                    //Stop player from falling?
-                    break;
-                case "up":
-                    //Stop players upward velocity?
-                    break;
-                default:
-                    break;
-            }
+            currentState.Bounce(direction);
         }
     }
 }

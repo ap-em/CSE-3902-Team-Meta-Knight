@@ -22,5 +22,6 @@ namespace Sprint0
         public void Attack();
         public void Crouch();
         public void Update();
+        public void Bounce(string direction);
     }
 }

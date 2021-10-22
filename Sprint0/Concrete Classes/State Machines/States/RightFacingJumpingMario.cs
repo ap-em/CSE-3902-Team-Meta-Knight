@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 /*
 Alex Clayton
@@ -72,7 +73,26 @@ namespace Sprint0
             mario.currentState = new RightFacingStaticMario(mario);
             mario.OnStateChange();
         }
-
+        public void Bounce(string direction)
+        {
+            switch (direction)
+            {
+                case "up":
+                    velocity = new Vector2(velocity.X, 0);
+                    break;
+                case "down":
+                    mario.currentState = new RightFacingStaticMario(mario);
+                    mario.OnStateChange();
+                    break;
+                case "left":
+                    break;
+                case "right":
+                    velocity = new Vector2(velocity.X * -1, velocity.Y);
+                    break;
+                default:
+                    break;
+            }
+        }
         public void Update()
         {
             // if timer is up player can no longer hold key down
@@ -90,6 +110,7 @@ namespace Sprint0
             if (!jumpHold)
             {
                 velocity = velocity + new Vector2(0, 5) * .15f;
+                Debug.WriteLine("velocity: " + velocity);
             }
             mario.MoveSprite(velocity);
 

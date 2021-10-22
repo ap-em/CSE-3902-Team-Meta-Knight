@@ -60,6 +60,12 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
             
         }
 
+        public void Bounce(string direction)
+        {
+            throw new NotImplementedException();
+            /*Not sure how colliding while bouncing should be handled*/
+        }
+
         public void Crouch()
         {
             currentState.Crouch();

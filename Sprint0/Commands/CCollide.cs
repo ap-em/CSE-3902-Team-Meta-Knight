@@ -27,10 +27,12 @@ namespace Sprint0.Commands
             Console.WriteLine("COLLISION CAUSED");
             /*
              * Instantiate and execute a command from data table based on block+game object from data table
-             * Right now it's only calling collide, which is for walls, not enemies. 
-             */
-            /*
-             * Instantiate a player bounce command?
+             * 
+             * PROBLEM: The command that would be executed here would be CBouncePlayer, for mario hitting a wall. This just calls mario.Bounce()
+             * However, even though we know the type, how are we supposed to get a reference to mario, since that command needs
+             * a refernce to mario in the constructor? 
+             * We have a refernce to Mario as a game object, so do we have to have to make Bounce() a function in IGameObject?
+             * 
              */
 
         }

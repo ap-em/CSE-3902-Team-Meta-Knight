@@ -18,7 +18,7 @@ namespace Sprint0.Commands
 
         public void Execute()
         {
-            throw new NotImplementedException();
+            player.Bounce(direction);
         }
     }
 }

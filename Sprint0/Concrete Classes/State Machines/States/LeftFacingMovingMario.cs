@@ -60,9 +60,31 @@ namespace Sprint0
         {
             // no op
         }
-
+        public void Bounce(string direction)
+        {
+            switch (direction)
+            {
+                case "up":
+                    break;
+                case "down":
+                    //RESET VELOCITY, BLOCK UNDER
+                    break;
+                case "left":
+                    mario.currentState = new LeftFacingStaticMario(mario);
+                    mario.OnStateChange();
+                    break;
+                case "right":
+                    break;
+                default:
+                    break;
+            }
+        }
         public void Update()
         {
+            /*
+             * Try to apply downwards velocity? Walking off an edge should make the player fall.
+             *  If theyre on ground their velocity should be stopped by command to bounce from bottom.
+             */
             mario.MoveSprite(new Vector2(-1 * moveVelocity, 0f));
         }
     }
