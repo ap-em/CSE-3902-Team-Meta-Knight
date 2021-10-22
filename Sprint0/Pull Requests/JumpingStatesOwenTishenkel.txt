@@ -1,0 +1,17 @@
+CODE REVIEW of Sprint-3-Owen-Jumping by Owen Tishenkel 10-12-2021
+Owen Huston’ Code:
+Left and Right Jumping Link States: Having a limit on the amount of time you can hold a jump is smart. 
+I’m not sure how much I like that the timer is being passed into the state, maybe we should make a json 
+file that holds the speed and jump time limits for players and enemies, it would allow us to implement jumping 
+enemies later on as well as make the code be subject to a single point of change rather than having to alter any 
+creation of the Jumping State. There are a couple of comments scattered around but I feel like this would benefit 
+from having more, and I having trouble understanding this one in the jump() method: “if(jumpHold) prevents us from 
+pressing letting go then holding jump”. I like the stopMoving() method, good way of doing it and the switching back 
+to normal link when link is falling makes it so jumps when y velocity is negative are impossible, though I suspect 
+that jumps when y-velocity is positive are still possible because I see nothing disallowing it.
+
+Controllers: Holdable key mappings is a good distinguishment to have from normal key mappings and lowers the 
+complexity of normal key mappings due to not having to modify it to allow for the hold mechanic.
+
+Overall: I think the Jumping States need to be modified a bit, adding more comments, preempting the infinite jumping bug 
+possibility if I’m not just missing something, the json file idea is something to add at a later date though.
