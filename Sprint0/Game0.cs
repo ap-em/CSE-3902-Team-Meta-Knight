@@ -27,7 +27,10 @@ namespace Sprint0
         public ISprite sprite;
         public SpriteFont font;
         public static ContentManager ContentInstance;
-
+        public Mario mario;
+        public Camera camera;
+        public static int screenHeight;
+        public static int screenWidth;
         private static Game0 instance;
         public static Game0 Instance
         {
@@ -60,7 +63,8 @@ namespace Sprint0
             mouseController = new MouseController(this);
             SetUpMouse();
             */
-
+            screenHeight = graphics.PreferredBackBufferHeight;
+            screenWidth = graphics.PreferredBackBufferWidth;
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(1 / 30.0f);
 
@@ -151,6 +155,7 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
+            camera.Update(gameTime, this);
             base.Update(gameTime);
             GameObjectManager.Instance.UpdateGameObjects();
         }
@@ -159,7 +164,7 @@ namespace Sprint0
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend,null, null,null,null,camera.transform);
             GameObjectManager.Instance.DrawGameObjects(spriteBatch);
             base.Draw(gameTime);
 
