@@ -203,7 +203,7 @@ namespace Sprint0
                 if (!entity.Equals(go))
                 {
                     //If the entity is within 5 heights of the game object we are looking at, check if it intersects
-                    if(entity.Position.Y>(goRec.Y-goRec.Height*dimensionScale*5) && entity.Position.Y < (goRec.Y+ goRec.Height*dimensionScale*5))
+                    if(entity.Position.Y>(goRec.Y-goRec.Height*5) && entity.Position.Y < (goRec.Y+ goRec.Height*5))
                     {
                         //create an entity rec for the collision here so we don't use up time creating one for every possible entity
                         RectangleF entityRec = new RectangleF(entity.Position.X, entity.Position.Y, entity.Sprite.width*dimensionScale, entity.Sprite.height*dimensionScale);
