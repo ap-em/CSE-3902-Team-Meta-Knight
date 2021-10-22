@@ -70,7 +70,7 @@ namespace Sprint0
             while (reader.ReadToFollowing("obj"))
             {
                 //get strings
-                String objString = reader.ReadElementContentAsString();
+                String objString = reader.ReadElementContentAsString(); 
                 String[] objValues = objString.Split(',');
 
                 //convert strings to ints

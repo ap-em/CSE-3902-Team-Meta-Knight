@@ -2,6 +2,7 @@
 using Sprint0.Interfaces.Player;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 /*
 Alex Clayton
@@ -24,6 +25,7 @@ namespace Sprint0.Commands
 
         public void Execute()
         {
+            Debug.WriteLine("damage");
             mario.TakeDamage();
         }
     }

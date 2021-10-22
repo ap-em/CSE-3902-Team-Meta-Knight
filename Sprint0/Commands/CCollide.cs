@@ -1,6 +1,7 @@
 ﻿using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Sprint0.Commands
@@ -19,7 +20,7 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            CollisionResponse.Instance.CollisionOcurrance(Collider, Collided, direction);
+            CollisionResponse.Instance.Response(Collider, Collided, direction);
         }
     }
 }
