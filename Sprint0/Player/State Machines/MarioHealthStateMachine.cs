@@ -45,7 +45,7 @@ namespace Sprint0
 //                case MarioHealth.none:
 //                    return "Dead";
                 default:
-                    return "Full";
+                    return "";
             }
         }
         public void TakeDamage()
@@ -53,7 +53,7 @@ namespace Sprint0
             if (invinsibleTimer <= 0)
             {
                 //invinsible for a few frames after taking damage
-                invinsibleTimer = 20;
+                invinsibleTimer = 30;
                 switch (currentHealth)
                 {
                     case MarioHealth.star:
@@ -85,7 +85,7 @@ namespace Sprint0
         }
         public void Update()
         {
-            if (invinsibleTimer > 0)
+            if (invinsibleTimer >= 0)
             {
                 invinsibleTimer--;
             }
@@ -106,6 +106,7 @@ namespace Sprint0
                 else if(currentHealth == MarioHealth.fullDamaged)
                 {
                     // go to new health after taking damage animation
+                    Debug.WriteLine("working");
                     currentHealth = MarioHealth.half;
                     mario.OnStateChange();
                 }
