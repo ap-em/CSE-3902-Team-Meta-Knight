@@ -8,6 +8,7 @@ using Sprint0.Sprites;
 using Sprint0.Cycle;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.SpriteFactory;
+using Sprint0.Controllers;
 
 /*
 Alex Clayton
@@ -28,8 +29,8 @@ namespace Sprint0.Enemies
         private IEnemyMovement enemyMovement;
         private ICycleStateMachine cycleStateMachine;
         private ISprite sprite;
-        private String enemyType = "Octorok";
-        private String spriteName = "RightIdleOctorok";
+        private String enemyType = "";
+        private String spriteName = "";
         private bool firing = false;
         private int firingTimer = 4;
 
@@ -39,11 +40,12 @@ namespace Sprint0.Enemies
 
         public Enemy(String spriteName, Vector2 position)
         {
+            enemyType = spriteName;
             enemyMovement = new EnemyMovement(this, position);
             this.spriteName = enemyMovement.GetDirection() + "Idle" + enemyType;
-            sprite = SpriteFactory.Instance.GetSprite(spriteName);
+            sprite = SpriteFactory.Instance.GetSprite(this.spriteName);
             cycleStateMachine = new CycleStateMachine(this);
-            keyboard = Game0.Instance.SetUpEnemyKeyboard(this);
+            keyboard = ControllerLoader.Instance.SetUpEnemyKeyboard(this);
         }
         public void PrevSprite()
         {

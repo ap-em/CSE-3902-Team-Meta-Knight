@@ -6,6 +6,7 @@ using System.Text;
 using Sprint0.Sprites.SpriteFactory;
 using Sprint0.Concrete_Classes.State_Machines.States;
 using Sprint0.Interfaces;
+using Sprint0.Controllers;
 /*
 Alex Clayton
 Alex Contreras
@@ -36,7 +37,7 @@ namespace Sprint0
             this.position = position;
             currentState = new RightFacingStaticMario(this);
             OnStateChange();
-            keyboard = Game0.Instance.SetUpPlayerKeyboard(this);
+            keyboard = ControllerLoader.Instance.SetUpPlayerKeyboard(this);
         }
 
         /*
