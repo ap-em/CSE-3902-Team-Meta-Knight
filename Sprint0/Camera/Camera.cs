@@ -12,7 +12,7 @@ namespace Sprint0
     {
         Vector2 position;
         Matrix viewMatrix;
-
+        const int upTransition = 140;
         public Camera()
         {
 
@@ -33,7 +33,7 @@ namespace Sprint0
         public void Update(Vector2 playerPosition)
         {
             position.X = playerPosition.X - (ScreenWidth / 2);
-            position.Y = playerPosition.Y - (ScreenHeight / 2);
+            position.Y = playerPosition.Y - (ScreenHeight / 2)-upTransition;
 
             if (position.X < 0)
             {
