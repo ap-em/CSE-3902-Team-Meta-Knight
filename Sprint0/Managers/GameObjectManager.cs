@@ -91,6 +91,7 @@ namespace Sprint0
             {
                 projectile.Update();
             }
+            DetectCollisions(); // FIXME
         }
         
         public void DrawGameObjects(SpriteBatch spriteBatch)
@@ -112,7 +113,6 @@ namespace Sprint0
 
         public void DetectCollisions()
         {
-            
             foreach (IGameObject go in gameObjects)
             {
                 /*
@@ -128,7 +128,6 @@ namespace Sprint0
                 //Non-block collisions should be working based on wheather the object is within a certain height first,
                 //essentially basing it on rows
                 EntityCollision(go);
-                
             }
         }
 

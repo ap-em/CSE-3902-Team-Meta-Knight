@@ -49,13 +49,14 @@ namespace Sprint0
             {
              ConstructDictionary(reader.ReadSubtree());
             }
-            reader.Close();
+            reader.Close(); // Closes the reader for the XML document
 
         }
         public void ConstructDictionary(XmlReader reader)
         {
             while (reader.ReadToFollowing("obj"))
             {
+                Console.Write("Building Dictionary");
                 //get strings
                 String objString = reader.ReadElementContentAsString();
                 String[] objValues = objString.Split(',');
@@ -69,6 +70,8 @@ namespace Sprint0
                 // Need to use reflection here to get the commands
                 mType = Type.GetType(command1);
                 tType = Type.GetType(command2);
+
+               // var test1 = typeof(mType);
                 var mParams = mType.GetConstructors();
                 var tParams = tType.GetConstructors();
                 Type[] types = { typeof(ICommand) };
@@ -83,9 +86,10 @@ namespace Sprint0
                 MoverResponse.Add(obj1+direction, (ICommand) mover);
                 TargetResponse.Add(obj2+direction, (ICommand) target);
             }
+            reader.Close(); // Closes the local reader for the object
         }
 
-        public void CollisionOcurrance(IGameObject collider, IGameObject collided, String direction)
+        public void CollisionOccurrence(IGameObject collider, IGameObject collided, String direction)
         {
             MoverResponse[collider.ToString() + direction].Execute();
             TargetResponse[collided.ToString() + direction].Execute();

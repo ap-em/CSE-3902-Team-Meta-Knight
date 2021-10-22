@@ -19,7 +19,7 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            CollisionResponse.Instance.CollisionOcurrance(Collider, Collided, direction);
+            CollisionResponse.Instance.CollisionOccurrence(Collider, Collided, direction);
         }
     }
 }

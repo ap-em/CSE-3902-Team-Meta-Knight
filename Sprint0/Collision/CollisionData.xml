@@ -1,11 +1,11 @@
 ﻿<Collision>
 	<row>
 		<!--Object1, Object2, Direction, Command1, Command2-->
-		<obj>Mario,Ground,Left,CMoveMarioLeft,CNothing</obj>
-		<obj>Mario,Ground,Right,CMoveMarioRight,CNothing</obj>
-		<obj>Mario,Ground,Up,CMoveMarioUp,CNothing</obj>
-		<obj>Mario,Ground,Down,CMoveMarioDown,CNothing</obj>
-		<obj>Mario,Goomba,Left,CDamagePlayer,CNothing</obj>
+		<obj>Mario,Ground,Left,Sprint0.Player.State Machines.States.LeftFacingJumpingMario,Sprint0.Commands.CNothing</obj>
+		<!--	<obj>Mario,Ground,Right,CMovePlayerRight,CNothing</obj>
+		<obj>Mario,Ground,Up,CMovePlayerUp,CNothing</obj>
+		<obj>Mario,Ground,Down,CMovePlayerDown,CNothing</obj>
+	<!--	<obj>Mario,Goomba,Left,CDamagePlayer,CNothing</obj>
 		<obj>Mario,Goomba,Right,CDamagePlayer,CNothing</obj>
 		<obj>Mario,Goomba,Up,CPlayerBounce,CDamageEnemy</obj>
 		<obj>Mario,Goomba,Down,CDamagePlayer,CNothing</obj>
@@ -20,6 +20,6 @@
 		<obj>Mario,Block,Left,CMoveMarioLeft,CNothing</obj>
 		<obj>Mario,Block,Right,CMoveMarioRight,CNothing</obj>
 		<obj>Mario,Block,Up,CMoveMarioUp,CNothing</obj>
-		<obj>Mario,Block,Down,CMoveMarioDown,CBreak</obj>
+		<obj>Mario,Block,Down,CMoveMarioDown,CBreak</obj> -->
 	</row>
 </Collision>
