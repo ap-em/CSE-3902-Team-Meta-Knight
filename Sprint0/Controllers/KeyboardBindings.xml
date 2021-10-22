@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<keyboards>
+  <PlayerKeyboard>
+    
+    <key>Q,Sprint0.Commands.Quit,pressable</key>
+    <key>R,Sprint0.Commands.CReset,pressable</key>
+
+    <key>A,Sprint0.Commands.CMovePlayerLeft,pressable</key>
+    <key>A,Sprint0.Commands.CZeroPlayerXVelocity,releasable</key>
+  
+    <key>D,Sprint0.Commands.CMovePlayerRight,pressable</key>
+    <key>D,Sprint0.Commands.CZeroPlayerXVelocity,releasable</key>
+
+    <key>Space,Sprint0.Commands.CPlayerJump,holdable</key>
+
+    <key>Left,Sprint0.Commands.CMovePlayerLeft,pressable</key>
+    <key>Left,Sprint0.Commands.CZeroPlayerXVelocity,releasable</key>
+    
+    <key>Right,Sprint0.Commands.CMovePlayerRight,pressable</key>
+    <key>Right,Sprint0.Commands.CZeroPlayerXVelocity,releasable</key>
+
+    <key>Z,Sprint0.Commands.CPlayerPrimaryAttack,pressable</key>
+    <key>N,Sprint0.Commands.CPlayerPrimaryAttack,pressable</key>
+
+    <key>E,Sprint0.Commands.CDamagePlayer,pressable</key>
+    
+
+  </PlayerKeyboard>
+  <EnemyKeyboard>
+    <key>A,Sprint0.Commands.CMoveEnemyLeft,pressable</key>
+    <key>A,Sprint0.Commands.CZeroEnemyXVelocity,releasable</key>
+    <key>D,Sprint0.Commands.CMoveEnemyRight,pressable</key>
+    <key>D,Sprint0.Commands.CZeroEnemyXVelocity,releasable</key>
+  </EnemyKeyboard>
+</keyboards>

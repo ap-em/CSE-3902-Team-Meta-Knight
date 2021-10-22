@@ -54,13 +54,6 @@ namespace Sprint0
         protected override void Initialize()
         {
             LevelFactory.Instance.CreateLevel(1);
-
-            //No need for mouse controller for Sprint 2
-            /* 
-            mouseController = new MouseController(this);
-            SetUpMouse();
-            */
-
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(1 / 30.0f);
 
@@ -88,13 +81,9 @@ namespace Sprint0
 
             keyboard.RegisterHoldableKey(Keys.Space, new CPlayerJump(mario));
 
-            keyboard.RegisterReleasableKey(Keys.W, new CZeroPlayerYVelocity(mario));
-            keyboard.RegisterReleasableKey(Keys.S, new CZeroPlayerYVelocity(mario));
             keyboard.RegisterReleasableKey(Keys.A, new CZeroPlayerXVelocity(mario));
             keyboard.RegisterReleasableKey(Keys.D, new CZeroPlayerXVelocity(mario));
 
-            keyboard.RegisterReleasableKey(Keys.Up, new CZeroPlayerYVelocity(mario));
-            keyboard.RegisterReleasableKey(Keys.Down, new CZeroPlayerYVelocity(mario));
             keyboard.RegisterReleasableKey(Keys.Left, new CZeroPlayerXVelocity(mario));
             keyboard.RegisterReleasableKey(Keys.Right, new CZeroPlayerXVelocity(mario));
 
@@ -105,48 +94,18 @@ namespace Sprint0
             IKeyboardController keyboard = new EnemyController();
 
             keyboard.ClearController();
-            keyboard.RegisterCommand(Keys.W, new CMoveEnemyUp(enemy));
-            keyboard.RegisterCommand(Keys.A, new CMoveEnemyLeft(enemy));
-            keyboard.RegisterCommand(Keys.S, new CMoveEnemyDown(enemy));
-            keyboard.RegisterCommand(Keys.D, new CMoveEnemyRight(enemy));
-            keyboard.RegisterCommand(Keys.Space, new CEnemyAttack(enemy));
 
-            keyboard.RegisterReleasableKey(Keys.W, new CZeroEnemyYVelocity(enemy));
-            keyboard.RegisterReleasableKey(Keys.S, new CZeroEnemyYVelocity(enemy));
+            keyboard.RegisterCommand(Keys.A, new CMoveEnemyLeft(enemy));
+            keyboard.RegisterCommand(Keys.D, new CMoveEnemyRight(enemy));
+
             keyboard.RegisterReleasableKey(Keys.A, new CZeroEnemyXVelocity(enemy));
             keyboard.RegisterReleasableKey(Keys.D, new CZeroEnemyXVelocity(enemy));
 
             return keyboard;
         }
-        /* No need for mouse for Sprint 2
-        private void SetUpMouse()
-        {
-           
-            
-            int rWidth = graphics.PreferredBackBufferWidth; // This is the width of the whole screen
-            int rHeight = graphics.PreferredBackBufferHeight;
-
-            mouseController.RegisterCommand(new Rectangle(0, 0, rWidth / 2, rHeight / 2), new CFixedSprite(this)); // upper left, fixed static
-            mouseController.RegisterCommand(new Rectangle(rWidth / 2, 0, rWidth / 2, rHeight / 2), new CAnimatedFixedSprite(this)); // upper right, animated fixed
-            mouseController.RegisterCommand(new Rectangle(0, rHeight / 2, rWidth / 2, rHeight / 2), new CMovingStaticSprite(this)); // bottom left, one frame up/dpown
-            mouseController.RegisterCommand(new Rectangle(rWidth / 2, rHeight / 2, rWidth / 2, rHeight / 2), new CAnimatedMovingSprite(this)); //Bottom right, one frame up/down
-            
-        } */
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            //no need for fonts for Sprint 2
-            /*
-            font = Content.Load<SpriteFont>("font"); // Will use a similar "load all textures" method in the future for this to support multiple fonts. Can use commands to switch betewen fonts too.
-            */
-
-            ISprite enemySprite, blockSprite;
-
-            //Not yet in datasheet just showing how the block and enemy/npc would be called
-            /*
-            enemySprite = SpriteFactory.Instance.GetSprite(Content, "Bat");
-            blockSprite = SpriteFactory.Instance.GetSprite(Content, "Block1");
-            */
         }
 
         protected override void Update(GameTime gameTime)

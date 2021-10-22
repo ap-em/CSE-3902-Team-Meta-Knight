@@ -45,7 +45,7 @@ namespace Sprint0.Enemies
             this.spriteName = enemyMovement.GetDirection() + "Idle" + enemyType;
             sprite = SpriteFactory.Instance.GetSprite(this.spriteName);
             cycleStateMachine = new CycleStateMachine(this);
-            keyboard = ControllerLoader.Instance.SetUpEnemyKeyboard(this);
+            keyboard = ControllerLoader.Instance.SetUpEnemyKeyboard(this); 
         }
         public void PrevSprite()
         {
