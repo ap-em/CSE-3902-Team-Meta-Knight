@@ -18,11 +18,13 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
 
         IMarioState currentState;
         Vector2 position;
+        IMario mario;
 
-        public AttackMario(IMarioState currentState, Vector2 position)
+        public AttackMario(IMario marioRef, IMarioState currentState, Vector2 position)
         {
             this.currentState = currentState;
             this.position = position;
+            this.mario = marioRef;
         }
 
         public string ID => currentState.ID;
