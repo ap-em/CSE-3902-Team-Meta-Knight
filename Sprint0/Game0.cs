@@ -27,6 +27,8 @@ namespace Sprint0
         public ISprite sprite;
         public SpriteFont font;
         public static ContentManager ContentInstance;
+        public ICamera camera;
+        public Mario mario;
 
         private static Game0 instance;
         public static Game0 Instance
@@ -54,6 +56,9 @@ namespace Sprint0
         protected override void Initialize()
         {
             LevelFactory.Instance.CreateLevel(1);
+            mario = new Mario("Sprint0.Mario", new Vector2(96, 352));
+            camera = mario.camera;
+            GameObjectManager.Instance.AddToObjectList(mario);
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(1 / 30.0f);
 
@@ -73,12 +78,11 @@ namespace Sprint0
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.ViewMatrix);
             GameObjectManager.Instance.DrawGameObjects(spriteBatch);
-            base.Draw(gameTime);
 
             spriteBatch.End();
+            base.Draw(gameTime);
         }
     }
 }
