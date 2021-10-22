@@ -66,9 +66,9 @@ namespace Sprint0
             ConstructorInfo constructorInfoObj = t.GetConstructor(types);
 
             //this should be changed in the future so that gameObjectManager holds blocks instead
-
+            //GameObjectManager.Instance.AddToObjectList((IGameObject)constructorInfoObj.Invoke(param));
             // add blocks to array
-            if (objType.Equals("Sprint0.Blocks.Block"))
+           if (objType.Equals("Sprint0.Blocks.Block"))
             {
                 gameObjects[rowLength[rowIndex]][rowIndex] = (IGameObject)constructorInfoObj.Invoke(param);
             }
@@ -76,7 +76,7 @@ namespace Sprint0
             else
             {
                GameObjectManager.Instance.AddToObjectList((IGameObject)constructorInfoObj.Invoke(param));
-            }
+            } 
             
             rowLength[rowIndex] += 1;
         }
