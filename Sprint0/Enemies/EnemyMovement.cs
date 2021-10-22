@@ -52,16 +52,6 @@ namespace Sprint0.Enemies
             direction = "Left";
             XVelocity = -1;
         }
-        public void MoveUp()
-        {
-            direction = "Up";
-            YVelocity = -1;
-        }
-        public void MoveDown()
-        {
-            direction = "Down";
-            YVelocity = 1;
-        }
         public int GetXVelocity()
         {
             return XVelocity;

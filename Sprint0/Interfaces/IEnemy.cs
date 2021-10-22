@@ -23,8 +23,6 @@ namespace Sprint0.Interfaces
         String GetSpriteName();
         void MoveRight();
         void MoveLeft();
-        void MoveUp();
-        void MoveDown();
         void SetXVelocity(int x);
         void SetYVelocity(int y);
         void NextSprite();

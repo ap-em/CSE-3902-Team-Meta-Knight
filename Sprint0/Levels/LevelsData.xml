@@ -5,13 +5,22 @@
       <!--if numOfObj > 1, it continues placing the same object horizontally-->
       <obj>1,11,1,Sprint0.Blocks.Block,Ground</obj>
       <obj>3,11,1,Sprint0.Mario,RightIdleMarioFull</obj>
-      <obj>8,11,1,Sprint0.Enemies.Enemy,RightMovingLike-Like</obj>
+      <obj>8,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
+	  <obj>15,6,1,Sprint0.Enemies.Enemy,Koopa</obj>
     </row>
 	  <row>
-      <obj>0,13,999,Sprint0.Blocks.Block,Ground</obj>
+		  <obj>11,9,2,Sprint0.Blocks.Block,BrickBlock</obj>
+		  <obj>13,9,1,Sprint0.Blocks.Block,ItemBlock</obj>
+		  <obj>13,4,1,Sprint0.Blocks.Block,ItemBlock</obj>
+		  <obj>14,9,2,Sprint0.Blocks.Block,BrickBlock</obj>
 	  </row>
 	  <row>
-      <obj>0,14,999,Sprint0.Blocks.Block,Ground</obj>
+      <obj>0,13,20,Sprint0.Blocks.Block,Ground</obj>
+		  <obj>23,13,90,Sprint0.Blocks.Block,Ground</obj>
+	  </row>
+	  <row>
+	  <obj>0,14,20,Sprint0.Blocks.Block,Ground</obj>
+      <obj>23,14,90,Sprint0.Blocks.Block,Ground</obj>
 	  </row>
   </Level1>
 </Levels>
