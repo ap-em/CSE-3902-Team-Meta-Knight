@@ -1,0 +1,13 @@
+CODE REVIEW of working camera by Leon Cai 10/23/21
+ICamera: Good way to decouple the code by using interfaces to get the ScreenWidth and SCreenHeight. I was trying to do all of that in the camera class.
+Camera.cs: It is a good idea to add camera to the Mario update so that the camera is 
+actually inside the Mario class and can follow the movement of Mario which solves the 
+bug I previously faced. Also, using if else to reset the camera to avoid extreme conditions 
+is what I did not think about before.
+
+Game0: The key thing that why my camera does not work is that I did not add the camera to 
+the gameObjectManager so the camera is fixed at the position where the Mario sprite initialized. 
+
+Overall: Good
+
+ALL.CS FILES' AUTHOR IS Owen Huston

@@ -1,0 +1,13 @@
+CODE REVIEW of Sprint-3-Misc by Alex Clayton 10/22/21:
+ControllerLoader: Great way to data drive this. Copies the other
+ideas used with level loading and collision handling.
+Everything looks good.
+
+KeyboardBindings.xml: Looks good. Very readable, and easily extendable with good maintainability as you only need to change a single letter to change key binds. In the future, having the player choose the keybind will be easy.
+
+Enemy.cs: Replaces the controller being owned
+by Game0 to being owned by ControllerLoader
+
+Game0: Cleaned up everything
+Mario.cs:  Looks good. Simple and easy to understand.
+ALL.CS FILES' AUTHOR IS Owen Huston
