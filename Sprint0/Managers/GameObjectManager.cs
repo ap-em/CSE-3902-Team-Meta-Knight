@@ -102,6 +102,8 @@ namespace Sprint0
         
         public void DrawGameObjects(SpriteBatch spriteBatch)
         {
+            Texture2D background = Game0.Instance.Content.Load<Texture2D>("1-1");
+            spriteBatch.Draw(background, new Rectangle(0, 0, 6450, 600), Color.White);
             foreach (IGameObject go in gameObjects)
             {
                 if (go.ToString().Equals("Sprint0.Mario"))
