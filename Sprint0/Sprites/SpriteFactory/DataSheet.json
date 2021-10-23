@@ -273,7 +273,42 @@
     "DataX": [ 0 ],
     "DataY": [ 16 ],
     "Data": [ 16, 16, 1 ],
-    "SpriteName": "MarioDead",
+    "SpriteName": "LeftJumpingMarioDead",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 16 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "RightJumpingMarioDead",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 16 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "LeftMovingMarioDead",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 16 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "RightMovingMarioDead",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 16 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "RightIdleMarioDead",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 16 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "LeftIdleMarioDead",
     "SpriteSheet": "mario"
   },
   {
@@ -389,7 +424,7 @@
     "SpriteSheet": "enemies"
   },
   {
-    "DataX": [ 270, 300  ],
+    "DataX": [ 270, 300 ],
     "DataY": [ 0, 0 ],
     "Data": [ 16, 24, 2, 1 ],
     "SpriteName": "RightMovingKoopa",
@@ -410,3 +445,9 @@
     "SpriteSheet": "enemies"
   }
 ]
+
+
+
+
+
+
