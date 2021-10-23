@@ -3,7 +3,6 @@
     <row>
       <!--xPosition, yPosition, numOfObj, Namespace.classname, spritename-->
       <!--if numOfObj > 1, it continues placing the same object horizontally-->
-      <obj>1,11,1,Sprint0.Blocks.Block,Ground</obj>
       <obj>8,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
 	  <obj>15,6,1,Sprint0.Enemies.Enemy,Koopa</obj>
 	  <obj>5,11,1,Sprint0.Items.Mushroom,Mushroom</obj>
