@@ -28,6 +28,7 @@ namespace Sprint0
         void PrimaryAttack();
         void Jump();
         void TakeDamage();
+        void MushroomPower();
         void OnStateChange();
         void StopMovingHorizontal();
         void StopMovingVertical();

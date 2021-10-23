@@ -100,6 +100,11 @@ namespace Sprint0
         {
             healthStateMachine.TakeDamage();
         }
+        public void MushroomPower()
+        {
+            healthStateMachine.MushroomPower();
+        }
+
         public void StarPower()
         {
             healthStateMachine.StarPower();

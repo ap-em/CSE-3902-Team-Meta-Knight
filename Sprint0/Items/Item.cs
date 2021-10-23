@@ -12,49 +12,34 @@ Leon Cai
 Owen Tishenkel
 Owen Huston
 */
-namespace Sprint0.Items
+namespace Sprint0.Items 
 {
-    /*Owen Tishenkel, heavily based on Owen Houston's Enemy class*/
-    class Item : IItems, ICyclable
+    class Item : IGameObject 
     {
-        Game0 game;
-        ICycleStateMachine stateMachine;
-        String spriteName;
-        ISprite sprite;
+        private String ItemName;
+        private ISprite ItemSprite;
+
         private Vector2 location = new Vector2(100, 200);
+        public ISprite Sprite => ItemSprite;
 
-        public Vector2 Velocity { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public Vector2 Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector2 Position { get => location; set => throw new NotImplementedException(); }
 
-        public ISprite Sprite => throw new NotImplementedException();
-
-        public Item(Game0 game)
+        public Item(String itemName, Vector2 position) // Should I just use the gameobject manager? Items will probably include mushroom, star, coin
         {
-            this.game = game;
-            stateMachine = new CycleStateMachine(this);
-            spriteName = "HealHeart";
-            this.SetSprite(spriteName);
-
+            this.SetItem(itemName);
+            location = position;
+            this.ItemName = itemName;
         }
 
-        public void NextSprite()
+        public void SetItem(String spriteName)
         {
-            stateMachine.NextSprite();
-        }
+            this.ItemName = spriteName;
+            this.ItemSprite = SpriteFactory.Instance.GetSprite(spriteName);
 
-        public void PrevSprite()
-        {
-            stateMachine.PrevSprite();
         }
-
-        public void SetSprite(String spriteName)
+        public string GetItemName()
         {
-            this.spriteName = spriteName;
-            this.sprite = SpriteFactory.Instance.GetSprite(spriteName);
-        }
-        public string GetSpriteName()
-        {
-            return spriteName;
+            return ItemName;
         }
         public void Move(int x, int y)
         {
@@ -62,11 +47,12 @@ namespace Sprint0.Items
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, location);
+            Sprite.Draw(spriteBatch, location);
         }
         public void Update()
-        {
-            sprite.Update();
+        { 
+            Sprite.Update(); // Will have to wire this to work as intended
         }
+
     }
 }
