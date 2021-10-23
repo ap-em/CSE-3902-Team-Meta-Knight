@@ -57,7 +57,8 @@ namespace Sprint0
         {
             LevelFactory.Instance.CreateLevel(1);
             CreatePlayer();
-            camera = mario.camera;
+            camera = new Camera();
+            
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(1 / 30.0f);
 
@@ -70,13 +71,19 @@ namespace Sprint0
 
         public void CreatePlayer()
         {
-            mario = new Mario("Sprint0.Mario", new Vector2(50, 200));
+            mario = new Mario("Sprint0.Mario", new Vector2(50, 200));     
             GameObjectManager.Instance.AddToObjectList(mario);
+            
         }
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
             GameObjectManager.Instance.UpdateGameObjects();
+            if (mario != null)
+            {
+                camera.Update(mario.Position);
+            }
+            
         }
 
         protected override void Draw(GameTime gameTime)

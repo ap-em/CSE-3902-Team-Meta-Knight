@@ -85,7 +85,7 @@ namespace Sprint0.Controllers
 
                 ICommand command = (ICommand)constructorInfoObj.Invoke(param);
 
-
+                
                 //parse string to key
                 Keys key = (Keys)Enum.Parse(typeof(Keys), objValues[0]);
                 

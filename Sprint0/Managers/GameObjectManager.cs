@@ -43,6 +43,7 @@ namespace Sprint0
         public void RemoveFromObjectList(IGameObject gameObject)
         {
             gameObjectRemovalQueue.Add(gameObject);
+            
         }
         public void AddToProjectileList(IProjectile projectile)
         {
@@ -72,10 +73,12 @@ namespace Sprint0
             foreach (IGameObject go in gameObjectRemovalQueue)
             {
                 gameObjects.Remove(go);
+                
             }
             foreach (IProjectile projectile in projectileRemovalQueue)
             {
                 projectiles.Remove(projectile);
+
             }
 
             gameObjectRemovalQueue.Clear();

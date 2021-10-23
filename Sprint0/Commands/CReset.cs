@@ -17,6 +17,7 @@ Owen Huston
     /*CReset resets every state and location to what it was at startup*/
     class CReset : ICommand
     {
+
         public CReset(IMario mario)
         {
             
@@ -27,6 +28,9 @@ Owen Huston
             Level.Instance.Reset();
             GameObjectManager.Instance.RemoveAllObjects();
             Game0.Instance.CreatePlayer();
+            
+
+            
         }
     }
 }
