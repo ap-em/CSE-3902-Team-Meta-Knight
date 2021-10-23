@@ -10,7 +10,7 @@ namespace Sprint0
 
             using (var game = new Game0())
                 Game0.Instance.Run();
-               // game.Run();
+               
         }
     }
 }

@@ -167,28 +167,31 @@ namespace Sprint0
                         //Determine collision side based on how much it's intersecting in either dimension
                         String collisionSide ="";
                         Rectangle collisionRec = Rectangle.Intersect(goRec, blockRec);
-                        if (collisionRec.Width >= collisionRec.Height)
-                        {
+                        Debug.WriteLine(collisionRec);
+                        // if (collisionRec.Width >= collisionRec.Height)
+                      //  {
+
+                           
                             if (collisionRec.Top == blockRec.Top)
                             {
                                 collisionSide = "Top";
                             }
-                            else
+                            else if(collisionRec.Bottom == blockRec.Bottom)
                             {
                                 collisionSide = "Bottom";
                             }
-                        }
-                        else
-                        {
-                            if (collisionRec.Right == blockRec.Right)
+                       // }
+                      //  else
+                      //  {
+                            else if (collisionRec.Right == blockRec.Right)
                             {
                                 collisionSide = "Right";
                             }
-                            else
+                            else if (collisionRec.Left == blockRec.Left)
                             {
                                 collisionSide = "Left";
                             }
-                        }
+                      //  }
 
                         //Create the correct collision command based on the block and the game object and the side its collding most with
                         collision = new CCollide(block, go, collisionSide, collisionRec);

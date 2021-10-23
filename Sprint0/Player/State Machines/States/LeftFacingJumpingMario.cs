@@ -103,7 +103,9 @@ namespace Sprint0
         public void DownBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X, mario.Position.Y + rectangle.Height);
-            velocity = new Vector2(velocity.X, 2f);
+            jumpHold = true;
+            velocity = new Vector2(velocity.X, 4f);
+            
         }
         public void RightBounce(Rectangle rectangle)
         {

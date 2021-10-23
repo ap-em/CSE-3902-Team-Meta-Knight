@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 /*
 Alex Clayton
@@ -88,16 +89,21 @@ namespace Sprint0
         }
         public void DownBounce(Rectangle rectangle)
         {
+            Debug.WriteLine("DOWN BOUNCE");
             mario.Position = new Vector2(mario.Position.X, mario.Position.Y + rectangle.Height);
-            velocity = new Vector2(velocity.X, 2f);
+            jumpHold = true;
+            velocity = new Vector2(velocity.X, 4f);
+
         }
         public void RightBounce(Rectangle rectangle)
         {
+            Debug.WriteLine("RIGHT BOUNCE");
             mario.Position = new Vector2(mario.Position.X - rectangle.Width, mario.Position.Y);
             StopMovingHorizontal();
         }
         public void LeftBounce(Rectangle rectangle)
         {
+            Debug.WriteLine("LEFT BOUNCE");
             mario.Position = new Vector2(mario.Position.X + rectangle.Width, mario.Position.Y);
             StopMovingHorizontal();
         }
