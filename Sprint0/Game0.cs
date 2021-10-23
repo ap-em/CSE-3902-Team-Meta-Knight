@@ -56,9 +56,8 @@ namespace Sprint0
         protected override void Initialize()
         {
             LevelFactory.Instance.CreateLevel(1);
-            mario = new Mario("Sprint0.Mario", new Vector2(0, 200));
+            CreatePlayer();
             camera = mario.camera;
-            GameObjectManager.Instance.AddToObjectList(mario);
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(1 / 30.0f);
 
@@ -69,6 +68,11 @@ namespace Sprint0
             spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
+        public void CreatePlayer()
+        {
+            mario = new Mario("Sprint0.Mario", new Vector2(80, 300));
+            GameObjectManager.Instance.AddToObjectList(mario);
+        }
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);

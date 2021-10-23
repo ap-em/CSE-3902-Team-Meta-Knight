@@ -56,7 +56,7 @@ namespace Sprint0
         public void CreateObj(Vector2 position, String objType, String spriteName)
         {
             int rowIndex = (int)position.Y;
-
+            int columnIndex = (int)position.X;
             position = BlockToWorldSpace(position);
 
             Type t = Type.GetType(objType);
@@ -70,19 +70,19 @@ namespace Sprint0
             // add blocks to array
            if (objType.Equals("Sprint0.Blocks.Block"))
             {
-                gameObjects[rowLength[rowIndex]][rowIndex] = (IGameObject)constructorInfoObj.Invoke(param);
+                gameObjects[columnIndex][rowIndex] = (IGameObject)constructorInfoObj.Invoke(param);
             }
             // add player, enemy, etc. to gameObject manager
             else
             {
                GameObjectManager.Instance.AddToObjectList((IGameObject)constructorInfoObj.Invoke(param));
             } 
-            
-            rowLength[rowIndex] += 1;
+
         }
         //draws all the blocks that player should be able to see
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
+            
             position = WorldToBlockSpace(position);
 
             int xPos = (int)position.X;
@@ -105,13 +105,13 @@ namespace Sprint0
                 }
             }
             
+            
         }
         //returns the gameobjects that the are collidable from the given position
         public IGameObject[] GetCollidables(Vector2 position)
         {
-            //subtract .5 to put the player in the middle of the block
-            position.X -= .5f;
-            position.Y += .5f;
+            int width = 1;
+            int height = 1;
 
             position = WorldToBlockSpace(position);
 
@@ -123,14 +123,14 @@ namespace Sprint0
             if (position.X < 1) position.X = 1;
             else if (position.X > 998) position.X = 998;
 
-            blocks[0] = gameObjects[(int)Math.Round(position.X - 1)][(int)Math.Round(position.Y + 1)];
-            blocks[1] = gameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y + 1)];
-            blocks[2] = gameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y + 1)];
-            blocks[3] = gameObjects[(int)Math.Round(position.X - 1)][(int)Math.Round(position.Y)];
-            blocks[4] = gameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y)];
-            blocks[5] = gameObjects[(int)Math.Round(position.X - 1)][(int)Math.Round(position.Y - 1)];
-            blocks[6] = gameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y - 1)];
-            blocks[7] = gameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y - 1)];
+            blocks[0] = gameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y + height)];
+            blocks[1] = gameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y + height)];
+            blocks[2] = gameObjects[(int)Math.Round(position.X + width)][(int)Math.Round(position.Y + height)];
+            blocks[3] = gameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y)];
+            blocks[4] = gameObjects[(int)Math.Round(position.X + width)][(int)Math.Round(position.Y)];
+            blocks[5] = gameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y - height)];
+            blocks[6] = gameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y - height)];
+            blocks[7] = gameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y - height)];
             
             return blocks;
         }

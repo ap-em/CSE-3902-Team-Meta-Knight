@@ -24,6 +24,7 @@ namespace Sprint0
         public RightFacingJumpingMario(Mario marioRef, Vector2 velocity, int jumpTimer, bool jumpHold)
         {
             mario = marioRef;
+            mario.SetGrounded(false);
             this.velocity = velocity;
             this.jumpTimer = jumpTimer;
             this.jumpHold = jumpHold;
@@ -69,27 +70,35 @@ namespace Sprint0
         }
         public void StopMovingVertical()
         {
-            mario.currentState = new RightFacingStaticMario(mario);
+            if(velocity.X > 0)
+            {
+                mario.currentState = new RightFacingMovingMario(mario);
+            }
+            else
+            {
+                mario.currentState = new RightFacingStaticMario(mario);
+            }
             mario.OnStateChange();
         }
         public void UpBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 14);
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
+            mario.SetGrounded(true);
             StopMovingVertical();
         }
         public void DownBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 1);
-            velocity = new Vector2(velocity.X, 0);
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y + rectangle.Height);
+            velocity = new Vector2(velocity.X, 2f);
         }
         public void RightBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X - 1, mario.Position.Y);
+            mario.Position = new Vector2(mario.Position.X - rectangle.Width, mario.Position.Y);
             StopMovingHorizontal();
         }
         public void LeftBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X + 1, mario.Position.Y);
+            mario.Position = new Vector2(mario.Position.X + rectangle.Width, mario.Position.Y);
             StopMovingHorizontal();
         }
         public void Update()

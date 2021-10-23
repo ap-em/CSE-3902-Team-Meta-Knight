@@ -156,7 +156,7 @@ namespace Sprint0
                         //Determine collision side based on how much it's intersecting in either dimension
                         String collisionSide ="";
                         Rectangle collisionRec = Rectangle.Intersect(goRec, blockRec);
-                        if (collisionRec.X <= collisionRec.Y)
+                        if (collisionRec.Width >= collisionRec.Height)
                         {
                             if (collisionRec.Top == blockRec.Top)
                             {
@@ -178,14 +178,12 @@ namespace Sprint0
                                 collisionSide = "Left";
                             }
                         }
-                        
+
                         //Create the correct collision command based on the block and the game object and the side its collding most with
                         collision = new CCollide(block, go, collisionSide, collisionRec);
                         //Execute the correct response to interfering with personal space
                         collision.Execute();
                     }
-
-
                 }
             }
         }
@@ -212,7 +210,7 @@ namespace Sprint0
                             //Determine collision side based on how much it's intersecting in either dimension
                             String collisionSide = "";
                             Rectangle collisionRec = Rectangle.Intersect(goRec, entityRec);
-                            if (collisionRec.X <= collisionRec.Y)
+                            if (collisionRec.Width >= collisionRec.Height)
                             {
                                 if (collisionRec.Top == entityRec.Top)
                                 {
@@ -259,6 +257,4 @@ namespace Sprint0
             }
         }
     }
-
-   
 }

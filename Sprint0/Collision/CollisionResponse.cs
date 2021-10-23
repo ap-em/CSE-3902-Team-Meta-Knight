@@ -76,7 +76,9 @@ namespace Sprint0
 
             String commandName1 = MoverResponse[collider.ToString()+collided.ToString() + direction];
             String commandName2 = TargetResponse[collided.ToString()+ collider.ToString() + direction];
-            
+
+            Debug.WriteLine(commandName1);
+            Debug.WriteLine(commandName2);
 
             Type t1 = Type.GetType(commandName1);
             Type[] types1 = { Type.GetType(collider.ToString()), typeof(Rectangle) };

@@ -18,7 +18,6 @@ namespace Sprint0
         public string ID  { get; }= "RightMovingMario";
         private Mario mario;
         private Vector2 velocity= new Vector2(4f, 0);
-        private Boolean onBlock = false;
 
         public RightFacingMovingMario(Mario marioRef)
         {
@@ -62,30 +61,29 @@ namespace Sprint0
         public void UpBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
-            onBlock = true;
+            mario.SetGrounded(true);
             StopMovingVertical();
         }
         public void DownBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y + 1);
-            velocity = new Vector2(velocity.X, 0);
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y + rectangle.Height);
+            velocity = new Vector2(velocity.X, 2f);
         }
         public void RightBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X - 1, mario.Position.Y);
+            mario.Position = new Vector2(mario.Position.X - rectangle.Width, mario.Position.Y);
             StopMovingHorizontal();
         }
         public void LeftBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X + 1, mario.Position.Y);
+            mario.Position = new Vector2(mario.Position.X + rectangle.Width, mario.Position.Y);
             StopMovingHorizontal();
         }
         public void Update()
         {
-            if (onBlock)
+            if (mario.GetGrounded())
             {
                 velocity = new Vector2(4f, 0f);
-                onBlock = false;
             }
             else
             {

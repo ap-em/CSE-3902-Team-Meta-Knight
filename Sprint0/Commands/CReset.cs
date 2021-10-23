@@ -26,6 +26,7 @@ Owen Huston
         {
             Level.Instance.Reset();
             GameObjectManager.Instance.RemoveAllObjects();
+            Game0.Instance.CreatePlayer();
         }
     }
 }

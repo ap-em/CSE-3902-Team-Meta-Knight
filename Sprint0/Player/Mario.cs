@@ -26,7 +26,7 @@ namespace Sprint0
         private Vector2 position = new Vector2(100, 100);
         private ISprite currentSprite;
         private IMarioState attack;
-
+        private bool isGrounded;
         public Vector2 Position { get => position; set => position = value; }
 
         public ISprite Sprite => currentSprite;
@@ -63,6 +63,14 @@ namespace Sprint0
         {
 
             return marioState.ID + healthStateMachine.GetHealth();
+        }
+        public bool GetGrounded()
+        {
+            return isGrounded;
+        }
+        public void SetGrounded(bool grounded)
+        {
+            isGrounded = grounded;
         }
         public void Draw(SpriteBatch spritebatch)
         {
@@ -107,8 +115,11 @@ namespace Sprint0
 
         public void PrimaryAttack()
         {
-            attack = new AttackMario(this, currentState, position);
-            attack.Attack();
+            if (healthStateMachine.GetHealth().Equals("Fire"))
+            {
+                attack = new AttackMario(this, currentState, position);
+                attack.Attack();
+            }
         }
         public void UpBounce(Rectangle rectangle)
         {
