@@ -70,7 +70,7 @@ namespace Sprint0
 
         public void CreatePlayer()
         {
-            mario = new Mario("Sprint0.Mario", new Vector2(80, 300));
+            mario = new Mario("Sprint0.Mario", new Vector2(50, 200));
             GameObjectManager.Instance.AddToObjectList(mario);
         }
         protected override void Update(GameTime gameTime)

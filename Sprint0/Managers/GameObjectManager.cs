@@ -140,14 +140,22 @@ namespace Sprint0
             //Here for implementation of collisions when neccesary
             ICommand collision;
             //Get the surronding blocks of whatever the game object is as blocks are not added to the game object list on creation.
-            IGameObject[] levelCollides = Level.Instance.GetCollidables(go.Position);
+            IGameObject[] levelCollides = Level.Instance.GetCollidables(go.Position, new Vector2(go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale));
             Rectangle goRec = new Rectangle((int)go.Position.X, (int)go.Position.Y, go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale);
             //Go through each colliding block
             foreach (IGameObject block in levelCollides)
             {
+                //set gravity if block below gameobject is null
+                if (block == levelCollides[1] && levelCollides[1] == null && go is IMovable)
+                {
+                    IMovable movable = (IMovable)go;
+                    movable.SetGrounded(false);
+                }
+
                 //Check if the block the object is colliding with actually exists
                 if (block != null)
                 {
+
                     //Create Rectangle for block and check to see if game object rectangle intersects with it
                     Rectangle blockRec = new Rectangle((int)block.Position.X, (int)block.Position.Y, block.Sprite.width * dimensionScale, block.Sprite.height * dimensionScale);
                        

@@ -14,6 +14,20 @@
     "SpriteSheet": "mario"
   },
   {
+    "DataX": [ 359 ],
+    "DataY": [ 52 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "RightJumpingMarioStar",
+    "SpriteSheet": "StarMario"
+  },
+  {
+    "DataX": [ 30 ],
+    "DataY": [ 52 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "LeftJumpingMarioStar",
+    "SpriteSheet": "StarMario"
+  },
+  {
     "DataX": [ 359, 359 ],
     "DataY": [ 52, 0 ],
     "Data": [ 17, 30, 2 ],
@@ -54,6 +68,20 @@
     "Data": [ 16, 32, 1 ],
     "SpriteName": "LeftIdleMarioFull",
     "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 209 ],
+    "DataY": [ 52 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "RightIdleMarioStar",
+    "SpriteSheet": "StarMario"
+  },
+  {
+    "DataX": [ 180 ],
+    "DataY": [ 52 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "LeftIdleMarioStar",
+    "SpriteSheet": "StarMario"
   },
   {
     "DataX": [ 209, 211 ],
@@ -100,6 +128,20 @@
     "SpriteSheet": "mario"
   },
   {
+    "DataX": [ 389 ],
+    "DataY": [ 57 ],
+    "Data": [ 16, 22, 1 ],
+    "SpriteName": "RightCrouchedMarioStar",
+    "SpriteSheet": "StarMario"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 57 ],
+    "Data": [ 16, 22, 1 ],
+    "SpriteName": "LeftCrouchedMarioStar",
+    "SpriteSheet": "StarMario"
+  },
+  {
     "DataX": [ 389, 211 ],
     "DataY": [ 57, 0 ],
     "Data": [ 16, 22, 2 ],
@@ -126,6 +168,20 @@
     "Data": [ 16, 32, 3 ],
     "SpriteName": "LeftMovingMarioFull",
     "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 239, 270, 299 ],
+    "DataY": [ 52, 52, 53 ],
+    "Data": [ 16, 32, 3 ],
+    "SpriteName": "RightMovingMarioStar",
+    "SpriteSheet": "StarMario"
+  },
+  {
+    "DataX": [ 150, 121, 90 ],
+    "DataY": [ 52, 52, 53 ],
+    "Data": [ 16, 32, 3 ],
+    "SpriteName": "LeftMovingMarioStar",
+    "SpriteSheet": "StarMario"
   },
   {
     "DataX": [ 241, 270, 300 ],

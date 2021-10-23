@@ -108,10 +108,22 @@ namespace Sprint0
             
         }
         //returns the gameobjects that the are collidable from the given position
-        public IGameObject[] GetCollidables(Vector2 position)
+        public IGameObject[] GetCollidables(Vector2 position, Vector2 size)
         {
-            int width = 1;
-            int height = 1;
+
+
+            int width = (int)Math.Round(size.X / 32);
+            int height = (int)Math.Round(size.Y / 32);
+
+            if(width == 0)
+            {
+                width = 1;
+            }
+            if(height == 0)
+            {
+                height = 1;
+            }
+
 
             position = WorldToBlockSpace(position);
 

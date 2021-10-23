@@ -89,7 +89,7 @@ namespace Sprint0
             }
             else
             {
-                velocity = new Vector2(-4f, 5 * .15f);
+                velocity = new Vector2(-4f, 30 * .15f);
             }
             mario.MoveSprite(velocity);
         }

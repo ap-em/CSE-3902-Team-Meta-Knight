@@ -92,6 +92,18 @@
 /processorParam:TextureFormat=Color
 /build:mario.png
 
+#begin StarMario.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:StarMario.png
+
 #begin tiles.png
 /importer:TextureImporter
 /processor:TextureProcessor

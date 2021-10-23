@@ -23,7 +23,7 @@ Owen Huston
 
 namespace Sprint0.Enemies
 {
-    public class Enemy : IEnemy, ICyclable, IGameObject
+    public class Enemy : IEnemy, ICyclable, IGameObject, IMovable
     {
         private IKeyboardController keyboard;
         private IEnemyMovement enemyMovement;
@@ -150,6 +150,17 @@ namespace Sprint0.Enemies
             enemyMovement.Move();
             sprite.Update();
             keyboard.Update();
+        }
+
+        public bool GetGrounded()
+        {
+            //todo
+            return true;
+        }
+
+        public void SetGrounded(bool grounded)
+        {
+            //todo
         }
     }
 }

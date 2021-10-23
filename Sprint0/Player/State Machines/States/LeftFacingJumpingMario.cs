@@ -129,7 +129,7 @@ namespace Sprint0
             // only apply gravity if done holding
             if (!jumpHold)
             {
-                velocity = velocity + new Vector2(0, 5) * .15f;
+                velocity = velocity + new Vector2(0, 10) * .15f;
             }
             mario.MoveSprite(velocity);
 
