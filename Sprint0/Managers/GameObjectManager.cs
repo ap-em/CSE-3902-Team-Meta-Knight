@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Drawing;
 
 namespace Sprint0
 {
@@ -141,7 +142,7 @@ namespace Sprint0
             ICommand collision;
             //Get the surronding blocks of whatever the game object is as blocks are not added to the game object list on creation.
             IGameObject[] levelCollides = Level.Instance.GetCollidables(go.Position);
-            Rectangle goRec = new Rectangle(new Point((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y)), new Point(go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale));
+            RectangleF goRec = new RectangleF((int)go.Position.X, (int)go.Position.Y, go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale);
             //Go through each colliding block
             foreach (IGameObject block in levelCollides)
             {
@@ -149,12 +150,13 @@ namespace Sprint0
                 if (block != null)
                 {
                     //Create Rectangle for block and check to see if game object rectangle intersects with it
-                    Rectangle blockRec = new Rectangle(new Point((int)Math.Round(block.Position.X), (int)Math.Round(block.Position.Y)), new Point(block.Sprite.width*dimensionScale, block.Sprite.height*dimensionScale));
-                    if (goRec.Intersects(blockRec))
+                    RectangleF blockRec = new RectangleF((int)block.Position.X, (int)block.Position.Y, block.Sprite.width * dimensionScale, block.Sprite.height * dimensionScale);
+                       
+                    if (goRec.IntersectsWith(blockRec))
                     {
                         //Determine collision side based on how much it's intersecting in either dimension
                         String collisionSide ="";
-                        Rectangle collisionRec = Rectangle.Intersect(goRec, blockRec);
+                        RectangleF collisionRec = RectangleF.Intersect(goRec, blockRec);
                         if (collisionRec.X <= collisionRec.Y)
                         {
                             if (collisionRec.Top == blockRec.Top)
@@ -194,23 +196,23 @@ namespace Sprint0
             //Here for implementation of collisions when neccesary
             ICommand collision;
             //Rectangle for go we are looking at
-            Rectangle goRec = new Rectangle(new Point((int)go.Position.X, (int)go.Position.Y), new Point(go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale));
+            RectangleF goRec = new RectangleF((int)go.Position.X, (int)go.Position.Y, go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale);
             //Check each entity in gameObjects
             foreach (IGameObject entity in gameObjects)
             {
                 if (!entity.Equals(go))
                 {
-                    //If the entity is within 10 heights of the game object we are looking at, check if it intersects
-                    if(entity.Position.Y>(goRec.Y+goRec.Height*dimensionScale*5) && entity.Position.Y < (goRec.Y+ goRec.Height*dimensionScale*5))
+                    //If the entity is within 5 heights of the game object we are looking at, check if it intersects
+                    if(entity.Position.Y>(goRec.Y-goRec.Height*5) && entity.Position.Y < (goRec.Y+ goRec.Height*5))
                     {
                         //create an entity rec for the collision here so we don't use up time creating one for every possible entity
-                        Rectangle entityRec = new Rectangle(new Point((int)entity.Position.X, (int)entity.Position.Y), new Point(entity.Sprite.width*dimensionScale, entity.Sprite.height*dimensionScale));
+                        RectangleF entityRec = new RectangleF((int)entity.Position.X, (int)entity.Position.Y, entity.Sprite.width*dimensionScale, entity.Sprite.height*dimensionScale);
                         //Do they collide?
-                        if (goRec.Intersects(entityRec))
+                        if (goRec.IntersectsWith(entityRec))
                         {
                             //Determine collision side based on how much it's intersecting in either dimension
                             String collisionSide = "";
-                            Rectangle collisionRec = Rectangle.Intersect(goRec, entityRec);
+                            RectangleF collisionRec = RectangleF.Intersect(goRec, entityRec);
                             if (collisionRec.X <= collisionRec.Y)
                             {
                                 if (collisionRec.Top == entityRec.Top)
