@@ -375,6 +375,34 @@
     "SpriteSheet": "blocks"
   },
   {
+    "DataX": [ 80, 96, 112 ],
+    "DataY": [ 112, 112, 112 ],
+    "Data": [ 16, 16, 3 ],
+    "SpriteName": "MushroomItemBlock",
+    "SpriteSheet": "blocks"
+  },
+  {
+    "DataX": [ 80, 96, 112 ],
+    "DataY": [ 112, 112, 112 ],
+    "Data": [ 16, 16, 3 ],
+    "SpriteName": "StarItemBlock",
+    "SpriteSheet": "blocks"
+  },
+  {
+    "DataX": [ 80, 96, 112 ],
+    "DataY": [ 112, 112, 112 ],
+    "Data": [ 16, 16, 3 ],
+    "SpriteName": "FireFlowerItemBlock",
+    "SpriteSheet": "blocks"
+  },
+  {
+    "DataX": [ 80, 96, 112 ],
+    "DataY": [ 112, 112, 112 ],
+    "Data": [ 16, 16, 3 ],
+    "SpriteName": "CoinItemBlock",
+    "SpriteSheet": "blocks"
+  },
+  {
     "DataX": [ 144 ],
     "DataY": [ 112 ],
     "Data": [ 16, 16, 1 ],

@@ -36,6 +36,13 @@
 		<obj>Sprint0.Mario,Sprint0.Items.Star,Bottom,Sprint0.Commands.CStar,Sprint0.Commands.CNothingItem</obj>
 		<obj>Sprint0.Mario,Sprint0.Items.Star,Right,Sprint0.Commands.CStar,Sprint0.Commands.CNothingItem</obj>
     
+		<!-- Mushroom Block Collision-->
+		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Top,Sprint0.Commands.CPlayerUpBounce,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Bottom,Sprint0.Commands.CPlayerDownBounce,Sprint0.Commands.CUseItemBlock</obj>
+		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Left,Sprint0.Commands.CPlayerLeftBounce,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Right,Sprint0.Commands.CPlayerRightBounce,Sprint0.Commands.CNothing</obj>
+		
+		
 		<!--
 		<obj>Mario,Ground,Up,CMovePlayerUp,CNothing</obj>
 		<obj>Mario,Ground,Down,CMovePlayerDown,CNothing</obj>

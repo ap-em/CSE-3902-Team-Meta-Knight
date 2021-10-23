@@ -11,7 +11,7 @@
     </row>
 	  <row>
 		  <obj>11,9,2,Sprint0.Blocks.Block,BrickBlock</obj>
-		  <obj>13,9,1,Sprint0.Blocks.Block,ItemBlock</obj>
+		  <obj>13,9,1,Sprint0.Blocks.Block,MushroomItemBlock</obj>
 		  <obj>13,4,1,Sprint0.Blocks.Block,ItemBlock</obj>
 		  <obj>14,9,2,Sprint0.Blocks.Block,BrickBlock</obj>
 	  </row>
