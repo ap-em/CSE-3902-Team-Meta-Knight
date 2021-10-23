@@ -1,4 +1,5 @@
-﻿using Sprint0.Interfaces;
+﻿using Microsoft.Xna.Framework;
+using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,7 @@ namespace Sprint0.Commands
     {
 
 
-        public CNothing(IBlock block)
+        public CNothing(IBlock block, Rectangle rectangle)
         {
    
         }

@@ -110,21 +110,21 @@ namespace Sprint0
             attack = new AttackMario(this, currentState, position);
             attack.Attack();
         }
-        public void UpBounce()
+        public void UpBounce(Rectangle rectangle)
         {
-            currentState.UpBounce();
+            currentState.UpBounce(rectangle);
         }
-        public void DownBounce()
+        public void DownBounce(Rectangle rectangle)
         {
-            currentState.DownBounce();
+            currentState.DownBounce(rectangle);
         }
-        public void RightBounce()
+        public void RightBounce(Rectangle rectangle)
         {
-            currentState.RightBounce();
+            currentState.RightBounce(rectangle);
         }
-        public void LeftBounce()
+        public void LeftBounce(Rectangle rectangle)
         {
-            currentState.LeftBounce();
+            currentState.LeftBounce(rectangle);
         }
         public void Crouch()
         {

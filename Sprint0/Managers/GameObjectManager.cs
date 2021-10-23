@@ -181,7 +181,7 @@ namespace Sprint0
                         }
                         
                         //Create the correct collision command based on the block and the game object and the side its collding most with
-                        collision = new CCollide(block, go, collisionSide);
+                        collision = new CCollide(block, go, collisionSide, collisionRec);
                         //Execute the correct response to interfering with personal space
                         collision.Execute();
                     }
@@ -237,7 +237,7 @@ namespace Sprint0
                             }
                            
                             //Create the correct collision command based on the entity and the game object and the side its collding most with
-                            collision = new CCollide(entity, go, collisionSide);
+                            collision = new CCollide(entity, go, collisionSide,collisionRec);
                             //Execute the correct response to interfering with personal space
                             collision.Execute();
                         }

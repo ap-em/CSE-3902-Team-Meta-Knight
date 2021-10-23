@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 
 namespace Sprint0.Commands
@@ -9,14 +10,16 @@ namespace Sprint0.Commands
     {
         public string direction;
         public IMario mario;
-        public CPlayerRightBounce(Mario playerRef)
+        public Rectangle rectangle;
+        public CPlayerRightBounce(Mario playerRef, Rectangle rectangle)
         {
             mario = playerRef;
+            this.rectangle = rectangle;
         }
 
         public void Execute()
         {
-            mario.RightBounce();
+            mario.RightBounce(rectangle);
         }
     }
 }
