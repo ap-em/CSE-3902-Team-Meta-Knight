@@ -79,19 +79,19 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
         {
             // no op
         }
-        public void UpBounce()
+        public void UpBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 14);
         }
-        public void DownBounce()
+        public void DownBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 1);
         }
-        public void RightBounce()
+        public void RightBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X - 1, mario.Position.Y);
         }
-        public void LeftBounce()
+        public void LeftBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X + 1, mario.Position.Y);
         }

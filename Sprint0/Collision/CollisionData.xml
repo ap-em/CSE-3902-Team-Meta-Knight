@@ -2,10 +2,10 @@
 	<row>
 		<!--Object1, Object2, Direction, Command1, Command2-->
 		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Top,Sprint0.Commands.CPlayerUpBounce,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Bottom,Sprint0.Commands.CPlayerDownBounce,Sprint0.Commands.CNothing</obj>
+		<!--<obj>Sprint0.Mario,Sprint0.Blocks.Block,Bottom,Sprint0.Commands.CPlayerDownBounce,Sprint0.Commands.CNothing</obj>
 		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Left,Sprint0.Commands.CPlayerLeftBounce,Sprint0.Commands.CNothing</obj>
 		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Right,Sprint0.Commands.CPlayerRightBounce,Sprint0.Commands.CNothing</obj>
-		<!--<obj>Sprint0.Mario,Sprint0.Blocks.Block,Right,CMovePlayerRight,CNothing</obj>
+		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Right,CMovePlayerRight,CNothing</obj>
 		<obj>Mario,Ground,Up,CMovePlayerUp,CNothing</obj>
 		<obj>Mario,Ground,Down,CMovePlayerDown,CNothing</obj>
 	  <obj>Mario,Goomba,Left,CDamagePlayer,CNothing</obj>

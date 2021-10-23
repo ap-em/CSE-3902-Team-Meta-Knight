@@ -56,7 +56,7 @@ namespace Sprint0
         protected override void Initialize()
         {
             LevelFactory.Instance.CreateLevel(1);
-            mario = new Mario("Sprint0.Mario", new Vector2(96, 352));
+            mario = new Mario("Sprint0.Mario", new Vector2(0, 200));
             camera = mario.camera;
             GameObjectManager.Instance.AddToObjectList(mario);
             IsFixedTimeStep = true;

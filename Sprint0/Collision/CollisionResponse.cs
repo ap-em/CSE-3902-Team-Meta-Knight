@@ -18,7 +18,6 @@ namespace Sprint0
 
     public class CollisionResponse
     {
-        //<objName +  direction, commandName>
         public Dictionary<String, String> MoverResponse;
         public Dictionary<String, String> TargetResponse;
         private static CollisionResponse instance;
@@ -72,16 +71,15 @@ namespace Sprint0
             reader.Close(); // Closes the local reader for the object
         }
 
-        public void CollisionOccurrence(IGameObject collider, IGameObject collided, String direction)
+        public void CollisionOccurrence(IGameObject collider, IGameObject collided, String direction, Rectangle rectangle)
         {
 
             String commandName1 = MoverResponse[collider.ToString() + direction];
             String commandName2 = TargetResponse[collided.ToString() + direction];
 
-            Debug.WriteLine(commandName1);
             Type t1 = Type.GetType(commandName1);
-            Type[] types1 = { Type.GetType(collider.ToString()) };
-            object[] param1 = { collider };
+            Type[] types1 = { Type.GetType(collider.ToString()), typeof(Rectangle) };
+            object[] param1 = { collider, rectangle};
 
             ConstructorInfo constructorInfoObj1 = t1.GetConstructor(types1);
 
@@ -91,8 +89,8 @@ namespace Sprint0
 
 
             Type t2 = Type.GetType(commandName2);
-            Type[] types2 = { Type.GetType(collided.ToString()) };
-            object[] param2 = { collided };
+            Type[] types2 = { Type.GetType(collided.ToString()), typeof(Rectangle) };
+            object[] param2 = { collided, rectangle };
 
             ConstructorInfo constructorInfoObj2 = t2.GetConstructor(types2);
 

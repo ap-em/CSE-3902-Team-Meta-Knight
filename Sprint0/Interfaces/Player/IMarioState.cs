@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Text;
 /*
@@ -22,13 +23,13 @@ namespace Sprint0
         public void Attack();
         public void Crouch();
         public void Update();
-        public void UpBounce();
+        public void UpBounce(Rectangle rectangle);
 
-        public void DownBounce();
+        public void DownBounce(Rectangle rectangle);
 
-        public void RightBounce();
+        public void RightBounce(Rectangle rectangle);
 
-        public void LeftBounce();
+        public void LeftBounce(Rectangle rectangle);
 
     }
 }

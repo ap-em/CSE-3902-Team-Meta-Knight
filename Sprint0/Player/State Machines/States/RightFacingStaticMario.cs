@@ -58,34 +58,37 @@ namespace Sprint0
         {
             // no op
         }
-        public void UpBounce()
+        public void UpBounce(Rectangle rectangle)
         {
             onBlock = true;
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 14);
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 3);
             StopMovingVertical();
         }
-        public void DownBounce()
+        public void DownBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 1);
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 3);
         }
-        public void RightBounce()
+        public void RightBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X - 1, mario.Position.Y);
             StopMovingHorizontal();
         }
-        public void LeftBounce()
+        public void LeftBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X + 1, mario.Position.Y);
             StopMovingHorizontal();
         }
         public void Update()
         {
-            velocity = velocity + new Vector2(0, 5 * .15f);
             if (onBlock)
             {
                 velocity = new Vector2(0f, 0f);
             }
-            onBlock = false;
+            else 
+            {
+                velocity = velocity + new Vector2(0, 5 * .15f);
+            }
+            
             mario.MoveSprite(velocity);
         }
     }
