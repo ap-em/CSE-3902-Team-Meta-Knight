@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace Sprint0.Commands
 {
@@ -9,7 +10,7 @@ namespace Sprint0.Commands
     {
 
 
-        public CNothingMario(IMario mario)
+        public CNothingMario(IMario mario, Rectangle rectangle)
         {
    
         }

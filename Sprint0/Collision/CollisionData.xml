@@ -11,13 +11,12 @@
 		<obj>Sprint0.Blocks.Block,Sprint0.Mario,Right,Sprint0.Commands.CNothing,Sprint0.Commands.CPlayerRightBounce</obj>
 		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Left,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothingEnemy</obj>
 		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Right,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothingEnemy</obj>
+		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Top,Sprint0.Commands.CNothingMario,Sprint0.Commands.CNothingEnemy</obj>
+		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Bottom,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothingEnemy</obj>
 		<obj>Sprint0.Enemies.Enemy,Sprint0.Mario,Left,Sprint0.Commands.CNothingEnemy,Sprint0.Commands.CDamagePlayer</obj>
 		<obj>Sprint0.Enemies.Enemy,Sprint0.Mario,Right,Sprint0.Commands.CNothingEnemy,Sprint0.Commands.CDamagePlayer</obj>
-		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Top,Sprint0.Commands.CNothingMario,Sprint0.Commands.CNothingEnemy</obj>
 		<obj>Sprint0.Enemies.Enemy,Sprint0.Mario,Top,Sprint0.Commands.CNothingEnemy,Sprint0.Commands.CNothingMario</obj>
-		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Bottom,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothingEnemy</obj>
 		<obj>Sprint0.Enemies.Enemy,Sprint0.Mario,Bottom,Sprint0.Commands.CNothingEnemy,Sprint0.Commands.CDamagePlayer</obj>
-
 		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Top,Sprint0.Commands.CNothingEnemy,Sprint0.Commands.CNothing</obj>
 		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Bottom,Sprint0.Commands.CNothingEnemy,Sprint0.Commands.CNothing</obj>
 		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Left,Sprint0.Commands.CNothingEnemy,Sprint0.Commands.CNothing</obj>

@@ -22,7 +22,6 @@
     <key>Z,Sprint0.Commands.CPlayerPrimaryAttack,pressable</key>
     <key>N,Sprint0.Commands.CPlayerPrimaryAttack,pressable</key>
 
-    <key>E,Sprint0.Commands.CDamagePlayer,pressable</key>
     
 
   </PlayerKeyboard>

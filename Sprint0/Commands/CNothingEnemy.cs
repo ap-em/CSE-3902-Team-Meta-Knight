@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace Sprint0.Commands
 {
@@ -9,7 +10,7 @@ namespace Sprint0.Commands
     {
 
 
-        public CNothingEnemy(IEnemy enemy)
+        public CNothingEnemy(IEnemy enemy, Rectangle rectangle)
         {
    
         }
