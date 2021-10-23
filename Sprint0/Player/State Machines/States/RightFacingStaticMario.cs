@@ -61,12 +61,12 @@ namespace Sprint0
         public void UpBounce(Rectangle rectangle)
         {
             onBlock = true;
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 3);
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
             StopMovingVertical();
         }
         public void DownBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 3);
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y + 3);
         }
         public void RightBounce(Rectangle rectangle)
         {

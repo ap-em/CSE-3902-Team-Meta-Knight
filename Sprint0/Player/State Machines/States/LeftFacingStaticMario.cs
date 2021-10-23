@@ -62,7 +62,7 @@ namespace Sprint0
         public void UpBounce(Rectangle rectangle)
         {
             onBlock = true;
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Y);
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
             StopMovingVertical();
         }
         public void DownBounce(Rectangle rectangle)
@@ -81,12 +81,14 @@ namespace Sprint0
         }
         public void Update()
         {
-         velocity = velocity + new Vector2(0, 5 * .15f);
-           if (onBlock)
-           {
-           velocity = new Vector2(0f, 0f);
-           }
-         onBlock = false;
+            if (onBlock)
+            {
+                velocity = new Vector2(0f, 0f);
+            }
+            else
+            {
+                velocity = velocity + new Vector2(0, 5 * .15f);
+            }
          mario.MoveSprite(velocity);
         }
     }
