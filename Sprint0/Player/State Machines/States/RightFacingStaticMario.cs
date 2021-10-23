@@ -59,7 +59,7 @@ namespace Sprint0
         }
         public void UpBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
+            //mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
             mario.SetGrounded(true);
             StopMovingVertical();
         }

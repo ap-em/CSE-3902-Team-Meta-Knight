@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 /*
 Alex Clayton
@@ -60,7 +61,8 @@ namespace Sprint0
         }
         public void UpBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
+            //mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
+            //Debug.WriteLine("Nudge Static up: " + rectangle.Height);
             mario.SetGrounded(true);
             StopMovingVertical();
         }
