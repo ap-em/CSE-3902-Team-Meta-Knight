@@ -14,7 +14,7 @@ Owen Huston
 */
 namespace Sprint0.Items
 {
-    class Item : IItem
+    class Fireflower : IItem
     {
         private String ItemName;
         private ISprite ItemSprite;
@@ -24,7 +24,7 @@ namespace Sprint0.Items
 
         public Vector2 Position { get => location; set => throw new NotImplementedException(); }
 
-        public Item(String itemName, Vector2 position) // Should I just use the gameobject manager? Items will probably include mushroom, star, coin
+        public Fireflower(String itemName, Vector2 position) // Should I just use the gameobject manager? Items will probably include mushroom, star, coin
         {
             this.SetItem(itemName);
             location = position;

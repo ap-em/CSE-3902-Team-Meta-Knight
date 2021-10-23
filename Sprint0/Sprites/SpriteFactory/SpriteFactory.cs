@@ -74,7 +74,7 @@ namespace Sprint0.Sprites.SpriteFactory
         {
           //  Debug.WriteLine(spriteName);
             SpriteData s = SpriteDict.GetValueOrDefault(spriteName);
-            spriteSheet = s.SpriteSheet;
+              spriteSheet = s.SpriteSheet;
             
             
             Texture2D texture = LoadTexture(spriteSheet);

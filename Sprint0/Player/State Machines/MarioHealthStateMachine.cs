@@ -83,6 +83,20 @@ namespace Sprint0
             currentHealth = MarioHealth.star;
             mario.OnStateChange();
         }
+
+        public void MushroomPower()
+        {
+            if (currentHealth == MarioHealth.half)
+            {
+                previousHealth = currentHealth;
+                currentHealth = MarioHealth.full;
+            }
+        }
+        public void FirePower()
+        {
+            previousHealth = currentHealth;
+            currentHealth = MarioHealth.fire;
+        }
         public void Update()
         {
             if (invinsibleTimer > 0)

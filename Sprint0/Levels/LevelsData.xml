@@ -6,6 +6,9 @@
       <obj>1,11,1,Sprint0.Blocks.Block,Ground</obj>
       <obj>8,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
 	  <obj>15,6,1,Sprint0.Enemies.Enemy,Koopa</obj>
+	  <obj>5,11,1,Sprint0.Items.Mushroom,Mushroom</obj>
+	  <obj>7,11,1,Sprint0.Items.Fireflower,Fireflower</obj>
+	 <obj>9,11,1,Sprint0.Items.Star,Star</obj>
     </row>
 	  <row>
 		  <obj>11,9,2,Sprint0.Blocks.Block,BrickBlock</obj>
