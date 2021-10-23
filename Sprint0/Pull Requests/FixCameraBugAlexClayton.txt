@@ -1,0 +1,14 @@
+CODE REVIEW of Sprint-3” Fix Camera issue, by running everything off an instance “ by Alex Clayton 10/23/21:
+CReset: Added whitespace
+
+Game0: Camera is now owned by game0 rather than Mario owning camera. Sustainable for now, 
+but for the future we may have to make it an array if we want to change
+
+Mario: Remove mario owning camera
+
+Program: Best fix we could possible. Game0.Instance.run() instead of Game0.run(). 
+Fixes us having two layers of the game at the same time. Maintainable.  Big brain.
+
+Overall: Great
+
+ALL.CS FILES' AUTHOR IS OWEN TISHENKEL

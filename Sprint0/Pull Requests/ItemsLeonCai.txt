@@ -1,0 +1,14 @@
+CODE REVIEW of Item classes by Leon Cai 10/23/21
+Star.cs: The code is really easy to read. One potential problem is that in the  public Star(String itemName, Vector2 position), you use  
+this.SetItem(itemName) to initialize the ItemName and ItemSprite, but you did  this.ItemName = itemName again inside the  public 
+Star(String itemName, Vector2 position) which basically set the ItemName twice with the same vaule. I think the   
+this.ItemName = itemName should be deleted.
+
+Also, for the future sprint, we could add the collect() abstract class in the IItem interface for the scoring system.
+
+FireFlower.cs: same as Star.cs
+Mushroom.cs: same as Star.cs
+
+Overall: Good
+
+ALL.CS FILES' AUTHOR IS Alex Clayton
