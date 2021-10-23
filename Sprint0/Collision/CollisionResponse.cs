@@ -74,32 +74,35 @@ namespace Sprint0
         public void CollisionOccurrence(IGameObject collider, IGameObject collided, String direction, Rectangle rectangle)
         {
 
-            String commandName1 = MoverResponse[collider.ToString()+collided.ToString() + direction];
-            String commandName2 = TargetResponse[collided.ToString()+ collider.ToString() + direction];
+            if(MoverResponse.ContainsKey(collider.ToString() + collided.ToString() + direction))
+            {
+                String commandName1 = MoverResponse[collider.ToString() + collided.ToString() + direction];
 
-            Debug.WriteLine(commandName1);
-            Debug.WriteLine(commandName2);
+                Type t1 = Type.GetType(commandName1);
+                Type[] types1 = { Type.GetType(collider.ToString()), typeof(Rectangle) };
+                object[] param1 = { collider, rectangle };
 
-            Type t1 = Type.GetType(commandName1);
-            Type[] types1 = { Type.GetType(collider.ToString()), typeof(Rectangle) };
-            object[] param1 = { collider, rectangle};
+                ConstructorInfo constructorInfoObj1 = t1.GetConstructor(types1);
 
-            ConstructorInfo constructorInfoObj1 = t1.GetConstructor(types1);
+                ICommand command1 = (ICommand)constructorInfoObj1.Invoke(param1);
 
-            ICommand command1 = (ICommand)constructorInfoObj1.Invoke(param1);
+                command1.Execute();
 
-            command1.Execute();
+            }
+            if (TargetResponse.ContainsKey(collided.ToString() + collider.ToString() + direction))
+            {
+                String commandName2 = TargetResponse[collided.ToString() + collider.ToString() + direction];
+                Type t2 = Type.GetType(commandName2);
+                Type[] types2 = { Type.GetType(collided.ToString()), typeof(Rectangle) };
+                object[] param2 = { collided, rectangle };
 
+                ConstructorInfo constructorInfoObj2 = t2.GetConstructor(types2);
 
-            Type t2 = Type.GetType(commandName2);
-            Type[] types2 = { Type.GetType(collided.ToString()), typeof(Rectangle) };
-            object[] param2 = { collided, rectangle };
+                ICommand command2 = (ICommand)constructorInfoObj2.Invoke(param2);
 
-            ConstructorInfo constructorInfoObj2 = t2.GetConstructor(types2);
+                command2.Execute();
 
-            ICommand command2 = (ICommand)constructorInfoObj2.Invoke(param2);
-
-            command2.Execute();
+            }
 
         }
     }

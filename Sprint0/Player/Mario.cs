@@ -17,7 +17,7 @@ Owen Huston
 */
 namespace Sprint0
 {
-    public class Mario :IMario, IGameObject
+    public class Mario :IMario, IGameObject, IMovable
     {
         public ICamera camera;
         private IKeyboardController keyboard;
