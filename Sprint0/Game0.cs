@@ -29,6 +29,7 @@ namespace Sprint0
         public static ContentManager ContentInstance;
         public ICamera camera;
         public Mario mario;
+        public Texture2D background;
 
         private static Game0 instance;
         public static Game0 Instance
@@ -67,6 +68,7 @@ namespace Sprint0
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            
         }
 
         public void CreatePlayer()
@@ -91,7 +93,6 @@ namespace Sprint0
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.ViewMatrix);
             GameObjectManager.Instance.DrawGameObjects(spriteBatch);
-
             spriteBatch.End();
             base.Draw(gameTime);
         }
