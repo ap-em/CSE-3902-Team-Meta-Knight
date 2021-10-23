@@ -92,7 +92,11 @@ namespace Sprint0
                 currentHealth = MarioHealth.full;
             }
         }
-
+        public void FirePower()
+        {
+            previousHealth = currentHealth;
+            currentHealth = MarioHealth.fire;
+        }
         public void Update()
         {
             if (invinsibleTimer >= 0)

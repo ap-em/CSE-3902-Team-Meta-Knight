@@ -104,7 +104,10 @@ namespace Sprint0
         {
             healthStateMachine.MushroomPower();
         }
-
+        public void FireflowerPower()
+        {
+            healthStateMachine.FirePower();
+        }
         public void StarPower()
         {
             healthStateMachine.StarPower();

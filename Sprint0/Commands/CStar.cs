@@ -7,17 +7,17 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
-    class CMushroom : ICommand
+    class CStar : ICommand
     {
 
         IMario Mario;
-        public CMushroom(IMario mario, Rectangle rect)
+        public CStar(IMario mario, Rectangle rect)
         {
             Mario = mario;
         }
         public void Execute()
         {
-            Mario.MushroomPower();
+            Mario.StarPower();
         }
     }
 }

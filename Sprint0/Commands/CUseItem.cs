@@ -9,7 +9,7 @@ namespace Sprint0.Commands
 {
     class CUseItem : ICommand
     {
-
+        // TODO THIS DOES NOT WORK 
         IMario Mario;
         IItem Item;
         public CUseItem(IItem item, Rectangle rect)
