@@ -65,8 +65,8 @@ namespace Sprint0
                 String commandName2 = objValues[4];
 
                 //object mover = cInfoM.Invoke(new object[] )
-                MoverResponse.Add(obj1+direction, commandName1);
-                TargetResponse.Add(obj2+direction, commandName2);
+                MoverResponse.Add(obj1+obj2+direction, commandName1);
+                TargetResponse.Add(obj2+obj1+direction, commandName2);
             }
             reader.Close(); // Closes the local reader for the object
         }
@@ -74,8 +74,9 @@ namespace Sprint0
         public void CollisionOccurrence(IGameObject collider, IGameObject collided, String direction, Rectangle rectangle)
         {
 
-            String commandName1 = MoverResponse[collider.ToString() + direction];
-            String commandName2 = TargetResponse[collided.ToString() + direction];
+            String commandName1 = MoverResponse[collider.ToString()+collided.ToString() + direction];
+            String commandName2 = TargetResponse[collided.ToString()+ collider.ToString() + direction];
+            
 
             Type t1 = Type.GetType(commandName1);
             Type[] types1 = { Type.GetType(collider.ToString()), typeof(Rectangle) };
