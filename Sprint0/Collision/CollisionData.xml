@@ -25,6 +25,16 @@
 		<obj>Sprint0.Blocks.Block,Sprint0.Enemies.Enemy,Bottom,Sprint0.Commands.CNothing,Sprint0.Commands.CNothingEnemy</obj>
 		<obj>Sprint0.Blocks.Block,Sprint0.Enemies.Enemy,Left,Sprint0.Commands.CNothing,Sprint0.Commands.CNothingEnemy</obj>
 		<obj>Sprint0.Blocks.Block,Sprint0.Enemies.Enemy,Right,Sprint0.Commands.CNothing,Sprint0.Commands.CNothingEnemy</obj>
+		
+		<obj>Sprint0.Mario,Sprint0.Items.Item,Top,Sprint0.Commands.CUseItem,Sprint0.Commands.CNothingItem</obj>
+		<obj>Sprint0.Mario,Sprint0.Items.Item,Left,Sprint0.Commands.CUseItem,Sprint0.Commands.CNothingItem</obj>
+		<obj>Sprint0.Mario,Sprint0.Items.Item,Bottom,Sprint0.Commands.CUseItem,Sprint0.Commands.CNothingItem</obj>
+		<obj>Sprint0.Mario,Sprint0.Items.Item,Right,Sprint0.Commands.CUseItem,Sprint0.Commands.CNothingItem</obj>
+
+		<obj>Sprint0.Items.Item,Sprint0.Mario,Top,Sprint0.Commands.CUseItem,Sprint0.Commands.CNothingItem</obj>
+		<obj>Sprint0.Items.Item,Sprint0.Mario,Bottom,Sprint0.Commands.CUseItem,Sprint0.Commands.CNothingItem</obj>
+		<obj>Sprint0.Items.Item,Sprint0.Mario,Left,Sprint0.Commands.CUseItem,Sprint0.Commands.CNothingItem</obj>
+		<obj>Sprint0.Items.Item,Sprint0.Mario,Right,Sprint0.Commands.CUseItem,Sprint0.Commands.CNothingItem</obj>
 		<!--
 		<obj>Mario,Ground,Up,CMovePlayerUp,CNothing</obj>
 		<obj>Mario,Ground,Down,CMovePlayerDown,CNothing</obj>

@@ -12,9 +12,9 @@ Leon Cai
 Owen Tishenkel
 Owen Huston
 */
-namespace Sprint0.Items 
+namespace Sprint0.Items
 {
-    class Item : IGameObject 
+    class Item : IItem
     {
         private String ItemName;
         private ISprite ItemSprite;
@@ -37,6 +37,7 @@ namespace Sprint0.Items
             this.ItemSprite = SpriteFactory.Instance.GetSprite(spriteName);
 
         }
+
         public string GetItemName()
         {
             return ItemName;
@@ -50,7 +51,7 @@ namespace Sprint0.Items
             Sprite.Draw(spriteBatch, location);
         }
         public void Update()
-        { 
+        {
             Sprite.Update(); // Will have to wire this to work as intended
         }
 

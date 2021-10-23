@@ -22,12 +22,8 @@ namespace Sprint0.Interfaces
     /*
      * This interface can be used for the compass, map, key, heart container, trifroce, boomerang, bow, etc. Items that are toggled to be able to use once unlocked
      */
-    public interface IItems : IGameObject
+    public interface IItem : IGameObject
     {
-        void PrevSprite();
-        void NextSprite();
-        public Vector2 Velocity { get; set; }
-      
-
+        String GetItemName();
     }
 }
