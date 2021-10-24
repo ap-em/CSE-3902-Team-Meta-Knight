@@ -15,6 +15,8 @@ _____
 **PROGRAM DESCRIPTION**
 
 As of Sprint 2, this program implements Link, link movement, primitive attacking and item placement, enemy movement, cyclable enemies, cyclable blocks, cyclable, a quit button and a partial reset button.
+
+For SPRINT 3, our program changes all The Legend of Zelda sprites to Mario. Camera, GameObjectManager, Collision detection, and collision response classes are also implemented in this sprint. 
 _________
 
 **MOTIVATION**
