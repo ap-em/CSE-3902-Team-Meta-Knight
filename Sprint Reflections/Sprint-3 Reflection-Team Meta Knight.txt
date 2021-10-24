@@ -1,0 +1,27 @@
+﻿Sprint-3 Reflection-Team Meta Knight
+
+
+For sprint 3, Our team tried to learn from the experience from sprint 2 and started to have the initial plan set up on the day when the sprint was assigned. Unlike the generalized tasks we assigned to each team member in sprint 2, we made more specific tasks and clear due dates of these tasks on Trello. Overall we had a good start.
+
+
+Since our team planned to have our own game which is like a vertical version of Mario combined with the mechanism of Jump King, and our sprint 2 was based on The Legend of Zelda game, we need to start all over from sprint 3- all the logics behind items, sprites, and enemies were needed to be redesigned.
+
+
+For the first two weeks, we were mainly focused on changing all the link stuff to the Mario game. Every team member had some midterm exams during these two weeks, so we spent less time working together and more time preparing for exams. We struggled to follow some of our ideas from the Sprint 2 reflection. Specifically, we did not plan strict deadlines for team members to follow which caused issues in people not working on as much code until last week. However, for the last week, team members worked together and tried to help each other with potential issues in the code and made much more progress as a whole than the previous weeks.
+
+
+For the next sprint, our group should continue planning tasks as early as possible. There are still several things we could do better for the next sprint. Firstly, we seem to have fewer zoom meetings for this sprint than for sprint 2, so for the next sprint, we should spend more time after class talking about each other’s issues and concerns about current works. Secondly, we expect to finish all the tasks early for the next sprint and have a chance to do the code review during class time. Lastly, talk about the potential time conflicts beforehand so that tasks could be handled on time by other teammates. We did a good job at the beginning of Sprint 3 of attempting to plan the entire sprint, so this time we will do the same but commit more to deadlines.
+
+
+BurnDown Chart
+ BurnChart for Sprint 2:
+1. Need to create a decorator class for star mario 
+2. Implement the FPS counter (partially done)
+3. Implement gamepad as a controller option
+4. Need to add more enemies than just koopa and goomba, and incorporate them losing health - and creating their AI
+5. Need to fix occasional floating/sinking when there is more than one collision
+6. Need to add proper death state, not just change sprite
+7. Have pits kill mario
+8. Separate and breakup GameObjectManager, as it does too much with collision detection
+9. Need to make fireballs bounce
+10. Need to have star mario be animated rather than a single color change
