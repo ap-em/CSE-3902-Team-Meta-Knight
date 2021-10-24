@@ -25,3 +25,6 @@ BurnDown Chart
 8. Separate and breakup GameObjectManager, as it does too much with collision detection
 9. Need to make fireballs bounce
 10. Need to have star mario be animated rather than a single color change
+
+Link to Google Doc: https://docs.google.com/document/d/1KqHjaTkvAxZoueUpoh9_X4VauZjOZPIUMG0UwXNOF5o/edit
+^ Only Way to See BurnDown Charts
