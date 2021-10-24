@@ -103,8 +103,6 @@ _________
 
 
 
-
-
 ______
 **CREDITS**  
 Sprites sheets taken from https://www.spriters-resource.com/nes/legendofzelda/
@@ -112,3 +110,8 @@ Sprites sheets taken from https://www.spriters-resource.com/nes/legendofzelda/
 Link sprites and enemy sprites: http://www.zeldagalaxy.com/sprites-nes-loz/
 
 dungeon: http://www.zeldagalaxy.com/wp-content/img/sprites/nes/loz/tiles-dungeon.gif
+
+Mario World 1-1: https://www.spriters-resource.com/nes/supermariobros/sheet/20592/
+
+Mario Universe: http://www.mariouniverse.com/sprites-nes-smb/
+
