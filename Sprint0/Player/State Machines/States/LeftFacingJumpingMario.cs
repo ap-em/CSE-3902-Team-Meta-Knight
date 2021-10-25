@@ -63,12 +63,12 @@ namespace Sprint0
 
         public void MoveLeft()
         {
-            velocity.X = -4;
+            velocity.X = -6;
         }
 
         public void MoveRight()
         {
-            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(4, velocity.Y), jumpTimer, jumpHold);
+            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(6, velocity.Y), jumpTimer, jumpHold);
             mario.OnStateChange();
         }
 
@@ -95,10 +95,13 @@ namespace Sprint0
         }
         public void UpBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
-            //Debug.WriteLine("Nudge Jump up: " + rectangle.Height);
-            mario.SetGrounded(true);
-            StopMovingVertical();
+            if (!mario.GetGrounded())
+            {
+                mario.SetGrounded(true);
+                mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
+                //Debug.WriteLine("Nudge Jump up: " + rectangle.Height);
+                StopMovingVertical();
+            }
         }
         public void DownBounce(Rectangle rectangle)
         {
@@ -109,13 +112,13 @@ namespace Sprint0
         }
         public void RightBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X - rectangle.Width, mario.Position.Y);
-            StopMovingHorizontal();
+            mario.Position = new Vector2(mario.Position.X + rectangle.Width, mario.Position.Y);
+            //StopMovingHorizontal();
         }
         public void LeftBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X + rectangle.Width, mario.Position.Y);
-            StopMovingHorizontal();
+            mario.Position = new Vector2(mario.Position.X - rectangle.Width, mario.Position.Y);
+            //StopMovingHorizontal();
         }
         public void Update()
         {
@@ -131,9 +134,9 @@ namespace Sprint0
 
             // TODO: .15 should be changed to delta time
             // only apply gravity if done holding
-            if (!jumpHold)
+            if (!jumpHold && !mario.GetGrounded())
             {
-                velocity = velocity + new Vector2(0, 10) * .15f;
+                velocity = velocity + new Vector2(0, 30) * Game0.Instance.TargetElapsedTime.Milliseconds / 1000;
             }
             mario.MoveSprite(velocity);
 
