@@ -27,7 +27,6 @@ namespace Sprint0
     {
         private int maxRowLength = 1000;
         private int maxNumberOfRows = 100;
-        private int[] rowLength = new int[100];
 
         private IGameObject[][] gameObjects = new IGameObject[1000][];
 
@@ -82,6 +81,19 @@ namespace Sprint0
         //draws all the blocks that player should be able to see
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
+            /*
+             * used for debuging collidable objects around player
+            IGameObject[] b = GetCollidables(position, new Vector2(32, 64));
+
+            for(int i = 0; i<b.Length;i++)
+            {
+                if (b[i] != null)
+                {
+                    b[i].Draw(spriteBatch);
+                }
+            }
+            */
+
             
             position = WorldToBlockSpace(position);
 
@@ -111,7 +123,6 @@ namespace Sprint0
         public IGameObject[] GetCollidables(Vector2 position, Vector2 size)
         {
 
-
             int width = (int)Math.Round(size.X / 32);
             int height = (int)Math.Round(size.Y / 32);
 
@@ -125,30 +136,57 @@ namespace Sprint0
             }
 
 
+            /*stay in bounds of array*/
+            if(position.X < 1)
+            {
+                position.X = 1;
+            }
+            if(position.Y < 1)
+            {
+                position.Y = 1;
+            }
+
             position = WorldToBlockSpace(position);
 
             IGameObject[] blocks = new IGameObject[8];
 
-            // 99 rows and 999 columns
-            if (position.Y < 1) position.Y = 1;
-            else if (position.Y > 98) position.Y = 99;
-            if (position.X < 1) position.X = 1;
-            else if (position.X > 998) position.X = 998;
+            /*check blocks 1 above and y + height to check below objects feet*/
+
 
             blocks[0] = gameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y + height)];
             blocks[1] = gameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y + height)];
             blocks[2] = gameObjects[(int)Math.Round(position.X + width)][(int)Math.Round(position.Y + height)];
             blocks[3] = gameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y)];
             blocks[4] = gameObjects[(int)Math.Round(position.X + width)][(int)Math.Round(position.Y)];
-            blocks[5] = gameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y - height)];
-            blocks[6] = gameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y - height)];
-            blocks[7] = gameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y - height)];
+            blocks[5] = gameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y - 1)];
+            blocks[6] = gameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y - 1)];
+            blocks[7] = gameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y - 1)];
             
+            return blocks;
+        }
+        public IGameObject[] GetBlocksToLeft(Vector2 position, int width)
+        {
+            IGameObject[] blocks = new IGameObject[3];
+
+            blocks[0] = gameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y - 1)];
+            blocks[1] = gameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y)];
+            blocks[2] = gameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y + 1)];
+
+            return blocks;
+        }
+        public IGameObject[] GetBlocksToRight(Vector2 position, int width)
+        {
+            IGameObject[] blocks = new IGameObject[3];
+
+            blocks[0] = gameObjects[(int)Math.Round(position.X + width)][(int)Math.Round(position.Y - 1)];
+            blocks[1] = gameObjects[(int)Math.Round(position.X + width)][(int)Math.Round(position.Y)];
+            blocks[2] = gameObjects[(int)Math.Round(position.X + width)][(int)Math.Round(position.Y + 1)];
+
             return blocks;
         }
         public Vector2 WorldToBlockSpace(Vector2 position)
         {
-            return new Vector2(position.X / 32, position.Y / 32);
+            return new Vector2((int)Math.Round(position.X / 32), (int)Math.Round(position.Y / 32));
         }
         public Vector2 BlockToWorldSpace(Vector2 pos)
         {
@@ -159,7 +197,6 @@ namespace Sprint0
             for (int i = 0; i < maxNumberOfRows; i++)
             {
                 Array.Clear(gameObjects[i], 0, gameObjects[i].Length);
-                rowLength[i] = 0;
             }
             /*
             for (int i = 0; i < maxRowLength; i++)

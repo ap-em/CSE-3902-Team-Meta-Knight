@@ -145,8 +145,8 @@ namespace Sprint0
             //Here for implementation of collisions when neccesary
             ICommand collision;
             //Get the surronding blocks of whatever the game object is as blocks are not added to the game object list on creation.
-            IGameObject[] levelCollides = Level.Instance.GetCollidables(go.Position, new Vector2(go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale));
-            Rectangle goRec = new Rectangle((int)go.Position.X, (int)go.Position.Y, go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale);
+            IGameObject[] levelCollides = Level.Instance.GetCollidables(new Vector2 ((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y)), new Vector2(go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale));
+            Rectangle goRec = new Rectangle((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y), go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale);
             //Go through each colliding block
             foreach (IGameObject block in levelCollides)
             {
@@ -162,39 +162,98 @@ namespace Sprint0
                 {
 
                     //Create Rectangle for block and check to see if game object rectangle intersects with it
-                    Rectangle blockRec = new Rectangle((int)block.Position.X, (int)block.Position.Y, block.Sprite.width * dimensionScale, block.Sprite.height * dimensionScale);
+                    Rectangle blockRec = new Rectangle((int)Math.Round(block.Position.X), (int)Math.Round(block.Position.Y), block.Sprite.width * dimensionScale, block.Sprite.height * dimensionScale);
                        
                     if (goRec.Intersects(blockRec))
                     {
                         //Determine collision side based on how much it's intersecting in either dimension
                         String collisionSide ="";
                         Rectangle collisionRec = Rectangle.Intersect(goRec, blockRec);
-                        Debug.WriteLine(collisionRec);
-                        // if (collisionRec.Width >= collisionRec.Height)
-                      //  {
 
-                           
-                            if (collisionRec.Top == blockRec.Top)
-                            {
-                                collisionSide = "Top";
-                            }
-                            else if(collisionRec.Bottom == blockRec.Bottom)
-                            {
-                                collisionSide = "Bottom";
-                            }
-                       // }
-                      //  else
-                      //  {
-                            else if (collisionRec.Right == blockRec.Right)
-                            {
-                                collisionSide = "Right";
-                            }
-                            else if (collisionRec.Left == blockRec.Left)
-                            {
-                                collisionSide = "Left";
-                            }
-                      //  }
 
+                        if (collisionRec.Top == blockRec.Top)
+                        {
+                            collisionSide = "Top";
+
+                            /* if the object is movable we want it to prefer top of block when its moving downward */
+                            /* to prevent falling through the ground */
+                            if (go is IMovable)
+                            {
+                                IMovable movable = (IMovable)go;
+                                if (!movable.GetGrounded())
+                                {
+                                    if (collisionRec.Width < collisionRec.Height - 16)
+                                    {
+                                        if (collisionRec.Right == blockRec.Right)
+                                        {
+                                            collisionSide = "Right";
+                                        }
+                                        else
+                                        {
+                                            collisionSide = "Left";
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (collisionRec.Width < collisionRec.Height)
+                                    {
+                                        if (collisionRec.Right == blockRec.Right)
+                                        {
+                                            collisionSide = "Right";
+                                        }
+                                        else
+                                        {
+                                            collisionSide = "Left";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else if (collisionRec.Bottom == blockRec.Bottom)
+                        {
+                            collisionSide = "Bottom";
+                            if (go is IMovable)
+                            {
+                                IMovable movable = (IMovable)go;
+                                if (!movable.GetGrounded())
+                                {
+                                    if (collisionRec.Width < collisionRec.Height - 16)
+                                    {
+                                        if (collisionRec.Right == blockRec.Right)
+                                        {
+                                            collisionSide = "Right";
+                                        }
+                                        else
+                                        {
+                                            collisionSide = "Left";
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (collisionRec.Width < collisionRec.Height)
+                                    {
+                                        if (collisionRec.Right == blockRec.Right)
+                                        {
+                                            collisionSide = "Right";
+                                        }
+                                        else
+                                        {
+                                            collisionSide = "Left";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else if (collisionRec.Right == blockRec.Right)
+                        {
+                            collisionSide = "Right";
+                        }
+                        else if (collisionRec.Right == blockRec.Right)
+                        {
+                            collisionSide = "Left";
+                        }
                         //Create the correct collision command based on the block and the game object and the side its collding most with
                         collision = new CCollide(block, go, collisionSide, collisionRec);
                         //Execute the correct response to interfering with personal space
