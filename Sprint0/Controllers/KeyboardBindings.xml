@@ -11,7 +11,9 @@
     <key>D,Sprint0.Commands.CMovePlayerRight,pressable</key>
     <key>D,Sprint0.Commands.CZeroPlayerXVelocity,releasable</key>
 
+    <key>Space,Sprint0.Commands.CPlayerJump,pressable</key>
     <key>Space,Sprint0.Commands.CPlayerJump,holdable</key>
+    <key>Space,Sprint0.Commands.CPlayerStopJump,releasable</key>
 
     <key>Left,Sprint0.Commands.CMovePlayerLeft,pressable</key>
     <key>Left,Sprint0.Commands.CZeroPlayerXVelocity,releasable</key>

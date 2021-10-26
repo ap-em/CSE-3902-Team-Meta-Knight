@@ -35,10 +35,13 @@ namespace Sprint0
 
         public void Jump()
         {
-            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(0, -10), 15, true);
+            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(0, -10), 0, true);
             mario.OnStateChange();
         }
+        public void StopJump()
+        {
 
+        }
         public void MoveLeft()
         {
             mario.currentState = new LeftFacingMovingMario(mario);

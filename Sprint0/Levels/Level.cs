@@ -136,17 +136,18 @@ namespace Sprint0
             }
 
 
+            position = WorldToBlockSpace(position);
+
             /*stay in bounds of array*/
-            if(position.X < 1)
+            if (position.X - width < 1)
             {
-                position.X = 1;
+                position.X = width;
             }
-            if(position.Y < 1)
+            if (position.Y - height < 1)
             {
-                position.Y = 1;
+                position.Y = height;
             }
 
-            position = WorldToBlockSpace(position);
 
             IGameObject[] blocks = new IGameObject[8];
 

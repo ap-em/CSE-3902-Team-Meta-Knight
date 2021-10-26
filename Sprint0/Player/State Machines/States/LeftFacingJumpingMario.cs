@@ -19,7 +19,8 @@ namespace Sprint0
         private Vector2 velocity;
         private int jumpTimer;
         private bool jumpHold;
-
+        private int currentMaxJumpTime = 5;
+        private int maxJumpTime = 10;
         private Mario mario;
 
         public LeftFacingJumpingMario(Mario marioRef, Vector2 velocity, int jumpTimer, bool jumpHold)
@@ -45,8 +46,14 @@ namespace Sprint0
             // if(jumpHold) prevents us from pressing letting go then holding jump
             if (jumpHold)
             {
-                if (jumpTimer > 0)
+                //if we are still allowed to jump
+                if (jumpTimer < currentMaxJumpTime)
                 {
+                    // if we are holding jump we want to increase jump time
+                    if (currentMaxJumpTime < maxJumpTime)
+                    {
+                        currentMaxJumpTime++;
+                    }
                     jumpHold = true;
                 }
                 else
@@ -54,6 +61,10 @@ namespace Sprint0
                     jumpHold = false;
                 }
             }
+        }
+        public void StopJump()
+        {
+            jumpHold = false;
         }
 
         public void MoveDown()
@@ -123,13 +134,13 @@ namespace Sprint0
         public void Update()
         {
             // if timer is up player can no longer hold key down
-            if (jumpTimer == 0)
+            if (jumpTimer > currentMaxJumpTime)
             {
                 jumpHold = false;
             }
             else
             {
-                jumpTimer--;
+                jumpTimer++;
             }
 
             // TODO: .15 should be changed to delta time
