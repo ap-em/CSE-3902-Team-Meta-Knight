@@ -104,6 +104,10 @@ namespace Sprint0
         {
             currentState.Jump();
         }
+        public void StopJump()
+        {
+            currentState.StopJump();
+        }
         public void TakeDamage()
         {
             healthStateMachine.TakeDamage();

@@ -61,7 +61,10 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
         {
             currentState.Jump();
         }
-
+        public void StopJump()
+        {
+            currentState.StopJump();
+        }
         public void MoveLeft()
         {
             currentState.MoveLeft();

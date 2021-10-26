@@ -27,6 +27,7 @@ namespace Sprint0
         void MoveRight();
         void PrimaryAttack();
         void Jump();
+        void StopJump();
         void TakeDamage();
         void MushroomPower();
         void FireflowerPower();

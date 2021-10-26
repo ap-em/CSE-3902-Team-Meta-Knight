@@ -20,6 +20,7 @@ namespace Sprint0
         public void StopMovingHorizontal();
         public void StopMovingVertical();
         public void Jump();
+        public void StopJump();
         public void Attack();
         public void Crouch();
         public void Update();
