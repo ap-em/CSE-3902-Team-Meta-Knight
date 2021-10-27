@@ -91,7 +91,9 @@ Our goal for this purpose was to meet together as a group and merge all of our s
 
 Edited by Jared Israel
 
-Meeting 4 10/5/2021	https://osu.zoom.us/rec/share/uydYlzxjjLSbcRPXnvTcpO6bb1EeOne06-Z9vohl342azcAjQmVTx96maTMWDVAG.szggXz2G41bt-CYh?startTime=1633476714000
+SPRINT 3 Meetings
+
+Meeting time: 10/5/2021	https://osu.zoom.us/rec/share/uydYlzxjjLSbcRPXnvTcpO6bb1EeOne06-Z9vohl342azcAjQmVTx96maTMWDVAG.szggXz2G41bt-CYh?startTime=1633476714000
 
 Trello board link: https://trello.com/invite/b/OLUchs6g/d35f919f9ac1f47cc808b14c6c7c94a5/sprint-3
 
@@ -100,6 +102,15 @@ In this first meeting, we all met virtually over Zoom to create and discuss our 
 	After finishing getting the tasks for the sprint, we assigned members to those as well based on the previous tasks and getting an even distribution, then briefly discussed a timeline for how we would like to finish the tasks. We concluded that we should focus on getting the burndown chart tasks all complete by next Monday but that it was too early to tell how quickly the rest could get done, so we would meet again soon to get firm dates for those. Final plan please see in the Trello board link provided above.
 
 Edited by Jared Israel & Leon Cai
+
+SPRINT 4 Meetings
+
+Initial Planning Meeting 10/26/21  https://osu.zoom.us/rec/share/loDp3T-lUuUCldvQnQ5j8WcjQGUIOqpPmt5vHZk-OndBdmP03dACmmsSHP3H4T5N.AVZeZafbLWpyyvbL?startTime=1635292561000
+
+Trello Board link: https://trello.com/invite/b/G4vRS2Um/5d41fa9832b6fe1503d9e97f668ac9fe/sprint-4
+
+In this initial meeting, we created a trello board for the sprint and went through the requirements on the website, creating cards for all the tasks outlined by the assignment, although we had created the majority in class on Monday. We also created a Burndown column for leftover tasks that needed to be addressed from previous sprints, such as bugs and issues brought up in the grading of sprint 3. We then went through as a team and assigned ourselves to tasks we felt comfortable doing, trying to obtain an even distribution of work. Afterwards, we discussed how we might approach some of the tasks differently compared to previous sprints, noting that the last sprint was fairly last-minute and how some didn’t get enough work in at the end. We also noted that it would be best to try to get the burndown column completely done before the main tasks, compared to last sprint where it was done concurrently, and to start work earlier than the previous sprint.
+
 _________
 
 
