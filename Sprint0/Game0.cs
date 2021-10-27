@@ -65,7 +65,7 @@ namespace Sprint0
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(1 / 30.0f);
 
-            soundInfo.PlaySound("OverworldTheme", true);
+            soundInfo.PlaySound("Theme_1", true);
 
             base.Initialize();
         }
