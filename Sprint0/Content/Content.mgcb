@@ -104,6 +104,18 @@
 /processorParam:TextureFormat=Color
 /build:mario.png
 
+#begin OverworldTheme.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:OverworldTheme.mp3
+
+#begin smb2_jump.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:smb2_jump.wav
+
 #begin StarMario.png
 /importer:TextureImporter
 /processor:TextureProcessor

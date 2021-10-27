@@ -36,6 +36,7 @@ namespace Sprint0
 
         public void Jump()
         {
+            mario.soundInfo.PlaySound("smb2_jump", false);
             mario.currentState = new RightFacingJumpingMario(mario, new Vector2(6, -10), 0, true);
             mario.OnStateChange();
         }
