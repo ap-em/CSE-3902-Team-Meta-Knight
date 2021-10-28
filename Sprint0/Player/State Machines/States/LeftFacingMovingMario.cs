@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -16,7 +17,7 @@ namespace Sprint0
     public class LeftFacingMovingMario : IMarioState
     {
         public string ID { get; } = "LeftMovingMario";
-        private Vector2 velocity = new Vector2(-6f, 0);
+        private Vector2 velocity = new Vector2(-GameUtilities.VxF, 0);
 
         private Mario mario;
 
@@ -37,7 +38,7 @@ namespace Sprint0
 
         public void Jump()
         {
-            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(-6, -10), 0, true);
+            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(-GameUtilities.Vx, -GameUtilities.Vy), 0, true);
             mario.OnStateChange();
         }
         public void StopJump()
@@ -94,11 +95,11 @@ namespace Sprint0
         {
             if (mario.GetGrounded())
             {
-                velocity = new Vector2(-4f, 0f);
+                velocity = new Vector2(-GameUtilities.VairX, 0f);
             }
             else
             {
-                velocity = new Vector2(-4f, 9.8f);
+                velocity = new Vector2(-GameUtilities.VairX, GameUtilities.gravity);
             }
             mario.MoveSprite(velocity);
         }

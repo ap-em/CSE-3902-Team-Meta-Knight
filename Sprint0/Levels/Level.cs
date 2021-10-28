@@ -11,6 +11,7 @@ using Sprint0.Sprites.SpriteFactory;
 using Microsoft.Xna.Framework.Graphics;
 using System.Reflection;
 using System.IO;
+using Sprint0.UtilityClasses;
 
 
 /*Alex Clayton
@@ -25,8 +26,8 @@ namespace Sprint0
 {
     class Level
     {
-        private int maxRowLength = 1000;
-        private int maxNumberOfRows = 100;
+        private int maxRowLength = GameUtilities.maxRowLength;
+        private int maxNumberOfRows = GameUtilities.maxNumberOfRows;
 
         private IGameObject[][] gameObjects = new IGameObject[1000][];
 
@@ -101,15 +102,15 @@ namespace Sprint0
             int yPos = (int)position.Y;
 
             // draw only the blocks available on the screen
-            for(int x = xPos - 25; x < xPos+25; x++)
+            for(int x = xPos - GameUtilities.blockOnScreenX; x < xPos+GameUtilities.blockOnScreenX; x++)
             {
-                for (int y = yPos - 20; y < yPos + 20; y++)
+                for (int y = yPos - GameUtilities.blockOnScreenY; y < yPos + GameUtilities.blockOnScreenY; y++)
                 {
                     //make sure object is bounds of array
                     if (x < 0) x = 0;
-                    else if (x > 998) x = 998;
+                    else if (x > GameUtilities.boundryX) x = GameUtilities.boundryX;
                     if (y < 0) y = 0;
-                    else if (y > 99) y = 99;
+                    else if (y >  GameUtilities.boundryY) y =  GameUtilities.boundryY;
                     if (gameObjects[x][y] != null)
                     {
                         gameObjects[x][y].Draw(spriteBatch);
@@ -123,8 +124,8 @@ namespace Sprint0
         public IGameObject[] GetCollidables(Vector2 position, Vector2 size)
         {
 
-            int width = (int)Math.Round(size.X / 32);
-            int height = (int)Math.Round(size.Y / 32);
+            int width = (int)Math.Round(size.X / GameUtilities.worldSpacesScale);
+            int height = (int)Math.Round(size.Y / GameUtilities.worldSpacesScale);
 
             if(width == 0)
             {
@@ -187,11 +188,11 @@ namespace Sprint0
         }
         public Vector2 WorldToBlockSpace(Vector2 position)
         {
-            return new Vector2((int)Math.Round(position.X / 32), (int)Math.Round(position.Y / 32));
+            return new Vector2((int)Math.Round(position.X / GameUtilities.worldSpacesScale), (int)Math.Round(position.Y / GameUtilities.worldSpacesScale));
         }
         public Vector2 BlockToWorldSpace(Vector2 pos)
         {
-            return new Vector2(pos.X * 32, pos.Y * 32);
+            return new Vector2(pos.X * GameUtilities.worldSpacesScale, pos.Y *GameUtilities.worldSpacesScale );
         }
         public void Reset()
         {

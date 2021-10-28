@@ -6,6 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Sprint0.UtilityClasses;
+
+
 
 namespace Sprint0
 {
@@ -16,7 +19,7 @@ namespace Sprint0
     public class GameObjectManager
     {
         //Scales dimensions of sprites for collision to accuratelly reflect their real size in game
-        private static int dimensionScale = 2;
+        private static int dimensionScale = GameUtilities.dimension;
         public List<IProjectile> projectiles = new List<IProjectile>();
         public List<IProjectile> projectileRemovalQueue = new List<IProjectile>();
         public List<IProjectile> projectileInsertQueue = new List<IProjectile>();
@@ -102,8 +105,8 @@ namespace Sprint0
         
         public void DrawGameObjects(SpriteBatch spriteBatch)
         {
-            Texture2D background = Game0.Instance.Content.Load<Texture2D>("1-1");
-            spriteBatch.Draw(background, new Rectangle(0, 0, 6450, 600), Color.White);
+            Texture2D background = Game0.Instance.Content.Load<Texture2D>(GameUtilities.worldOneOne);
+            spriteBatch.Draw(background, new Rectangle(0, 0, GameUtilities.backgroundWidth, GameUtilities.backgroundHeight), Color.White);
             foreach (IGameObject go in gameObjects)
             {
                 if (go.ToString().Equals("Sprint0.Mario"))
@@ -167,13 +170,13 @@ namespace Sprint0
                     if (goRec.Intersects(blockRec))
                     {
                         //Determine collision side based on how much it's intersecting in either dimension
-                        String collisionSide ="";
+                        String collisionSide =GameUtilities.emptyString;
                         Rectangle collisionRec = Rectangle.Intersect(goRec, blockRec);
 
 
                         if (collisionRec.Top == blockRec.Top)
                         {
-                            collisionSide = "Top";
+                            collisionSide = GameUtilities.top;
 
                             /* if the object is movable we want it to prefer top of block when its moving downward */
                             /* to prevent falling through the ground */
@@ -182,15 +185,15 @@ namespace Sprint0
                                 IMovable movable = (IMovable)go;
                                 if (!movable.GetGrounded())
                                 {
-                                    if (collisionRec.Width < collisionRec.Height - 16)
+                                    if (collisionRec.Width < collisionRec.Height - GameUtilities.bias)
                                     {
                                         if (collisionRec.Right == blockRec.Right)
                                         {
-                                            collisionSide = "Right";
+                                            collisionSide = GameUtilities.right;
                                         }
                                         else
                                         {
-                                            collisionSide = "Left";
+                                            collisionSide = GameUtilities.left;
                                         }
                                     }
                                 }
@@ -200,11 +203,11 @@ namespace Sprint0
                                     {
                                         if (collisionRec.Right == blockRec.Right)
                                         {
-                                            collisionSide = "Right";
+                                            collisionSide = GameUtilities.right;
                                         }
                                         else
                                         {
-                                            collisionSide = "Left";
+                                            collisionSide = GameUtilities.left;
                                         }
                                     }
                                 }
@@ -212,21 +215,21 @@ namespace Sprint0
                         }
                         else if (collisionRec.Bottom == blockRec.Bottom)
                         {
-                            collisionSide = "Bottom";
+                            collisionSide = GameUtilities.bottom;
                             if (go is IMovable)
                             {
                                 IMovable movable = (IMovable)go;
                                 if (!movable.GetGrounded())
                                 {
-                                    if (collisionRec.Width < collisionRec.Height - 16)
+                                    if (collisionRec.Width < collisionRec.Height - GameUtilities.bias)
                                     {
                                         if (collisionRec.Right == blockRec.Right)
                                         {
-                                            collisionSide = "Right";
+                                            collisionSide = GameUtilities.right;
                                         }
                                         else
                                         {
-                                            collisionSide = "Left";
+                                            collisionSide = GameUtilities.left;
                                         }
                                     }
                                 }
@@ -236,11 +239,11 @@ namespace Sprint0
                                     {
                                         if (collisionRec.Right == blockRec.Right)
                                         {
-                                            collisionSide = "Right";
+                                            collisionSide = GameUtilities.right;
                                         }
                                         else
                                         {
-                                            collisionSide = "Left";
+                                            collisionSide = GameUtilities.left;
                                         }
                                     }
                                 }
@@ -248,11 +251,11 @@ namespace Sprint0
                         }
                         else if (collisionRec.Right == blockRec.Right)
                         {
-                            collisionSide = "Right";
+                            collisionSide = GameUtilities.right;
                         }
                         else if (collisionRec.Right == blockRec.Right)
                         {
-                            collisionSide = "Left";
+                            collisionSide = GameUtilities.left;
                         }
                         //Create the correct collision command based on the block and the game object and the side its collding most with
                         collision = new CCollide(block, go, collisionSide, collisionRec);
@@ -283,28 +286,28 @@ namespace Sprint0
                         if (goRec.Intersects(entityRec))
                         {
                             //Determine collision side based on how much it's intersecting in either dimension
-                            String collisionSide = "";
+                            String collisionSide = GameUtilities.emptyString;
                             Rectangle collisionRec = Rectangle.Intersect(goRec, entityRec);
                             if (collisionRec.Width >= collisionRec.Height)
                             {
                                 if (collisionRec.Top == entityRec.Top)
                                 {
-                                    collisionSide = "Top";
+                                    collisionSide = GameUtilities.top;
                                 }
                                 else
                                 {
-                                    collisionSide = "Bottom";
+                                    collisionSide = GameUtilities.bottom;
                                 }
                             }
                             else
                             {
                                 if (collisionRec.Right == entityRec.Right)
                                 {
-                                    collisionSide = "Right";
+                                    collisionSide = GameUtilities.right;
                                 }
                                 else
                                 {
-                                    collisionSide = "Left";
+                                    collisionSide = GameUtilities.left;
                                 }
                             }
                            

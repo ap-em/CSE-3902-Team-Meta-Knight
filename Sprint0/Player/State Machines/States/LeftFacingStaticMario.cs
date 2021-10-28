@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -35,7 +36,7 @@ namespace Sprint0
 
         public void Jump()
         {
-            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(0, -10), 0, true);
+            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(0, -GameUtilities.Vy), 0, true);
             mario.OnStateChange();
         }
         public void StopJump()
@@ -95,7 +96,7 @@ namespace Sprint0
             }
             else
             {
-                velocity = new Vector2(0f, 9.8f);
+                velocity = new Vector2(0f, GameUtilities.gravity);
             }
          mario.MoveSprite(velocity);
         }

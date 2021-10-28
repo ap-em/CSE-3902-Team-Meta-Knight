@@ -8,6 +8,7 @@ using Sprint0.Sprites;
 using Sprint0.Cycle;
 using Sprint0.Sprites.SpriteFactory;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.UtilityClasses;
 
 
 /*Alex Clayton
@@ -25,7 +26,7 @@ namespace Sprint0.Blocks
         private ICycleStateMachine stateMachine;
         private ISprite sprite;
         private String spriteName;
-        private Vector2 location = new Vector2(200, 200);
+        private Vector2 location = new Vector2(GameUtilities.initialBlockPosX, GameUtilities.initialBlockPosY);
 
         public Vector2 Position { get => location; set => throw new NotImplementedException(); }
 

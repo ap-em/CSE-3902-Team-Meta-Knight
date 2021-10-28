@@ -9,6 +9,7 @@ using Sprint0.Cycle;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.SpriteFactory;
 using Sprint0.Controllers;
+using Sprint0.UtilityClasses;
 
 /*
 Alex Clayton
@@ -29,8 +30,8 @@ namespace Sprint0.Enemies
         private IEnemyMovement enemyMovement;
         private ICycleStateMachine cycleStateMachine;
         private ISprite sprite;
-        private String enemyType = "";
-        private String spriteName = "";
+        private String enemyType = GameUtilities.emptyString ;
+        private String spriteName = GameUtilities.emptyString;
         private bool firing = false;
         private int firingTimer = 4;
 

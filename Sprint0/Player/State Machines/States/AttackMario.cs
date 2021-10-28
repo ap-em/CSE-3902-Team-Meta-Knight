@@ -3,6 +3,7 @@ using Sprint0.Sprites.SpriteFactory;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -36,16 +37,16 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
                 case "RightMovingMario":
                 case "RightIdleMario":
                 case "RightJumpingMario":
-                    position.X = position.X + 5;
+                    position.X = position.X + GameUtilities.jumpXvalue;
                     GameObjectManager.Instance.AddToProjectileList(
-                        new Projectile(SpriteFactory.Instance.GetSprite("fireball"), position, 10, 0, 30));
+                        new Projectile(SpriteFactory.Instance.GetSprite("fireball"), position, GameUtilities.fireBallVelocityX, 0, GameUtilities.fuseTime));
                     break;
                 case "LeftMovingMario":
                 case "LeftIdleMario":
                 case "LeftJumpingMario":
-                    position.X = position.X - 5;
+                    position.X = position.X - GameUtilities.jumpXvalue;
                     GameObjectManager.Instance.AddToProjectileList(
-                        new Projectile(SpriteFactory.Instance.GetSprite("fireball"), position, -10, 0, 30));
+                        new Projectile(SpriteFactory.Instance.GetSprite("fireball"), position, -GameUtilities.fireBallVelocityX, 0, GameUtilities.fuseTime));
                     break;
 
             }
@@ -84,7 +85,7 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
         }
         public void UpBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 14);
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - GameUtilities.upperBounceValue);
         }
         public void DownBounce(Rectangle rectangle)
         {

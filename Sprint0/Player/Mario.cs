@@ -7,6 +7,7 @@ using Sprint0.Sprites.SpriteFactory;
 using Sprint0.Concrete_Classes.State_Machines.States;
 using Sprint0.Interfaces;
 using Sprint0.Controllers;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -23,7 +24,7 @@ namespace Sprint0
         private IKeyboardController keyboard;
         private MarioHealthStateMachine healthStateMachine;
         public IMarioState currentState;
-        private Vector2 position = new Vector2(100, 100);
+        private Vector2 position = new Vector2(GameUtilities.initialPosX, GameUtilities.initialPosY);
         private ISprite currentSprite;
         private IMarioState attack;
         private bool isGrounded;

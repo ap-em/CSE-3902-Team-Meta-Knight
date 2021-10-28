@@ -4,6 +4,7 @@ using Sprint0.Interfaces;
 using Sprint0.Cycle;
 using Sprint0.Sprites.SpriteFactory;
 using System;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -19,7 +20,7 @@ namespace Sprint0.Items
         private String ItemName;
         private ISprite ItemSprite;
 
-        private Vector2 location = new Vector2(100, 200);
+        private Vector2 location = new Vector2(GameUtilities.itemPosX, GameUtilities.itemPosY);
         public ISprite Sprite => ItemSprite;
 
         public Vector2 Position { get => location; set => throw new NotImplementedException(); }
