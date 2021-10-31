@@ -14,6 +14,7 @@ using Sprint0.Sprites.SpriteFactory;
 using System.Collections;
 using Microsoft.Xna.Framework.Content;
 using Sprint0.Items;
+using Sprint0.UtilityClasses;
 
 /*
  * Alex Clayton 2021 CSE 3902
@@ -63,7 +64,7 @@ namespace Sprint0
             camera = new Camera();
             
             IsFixedTimeStep = true;
-            TargetElapsedTime = TimeSpan.FromSeconds(1 / 30.0f);
+            TargetElapsedTime = TimeSpan.FromSeconds(GameUtilities.timeSpan);
 
             soundInfo.PlaySound("OverworldTheme", true);
 
@@ -77,7 +78,7 @@ namespace Sprint0
 
         public void CreatePlayer()
         {
-            mario = new Mario("Sprint0.Mario", new Vector2(50, 200));     
+            mario = new Mario(GameUtilities.marioSpriteName, new Vector2(GameUtilities.marioInitialPosX, GameUtilities.marioInitialPosY));  
             GameObjectManager.Instance.AddToObjectList((IGameObject)mario, 0,0);
             
         }

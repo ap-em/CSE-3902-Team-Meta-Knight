@@ -11,6 +11,7 @@ using Sprint0.Sprites.SpriteFactory;
 using Microsoft.Xna.Framework.Graphics;
 using System.Reflection;
 using System.IO;
+using Sprint0.UtilityClasses;
 
 
 /*Alex Clayton
@@ -25,6 +26,10 @@ namespace Sprint0
 {
     class Level
     {
+        private int maxRowLength = GameUtilities.maxRowLength;
+        private int maxNumberOfRows = GameUtilities.maxNumberOfRows;
+
+        private IGameObject[][] gameObjects = new IGameObject[1000][];
 
         private static Level instance;
         public static Level Instance
@@ -57,15 +62,15 @@ namespace Sprint0
             ConstructorInfo constructorInfoObj = t.GetConstructor(types);
 
             GameObjectManager.Instance.AddToObjectList((IGameObject)constructorInfoObj.Invoke(param), columnIndex, rowIndex);
-
+            
         }
         public Vector2 WorldToBlockSpace(Vector2 position)
         {
-            return new Vector2((int)Math.Round(position.X / 32), (int)Math.Round(position.Y / 32));
+            return new Vector2((int)Math.Round(position.X / GameUtilities.worldSpacesScale), (int)Math.Round(position.Y / GameUtilities.worldSpacesScale));
         }
         public Vector2 BlockToWorldSpace(Vector2 pos)
         {
-            return new Vector2(pos.X * 32, pos.Y * 32);
+            return new Vector2(pos.X * GameUtilities.worldSpacesScale, pos.Y *GameUtilities.worldSpacesScale );
         }
     }
 }
