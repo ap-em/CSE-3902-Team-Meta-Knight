@@ -42,7 +42,12 @@
 		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Left,Sprint0.Commands.CPlayerLeftBounce,Sprint0.Commands.CNothing</obj>
 		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Right,Sprint0.Commands.CPlayerRightBounce,Sprint0.Commands.CNothing</obj>
 		
-		
+    <!-- fire attack collision -->
+    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Top,Sprint0.Commands.CFireUpBounce,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Projectile,Sprint0.Blocks.Block,Bottom,Sprint0.Commands.CFireUpBounce,Sprint0.Commands.CNothing</obj>
+    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Left,Sprint0.Commands.CFireUpBounce,Sprint0.Commands.CNothing</obj>
+    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Right,Sprint0.Commands.CFireUpBounce,Sprint0.Commands.CNothing</obj>
+    
 		<!--
 		<obj>Mario,Ground,Up,CMovePlayerUp,CNothing</obj>
 		<obj>Mario,Ground,Down,CMovePlayerDown,CNothing</obj>

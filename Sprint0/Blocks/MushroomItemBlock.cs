@@ -21,7 +21,7 @@ Owen Huston*/
 
 namespace Sprint0.Blocks
 {
-    class MushroomItemBlock : IBlock, IGameObject
+    class MushroomItemBlock : IBlock, IGameObject, IStatic
     {
         private ICycleStateMachine stateMachine;
         private ISprite sprite;

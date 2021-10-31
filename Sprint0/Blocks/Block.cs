@@ -21,7 +21,7 @@ Owen Huston*/
 
 namespace Sprint0.Blocks
 {
-    class Block : IBlock, ICyclable, IGameObject
+    class Block : IBlock, ICyclable, IGameObject, IStatic
     {
         private ICycleStateMachine stateMachine;
         private ISprite sprite;

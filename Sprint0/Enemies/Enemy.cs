@@ -24,7 +24,7 @@ Owen Huston
 
 namespace Sprint0.Enemies
 {
-    public class Enemy : IEnemy, ICyclable, IGameObject, IMovable
+    public class Enemy : IEnemy, ICyclable, IGameObject, IMovable, IUpdate, IDraw
     {
         private IKeyboardController keyboard;
         private IEnemyMovement enemyMovement;

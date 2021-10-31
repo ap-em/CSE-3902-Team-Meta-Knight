@@ -15,10 +15,11 @@ Owen Huston
 */
 namespace Sprint0.Items
 {
-    class Star : IItem
+    class Star : IItem, IDraw, IUpdate, IMovable
     {
         private String ItemName;
         private ISprite ItemSprite;
+        private bool grounded = false;
 
         private Vector2 location = new Vector2(GameUtilities.itemPosX, GameUtilities.itemPosY);
         public ISprite Sprite => ItemSprite;
@@ -38,6 +39,14 @@ namespace Sprint0.Items
             this.ItemSprite = SpriteFactory.Instance.GetSprite(spriteName);
         }
 
+        public bool GetGrounded()
+        {
+            return grounded;
+        }
+        public void SetGrounded(bool grounded)
+        {
+            this.grounded = grounded;
+        }
         public string GetItemName()
         {
             return ItemName;
