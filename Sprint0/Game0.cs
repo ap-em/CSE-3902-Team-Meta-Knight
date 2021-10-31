@@ -16,6 +16,7 @@ using Microsoft.Xna.Framework.Content;
 using Sprint0.Items;
 using Sprint0.UtilityClasses;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 /*
  * Alex Clayton 2021 CSE 3902
@@ -24,6 +25,7 @@ namespace Sprint0
 {
     public class Game0 : Game
     {
+        public Viewport tempView;
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         public ISprite sprite;
@@ -63,7 +65,7 @@ namespace Sprint0
         protected override void Initialize()
         {
             LevelFactory.Instance.CreateLevel(1);
-            
+
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(GameUtilities.timeSpan);
 
@@ -97,10 +99,15 @@ namespace Sprint0
                 i++;
             }
             //update cameras when we add a player
-            foreach(IMario mario in marios.Keys)
+            if (i > 0)
             {
-                mario.GetCamera().SetIndex(marios.GetValueOrDefault(mario));
-                mario.GetCamera().UpdateViews(marios.Count);
+                foreach (IMario mario in marios.Keys)
+                {
+                    Debug.WriteLine(marios.GetValueOrDefault(mario));
+                    mario.GetCamera().SetIndex(marios.GetValueOrDefault(mario));
+                    mario.GetCamera().UpdateViews(marios.Count);
+                    mario.SetKeyboard(ControllerLoader.Instance.SetUpPlayerKeyboard(mario, marios.GetValueOrDefault(mario)));
+                }
             }
             marioInsertQueue.Clear();
         }
@@ -124,13 +131,15 @@ namespace Sprint0
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            foreach(IMario mario in marios.Keys)
+            foreach (IMario mario in marios.Keys)
             {
+                tempView = GraphicsDevice.Viewport;
                 currentDrawingMario = mario;
                 GraphicsDevice.Viewport = mario.GetCamera().ViewPort;
                 spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, mario.GetCamera().ViewMatrix);
                 GameObjectManager.Instance.DrawGameObjects(spriteBatch);
                 spriteBatch.End();
+                GraphicsDevice.Viewport = tempView;
             }
 
             base.Draw(gameTime);

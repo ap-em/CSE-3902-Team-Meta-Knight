@@ -59,39 +59,42 @@ namespace Sprint0
         }
         public void UpdateViews(int numOfCameras)
         {
-            if (numOfCameras == 1)
+            if (numOfCameras > this.numOfCameras)
             {
-                leftView = defaultView;
-            }
-            else if(numOfCameras == 2)
-            {
-                leftView = defaultView;
-                rightView = defaultView;
-                leftView.Width = leftView.Width / 2;
-                rightView.Width = rightView.Width / 2;
-                rightView.X = leftView.Width;
-            }
-            else if(numOfCameras == 3 || numOfCameras == 4)
-            {
-                leftView = defaultView;
-                rightView = defaultView;
-                bottomLeftView = defaultView;
-                bottomRightView = defaultView;
-                leftView.Width /= 2;
-                leftView.Height /= 2;
-                rightView.Width /= 2;
-                rightView.Height /= 2;
-                rightView.X = leftView.Width;
-                bottomLeftView.Width /= 2;
-                bottomLeftView.Height /= 2;
-                bottomLeftView.Y = leftView.Height;
-                bottomRightView.Width /= 2;
-                bottomRightView.Height /= 2;
-                bottomRightView.Y = rightView.Height;
-                bottomRightView.X = bottomLeftView.Width;
+                if (numOfCameras == 1)
+                {
+                    leftView = defaultView;
+                }
+                else if (numOfCameras == 2)
+                {
+                    leftView = defaultView;
+                    rightView = defaultView;
+                    leftView.Width = leftView.Width / 2;
+                    rightView.Width = rightView.Width / 2;
+                    rightView.X = leftView.Width;
+                }
+                else if (numOfCameras == 3 || numOfCameras == 4)
+                {
+                    leftView = defaultView;
+                    rightView = defaultView;
+                    bottomLeftView = defaultView;
+                    bottomRightView = defaultView;
+                    leftView.Width /= 2;
+                    leftView.Height /= 2;
+                    rightView.Width /= 2;
+                    rightView.Height /= 2;
+                    rightView.X = leftView.Width;
+                    bottomLeftView.Width /= 2;
+                    bottomLeftView.Height /= 2;
+                    bottomLeftView.Y = leftView.Height;
+                    bottomRightView.Width /= 2;
+                    bottomRightView.Height /= 2;
+                    bottomRightView.Y = rightView.Height;
+                    bottomRightView.X = bottomLeftView.Width;
 
+                }
+                this.numOfCameras = numOfCameras;
             }
-            this.numOfCameras = numOfCameras;
             SetCurrentView();
         }
 
