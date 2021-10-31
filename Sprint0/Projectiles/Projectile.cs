@@ -21,38 +21,64 @@ Owen Huston
 
 namespace Sprint0
 {
-    public class Projectile : IProjectile
+    public class Projectile : IProjectile, IGameObject, IDraw, IUpdate, IMovable
     {
         private int fuseTime;
         private ISprite sprite;
-        private int XVelocity;
-        private int YVelocity;
-        private Vector2 location;
+        private float XVelocity;
+        private float YVelocity;
+        private Vector2 position;
+        private bool grounded = false;
+        private float gravity = 5f;
+        public Vector2 Position { get => this.position; set => throw new NotImplementedException(); }
+
+        public ISprite Sprite => sprite;
         public Projectile(ISprite sprite, 
-            Vector2 location, int XVelocity, int YVelocity, int fuseTime)
+            Vector2 location, float XVelocity, float YVelocity, int fuseTime)
         {
             this.sprite = sprite;
             this.XVelocity = XVelocity;
             this.YVelocity = YVelocity;
             this.fuseTime = fuseTime;
-            this.location = location;
+            this.position = location;
         }
         public int GetFuseTime()
         {
             return fuseTime;
         }
+        public bool GetGrounded()
+        {
+            return grounded;
+        }
+        public void SetGrounded(bool grounded)
+        {
+            this.grounded = grounded;
+        }
         public void Move()
         {
-            location = new Vector2(location.X + XVelocity, location.Y + YVelocity);
+            if(!grounded)
+            {
+                position = new Vector2(position.X + XVelocity, position.Y + YVelocity + gravity);
+            }
+            else 
+            {
+                position = new Vector2(position.X + XVelocity, position.Y + YVelocity);
+            }
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, location);
+            sprite.Draw(spriteBatch, position);
+        }
+        public void UpBounce(Rectangle rec)
+        {
+            position = new Vector2(position.X, position.Y - rec.Height);
+            //lower velocity and inverse direction
+            YVelocity = (YVelocity + 0.5f) * -1;
         }
         public void Update()
         {
             Move();
-            if (fuseTime < 0) GameObjectManager.Instance.RemoveFromProjectileList(this);
+            if (fuseTime < 0) GameObjectManager.Instance.RemoveFromObjectList(this);
             fuseTime--;
         }
     }

@@ -37,15 +37,15 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
                 case "RightIdleMario":
                 case "RightJumpingMario":
                     position.X = position.X + 5;
-                    GameObjectManager.Instance.AddToProjectileList(
-                        new Projectile(SpriteFactory.Instance.GetSprite("fireball"), position, 10, 0, 30));
+                    GameObjectManager.Instance.AddToObjectList(
+                        new Projectile(SpriteFactory.Instance.GetSprite("fireball"), position, 10, 0, 100),1,1);
                     break;
                 case "LeftMovingMario":
                 case "LeftIdleMario":
                 case "LeftJumpingMario":
                     position.X = position.X - 5;
-                    GameObjectManager.Instance.AddToProjectileList(
-                        new Projectile(SpriteFactory.Instance.GetSprite("fireball"), position, -10, 0, 30));
+                    GameObjectManager.Instance.AddToObjectList(
+                        new Projectile(SpriteFactory.Instance.GetSprite("fireball"), position, -10, 0, 100),1,1);
                     break;
 
             }
