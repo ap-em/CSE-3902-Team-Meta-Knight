@@ -20,7 +20,7 @@ namespace Sprint0
 {
     public class Mario :IMario, IGameObject, IMovable, IUpdate,IDraw
     {
-        
+        private ICamera camera;
         private IKeyboardController keyboard;
         private MarioHealthStateMachine healthStateMachine;
         public IMarioState currentState;
@@ -35,14 +35,13 @@ namespace Sprint0
 
         public Mario(String spriteName, Vector2 position)
         {
+            camera = new Camera(Game0.Instance.marios.Count);
             healthStateMachine = new MarioHealthStateMachine(this);
-
             this.position = position;
             currentState = new RightFacingStaticMario(this);
             OnStateChange();
             keyboard = ControllerLoader.Instance.SetUpPlayerKeyboard(this);
             soundInfo = new SoundInfo();
-            
         }
 
         /*
@@ -86,7 +85,11 @@ namespace Sprint0
             currentState.Update();
             currentSprite.Update();
             keyboard.Update();
-           
+            camera.Update(position);
+        }
+        public ICamera GetCamera()
+        {
+            return camera;
         }
 
         public void MoveSprite(Vector2 change)

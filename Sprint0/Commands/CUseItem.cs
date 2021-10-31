@@ -10,12 +10,9 @@ namespace Sprint0.Commands
     class CUseItem : ICommand
     {
         // TODO THIS DOES NOT WORK 
-        IMario Mario;
         IItem Item;
         public CUseItem(IItem item, Rectangle rect)
         {
-            //Mario = mario;
-            Mario = Game0.Instance.mario;
             Item = item;
             
         }
@@ -26,7 +23,7 @@ namespace Sprint0.Commands
             
             if (item == "Mushroom")
             {
-                Mario.MushroomPower();
+                //Mario.MushroomPower();
             }
             else if (item == "Fireflower")
             {

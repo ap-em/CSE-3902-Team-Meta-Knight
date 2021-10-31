@@ -26,7 +26,6 @@ Owen Huston
         public void Execute()
         {
             GameObjectManager.Instance.RemoveAllObjects();
-            Game0.Instance.CreatePlayer();
             LevelFactory.Instance.CreateLevel(LevelFactory.Instance.currentLevel);
         }
     }
