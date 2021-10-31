@@ -23,6 +23,7 @@ namespace Sprint0
         private IStatic[][] staticGameObjects = new IStatic[1000][];
         //Scales dimensions of sprites for collision to accuratelly reflect their real size in game
         private static int dimensionScale = 2;
+
         public List<IDraw> drawableGameObjects= new List<IDraw>();
         public List<IUpdate> updateableGameObjects = new List<IUpdate>();
         public List<IMovable> movableGameObjects = new List<IMovable>();
@@ -81,6 +82,10 @@ namespace Sprint0
                 {
                     updateableGameObjects.Add((IUpdate)go);
                 }
+                if (go is IMario)
+                {
+                    Game0.Instance.AddPlayerToList((IMario)go);
+                }
                 gameObjects.Add(go);
             }
 
@@ -101,6 +106,10 @@ namespace Sprint0
                 if (go is IUpdate && updateableGameObjects.Contains((IUpdate)go))
                 {
                     updateableGameObjects.Remove((IUpdate)go);
+                }
+                if (go is IMario)
+                {
+                    Game0.Instance.RemovePlayerFromList((IMario)go);
                 }
                 gameObjects.Remove(go);
             }
@@ -129,25 +138,11 @@ namespace Sprint0
             }
             DetectCollisions(); 
         }
-        public List<Vector2> GetPlayerPositions()
-        {
-            List<Vector2> positions = new List<Vector2>();
-            foreach (IMovable go in movableGameObjects)
-            {
-                if (go.ToString().Equals("Sprint0.Mario"))
-                {
-                    positions.Add(go.Position);
-                }
-            }
-            return positions;
-        }
         public void DrawGameObjects(SpriteBatch spriteBatch)
         {
-            List<Vector2> playerPositions = GetPlayerPositions();
-            foreach(Vector2 position in playerPositions)
-            {
-                DrawStaticGameObjects(spriteBatch, position);
-            }
+            if(Game0.Instance.currentDrawingMario != null)
+            DrawStaticGameObjects(spriteBatch, Game0.Instance.currentDrawingMario.Position);
+            
             foreach (IDraw go in drawableGameObjects)
             {
                 go.Draw(spriteBatch);
