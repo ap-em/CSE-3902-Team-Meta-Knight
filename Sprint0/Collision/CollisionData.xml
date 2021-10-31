@@ -19,34 +19,15 @@
 		
 	
 		<!-- Mushroom interaction-->
-		<obj>Sprint0.Mario,Sprint0.Items.Mushroom,Top,Sprint0.Commands.CMushroom,Sprint0.Commands.CNothingItem</obj>
-		<obj>Sprint0.Mario,Sprint0.Items.Mushroom,Left,Sprint0.Commands.CMushroom,Sprint0.Commands.CNothingItem</obj>
-		<obj>Sprint0.Mario,Sprint0.Items.Mushroom,Bottom,Sprint0.Commands.CMushroom,Sprint0.Commands.CNothingItem</obj>
-		<obj>Sprint0.Mario,Sprint0.Items.Mushroom,Right,Sprint0.Commands.CMushroom,Sprint0.Commands.CNothingItem</obj>
-
+		<obj>Sprint0.Mario,Sprint0.Items.Mushroom,Sprint0.Commands.CMushroom,Sprint0.Commands.CNothingItem</obj>
 		<!-- Fireflower interaction-->
-		<obj>Sprint0.Mario,Sprint0.Items.Fireflower,Top,Sprint0.Commands.CFireflower,Sprint0.Commands.CNothingItem</obj>
-		<obj>Sprint0.Mario,Sprint0.Items.Fireflower,Left,Sprint0.Commands.CFireflower,Sprint0.Commands.CNothingItem</obj>
-		<obj>Sprint0.Mario,Sprint0.Items.Fireflower,Bottom,Sprint0.Commands.CFireflower,Sprint0.Commands.CNothingItem</obj>
-		<obj>Sprint0.Mario,Sprint0.Items.Fireflower,Right,Sprint0.Commands.CFireflower,Sprint0.Commands.CNothingItem</obj>
-
+		<obj>Sprint0.Mario,Sprint0.Items.Fireflower,Sprint0.Commands.CFireflower,Sprint0.Commands.CNothingItem</obj>
 		<!-- Star interaction-->
-		<obj>Sprint0.Mario,Sprint0.Items.Star,Top,Sprint0.Commands.CStar,Sprint0.Commands.CNothingItem</obj>
-		<obj>Sprint0.Mario,Sprint0.Items.Star,Left,Sprint0.Commands.CStar,Sprint0.Commands.CNothingItem</obj>
-		<obj>Sprint0.Mario,Sprint0.Items.Star,Bottom,Sprint0.Commands.CStar,Sprint0.Commands.CNothingItem</obj>
-		<obj>Sprint0.Mario,Sprint0.Items.Star,Right,Sprint0.Commands.CStar,Sprint0.Commands.CNothingItem</obj>
-    
+		<obj>Sprint0.Mario,Sprint0.Items.Star,Sprint0.Commands.CStar,Sprint0.Commands.CNothingItem</obj>
 		<!-- Mushroom Block Collision-->
-		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Top,Sprint0.Commands.CPlayerUpBounce,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Bottom,Sprint0.Commands.CPlayerDownBounce,Sprint0.Commands.CUseItemBlock</obj>
-		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Left,Sprint0.Commands.CPlayerLeftBounce,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Right,Sprint0.Commands.CPlayerRightBounce,Sprint0.Commands.CNothing</obj>
-		
+		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Sprint0.Commands.CPlayerUpBounce,Sprint0.Commands.CNothing</obj>
     <!-- fire attack collision -->
-    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Top,Sprint0.Commands.CFireUpBounce,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Projectile,Sprint0.Blocks.Block,Bottom,Sprint0.Commands.CFireUpBounce,Sprint0.Commands.CNothing</obj>
-    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Left,Sprint0.Commands.CFireUpBounce,Sprint0.Commands.CNothing</obj>
-    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Right,Sprint0.Commands.CFireUpBounce,Sprint0.Commands.CNothing</obj>
+    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Sprint0.Commands.CFireUpBounce,Sprint0.Commands.CNothing</obj>
     
 		<!--
 		<obj>Mario,Ground,Up,CMovePlayerUp,CNothing</obj>
