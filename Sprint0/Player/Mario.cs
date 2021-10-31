@@ -28,6 +28,7 @@ namespace Sprint0
         private ISprite currentSprite;
         private IMarioState attack;
         private bool isGrounded;
+        public SoundInfo soundInfo;
         public Vector2 Position { get => position; set => position = value; }
 
         public ISprite Sprite => currentSprite;
@@ -40,6 +41,7 @@ namespace Sprint0
             currentState = new RightFacingStaticMario(this);
             OnStateChange();
             keyboard = ControllerLoader.Instance.SetUpPlayerKeyboard(this);
+            soundInfo = new SoundInfo();
             
         }
 

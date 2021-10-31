@@ -31,6 +31,7 @@ namespace Sprint0
         public ICamera camera;
         public Mario mario;
         public Texture2D background;
+        public SoundInfo soundInfo;
 
         private static Game0 instance;
         public static Game0 Instance
@@ -53,6 +54,7 @@ namespace Sprint0
             Content.RootDirectory = "Content";
             ContentInstance = Content;
             IsMouseVisible = true;
+            soundInfo = new SoundInfo();
         }
 
         protected override void Initialize()
@@ -63,6 +65,8 @@ namespace Sprint0
             
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(GameUtilities.timeSpan);
+
+            soundInfo.PlaySound("OverworldTheme", true);
 
             base.Initialize();
         }
