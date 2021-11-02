@@ -81,8 +81,8 @@ namespace Sprint0
                     String commandName2 = objValues[3];
 
                     //object mover = cInfoM.Invoke(new object[] )
-                    MoverResponse.Add(obj1 + obj2 , commandName1);
-                    TargetResponse.Add(obj2 + obj1 , commandName2);
+                    MoverResponse.Add(obj1 + obj2, commandName1);
+                    TargetResponse.Add(obj2 + obj1, commandName2);
                 }
             }
             reader.Close(); // Closes the local reader for the object
@@ -92,7 +92,7 @@ namespace Sprint0
         {
 
             //command with direction
-            if(MoverResponse.ContainsKey(collider.ToString() + collided.ToString() + direction))
+            if (MoverResponse.ContainsKey(collider.ToString() + collided.ToString() + direction))
             {
                 String commandName1 = MoverResponse[collider.ToString() + collided.ToString() + direction];
                 Type t1 = Type.GetType(commandName1);

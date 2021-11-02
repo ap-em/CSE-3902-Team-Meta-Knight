@@ -2,32 +2,40 @@
 	<row>
 		<!--Object1, Object2, Direction, Command1, Command2-->
 		
-		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Top,Sprint0.Commands.CPlayerUpBounce,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Bottom,Sprint0.Commands.CPlayerDownBounce,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Left,Sprint0.Commands.CPlayerLeftBounce,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Right,Sprint0.Commands.CPlayerRightBounce,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Top,Sprint0.Commands.CUpBounce,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Bottom,Sprint0.Commands.CDownBounce,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Left,Sprint0.Commands.CLeftBounce,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Right,Sprint0.Commands.CRightBounce,Sprint0.Commands.CNothing</obj>
 		
-		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Left,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothingEnemy</obj>
-		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Right,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothingEnemy</obj>
-		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Top,Sprint0.Commands.CNothingMario,Sprint0.Commands.CNothingEnemy</obj>
-		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Bottom,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothingEnemy</obj>
+		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Left,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Right,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Top,Sprint0.Commands.CNothingMario,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Bottom,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</obj>
 		
-		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Top,Sprint0.Commands.CNothingEnemy,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Bottom,Sprint0.Commands.CNothingEnemy,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Left,Sprint0.Commands.CNothingEnemy,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Right,Sprint0.Commands.CNothingEnemy,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Top,Sprint0.Commands.CNothing,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Bottom,Sprint0.Commands.CNothing,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Left,Sprint0.Commands.CNothing,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Right,Sprint0.Commands.CNothing,Sprint0.Commands.CNothing</obj>
 		
 	
 		<!-- Mushroom interaction-->
-		<obj>Sprint0.Mario,Sprint0.Items.Mushroom,Sprint0.Commands.CMushroom,Sprint0.Commands.CNothingItem</obj>
+		<obj>Sprint0.Mario,Sprint0.Items.Mushroom,Sprint0.Commands.CMushroom,Sprint0.Commands.CRemoveObject</obj>
+
 		<!-- Fireflower interaction-->
-		<obj>Sprint0.Mario,Sprint0.Items.Fireflower,Sprint0.Commands.CFireflower,Sprint0.Commands.CNothingItem</obj>
+		<obj>Sprint0.Mario,Sprint0.Items.Fireflower,Sprint0.Commands.CFireflower,Sprint0.Commands.CRemoveObject</obj>
+
 		<!-- Star interaction-->
-		<obj>Sprint0.Mario,Sprint0.Items.Star,Sprint0.Commands.CStar,Sprint0.Commands.CNothingItem</obj>
+		<obj>Sprint0.Mario,Sprint0.Items.Star,Sprint0.Commands.CStar,Sprint0.Commands.CRemoveObject</obj>
+    
 		<!-- Mushroom Block Collision-->
-		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Sprint0.Commands.CPlayerUpBounce,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Sprint0.Commands.CUpBounce,Sprint0.Commands.CRemoveObject</obj>
+	
+		
     <!-- fire attack collision -->
-    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Sprint0.Commands.CFireUpBounce,Sprint0.Commands.CNothing</obj>
+    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Top,Sprint0.Commands.CUpBounce,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Projectile,Sprint0.Blocks.Block,Bottom,Sprint0.Commands.CUpBounce,Sprint0.Commands.CNothing</obj>
+    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Left,Sprint0.Commands.CUpBounce,Sprint0.Commands.CNothing</obj>
+    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Right,Sprint0.Commands.CUpBounce,Sprint0.Commands.CNothing</obj>
     
 		<!--
 		<obj>Mario,Ground,Up,CMovePlayerUp,CNothing</obj>

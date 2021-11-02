@@ -6,20 +6,20 @@ using Sprint0.Interfaces;
 
 namespace Sprint0.Commands
 {
-    public class CFireUpBounce : ICommand
+    public class CLeftBounce : ICommand
     {
         public string direction;
-        public IProjectile projectile;
-        public Rectangle rectangle;
-        public CFireUpBounce(IProjectile projectile, Rectangle rectangle)
+        public ICollidable go;
+        Rectangle rectangle;
+        public CLeftBounce(ICollidable go, Rectangle rectangle)
         {
-            this.projectile = projectile;
+            this.go = go;
             this.rectangle = rectangle;
         }
 
         public void Execute()
         {
-            projectile.UpBounce(rectangle);
+            go.LeftBounce(rectangle);
         }
     }
 }
