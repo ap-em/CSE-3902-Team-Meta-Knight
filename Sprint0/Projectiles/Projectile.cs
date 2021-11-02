@@ -21,7 +21,7 @@ Owen Huston
 
 namespace Sprint0
 {
-    public class Projectile : IProjectile, IGameObject, IDraw, IUpdate, IMovable
+    public class Projectile : IProjectile, IGameObject, IDraw, IUpdate, IMovable, ICollidable
     {
         private int fuseTime;
         private ISprite sprite;
@@ -80,6 +80,21 @@ namespace Sprint0
             Move();
             if (fuseTime < 0) GameObjectManager.Instance.RemoveFromObjectList(this);
             fuseTime--;
+        }
+
+        public void DownBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RightBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LeftBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
         }
     }
 }

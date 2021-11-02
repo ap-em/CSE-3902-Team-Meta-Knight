@@ -24,7 +24,7 @@ Owen Huston
 
 namespace Sprint0.Enemies
 {
-    public class Enemy : IEnemy, ICyclable, IGameObject, IMovable, IUpdate, IDraw
+    public class Enemy : IEnemy, ICyclable, IGameObject, IMovable, IUpdate, IDraw, ICollidable
     {
         private IKeyboardController keyboard;
         private IEnemyMovement enemyMovement;
@@ -162,6 +162,26 @@ namespace Sprint0.Enemies
         public void SetGrounded(bool grounded)
         {
             //todo
+        }
+
+        public void UpBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DownBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RightBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LeftBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
         }
     }
 }

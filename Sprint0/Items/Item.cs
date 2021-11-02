@@ -15,7 +15,7 @@ Owen Huston
 */
 namespace Sprint0.Items
 {
-    class Item : IItem, IDraw, IMovable
+    class Item : IItem, IDraw, IMovable, ICollidable
     {
         private String ItemName;
         private ISprite ItemSprite;
@@ -65,5 +65,24 @@ namespace Sprint0.Items
             Sprite.Update(); // Will have to wire this to work as intended
         }
 
+        public void UpBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DownBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RightBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LeftBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
