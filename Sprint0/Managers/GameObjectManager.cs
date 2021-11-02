@@ -248,7 +248,7 @@ namespace Sprint0
             ICommand collision;
             //Get the surronding blocks of whatever the game object is as blocks are not added to the game object list on creation.
             IStatic[] levelCollides = GetCollidables(new Vector2 ((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y)), new Vector2(go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale));
-            Rectangle goRec = new Rectangle((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y), go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale);
+            
             //Go through each colliding block
             foreach (IStatic block in levelCollides)
             {
@@ -262,9 +262,9 @@ namespace Sprint0
                 //Check if the block the object is colliding with actually exists
                 if (block != null)
                 {
-
                     //Create Rectangle for block and check to see if game object rectangle intersects with it
                     Rectangle blockRec = new Rectangle((int)Math.Round(block.Position.X), (int)Math.Round(block.Position.Y), block.Sprite.width * dimensionScale, block.Sprite.height * dimensionScale);
+                    Rectangle goRec = new Rectangle((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y), go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale);
 
                     if (goRec.Intersects(blockRec))
                     {
