@@ -41,7 +41,7 @@ namespace Sprint0.Controllers
         {
 
         }
-        public IKeyboardController SetUpPlayerKeyboard(IMario mario)
+       public IKeyboardController SetUpPlayerKeyboard(IMario mario)
         {
             IKeyboardController keyboard = new KeyboardController();
 
@@ -54,6 +54,16 @@ namespace Sprint0.Controllers
 
             reader.Close();
             return keyboard;
+        }
+        public IGamePadController SetUpPlayerGamePad(IMario mario)
+        {
+            IGamePadController gamepad = new GamePadController();
+            XmlReader reader = XmlReader.Create(Path.GetFullPath("Controllers\\GamePadBindings.xml"));
+            reader.ReadToFollowing("gamepad");
+            reader = reader.ReadSubtree();
+            ReadPlayerButtons(reader, mario, gamepad);
+            reader.Close();
+            return gamepad;
         }
         public IKeyboardController SetUpEnemyKeyboard(IEnemy enemy)
         {
@@ -100,6 +110,40 @@ namespace Sprint0.Controllers
                 else if (objValues[2].Equals("releasable"))
                 {
                     keyboard.RegisterReleasableKey(key, command);
+                }
+            }
+            reader.Close();
+        }
+        public void ReadPlayerButtons(XmlReader reader, IMario mario, IGamePadController gamepad)
+        {
+            while (reader.ReadToFollowing("button"))
+            {
+                String objString = reader.ReadElementContentAsString();
+                String[] objValues = objString.Split(',');
+
+                Type t = Type.GetType(objValues[1]);
+                Type[] types = { Type.GetType(mario.ToString()) };
+                object[] param = { mario };
+
+                ConstructorInfo constructorInfoObj = t.GetConstructor(types);
+
+                ICommand command = (ICommand)constructorInfoObj.Invoke(param);
+
+
+                //parse string to key
+                Buttons button = (Buttons)Enum.Parse(typeof(Buttons), objValues[0]);
+
+                if (objValues[2].Equals("pressable"))
+                {
+                    gamepad.RegisterCommand(button, command);
+                }
+                else if (objValues[2].Equals("holdable"))
+                {
+                    gamepad.RegisterHoldableKey(button, command);
+                }
+                else if (objValues[2].Equals("releasable"))
+                {
+                    gamepad.RegisterReleasableKey(button, command);
                 }
             }
             reader.Close();

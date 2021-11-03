@@ -23,7 +23,7 @@ namespace Sprint0.Controllers
         private Dictionary<Keys, ICommand> holdableKeyMappings;
         private List<Keys> availableKeys;
         private KeyboardState oldState;
-
+        
         /*
          *  Initializes the Control layout
          */
@@ -35,6 +35,7 @@ namespace Sprint0.Controllers
             holdableKeyMappings = new Dictionary<Keys, ICommand>();
 
             oldState = Keyboard.GetState();
+         
         }
         public void RegisterCommand(Keys key, ICommand command)
         {

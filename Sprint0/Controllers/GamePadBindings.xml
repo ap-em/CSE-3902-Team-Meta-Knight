@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<gamepad>
+	<button>X,Sprint0.Commands.Quit,pressable</button>
+	<button>Y,Sprint0.Commands.CReset,pressable</button>
+
+	<button>DPadLeft,Sprint0.Commands.CMovePlayerLeft,pressable</button>
+	<button>DPadLeft,Sprint0.Commands.CZeroPlayerXVelocity,releasable</button>
+
+	<button>DPadRight,Sprint0.Commands.CMovePlayerRight,pressable</button>
+	<button>DPadRight,Sprint0.Commands.CZeroPlayerXVelocity,releasable</button>
+
+	<button>A,Sprint0.Commands.CPlayerJump,pressable</button>
+	<button>A,Sprint0.Commands.CPlayerJump,holdable</button>
+	<button>A,Sprint0.Commands.CPlayerStopJump,releasable</button>
+
+
+	<button>B,Sprint0.Commands.CPlayerPrimaryAttack,pressable</button>
+
+</gamepad>	

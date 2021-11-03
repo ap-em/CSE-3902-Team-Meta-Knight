@@ -22,6 +22,7 @@ namespace Sprint0
     {
         
         private IKeyboardController keyboard;
+        private IGamePadController gamepad;
         private MarioHealthStateMachine healthStateMachine;
         public IMarioState currentState;
         private Vector2 position = new Vector2(GameUtilities.initialPosX, GameUtilities.initialPosY);
@@ -40,7 +41,8 @@ namespace Sprint0
             this.position = position;
             currentState = new RightFacingStaticMario(this);
             OnStateChange();
-            keyboard = ControllerLoader.Instance.SetUpPlayerKeyboard(this);
+           keyboard = ControllerLoader.Instance.SetUpPlayerKeyboard(this);
+            gamepad = ControllerLoader.Instance.SetUpPlayerGamePad(this);
             soundInfo = new SoundInfo();
             
         }
@@ -86,6 +88,7 @@ namespace Sprint0
             currentState.Update();
             currentSprite.Update();
             keyboard.Update();
+            gamepad.Update();
            
         }
 
