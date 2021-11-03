@@ -67,5 +67,10 @@ namespace Sprint0.Blocks
         {
             sprite.Update();
         }
+
+        public void BreakBlock(IMario mario)
+        {
+            
+        }
     }
 }

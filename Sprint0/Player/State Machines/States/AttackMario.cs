@@ -102,6 +102,10 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
         {
             mario.Position = new Vector2(mario.Position.X + 1, mario.Position.Y);
         }
+        public void MarioBounce(Rectangle rectangle)
+        {
+           // We can't call velocity here, so I don't know how we get mario to bounce, for now it's just a feature that if you try to stomp an enemy while firing, you'll kill them instantly with a bounce
+        }
         public void Update()
         {
             currentState.Update();

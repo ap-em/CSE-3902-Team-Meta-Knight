@@ -122,6 +122,10 @@ namespace Sprint0
             mario.Position = new Vector2(mario.Position.X - rectangle.Width, mario.Position.Y);
            // StopMovingHorizontal();
         }
+        public void MarioBounce(Rectangle rectangle)
+        {
+            velocity.Y = -12f;
+        }
         public void Update()
         {
 

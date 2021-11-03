@@ -183,5 +183,10 @@ namespace Sprint0.Enemies
         {
             throw new NotImplementedException();
         }
+
+        public void MarioBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -31,6 +31,7 @@ namespace Sprint0
         public void RightBounce(Rectangle rectangle);
 
         public void LeftBounce(Rectangle rectangle);
+        public void MarioBounce(Rectangle rectangle);
 
     }
 }

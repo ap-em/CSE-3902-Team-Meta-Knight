@@ -83,5 +83,10 @@ namespace Sprint0.Items
         {
             throw new NotImplementedException();
         }
+
+        public void MarioBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

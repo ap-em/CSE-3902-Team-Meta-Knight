@@ -26,5 +26,6 @@ namespace Sprint0.Interfaces
         void NextSprite();
         void PrevSprite();
         void Draw(SpriteBatch spriteBatch);
+        void BreakBlock(IMario mario);
     }
 }

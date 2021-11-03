@@ -159,6 +159,10 @@ namespace Sprint0
         {
             currentState.LeftBounce(rectangle);
         }
+        public void MarioBounce(Rectangle rectangle)
+        {
+            currentState.MarioBounce(rectangle);
+        }
         public void Crouch()
         {
             currentState.Crouch();
@@ -170,6 +174,11 @@ namespace Sprint0
         public void StopMovingVertical()
         {
             currentState.StopMovingVertical();
+        }
+
+        public string GetHealthState()
+        {
+            return healthStateMachine.GetHealth();
         }
     }
 }

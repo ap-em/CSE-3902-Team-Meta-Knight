@@ -66,5 +66,16 @@ namespace Sprint0.Blocks
         {
             sprite.Update();
         }
+
+        public void BreakBlock(IMario mario)
+        {
+            if(this.GetSpriteName() == "BrickBlock" && mario.GetHealthState() == "Full" || mario.GetHealthState() == "Fire" || mario.GetHealthState() == "Star")
+            {
+                GameObjectManager.Instance.RemoveFromObjectList(this);
+                ISprite block = SpriteFactory.Instance.GetSprite("BrickBlockBreak");
+                block.Draw(Game0.Instance.spriteBatch, location);
+            }
+         }
+
     }
 }

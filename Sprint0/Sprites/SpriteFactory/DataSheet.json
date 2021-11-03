@@ -417,6 +417,13 @@
     "SpriteSheet": "blocks"
   },
   {
+    "DataX": [ 288, 304],
+    "DataY": [ 112, 112],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "BrickBlockBreak",
+    "SpriteSheet": "blocks"
+  },
+  {
     "DataX": [ 0 ],
     "DataY": [ 0 ],
     "Data": [ 16, 16, 1 ],
@@ -482,56 +489,56 @@
   {
     "DataX": [ 0, 30 ],
     "DataY": [ 4, 4 ],
-    "Data": [ 16, 16, 2],
+    "Data": [ 16, 16, 2 ],
     "SpriteName": "LeftMovingGoomba",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 0, 30 ],
     "DataY": [ 4, 4 ],
-    "Data": [ 16, 16, 2],
+    "Data": [ 16, 16, 2 ],
     "SpriteName": "RightMovingGoomba",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 0 ],
     "DataY": [ 4 ],
-    "Data": [ 16, 16, 1],
+    "Data": [ 16, 16, 1 ],
     "SpriteName": "LeftIdleGoomba",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 0 ],
     "DataY": [ 4 ],
-    "Data": [ 16, 16, 1],
+    "Data": [ 16, 16, 1 ],
     "SpriteName": "RightIdleGoomba",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 90, 120 ],
     "DataY": [ 0, 0 ],
-    "Data": [ 16, 24, 2],
+    "Data": [ 16, 24, 2 ],
     "SpriteName": "LeftMovingKoopa",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 270, 300 ],
     "DataY": [ 0, 0 ],
-    "Data": [ 16, 24, 2],
+    "Data": [ 16, 24, 2 ],
     "SpriteName": "RightMovingKoopa",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 90 ],
     "DataY": [ 0 ],
-    "Data": [ 16, 24, 1],
+    "Data": [ 16, 24, 1 ],
     "SpriteName": "LeftIdleKoopa",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 270 ],
     "DataY": [ 0 ],
-    "Data": [ 16, 24, 1],
+    "Data": [ 16, 24, 1 ],
     "SpriteName": "RightIdleKoopa",
     "SpriteSheet": "enemies"
   },
@@ -545,7 +552,7 @@
   {
     "DataX": [ 163, 202 ],
     "DataY": [ 212, 212 ],
-    "Data": [ 32, 32, 2],
+    "Data": [ 32, 32, 2 ],
     "SpriteName": "RightMovingBowser",
     "SpriteSheet": "enemies"
   },
