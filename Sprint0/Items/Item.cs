@@ -15,7 +15,7 @@ Owen Huston
 */
 namespace Sprint0.Items
 {
-    class Item : IItem, IDraw, IMovable, ICollidable
+    class Item : IItem, IDraw, IMovable, ICollidable, IUpdate
     {
         private String ItemName;
         private ISprite ItemSprite;
@@ -47,7 +47,6 @@ namespace Sprint0.Items
         {
             this.grounded = grounded;
         }
-
         public string GetItemName()
         {
             return ItemName;
@@ -64,25 +63,23 @@ namespace Sprint0.Items
         {
             Sprite.Update(); // Will have to wire this to work as intended
         }
-
-        public void UpBounce(Rectangle rectangle)
+        public void ItemCollision(IMario mario)
         {
-            throw new NotImplementedException();
-        }
-
-        public void DownBounce(Rectangle rectangle)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RightBounce(Rectangle rectangle)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void LeftBounce(Rectangle rectangle)
-        {
-            throw new NotImplementedException();
+            switch (ItemName)
+            {
+                case "Fireflower":
+                    mario.FireflowerPower();
+                    GameObjectManager.Instance.RemoveFromObjectList(this);
+                    break;
+                case "Mushroom":
+                    mario.MushroomPower();
+                    GameObjectManager.Instance.RemoveFromObjectList(this);
+                    break;
+                case "Star":
+                    mario.StarPower();
+                    GameObjectManager.Instance.RemoveFromObjectList(this);
+                    break;
+            }
         }
     }
 }

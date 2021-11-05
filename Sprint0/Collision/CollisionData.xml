@@ -24,17 +24,7 @@
     
     
 		<!-- Mushroom interaction-->
-		<obj>Sprint0.Mario,Sprint0.Items.Mushroom,Sprint0.Commands.CMushroom,Sprint0.Commands.CRemoveObject</obj>
-
-		<!-- Fireflower interaction-->
-		<obj>Sprint0.Mario,Sprint0.Items.Fireflower,Sprint0.Commands.CFireflower,Sprint0.Commands.CRemoveObject</obj>
-
-		<!-- Star interaction-->
-		<obj>Sprint0.Mario,Sprint0.Items.Star,Sprint0.Commands.CStar,Sprint0.Commands.CRemoveObject</obj>
-    
-		<!-- Mushroom Block Collision-->
-		<obj>Sprint0.Mario,Sprint0.Blocks.MushroomItemBlock,Sprint0.Commands.CUpBounce,Sprint0.Commands.CRemoveObject</obj>
-	
+		<obj>Sprint0.Mario,Sprint0.Items.Item,Sprint0.Commands.CNothing,Sprint0.Commands.CItemCollision</obj>
 		
     <!-- fire attack collision -->
     <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Top,Sprint0.Commands.CUpBounce,Sprint0.Commands.CNothing</obj>
