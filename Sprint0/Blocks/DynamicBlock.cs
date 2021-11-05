@@ -21,9 +21,8 @@ Owen Huston*/
 
 namespace Sprint0.Blocks
 {
-    class MushroomItemBlock : IBlock, IGameObject, IStatic
+    class DynamicBlock : IGameObject, IUpdate, IDraw, ICollidable, IDynamicBlock
     {
-        private ICycleStateMachine stateMachine;
         private ISprite sprite;
         private String spriteName;
         private Vector2 location = new Vector2(GameUtilities.initialBlockPosX, GameUtilities.initialBlockPosY);
@@ -32,14 +31,12 @@ namespace Sprint0.Blocks
 
         public ISprite Sprite => sprite;
 
-
-        public MushroomItemBlock(String spriteName, Vector2 position)
+        public DynamicBlock(String spriteName, Vector2 position)
         {
             location = position;
             this.spriteName = spriteName;
             sprite = SpriteFactory.Instance.GetSprite(spriteName);
         }
-
         public String GetSpriteName()
         {
             return spriteName;
@@ -50,14 +47,7 @@ namespace Sprint0.Blocks
             this.spriteName = spriteName;
             this.sprite = SpriteFactory.Instance.GetSprite(spriteName);
         }
-        public void PrevSprite()
-        {
-            stateMachine.PrevSprite();
-        }
-        public void NextSprite()
-        {
-            stateMachine.NextSprite();
-        }
+        
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, location);
@@ -66,6 +56,15 @@ namespace Sprint0.Blocks
         public void Update()
         {
             sprite.Update();
+        }
+        public void BreakBlock(IMario mario)
+        {
+            Debug.WriteLine("working");
+            if(GetSpriteName() == "BrickBlock" && (mario.GetHealthState() == "Full" || mario.GetHealthState() == "Fire" || mario.GetHealthState() == "Star"))
+            {
+                Debug.WriteLine(GetSpriteName());
+                GameObjectManager.Instance.RemoveFromObjectList(this);
+            }
         }
     }
 }

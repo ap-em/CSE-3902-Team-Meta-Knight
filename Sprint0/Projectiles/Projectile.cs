@@ -21,7 +21,7 @@ Owen Huston
 
 namespace Sprint0
 {
-    public class Projectile : IProjectile, IGameObject, IDraw, IUpdate, IMovable, ICollidable
+    public class Projectile : IProjectile, IGameObject, IDraw, IUpdate, IMovable, ICollidable, IBounce
     {
         private int fuseTime;
         private ISprite sprite;

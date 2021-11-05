@@ -9,10 +9,10 @@ namespace Sprint0.Commands
     public class CDownBounce : ICommand
     {
         public string direction;
-        public ICollidable go;
+        public IBounce go;
         public Rectangle rectangle;
 
-        public CDownBounce(ICollidable go, Rectangle rectangle)
+        public CDownBounce(IBounce go, ICollidable collided, Rectangle rectangle)
         {
             this.go = go;
             this.rectangle = rectangle;
