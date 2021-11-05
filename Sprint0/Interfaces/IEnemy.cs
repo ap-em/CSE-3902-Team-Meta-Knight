@@ -19,17 +19,15 @@ namespace Sprint0.Interfaces
 
         void Update();
         void FireProjectile();
-        void SetEnemyType(String enemyType);
-        String GetEnemyType();
-        void SetStateMachineSprite();
+        void SetSprite(String spriteName);
+        String GetSpriteName();
         void MoveRight();
         void MoveLeft();
-        void MoveUp();
-        void MoveDown();
         void SetXVelocity(int x);
         void SetYVelocity(int y);
-        void NextEnemy();
-        void PrevEnemy();
+        void NextSprite();
+        void PrevSprite();
         void Draw(SpriteBatch spriteBatch);
+        void TakeDamage();
     }
 }

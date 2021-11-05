@@ -1,7 +1,9 @@
-﻿using Sprint0.Interfaces;
+﻿using Microsoft.Xna.Framework;
+using Sprint0.Interfaces;
 using Sprint0.Interfaces.Player;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 /*
 Alex Clayton
@@ -14,19 +16,20 @@ Owen Huston
 namespace Sprint0.Commands
 {
     /*Owen Tishenkel 2021 CSE 3902*/
+    
     class CDamagePlayer : ICommand
     {
-        ILink link;
-        Game0 gameHere;
-        public CDamagePlayer(ILink link, Game0 game)
+        Rectangle rectangle;
+        IMario mario;
+        public CDamagePlayer(IMario mario, ICollidable collided, Rectangle rectangle)
         {
-            gameHere = game;
-            this.link = link;
-        }
+            this.mario = mario;
+    }
 
         public void Execute()
         {
-            link.TakeDamage();
+            Debug.WriteLine("damage");
+            mario.TakeDamage();
         }
     }
 }

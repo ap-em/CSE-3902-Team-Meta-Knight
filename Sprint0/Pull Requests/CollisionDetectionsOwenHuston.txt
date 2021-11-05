@@ -1,0 +1,11 @@
+CODE REVIEW of Sprint-3-Kaejot-Collisions by Owen Huston 10/18/21:
+
+CCollide: This is a good file to have since our game object manager class is already becoming long and has 
+alot of other responsibilities
+
+GameObjectManager: The detect collision method has a hard coded rectangle that will have to be changed in the 
+future otherwise this works good for now
+
+OVERALL: this seems like a good start for collision detection
+
+ALL.CS FILES' AUTHOR IS Owen Kaejot

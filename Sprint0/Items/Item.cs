@@ -1,7 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Interfaces;
+using Sprint0.Cycle;
 using Sprint0.Sprites.SpriteFactory;
 using System;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -12,59 +15,71 @@ Owen Huston
 */
 namespace Sprint0.Items
 {
-    /*Owen Tishenkel, heavily based on Owen Houston's Enemy class*/
-    class Item : IItems
+    class Item : IItem, IDraw, IMovable, ICollidable, IUpdate
     {
-        Game0 game;
-        IItemStateMachine stateMachine;
-        ISprite sprite;
-        private Vector2 location = new Vector2(100, 200);
-        String itemType;
-        public Item(Game0 game)
+        private String ItemName;
+        private ISprite ItemSprite;
+        private bool grounded = false;
+
+        private Vector2 location = new Vector2(GameUtilities.itemPosX, GameUtilities.itemPosY);
+        public ISprite Sprite => ItemSprite;
+
+        public Vector2 Position { get => location; set => throw new NotImplementedException(); }
+
+        public Item(String itemName, Vector2 position) // Should I just use the gameobject manager? Items will probably include mushroom, star, coin
         {
-            this.game = game;
-            stateMachine = new ItemStateMachine(this);
-            itemType = "HealHeart";
-            this.setSprite();
-            
+            this.SetItem(itemName);
+            location = position;
+            this.ItemName = itemName;
         }
 
-        public void NextItem()
+        public void SetItem(String spriteName)
         {
-            stateMachine.NextItem();
-        }
+            this.ItemName = spriteName;
+            this.ItemSprite = SpriteFactory.Instance.GetSprite(spriteName);
 
-        public void PrevItem()
-        {
-            stateMachine.PrevItem();
         }
-
-        public void Update()
+        public bool GetGrounded()
         {
-            sprite.Update();
+            return grounded;
         }
-
-        public void setSprite()
+        public void SetGrounded(bool grounded)
         {
-            this.sprite = SpriteFactory.Instance.GetSprite(this.getItemType());
+            this.grounded = grounded;
+        }
+        public string GetItemName()
+        {
+            return ItemName;
         }
         public void Move(int x, int y)
         {
             location = new Vector2(x, y);
         }
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(game.spriteBatch, location);
+            Sprite.Draw(spriteBatch, location);
         }
-        /*Sets item type*/
-        public void setItemType(String itemType)
+        public void Update()
         {
-            this.itemType = itemType;
+            Sprite.Update(); // Will have to wire this to work as intended
         }
-        /*Sets item type*/
-        public string getItemType()
+        public void ItemCollision(IMario mario)
         {
-            return itemType;
+            switch (ItemName)
+            {
+                case "Fireflower":
+                    mario.FireflowerPower();
+                    GameObjectManager.Instance.RemoveFromObjectList(this);
+                    break;
+                case "Mushroom":
+                    mario.MushroomPower();
+                    GameObjectManager.Instance.RemoveFromObjectList(this);
+                    break;
+                case "Star":
+                    mario.StarPower();
+                    GameObjectManager.Instance.RemoveFromObjectList(this);
+                    break;
+            }
         }
     }
 }

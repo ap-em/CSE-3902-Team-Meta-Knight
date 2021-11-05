@@ -14,16 +14,14 @@ namespace Sprint0.Commands
 {
     class CZeroPlayerXVelocity : ICommand
     {
-        private Game0 gameHere;
-        private string direction;
-        public CZeroPlayerXVelocity(Game0 game, string directionRef)
+        IMario mario;
+        public CZeroPlayerXVelocity(IMario mario)
         {
-            gameHere = game;
-            direction = directionRef;
+            this.mario = mario;
         }
         public void Execute()
         {
-            gameHere.link.StopMoving(direction);
+            mario.StopMovingHorizontal();
         }
     }
 }

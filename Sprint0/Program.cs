@@ -7,8 +7,10 @@ namespace Sprint0
         [STAThread]
         static void Main()
         {
+
             using (var game = new Game0())
-                game.Run();
+                Game0.Instance.Run();
+               
         }
     }
 }

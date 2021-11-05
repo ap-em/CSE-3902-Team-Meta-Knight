@@ -16,13 +16,12 @@ namespace Sprint0.Interfaces
 {
     public interface IEnemyMovement
     {
+        public Vector2 Position { get; }
 
         void Update();
         void Move();
         void MoveRight();
         void MoveLeft();
-        void MoveUp();
-        void MoveDown();
         String GetDirection();
         void SetXVelocity(int x);
         void SetYVelocity(int y);

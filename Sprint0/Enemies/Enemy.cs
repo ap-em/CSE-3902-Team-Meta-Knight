@@ -5,8 +5,11 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
-using Sprint0.Enemies;
+using Sprint0.Cycle;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Sprites.SpriteFactory;
+using Sprint0.Controllers;
+using Sprint0.UtilityClasses;
 
 /*
 Alex Clayton
@@ -19,51 +22,89 @@ Owen Huston
 /*OWEN HUSTON - 9/22/2021 */
 
 
-namespace Sprint0
+namespace Sprint0.Enemies
 {
-    public class Enemy : IEnemy
+    public class Enemy : IEnemy, ICyclable, IGameObject, IMovable, IUpdate, IDraw, ICollidable, IBounce
     {
+        private IKeyboardController keyboard;
         private IEnemyMovement enemyMovement;
-        private IEnemyStateMachine stateMachine;
+        private ICycleStateMachine cycleStateMachine;
         private ISprite sprite;
-        private String enemyType = "Octorok";
+        private EnemyHealthStateMachine healthStateMachine;
+        private String enemyType = GameUtilities.emptyString ;
+        private String spriteName = GameUtilities.emptyString;
         private bool firing = false;
         private int firingTimer = 4;
 
+        public Vector2 Position { get => enemyMovement.Position; set => throw new NotImplementedException(); }
 
-        public Enemy()
+        public ISprite Sprite => sprite;
+
+        public Enemy(String spriteName, Vector2 position)
         {
-            enemyMovement = new EnemyMovement(this, new Vector2(300,300));
-            stateMachine = new EnemyStateMachine(this, enemyMovement);
+            healthStateMachine = new EnemyHealthStateMachine(this);
+            enemyType = spriteName;
+            enemyMovement = new EnemyMovement(this, position);
+            this.spriteName = enemyMovement.GetDirection() + "Idle" + enemyType;
+            sprite = SpriteFactory.Instance.GetSprite(this.spriteName);
+            cycleStateMachine = new CycleStateMachine(this);
+            keyboard = ControllerLoader.Instance.SetUpEnemyKeyboard(this); 
         }
-        public void PrevEnemy()
+        public void TakeDamage()
         {
-            stateMachine.PrevEnemy();
-            SetStateMachineSprite();
+            healthStateMachine.TakeDamage();
         }
-        public void NextEnemy()
+        public void PrevSprite()
         {
-            stateMachine.NextEnemy();
-            SetStateMachineSprite();
+            cycleStateMachine.PrevSprite();
+            SetSprite(enemyType);
+        }
+        public void NextSprite()
+        {
+            cycleStateMachine.PrevSprite();
+            SetSprite(enemyType);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, enemyMovement.GetLocation());
         }
-        public void SetSprite(ISprite sprite)
+        public void SetSprite(String enemyType)
         {
-            this.sprite = sprite;
+            this.enemyType = enemyType;
+            bool moving = enemyMovement.GetXVelocity() != 0 || enemyMovement.GetYVelocity() != 0;
+            String direction = enemyMovement.GetDirection();
+            if (firing)
+            {
+                // spriteString = enemyMovement.GetDirection() + "Shooting" + enemy.GetEnemyType(); Get to this once we implment an enemy that has a unique attack animation  
+            }
+            else
+            {
+                if (moving)
+                {
+                    this.spriteName = enemyMovement.GetDirection() + "Moving" + enemyType;
+                }
+                else
+                {
+                    this.spriteName = enemyMovement.GetDirection() + "Idle" + enemyType;
+                }
+            }
+
+            this.sprite = SpriteFactory.Instance.GetSprite(this.spriteName);
+        }
+        public String GetSpriteName()
+        {
+            return enemyType;
         }
         public void SetStateMachineSprite()
         {
-            stateMachine.SetSprite();
+           // stateMachine.SetSprite();
         }
         public void FireProjectile()
         {
             if (!firing)
             {
-                stateMachine.FireProjectile();
                 firing = true;
+                ProjectileCreator.Instance.CreateProjectile(enemyType, enemyMovement.GetDirection(), enemyMovement.GetLocation());
             }
         }
         public bool GetFiring()
@@ -74,51 +115,29 @@ namespace Sprint0
         {
             firing = fire;
         }
-        public void SetEnemyType(string enemyType)
-        {
-             this.enemyType = enemyType;
-             SetStateMachineSprite();
-        }
-
-        public string GetEnemyType()
-        {
-            return enemyType;
-        }
 
         public void MoveRight()
         {
             enemyMovement.MoveRight();
-            SetStateMachineSprite();
+            SetSprite(enemyType);
         }
 
         public void MoveLeft()
         {
             enemyMovement.MoveLeft();
-            SetStateMachineSprite();
-        }
-
-        public void MoveUp()
-        {
-            enemyMovement.MoveUp();
-            SetStateMachineSprite();
-        }
-
-        public void MoveDown()
-        {
-            enemyMovement.MoveDown();
-            SetStateMachineSprite();
+            SetSprite(enemyType);
         }
 
         public void SetXVelocity(int x)
         {
             enemyMovement.SetXVelocity(x);
-            SetStateMachineSprite();
+            SetSprite(enemyType);
         }
 
         public void SetYVelocity(int y)
         {
             enemyMovement.SetYVelocity(y);
-            SetStateMachineSprite();
+            SetSprite(enemyType);
         }
         public void Update()
         {
@@ -137,6 +156,38 @@ namespace Sprint0
 
             enemyMovement.Move();
             sprite.Update();
+            keyboard.Update();
+        }
+
+        public bool GetGrounded()
+        {
+            //todo
+            return true;
+        }
+
+        public void SetGrounded(bool grounded)
+        {
+            //todo
+        }
+
+        public void UpBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DownBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RightBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LeftBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
         }
     }
 }

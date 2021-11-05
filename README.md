@@ -15,6 +15,8 @@ _____
 **PROGRAM DESCRIPTION**
 
 As of Sprint 2, this program implements Link, link movement, primitive attacking and item placement, enemy movement, cyclable enemies, cyclable blocks, cyclable, a quit button and a partial reset button.
+
+For SPRINT 3, our program changes all The Legend of Zelda sprites to Mario. Camera, GameObjectManager, Collision detection, and collision response classes are also implemented in this sprint. 
 _________
 
 **MOTIVATION**
@@ -57,6 +59,9 @@ Fully planning board is in https://trello.com/b/7FCwThdy/sprint-12
 
 Discord: https://discord.gg/6rHXSp9hYV (we used this for planning so please check it out)
 
+SPRINT 3:
+https://trello.com/invite/b/OLUchs6g/d35f919f9ac1f47cc808b14c6c7c94a5/sprint-3
+
 _____
 
 **ZOOM MEETING**
@@ -85,9 +90,28 @@ Our goal for this purpose was to meet together as a group and merge all of our s
 	Next, we took a look at getting the link to move properly. As a group we coded the solution to create moving states for link, as only static states were present previously, and with some modifications to the keyboard controller and certain commands to the player, we were able to get horizontal movement working. At this point, we decided that we had reached a good stopping point, having gotten the sprite factory, player states, player movement, and keyboard controller/command system to work properly. The next steps were all four directions of player movement and reworking the data sheet so all sprites could be used with the player states. We left with our game rendering link like so.
 
 Edited by Jared Israel
+
+SPRINT 3 Meetings
+
+Meeting time: 10/5/2021	https://osu.zoom.us/rec/share/uydYlzxjjLSbcRPXnvTcpO6bb1EeOne06-Z9vohl342azcAjQmVTx96maTMWDVAG.szggXz2G41bt-CYh?startTime=1633476714000
+
+Trello board link: https://trello.com/invite/b/OLUchs6g/d35f919f9ac1f47cc808b14c6c7c94a5/sprint-3
+
+In this first meeting, we all met virtually over Zoom to create and discuss our general plan for Sprint 3. First, we began by creating another Trello board for the sprint, and then began adding tasks. We started by adding tasks to a new column called “Burndown chart” that were leftover or carried over from some of the poor decisions we made in Sprint 2. These tasks also involved things that needed to be done to convert our game from Zelda/Link based to Mario based, since our end game will be based around Mario, rather than Zelda. These tasks were designated as the highest priority and to be done first, since most if not all of the tasks for the sprint required that our sprint 2 code and sprites be complete. 
+	After completing the “Burndown Chart” column and assigning members to the tasks, we began to go through the Sprint 3 requirements and create cards for each of the requirements of the sprint. We tried to focus on smaller, more broken down parts of each task in order to avoid the issues we faced last time where two or more people were assigned to a very large task and work was not divided well, leading to more than one version of the same solution and merging issues. On tasks we weren’t sure how to divide well, we took note that once we started the task and had a better understanding of what must be done to accomplish it, we would revisit and rework some of the cards and then reassign members. This is something that we did not end up doing much in Sprint 2 and was cause for a lot of headaches. 
+	After finishing getting the tasks for the sprint, we assigned members to those as well based on the previous tasks and getting an even distribution, then briefly discussed a timeline for how we would like to finish the tasks. We concluded that we should focus on getting the burndown chart tasks all complete by next Monday but that it was too early to tell how quickly the rest could get done, so we would meet again soon to get firm dates for those. Final plan please see in the Trello board link provided above.
+
+Edited by Jared Israel & Leon Cai
+
+SPRINT 4 Meetings
+
+Initial Planning Meeting 10/26/21  https://osu.zoom.us/rec/share/loDp3T-lUuUCldvQnQ5j8WcjQGUIOqpPmt5vHZk-OndBdmP03dACmmsSHP3H4T5N.AVZeZafbLWpyyvbL?startTime=1635292561000
+
+Trello Board link: https://trello.com/invite/b/G4vRS2Um/5d41fa9832b6fe1503d9e97f668ac9fe/sprint-4
+
+In this initial meeting, we created a trello board for the sprint and went through the requirements on the website, creating cards for all the tasks outlined by the assignment, although we had created the majority in class on Monday. We also created a Burndown column for leftover tasks that needed to be addressed from previous sprints, such as bugs and issues brought up in the grading of sprint 3. We then went through as a team and assigned ourselves to tasks we felt comfortable doing, trying to obtain an even distribution of work. Afterwards, we discussed how we might approach some of the tasks differently compared to previous sprints, noting that the last sprint was fairly last-minute and how some didn’t get enough work in at the end. We also noted that it would be best to try to get the burndown column completely done before the main tasks, compared to last sprint where it was done concurrently, and to start work earlier than the previous sprint.
+
 _________
-
-
 
 
 
@@ -99,3 +123,8 @@ Sprites sheets taken from https://www.spriters-resource.com/nes/legendofzelda/
 Link sprites and enemy sprites: http://www.zeldagalaxy.com/sprites-nes-loz/
 
 dungeon: http://www.zeldagalaxy.com/wp-content/img/sprites/nes/loz/tiles-dungeon.gif
+
+Mario World 1-1: https://www.spriters-resource.com/nes/supermariobros/sheet/20592/
+
+Mario Universe: http://www.mariouniverse.com/sprites-nes-smb/
+

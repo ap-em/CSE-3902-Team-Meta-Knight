@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace Sprint0.Commands
 {
     /*
@@ -17,17 +18,15 @@ Owen Huston
     /*Owen Tishenkel 2021 CSE 3902*/
     class CPlayerPrimaryAttack : ICommand
     {
-        ILink primaryAttack;
-        Game0 gameHere;
-        public CPlayerPrimaryAttack(ILink primaryAttack, Game0 game)
+        IMario mario;
+        public CPlayerPrimaryAttack(IMario mario)
         {
-            gameHere = game;
-            this.primaryAttack = primaryAttack;
+            this.mario = mario;
         }
 
         public void Execute()
         {
-            primaryAttack.PrimaryAttack();
+            mario.PrimaryAttack();
         }
     }
 }

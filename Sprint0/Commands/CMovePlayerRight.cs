@@ -17,14 +17,14 @@ Owen Huston
     /*Owen Tishenkel 2021 CSE 3902*/
     class CMovePlayerRight : ICommand
     {
-        private Game0 gameHere;
-        public CMovePlayerRight(Game0 game)
+        private IMario mario;
+        public CMovePlayerRight(IMario mario)
         {
-            gameHere = game;
+            this.mario = mario;
         }
         public void Execute()
         {
-            gameHere.link.MoveRight();
+            mario.MoveRight();
         }
     }
 }

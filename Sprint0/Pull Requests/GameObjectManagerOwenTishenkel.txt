@@ -1,0 +1,20 @@
+CODE REVIEW of Sprint-3-Jared by Owen Tishenkel 10-12-2021
+Jared Israel’s Code:
+
+GameObjectManager: Looks good through I think GameObject go in the method bodies 
+should be changed to gameObject or something similar to allow for on sight recognition 
+of what it is even without taking a glance at the type. My gut instinct is that it also 
+needs some one-job comments, the methods are pretty self-explanatory, but I think documentation 
+of intended use for each one would help in implementation rather than just going off of name and 
+code alone.
+
+IGameObject: Pretty much perfect, one-job comments are less important here due to how simple 
+the methods should be, but I lean towards having one-job comments even when they aren’t fully 
+necessary.
+
+Implementation of GameObjectManager throughout code: Replaces 2 line of code in many places with 
+one line and the ability to be able to call positions from the GameObjectManager is going to be 
+very useful
+All and all I'm down to have this pushed, and my main issues have to do with making sure with have 
+more in-code documentation to make it easier for the graders and for any one of us trying to 
+implement it

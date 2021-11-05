@@ -17,30 +17,16 @@ Owen Huston
     /*CReset resets every state and location to what it was at startup*/
     class CReset : ICommand
     {
-        /*Declaration for each command needed to reset every aspect of sprint 2*/
-        ICommand blockReset;
-        ICommand enemyReset;
-        ICommand itemReset;
-        ICommand playerReset;
-        /*gameHere provides access to game for the purposes of reseting many of the things that it contains*/
-        Game0 gameHere;
-        /*CReset relys on the fact that the constructors for each Entity class put them in the correct spot at startup*/
-        public CReset(Game0 game)
+
+        public CReset(IMario mario)
         {
-            gameHere = game;
-            blockReset = new CResetBlock(game);
-            enemyReset = new CResetEnemy(game);
-            itemReset = new CResetItem(game);
-            playerReset = new CResetPlayer(game);
             
         }
 
         public void Execute()
         {
-            blockReset.Execute();
-            enemyReset.Execute();
-            itemReset.Execute();
-            playerReset.Execute();
+            GameObjectManager.Instance.RemoveAllObjects();
+            LevelFactory.Instance.CreateLevel(LevelFactory.Instance.currentLevel);
         }
     }
 }

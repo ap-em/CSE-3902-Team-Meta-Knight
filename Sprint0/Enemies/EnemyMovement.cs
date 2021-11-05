@@ -5,7 +5,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
-using Sprint0.Enemies;
+using Sprint0.UtilityClasses;
 
 /*
 Alex Clayton
@@ -18,15 +18,17 @@ Owen Huston
 /*OWEN HUSTON - 9/22/2021 */
 
 
-namespace Sprint0
+namespace Sprint0.Enemies
 {
     public class EnemyMovement : IEnemyMovement
     {
         private Vector2 location;
-        private String direction = "Left";
+        private String direction = GameUtilities.left;
         private int XVelocity = 0;
         private int YVelocity = 0;
         private Enemy enemy;
+
+        public Vector2 Position => location;
 
         public EnemyMovement(Enemy enemy, Vector2 location)
         {
@@ -43,23 +45,13 @@ namespace Sprint0
         }
         public void MoveRight()
         {
-            direction = "Right";
+            direction = GameUtilities.right;
             XVelocity = 1;
         }
         public void MoveLeft()
         {
-            direction = "Left";
+            direction = GameUtilities.left;
             XVelocity = -1;
-        }
-        public void MoveUp()
-        {
-            direction = "Up";
-            YVelocity = -1;
-        }
-        public void MoveDown()
-        {
-            direction = "Down";
-            YVelocity = 1;
         }
         public int GetXVelocity()
         {

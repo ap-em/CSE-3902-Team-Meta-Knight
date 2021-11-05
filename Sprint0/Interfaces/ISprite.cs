@@ -17,6 +17,9 @@ namespace Sprint0
     public interface ISprite
     {
         // Outdated and only keeping here as a reference
+        public int width { get; }
+        public int height { get; }
+
         void Update();
         void Draw(SpriteBatch spritebatch, Vector2 location);
     }
