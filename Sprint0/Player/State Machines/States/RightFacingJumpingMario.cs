@@ -140,6 +140,7 @@ namespace Sprint0
             if (!jumpHold && !mario.GetGrounded())
             {
                 velocity = velocity + new Vector2(0, 30) * Game0.Instance.TargetElapsedTime.Milliseconds / 1000;
+                if (velocity.Y >= 16) velocity.Y = 16;
             }
             mario.MoveSprite(velocity);
 

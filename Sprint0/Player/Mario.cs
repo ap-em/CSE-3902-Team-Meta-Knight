@@ -18,7 +18,7 @@ Owen Huston
 */
 namespace Sprint0
 {
-    public class Mario :IMario, IGameObject, IMovable, IUpdate,IDraw, ICollidable
+    public class Mario :IMario, IGameObject, IMovable, IUpdate,IDraw, ICollidable, IBounce
     {
         private ICamera camera;
         private IKeyboardController keyboard = null;
@@ -170,6 +170,10 @@ namespace Sprint0
         public void StopMovingVertical()
         {
             currentState.StopMovingVertical();
+        }
+        public String GetHealthState()
+        {
+            return healthStateMachine.GetHealth();
         }
     }
 }

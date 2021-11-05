@@ -21,9 +21,8 @@ Owen Huston*/
 
 namespace Sprint0.Blocks
 {
-    class Block : IBlock, ICyclable, IGameObject, IStatic
+    class Block : IGameObject, IStatic, IDraw, ICollidable
     {
-        private ICycleStateMachine stateMachine;
         private ISprite sprite;
         private String spriteName;
         private Vector2 location = new Vector2(GameUtilities.initialBlockPosX, GameUtilities.initialBlockPosY);
@@ -33,8 +32,7 @@ namespace Sprint0.Blocks
         public ISprite Sprite => sprite;
 
         public Block(String spriteName, Vector2 position)
-        {
-            stateMachine = new CycleStateMachine(this);
+        { 
             location = position;
             this.spriteName = spriteName;
             sprite = SpriteFactory.Instance.GetSprite(spriteName);
@@ -49,22 +47,9 @@ namespace Sprint0.Blocks
             this.spriteName = spriteName;
             this.sprite = SpriteFactory.Instance.GetSprite(spriteName);
         }
-        public void PrevSprite()
-        {
-            stateMachine.PrevSprite();
-        }
-        public void NextSprite()
-        {
-            stateMachine.NextSprite();
-        }
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, location);
-        }
-
-        public void Update()
-        {
-            sprite.Update();
         }
     }
 }

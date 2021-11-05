@@ -1,6 +1,7 @@
 ﻿<Levels>
   <Level1>
     <row>
+     <obj>2,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
      <obj>0,12,1,Sprint0.Blocks.Block,BrickBlock</obj>
      <obj>0,11,1,Sprint0.Blocks.Block,BrickBlock</obj>
      <obj>0,10,1,Sprint0.Blocks.Block,BrickBlock</obj>

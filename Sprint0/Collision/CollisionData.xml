@@ -17,7 +17,12 @@
 		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Left,Sprint0.Commands.CNothing,Sprint0.Commands.CNothing</obj>
 		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Right,Sprint0.Commands.CNothing,Sprint0.Commands.CNothing</obj>
 		
-	
+    
+    <!--player dynamic block -->
+    <obj>Sprint0.Mario,Sprint0.Blocks.DynamicBlock,Sprint0.Commands.CDownBounce,Sprint0.Commands.CBreakBlock</obj>
+    
+    
+    
 		<!-- Mushroom interaction-->
 		<obj>Sprint0.Mario,Sprint0.Items.Mushroom,Sprint0.Commands.CMushroom,Sprint0.Commands.CRemoveObject</obj>
 
