@@ -30,6 +30,7 @@ namespace Sprint0.Enemies
         private IEnemyMovement enemyMovement;
         private ICycleStateMachine cycleStateMachine;
         private ISprite sprite;
+        private EnemyHealthStateMachine healthStateMachine;
         private String enemyType = GameUtilities.emptyString ;
         private String spriteName = GameUtilities.emptyString;
         private bool firing = false;
@@ -41,12 +42,17 @@ namespace Sprint0.Enemies
 
         public Enemy(String spriteName, Vector2 position)
         {
+            healthStateMachine = new EnemyHealthStateMachine(this);
             enemyType = spriteName;
             enemyMovement = new EnemyMovement(this, position);
             this.spriteName = enemyMovement.GetDirection() + "Idle" + enemyType;
             sprite = SpriteFactory.Instance.GetSprite(this.spriteName);
             cycleStateMachine = new CycleStateMachine(this);
             keyboard = ControllerLoader.Instance.SetUpEnemyKeyboard(this); 
+        }
+        public void TakeDamage()
+        {
+            healthStateMachine.TakeDamage();
         }
         public void PrevSprite()
         {

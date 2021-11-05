@@ -9,7 +9,7 @@
 		
 		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Left,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</obj>
 		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Right,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Top,Sprint0.Commands.CNothingMario,Sprint0.Commands.CNothing</obj>
+		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Top,Sprint0.Commands.CPlayerJumpEnemy,Sprint0.Commands.CDamageEnemy</obj>
 		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Bottom,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</obj>
 		
 		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Top,Sprint0.Commands.CNothing,Sprint0.Commands.CNothing</obj>

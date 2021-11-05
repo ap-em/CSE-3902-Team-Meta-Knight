@@ -90,11 +90,10 @@ namespace Sprint0
 
         public void CollisionOccurrence(IGameObject collider, IGameObject collided, String direction, Rectangle rectangle)
         {
-
+            string commandName1, commandName2;
             //command with direction
-            if (MoverResponse.ContainsKey(collider.ToString() + collided.ToString() + direction))
+            if (MoverResponse.TryGetValue((collider.ToString() + collided.ToString() + direction), out commandName1))
             {
-                String commandName1 = MoverResponse[collider.ToString() + collided.ToString() + direction];
                 Type t1 = Type.GetType(commandName1);
                 Type[] types1 = { Type.GetType(collider.ToString()), Type.GetType(collided.ToString()), typeof(Rectangle) };
                 object[] param1 = { collider, collided, rectangle };
@@ -107,9 +106,8 @@ namespace Sprint0
 
             }
             //command without direction
-            if (MoverResponse.ContainsKey(collider.ToString() + collided.ToString()))
+            if (MoverResponse.TryGetValue((collider.ToString() + collided.ToString()),out commandName1))
             {
-                String commandName1 = MoverResponse[collider.ToString() + collided.ToString()];
 
                 Type t1 = Type.GetType(commandName1);
                 Type[] types1 = { Type.GetType(collider.ToString()), Type.GetType(collided.ToString()), typeof(Rectangle) };
@@ -122,10 +120,9 @@ namespace Sprint0
                 command1.Execute();
 
             }
-            //command2 with direction
-            if (TargetResponse.ContainsKey(collided.ToString() + collider.ToString() + direction))
+            //command with direction
+            if (TargetResponse.TryGetValue((collided.ToString() + collider.ToString() + direction), out commandName2))
             {
-                String commandName2 = TargetResponse[collided.ToString() + collider.ToString() + direction];
                 Type t2 = Type.GetType(commandName2);
                 Type[] types2 = { Type.GetType(collided.ToString()), Type.GetType(collider.ToString()), typeof(Rectangle) };
                 object[] param2 = { collided, collider, rectangle };
@@ -137,10 +134,10 @@ namespace Sprint0
                 command2.Execute();
 
             }
-            //command2 without direction
-            if (TargetResponse.ContainsKey(collided.ToString() + collider.ToString()))
+
+            //command without direction
+            if (TargetResponse.TryGetValue((collided.ToString() + collider.ToString()), out commandName2))
             {
-                String commandName2 = TargetResponse[collided.ToString() + collider.ToString()];
                 Type t2 = Type.GetType(commandName2);
                 Type[] types2 = { Type.GetType(collided.ToString()), Type.GetType(collider.ToString()), typeof(Rectangle) };
                 object[] param2 = { collided,collider,rectangle };
