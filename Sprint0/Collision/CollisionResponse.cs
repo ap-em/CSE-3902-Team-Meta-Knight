@@ -96,8 +96,8 @@ namespace Sprint0
             {
                 String commandName1 = MoverResponse[collider.ToString() + collided.ToString() + direction];
                 Type t1 = Type.GetType(commandName1);
-                Type[] types1 = { Type.GetType(collider.ToString()), typeof(Rectangle) };
-                object[] param1 = { collider, rectangle };
+                Type[] types1 = { Type.GetType(collider.ToString()), Type.GetType(collided.ToString()), typeof(Rectangle) };
+                object[] param1 = { collider, collided, rectangle };
 
                 ConstructorInfo constructorInfoObj1 = t1.GetConstructor(types1);
 
@@ -112,8 +112,8 @@ namespace Sprint0
                 String commandName1 = MoverResponse[collider.ToString() + collided.ToString()];
 
                 Type t1 = Type.GetType(commandName1);
-                Type[] types1 = { Type.GetType(collider.ToString()), typeof(Rectangle) };
-                object[] param1 = { collider, rectangle };
+                Type[] types1 = { Type.GetType(collider.ToString()), Type.GetType(collided.ToString()), typeof(Rectangle) };
+                object[] param1 = { collider, collided, rectangle };
 
                 ConstructorInfo constructorInfoObj1 = t1.GetConstructor(types1);
 
@@ -122,13 +122,13 @@ namespace Sprint0
                 command1.Execute();
 
             }
-            //command with direction
+            //command2 with direction
             if (TargetResponse.ContainsKey(collided.ToString() + collider.ToString() + direction))
             {
                 String commandName2 = TargetResponse[collided.ToString() + collider.ToString() + direction];
                 Type t2 = Type.GetType(commandName2);
-                Type[] types2 = { Type.GetType(collided.ToString()), typeof(Rectangle) };
-                object[] param2 = { collided, rectangle };
+                Type[] types2 = { Type.GetType(collided.ToString()), Type.GetType(collider.ToString()), typeof(Rectangle) };
+                object[] param2 = { collided, collider, rectangle };
 
                 ConstructorInfo constructorInfoObj2 = t2.GetConstructor(types2);
 
@@ -137,17 +137,19 @@ namespace Sprint0
                 command2.Execute();
 
             }
-            //command without direction
+            //command2 without direction
             if (TargetResponse.ContainsKey(collided.ToString() + collider.ToString()))
             {
                 String commandName2 = TargetResponse[collided.ToString() + collider.ToString()];
                 Type t2 = Type.GetType(commandName2);
-                Type[] types2 = { Type.GetType(collided.ToString()), typeof(Rectangle) };
-                object[] param2 = { collided, rectangle };
+                Type[] types2 = { Type.GetType(collided.ToString()), Type.GetType(collider.ToString()), typeof(Rectangle) };
+                object[] param2 = { collided,collider,rectangle };
 
                 ConstructorInfo constructorInfoObj2 = t2.GetConstructor(types2);
 
                 ICommand command2 = (ICommand)constructorInfoObj2.Invoke(param2);
+
+                Debug.WriteLine(commandName2);
 
                 command2.Execute();
             }

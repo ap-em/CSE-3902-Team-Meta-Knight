@@ -24,6 +24,7 @@ namespace Sprint0
         //Scales dimensions of sprites for collision to accuratelly reflect their real size in game
         private static int dimensionScale = 2;
 
+        public List<ICollidable> collidableGameObjects = new List<ICollidable>();
         public List<IDraw> drawableGameObjects= new List<IDraw>();
         public List<IUpdate> updateableGameObjects = new List<IUpdate>();
         public List<IMovable> movableGameObjects = new List<IMovable>();
@@ -57,8 +58,11 @@ namespace Sprint0
             {
                 staticGameObjects[column][row] = (IStatic)gameObject;
             }
-            //add gameObjects to list
-            gameObjectInsertQueue.Add(gameObject);
+            else
+            {
+                //add gameObjects to list
+                gameObjectInsertQueue.Add(gameObject);
+            }
         }
         public void RemoveFromObjectList(IGameObject gameObject)
         {
@@ -86,6 +90,10 @@ namespace Sprint0
                 {
                     Game0.Instance.AddPlayerToList((IMario)go);
                 }
+                if (go is ICollidable)
+                {
+                    collidableGameObjects.Add((ICollidable)go);
+                }
                 gameObjects.Add(go);
             }
 
@@ -110,6 +118,10 @@ namespace Sprint0
                 if (go is IMario)
                 {
                     Game0.Instance.RemovePlayerFromList((IMario)go);
+                }
+                if (go is ICollidable)
+                {
+                    collidableGameObjects.Remove((ICollidable)go);
                 }
                 gameObjects.Remove(go);
             }
@@ -364,7 +376,7 @@ namespace Sprint0
             //Rectangle for go we are looking at
             Rectangle goRec = new Rectangle((int)go.Position.X, (int)go.Position.Y, go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale);
             //Check each entity in gameObjects
-            foreach (IMovable entity in movableGameObjects)
+            foreach (ICollidable entity in collidableGameObjects)
             {
                 if (!entity.Equals(go))
                 {

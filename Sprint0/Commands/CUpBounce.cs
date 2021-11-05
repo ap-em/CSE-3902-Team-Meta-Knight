@@ -9,9 +9,9 @@ namespace Sprint0.Commands
     public class CUpBounce : ICommand
     {
         public string direction;
-        public ICollidable go;
+        public IBounce go;
         public Rectangle rectangle;
-        public CUpBounce(ICollidable go, Rectangle rectangle)
+        public CUpBounce(IBounce go, ICollidable collided, Rectangle rectangle)
         {
             this.go = go;
             this.rectangle = rectangle;

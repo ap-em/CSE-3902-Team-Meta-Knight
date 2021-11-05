@@ -9,9 +9,9 @@ namespace Sprint0.Commands
     public class CRightBounce : ICommand
     {
         public string direction;
-        public ICollidable go;
+        public IBounce go;
         public Rectangle rectangle;
-        public CRightBounce(ICollidable go, Rectangle rectangle)
+        public CRightBounce(IBounce go, Rectangle rectangle)
         {
             this.go = go;
             this.rectangle = rectangle;

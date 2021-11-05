@@ -38,5 +38,6 @@ namespace Sprint0
         void OnStateChange();
         void StopMovingHorizontal();
         void StopMovingVertical();
+        String GetHealthState();
     }
 }

@@ -11,9 +11,8 @@ namespace Sprint0
      */
     public interface ICollidable
     {
-        public void UpBounce(Rectangle rectangle);
-        public void DownBounce(Rectangle rectangle);
-        public void RightBounce(Rectangle rectangle);
-        public void LeftBounce(Rectangle rectangle);
+        public Vector2 Position { get; set; }
+        public ISprite Sprite { get; }
+
     }
 }
