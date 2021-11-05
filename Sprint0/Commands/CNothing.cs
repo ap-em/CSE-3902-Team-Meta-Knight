@@ -10,7 +10,7 @@ namespace Sprint0.Commands
     class CNothing : ICommand
     {
 
-        public CNothing(IGameObject go,IGameObject collided, Rectangle rectangle)
+        public CNothing(IGameObject go, ICollidable collided, Rectangle rectangle)
         {
 
         }

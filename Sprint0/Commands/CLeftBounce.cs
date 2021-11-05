@@ -11,7 +11,7 @@ namespace Sprint0.Commands
         public string direction;
         public IBounce go;
         Rectangle rectangle;
-        public CLeftBounce(IBounce go, Rectangle rectangle)
+        public CLeftBounce(IBounce go, ICollidable collided, Rectangle rectangle)
         {
             this.go = go;
             this.rectangle = rectangle;

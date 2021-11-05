@@ -146,8 +146,6 @@ namespace Sprint0
 
                 ICommand command2 = (ICommand)constructorInfoObj2.Invoke(param2);
 
-                Debug.WriteLine(commandName2);
-
                 command2.Execute();
             }
 
