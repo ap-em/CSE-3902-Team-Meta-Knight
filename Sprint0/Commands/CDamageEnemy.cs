@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Sprint0.Enemies;
 using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -7,16 +7,16 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Commands
 {
-    class CNothing : ICommand
+    class CDamageEnemy : ICommand
     {
-
-        public CNothing(IGameObject go, ICollidable collided, Rectangle rectangle)
+        private Enemy enemy;
+        public CDamageEnemy(Enemy enemyRefernce, Rectangle rec)
         {
-
+            enemy = enemyRefernce;
         }
         public void Execute()
         {
-
+            enemy.TakeDamage();
         }
     }
 }

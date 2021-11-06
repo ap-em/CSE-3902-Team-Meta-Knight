@@ -7,6 +7,7 @@ using Sprint0.Sprites.SpriteFactory;
 using Sprint0.Concrete_Classes.State_Machines.States;
 using Sprint0.Interfaces;
 using Sprint0.Controllers;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -17,13 +18,13 @@ Owen Huston
 */
 namespace Sprint0
 {
-    public class Mario :IMario, IGameObject, IMovable
+    public class Mario :IMario, IGameObject, IMovable, IUpdate,IDraw, ICollidable, IBounce
     {
-        
-        private IKeyboardController keyboard;
+        private ICamera camera;
+        private IKeyboardController keyboard = null;
         private MarioHealthStateMachine healthStateMachine;
         public IMarioState currentState;
-        private Vector2 position = new Vector2(100, 100);
+        private Vector2 position = new Vector2(GameUtilities.initialPosX, GameUtilities.initialPosY);
         private ISprite currentSprite;
         private IMarioState attack;
         private bool isGrounded;
@@ -34,14 +35,12 @@ namespace Sprint0
 
         public Mario(String spriteName, Vector2 position)
         {
+            camera = new Camera(Game0.Instance.marios.Count);
             healthStateMachine = new MarioHealthStateMachine(this);
-
             this.position = position;
             currentState = new RightFacingStaticMario(this);
             OnStateChange();
-            keyboard = ControllerLoader.Instance.SetUpPlayerKeyboard(this);
             soundInfo = new SoundInfo();
-            
         }
 
         /*
@@ -84,8 +83,17 @@ namespace Sprint0
             healthStateMachine.Update();
             currentState.Update();
             currentSprite.Update();
+            if(keyboard != null)
             keyboard.Update();
-           
+            camera.Update(position);
+        }
+        public ICamera GetCamera()
+        {
+            return camera;
+        }
+        public void SetKeyboard(IKeyboardController keyboard)
+        {
+            this.keyboard = keyboard;
         }
 
         public void MoveSprite(Vector2 change)
@@ -162,6 +170,10 @@ namespace Sprint0
         public void StopMovingVertical()
         {
             currentState.StopMovingVertical();
+        }
+        public String GetHealthState()
+        {
+            return healthStateMachine.GetHealth();
         }
     }
 }

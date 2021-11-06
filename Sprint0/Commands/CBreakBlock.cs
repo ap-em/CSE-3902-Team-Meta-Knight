@@ -7,17 +7,19 @@ using System.Text;
 
 namespace Sprint0.Commands
 {
-    class CFireflower : ICommand
+    class CBreakBlock : ICommand
     {
+        IMario mario;
+        IDynamicBlock block;
 
-        IMario Mario;
-        public CFireflower(IMario mario, Rectangle rect)
+        public CBreakBlock(IDynamicBlock block, IMario mario, Rectangle rectangle)
         {
-            Mario = mario;
+            this.mario = mario;
+            this.block = block;
         }
         public void Execute()
         {
-            Mario.FireflowerPower();
+            block.BreakBlock(mario);
         }
     }
 }

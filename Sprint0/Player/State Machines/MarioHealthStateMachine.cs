@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -18,7 +19,7 @@ namespace Sprint0
         private enum MarioHealth { star, fire, fireDamaged, full, fullDamaged, half, none };
         private MarioHealth currentHealth = MarioHealth.full;
         private MarioHealth previousHealth = MarioHealth.full;
-        private int invinsibleTimer = 20;
+        private int invinsibleTimer = GameUtilities.invinsibleTimer;
 
 
         public MarioHealthStateMachine(IMario mario)
@@ -53,7 +54,7 @@ namespace Sprint0
             if (invinsibleTimer <= 0)
             {
                 //invinsible for a few frames after taking damage
-                invinsibleTimer = 50;
+                invinsibleTimer = GameUtilities.invinsibleTimerTakeDamage;
                 switch (currentHealth)
                 {
                     case MarioHealth.star:
@@ -78,7 +79,7 @@ namespace Sprint0
         }
         public void StarPower()
         {
-            invinsibleTimer = 100;
+            invinsibleTimer = GameUtilities.invinsibleTimerStar;
             previousHealth = currentHealth;
             currentHealth = MarioHealth.star;
             mario.OnStateChange();

@@ -6,6 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Sprint0.UtilityClasses;
+
+
 
 namespace Sprint0
 {
@@ -15,11 +18,16 @@ namespace Sprint0
      */
     public class GameObjectManager
     {
+        private int maxRowLength = 1000;
+        private int maxNumberOfRows = 100;
+        private IStatic[][] staticGameObjects = new IStatic[1000][];
         //Scales dimensions of sprites for collision to accuratelly reflect their real size in game
         private static int dimensionScale = 2;
-        public List<IProjectile> projectiles = new List<IProjectile>();
-        public List<IProjectile> projectileRemovalQueue = new List<IProjectile>();
-        public List<IProjectile> projectileInsertQueue = new List<IProjectile>();
+
+        public List<ICollidable> collidableGameObjects = new List<ICollidable>();
+        public List<IDraw> drawableGameObjects= new List<IDraw>();
+        public List<IUpdate> updateableGameObjects = new List<IUpdate>();
+        public List<IMovable> movableGameObjects = new List<IMovable>();
         public List<IGameObject> gameObjects = new List<IGameObject>();
         public List<IGameObject> gameObjectRemovalQueue = new List<IGameObject>();
         public List<IGameObject> gameObjectInsertQueue = new List<IGameObject>();
@@ -35,227 +43,325 @@ namespace Sprint0
                 return instance;
             }
         }
-
-        public void AddToObjectList(IGameObject gameObject)
+        public GameObjectManager()
         {
-            gameObjectInsertQueue.Add(gameObject);
+            //add space for static objects on each row
+            for (int i = 0; i < maxRowLength; i++)
+            {
+                staticGameObjects[i] = new IStatic[maxNumberOfRows];
+            }
+        }
+        public void AddToObjectList(IGameObject gameObject, int column, int row)
+        {
+            //add static gameObjects to array
+            if(gameObject is IStatic)
+            {
+                staticGameObjects[column][row] = (IStatic)gameObject;
+            }
+            else
+            {
+                //add gameObjects to list
+                gameObjectInsertQueue.Add(gameObject);
+            }
         }
         public void RemoveFromObjectList(IGameObject gameObject)
         {
             gameObjectRemovalQueue.Add(gameObject);
             
         }
-        public void AddToProjectileList(IProjectile projectile)
-        {
-            projectileInsertQueue.Add(projectile);
-        }
-        public void RemoveFromProjectileList(IProjectile projectile)
-        {
-            projectileRemovalQueue.Add(projectile);
-        }
 
         public void AddObjects()
         {
             foreach (IGameObject go in gameObjectInsertQueue)
             {
+                if (go is IMovable)
+                {
+                    movableGameObjects.Add((IMovable)go);
+                }
+                if(go is IDraw)
+                {
+                    drawableGameObjects.Add((IDraw)go);
+                }
+                if(go is IUpdate)
+                {
+                    updateableGameObjects.Add((IUpdate)go);
+                }
+                if (go is IMario)
+                {
+                    Game0.Instance.AddPlayerToList((IMario)go);
+                }
+                if (go is ICollidable)
+                {
+                    collidableGameObjects.Add((ICollidable)go);
+                }
                 gameObjects.Add(go);
-            }
-            foreach (IProjectile projectile in projectileInsertQueue)
-            {
-                projectiles.Add(projectile);
             }
 
             gameObjectInsertQueue.Clear();
-            projectileInsertQueue.Clear();
         }
         public void RemoveObjects()
         {
             foreach (IGameObject go in gameObjectRemovalQueue)
             {
+                if(go is IMovable && movableGameObjects.Contains((IMovable)go))
+                {
+                    movableGameObjects.Remove((IMovable)go);
+                }
+                if (go is IDraw && drawableGameObjects.Contains((IDraw)go))
+                {
+                    drawableGameObjects.Remove((IDraw)go);
+                }
+                if (go is IUpdate && updateableGameObjects.Contains((IUpdate)go))
+                {
+                    updateableGameObjects.Remove((IUpdate)go);
+                }
+                if (go is IMario)
+                {
+                    Game0.Instance.RemovePlayerFromList((IMario)go);
+                }
+                if (go is ICollidable)
+                {
+                    collidableGameObjects.Remove((ICollidable)go);
+                }
                 gameObjects.Remove(go);
-                
-            }
-            foreach (IProjectile projectile in projectileRemovalQueue)
-            {
-                projectiles.Remove(projectile);
-
             }
 
             gameObjectRemovalQueue.Clear();
-            projectileRemovalQueue.Clear();
+        }
+        public void RemoveAllObjects()
+        {
+            gameObjectRemovalQueue.Clear();
+            foreach (IGameObject go in gameObjects)
+            {
+                gameObjectRemovalQueue.Add(go);
+            }
+            for (int i = 0; i < maxNumberOfRows; i++)
+            {
+                Array.Clear(staticGameObjects[i], 0, staticGameObjects[i].Length);
+            }
         }
         public void UpdateGameObjects()
         {
             AddObjects();
             RemoveObjects();
-            foreach (IGameObject go in gameObjects)
+            foreach (IUpdate go in updateableGameObjects)
             {
                 go.Update();
             }
-            foreach(IProjectile projectile in projectiles)
-            {
-                projectile.Update();
-            }
-            
-            DetectCollisions(); // FIXME
+            DetectCollisions(); 
         }
-        
         public void DrawGameObjects(SpriteBatch spriteBatch)
+        {
+            if(Game0.Instance.currentDrawingMario != null)
+            DrawStaticGameObjects(spriteBatch, Game0.Instance.currentDrawingMario.Position);
+            
+            foreach (IDraw go in drawableGameObjects)
+            {
+                go.Draw(spriteBatch);
+            }
+        }
+        public void DrawStaticGameObjects(SpriteBatch spriteBatch, Vector2 position)
         {
             Texture2D background = Game0.Instance.Content.Load<Texture2D>("1-1");
             spriteBatch.Draw(background, new Rectangle(0, 0, 6450, 600), Color.White);
-            foreach (IGameObject go in gameObjects)
-            {
-                if (go.ToString().Equals("Sprint0.Mario"))
+                /*
+                 * used for debuging collidable objects around player
+                IGameObject[] b = GetCollidables(position, new Vector2(32, 64));
+
+                for(int i = 0; i<b.Length;i++)
                 {
-                    //draw the surround blocks around mario
-                    Level.Instance.Draw(spriteBatch, go.Position);
+                    if (b[i] != null)
+                    {
+                        b[i].Draw(spriteBatch);
+                    }
                 }
-                go.Draw(spriteBatch);
-            }
-            foreach(IProjectile projectile in projectiles)
+                */
+
+            position = Level.Instance.WorldToBlockSpace(position);
+            int xPos = (int)position.X;
+            int yPos = (int)position.Y;
+
+                // draw only the blocks available on the screen
+            for (int x = xPos - 25; x < xPos + 25; x++)
             {
-                projectile.Draw(spriteBatch);
+                for (int y = yPos - 20; y < yPos + 20; y++)
+                {
+                    //make sure object is bounds of array
+                    if (x < 0) x = 0;
+                    else if (x > 998) x = 998;
+                    if (y < 0) y = 0;
+                    else if (y > 99) y = 99;
+                    if (staticGameObjects[x][y] != null)
+                    {
+                        staticGameObjects[x][y].Draw(spriteBatch);
+                    }
+                }
             }
+        }
+        public IStatic[] GetCollidables(Vector2 position, Vector2 size)
+        {
+
+            int width = (int)Math.Round(size.X / 32);
+            int height = (int)Math.Round(size.Y / 32);
+
+            if (width == 0)
+            {
+                width = 1;
+            }
+            if (height == 0)
+            {
+                height = 1;
+            }
+
+
+            position = Level.Instance.WorldToBlockSpace(position);
+
+            /*stay in bounds of array*/
+            if (position.X - width < 1)
+            {
+                position.X = width;
+            }
+            if (position.Y - height < 1)
+            {
+                position.Y = height;
+            }
+
+
+            IStatic[] blocks = new IStatic[8];
+
+            /*check blocks 1 above and y + height to check below objects feet*/
+
+
+            blocks[0] = staticGameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y + height)];
+            blocks[1] = staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y + height)];
+            blocks[2] = staticGameObjects[(int)Math.Round(position.X + width)][(int)Math.Round(position.Y + height)];
+            blocks[3] = staticGameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y)];
+            blocks[4] = staticGameObjects[(int)Math.Round(position.X + width)][(int)Math.Round(position.Y)];
+            blocks[5] = staticGameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y - 1)];
+            blocks[6] = staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y - 1)];
+            blocks[7] = staticGameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y - 1)];
+
+            return blocks;
         }
 
         public void DetectCollisions()
         {
-            foreach (IGameObject go in gameObjects)
+            foreach (IMovable go in movableGameObjects)
             {
-                /*
-                 * Here, use the gameobjects position and possibly sprite (size?) data to see if they collide with anything
-                 * This should be done by passing this info to a map manager type class that has position to block type data
-                 * 
-                 * If there is a collision we should have a data table with commands similar to what was shown in lecture, 
-                 * we can then use reflection to create these commands and execute them.
-                 */
-                //Handles collision with the level as it differs somewhat to other collisions
                 LevelCollision(go);
-
-                //Non-block collisions should be working based on wheather the object is within a certain height first,
-                //essentially basing it on rows
                 EntityCollision(go);
             }
         }
 
         /*Handles Level Collision for DetectCollisions method*/
-        private void LevelCollision(IGameObject go)
+        private void LevelCollision(IMovable go)
         {
             //Here for implementation of collisions when neccesary
             ICommand collision;
             //Get the surronding blocks of whatever the game object is as blocks are not added to the game object list on creation.
-            IGameObject[] levelCollides = Level.Instance.GetCollidables(new Vector2 ((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y)), new Vector2(go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale));
-            Rectangle goRec = new Rectangle((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y), go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale);
+            IStatic[] levelCollides = GetCollidables(new Vector2 ((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y)), new Vector2(go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale));
+            
             //Go through each colliding block
-            foreach (IGameObject block in levelCollides)
+            foreach (IStatic block in levelCollides)
             {
+
                 //set gravity if block below gameobject is null
-                if (block == levelCollides[1] && levelCollides[1] == null && go is IMovable)
+                if (block == levelCollides[1] && levelCollides[1] == null)
                 {
-                    IMovable movable = (IMovable)go;
-                    movable.SetGrounded(false);
+                    go.SetGrounded(false);
                 }
 
                 //Check if the block the object is colliding with actually exists
                 if (block != null)
                 {
-
                     //Create Rectangle for block and check to see if game object rectangle intersects with it
                     Rectangle blockRec = new Rectangle((int)Math.Round(block.Position.X), (int)Math.Round(block.Position.Y), block.Sprite.width * dimensionScale, block.Sprite.height * dimensionScale);
-                       
+                    Rectangle goRec = new Rectangle((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y), go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale);
+
                     if (goRec.Intersects(blockRec))
                     {
                         //Determine collision side based on how much it's intersecting in either dimension
-                        String collisionSide ="";
+                        String collisionSide =GameUtilities.emptyString;
                         Rectangle collisionRec = Rectangle.Intersect(goRec, blockRec);
 
 
                         if (collisionRec.Top == blockRec.Top)
                         {
-                            collisionSide = "Top";
+                            collisionSide = GameUtilities.top;
 
-                            /* if the object is movable we want it to prefer top of block when its moving downward */
+                            /* we want it to prefer top of block when its moving downward */
                             /* to prevent falling through the ground */
-                            if (go is IMovable)
+                            if (!go.GetGrounded())
                             {
-                                IMovable movable = (IMovable)go;
-                                if (!movable.GetGrounded())
+                                if (collisionRec.Width < collisionRec.Height - GameUtilities.bias)
                                 {
-                                    if (collisionRec.Width < collisionRec.Height - 16)
+                                    if (collisionRec.Right == blockRec.Right)
                                     {
-                                        if (collisionRec.Right == blockRec.Right)
-                                        {
-                                            collisionSide = "Right";
-                                        }
-                                        else
-                                        {
-                                            collisionSide = "Left";
-                                        }
+                                        collisionSide = GameUtilities.right;
+                                    }
+                                    else
+                                    {
+                                        collisionSide = GameUtilities.left;
                                     }
                                 }
-                                else
+                            }
+                            else
+                            {
+                                if (collisionRec.Width < collisionRec.Height)
                                 {
-                                    if (collisionRec.Width < collisionRec.Height)
+                                    if (collisionRec.Right == blockRec.Right)
                                     {
-                                        if (collisionRec.Right == blockRec.Right)
-                                        {
-                                            collisionSide = "Right";
-                                        }
-                                        else
-                                        {
-                                            collisionSide = "Left";
-                                        }
+                                        collisionSide = GameUtilities.right;
+                                    }
+                                    else
+                                    {
+                                        collisionSide = GameUtilities.left;
                                     }
                                 }
                             }
                         }
                         else if (collisionRec.Bottom == blockRec.Bottom)
                         {
-                            collisionSide = "Bottom";
-                            if (go is IMovable)
+                            collisionSide = GameUtilities.bottom;
+                            if (!go.GetGrounded())
                             {
-                                IMovable movable = (IMovable)go;
-                                if (!movable.GetGrounded())
+                                if (collisionRec.Width < collisionRec.Height - GameUtilities.bias)
                                 {
-                                    if (collisionRec.Width < collisionRec.Height - 16)
+                                    if (collisionRec.Right == blockRec.Right)
                                     {
-                                        if (collisionRec.Right == blockRec.Right)
-                                        {
-                                            collisionSide = "Right";
-                                        }
-                                        else
-                                        {
-                                            collisionSide = "Left";
-                                        }
+                                        collisionSide = GameUtilities.right;
+                                    }
+                                    else
+                                    {
+                                        collisionSide = GameUtilities.left;
                                     }
                                 }
-                                else
+                            }
+                            else
+                            {
+                                if (collisionRec.Width < collisionRec.Height)
                                 {
-                                    if (collisionRec.Width < collisionRec.Height)
+                                    if (collisionRec.Right == blockRec.Right)
                                     {
-                                        if (collisionRec.Right == blockRec.Right)
-                                        {
-                                            collisionSide = "Right";
-                                        }
-                                        else
-                                        {
-                                            collisionSide = "Left";
-                                        }
+                                        collisionSide = GameUtilities.right;
+                                    }
+                                    else
+                                    {
+                                        collisionSide =  GameUtilities.left;
                                     }
                                 }
                             }
                         }
                         else if (collisionRec.Right == blockRec.Right)
                         {
-                            collisionSide = "Right";
+                            collisionSide = GameUtilities.right;
                         }
                         else if (collisionRec.Right == blockRec.Right)
                         {
-                            collisionSide = "Left";
+                            collisionSide = GameUtilities.left;
                         }
                         //Create the correct collision command based on the block and the game object and the side its collding most with
-                        collision = new CCollide(block, go, collisionSide, collisionRec);
+                        collision = new CCollide((IGameObject)block, (IGameObject)go, collisionSide, collisionRec);
                         //Execute the correct response to interfering with personal space
                         collision.Execute();
                     }
@@ -263,14 +369,14 @@ namespace Sprint0
             }
         }
 
-        private void EntityCollision(IGameObject go)
+        private void EntityCollision(IMovable go)
         {
             //Here for implementation of collisions when neccesary
             ICommand collision;
             //Rectangle for go we are looking at
             Rectangle goRec = new Rectangle((int)go.Position.X, (int)go.Position.Y, go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale);
             //Check each entity in gameObjects
-            foreach (IGameObject entity in gameObjects)
+            foreach (ICollidable entity in collidableGameObjects)
             {
                 if (!entity.Equals(go))
                 {
@@ -283,33 +389,33 @@ namespace Sprint0
                         if (goRec.Intersects(entityRec))
                         {
                             //Determine collision side based on how much it's intersecting in either dimension
-                            String collisionSide = "";
+                            String collisionSide = GameUtilities.emptyString;
                             Rectangle collisionRec = Rectangle.Intersect(goRec, entityRec);
                             if (collisionRec.Width >= collisionRec.Height)
                             {
                                 if (collisionRec.Top == entityRec.Top)
                                 {
-                                    collisionSide = "Top";
+                                    collisionSide = GameUtilities.top;
                                 }
                                 else
                                 {
-                                    collisionSide = "Bottom";
+                                    collisionSide = GameUtilities.bottom;
                                 }
                             }
                             else
                             {
                                 if (collisionRec.Right == entityRec.Right)
                                 {
-                                    collisionSide = "Right";
+                                    collisionSide = GameUtilities.right;
                                 }
                                 else
                                 {
-                                    collisionSide = "Left";
+                                    collisionSide = GameUtilities.left;
                                 }
                             }
                            
                             //Create the correct collision command based on the entity and the game object and the side its collding most with
-                            collision = new CCollide(entity, go, collisionSide,collisionRec);
+                            collision = new CCollide((IGameObject)entity, (IGameObject)go, collisionSide,collisionRec);
                             //Execute the correct response to interfering with personal space
                             collision.Execute();
                         }
@@ -317,19 +423,6 @@ namespace Sprint0
                 }
             }
 
-        }
-        public void RemoveAllObjects()
-        {
-            gameObjectRemovalQueue.Clear();
-            projectileRemovalQueue.Clear();
-            foreach(IGameObject go in gameObjects)
-            {
-                gameObjectRemovalQueue.Add(go);
-            }
-            foreach(IProjectile projectile in projectiles)
-            {
-                projectileRemovalQueue.Add(projectile);
-            }
         }
     }
 }

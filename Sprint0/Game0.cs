@@ -14,6 +14,9 @@ using Sprint0.Sprites.SpriteFactory;
 using System.Collections;
 using Microsoft.Xna.Framework.Content;
 using Sprint0.Items;
+using Sprint0.UtilityClasses;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 /*
  * Alex Clayton 2021 CSE 3902
@@ -22,13 +25,16 @@ namespace Sprint0
 {
     public class Game0 : Game
     {
+        public Viewport tempView;
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         public ISprite sprite;
         public SpriteFont font;
         public static ContentManager ContentInstance;
-        public ICamera camera;
-        public Mario mario;
+        public IMario currentDrawingMario;
+        public Dictionary<IMario, int> marios = new Dictionary<IMario, int>();
+        public List<IMario> marioRemovalQueue = new List<IMario>();
+        public List<IMario> marioInsertQueue = new List<IMario>();
         public Texture2D background;
         public SoundInfo soundInfo;
 
@@ -59,11 +65,9 @@ namespace Sprint0
         protected override void Initialize()
         {
             LevelFactory.Instance.CreateLevel(1);
-            CreatePlayer();
-            camera = new Camera();
-            
+
             IsFixedTimeStep = true;
-            TargetElapsedTime = TimeSpan.FromSeconds(1 / 30.0f);
+            TargetElapsedTime = TimeSpan.FromSeconds(GameUtilities.timeSpan);
 
             soundInfo.PlaySound("OverworldTheme", true);
 
@@ -75,29 +79,69 @@ namespace Sprint0
             
         }
 
-        public void CreatePlayer()
+        public void AddPlayerToList(IMario mario)
         {
-            mario = new Mario("Sprint0.Mario", new Vector2(50, 200));     
-            GameObjectManager.Instance.AddToObjectList(mario);
-            
+            marioInsertQueue.Add(mario);
+        }
+        public void RemovePlayerFromList(IMario mario)
+        {
+            marioRemovalQueue.Add(mario);
+        }
+        //only add one player at a time
+        public void AddPlayers()
+        {
+            int count = marios.Count;
+            int i = 0;
+
+            foreach(IMario mario in marioInsertQueue)
+            {
+                marios.Add(mario, count + i);
+                i++;
+            }
+            //update cameras when we add a player
+            if (i > 0)
+            {
+                foreach (IMario mario in marios.Keys)
+                {
+                    Debug.WriteLine(marios.GetValueOrDefault(mario));
+                    mario.GetCamera().SetIndex(marios.GetValueOrDefault(mario));
+                    mario.GetCamera().UpdateViews(marios.Count);
+                    mario.SetKeyboard(ControllerLoader.Instance.SetUpPlayerKeyboard(mario, marios.GetValueOrDefault(mario)));
+                }
+            }
+            marioInsertQueue.Clear();
+        }
+        public void RemovePlayers()
+        {
+            foreach (IMario mario in marioRemovalQueue)
+            {
+                marios.Remove(mario);
+            }
+            marioRemovalQueue.Clear();
         }
         protected override void Update(GameTime gameTime)
         {
+            RemovePlayers();
+            AddPlayers();
             base.Update(gameTime);
             GameObjectManager.Instance.UpdateGameObjects();
-            if (mario != null)
-            {
-                camera.Update(mario.Position);
-            }
-            
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.ViewMatrix);
-            GameObjectManager.Instance.DrawGameObjects(spriteBatch);
-            spriteBatch.End();
+
+            foreach (IMario mario in marios.Keys)
+            {
+                tempView = GraphicsDevice.Viewport;
+                currentDrawingMario = mario;
+                GraphicsDevice.Viewport = mario.GetCamera().ViewPort;
+                spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, mario.GetCamera().ViewMatrix);
+                GameObjectManager.Instance.DrawGameObjects(spriteBatch);
+                spriteBatch.End();
+                GraphicsDevice.Viewport = tempView;
+            }
+
             base.Draw(gameTime);
         }
     }

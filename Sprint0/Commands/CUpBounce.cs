@@ -6,21 +6,20 @@ using Sprint0.Interfaces;
 
 namespace Sprint0.Commands
 {
-    public class CPlayerDownBounce : ICommand
+    public class CUpBounce : ICommand
     {
         public string direction;
-        public IMario mario;
+        public IBounce go;
         public Rectangle rectangle;
-
-        public CPlayerDownBounce(IMario playerRef, Rectangle rectangle)
+        public CUpBounce(IBounce go, ICollidable collided, Rectangle rectangle)
         {
-            mario = playerRef;
+            this.go = go;
             this.rectangle = rectangle;
         }
 
         public void Execute()
         {
-            mario.DownBounce(rectangle);
+            go.UpBounce(rectangle);
         }
     }
 }

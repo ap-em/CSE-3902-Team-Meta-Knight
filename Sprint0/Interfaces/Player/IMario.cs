@@ -21,6 +21,9 @@ namespace Sprint0
         // Interface for items that Mario has such as his Sword, arrows, boomerang, bombs, blue candle, etc.
         // These would be like commands in a way, since having it seleceted and pressing A, for example, would cause Mario to attack with his sword, executing the sword attack.
         void Update();
+        public Vector2 Position { get; set; }
+        void SetKeyboard(IKeyboardController keyboard);
+        ICamera GetCamera();
         void Draw(SpriteBatch spritebatch);
         /*Movement Centric code, MoveDirection code changes the facing of Mario and moves him in that direction*/
         void MoveLeft();
@@ -35,9 +38,6 @@ namespace Sprint0
         void OnStateChange();
         void StopMovingHorizontal();
         void StopMovingVertical();
-        public void UpBounce(Rectangle rectangle);
-        public void DownBounce(Rectangle rectangle);
-        public void RightBounce(Rectangle rectangle);
-        public void LeftBounce(Rectangle rectangle);
+        String GetHealthState();
     }
 }

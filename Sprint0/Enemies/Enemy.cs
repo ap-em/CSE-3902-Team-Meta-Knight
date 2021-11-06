@@ -9,6 +9,7 @@ using Sprint0.Cycle;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.SpriteFactory;
 using Sprint0.Controllers;
+using Sprint0.UtilityClasses;
 
 /*
 Alex Clayton
@@ -23,14 +24,15 @@ Owen Huston
 
 namespace Sprint0.Enemies
 {
-    public class Enemy : IEnemy, ICyclable, IGameObject, IMovable
+    public class Enemy : IEnemy, ICyclable, IGameObject, IMovable, IUpdate, IDraw, ICollidable, IBounce
     {
         private IKeyboardController keyboard;
         private IEnemyMovement enemyMovement;
         private ICycleStateMachine cycleStateMachine;
         private ISprite sprite;
-        private String enemyType = "";
-        private String spriteName = "";
+        private EnemyHealthStateMachine healthStateMachine;
+        private String enemyType = GameUtilities.emptyString ;
+        private String spriteName = GameUtilities.emptyString;
         private bool firing = false;
         private int firingTimer = 4;
 
@@ -40,12 +42,17 @@ namespace Sprint0.Enemies
 
         public Enemy(String spriteName, Vector2 position)
         {
+            healthStateMachine = new EnemyHealthStateMachine(this);
             enemyType = spriteName;
             enemyMovement = new EnemyMovement(this, position);
             this.spriteName = enemyMovement.GetDirection() + "Idle" + enemyType;
             sprite = SpriteFactory.Instance.GetSprite(this.spriteName);
             cycleStateMachine = new CycleStateMachine(this);
             keyboard = ControllerLoader.Instance.SetUpEnemyKeyboard(this); 
+        }
+        public void TakeDamage()
+        {
+            healthStateMachine.TakeDamage();
         }
         public void PrevSprite()
         {
@@ -161,6 +168,26 @@ namespace Sprint0.Enemies
         public void SetGrounded(bool grounded)
         {
             //todo
+        }
+
+        public void UpBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DownBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RightBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LeftBounce(Rectangle rectangle)
+        {
+            throw new NotImplementedException();
         }
     }
 }

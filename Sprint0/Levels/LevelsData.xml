@@ -1,6 +1,7 @@
 ﻿<Levels>
   <Level1>
     <row>
+     <obj>2,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
      <obj>0,12,1,Sprint0.Blocks.Block,BrickBlock</obj>
      <obj>0,11,1,Sprint0.Blocks.Block,BrickBlock</obj>
      <obj>0,10,1,Sprint0.Blocks.Block,BrickBlock</obj>
@@ -15,29 +16,32 @@
      <obj>0,1,1,Sprint0.Blocks.Block,BrickBlock</obj>
      <obj>0,0,1,Sprint0.Blocks.Block,BrickBlock</obj>
 
-		<obj>80,8,3,Sprint0.Blocks.Block,BrickBlock</obj>
-		<obj>79,7,1,Sprint0.Blocks.Block,BrickBlock</obj>
-		<obj>83,7,1,Sprint0.Blocks.Block,BrickBlock</obj>
-		<obj>80,4,1,Sprint0.Blocks.Block,BrickBlock</obj>
-		<obj>82,4,1,Sprint0.Blocks.Block,BrickBlock</obj>
+      
+		 <obj>80,8,3,Sprint0.Blocks.Block,BrickBlock</obj>
+		 <obj>79,7,1,Sprint0.Blocks.Block,BrickBlock</obj>
+		 <obj>83,7,1,Sprint0.Blocks.Block,BrickBlock</obj>
+		 <obj>80,4,1,Sprint0.Blocks.Block,BrickBlock</obj>
+		 <obj>82,4,1,Sprint0.Blocks.Block,BrickBlock</obj>
 
-		<obj>100,6,5,Sprint0.Blocks.Block,BrickBlock</obj>
-		<obj>105,6,5,Sprint0.Blocks.Block,ItemBlock</obj>
-		<obj>106,6,5,Sprint0.Blocks.Block,BrickBlock</obj>
-		<obj>95,9,15,Sprint0.Blocks.Block,BrickBlock</obj>
-    </row>
+		 <obj>100,6,5,Sprint0.Blocks.Block,BrickBlock</obj>
+		 <obj>105,6,5,Sprint0.Blocks.Block,ItemBlock</obj>
+		 <obj>106,6,5,Sprint0.Blocks.Block,BrickBlock</obj>
+		 <obj>95,9,15,Sprint0.Blocks.Block,BrickBlock</obj>
+     </row>
     <row>
       <!--xPosition, yPosition, numOfObj, Namespace.classname, spritename-->
       <!--if numOfObj > 1, it continues placing the same object horizontally-->
-      <obj>8,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
-	  <obj>120,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
-	  <obj>15,6,1,Sprint0.Enemies.Enemy,Koopa</obj>
-	  <obj>165,5,1,Sprint0.Enemies.Enemy,Koopa</obj>
+      <obj>2,10,1,Sprint0.Mario,Sprint0.Mario, Sprint0.Mario</obj>
+    
+      <obj>85,15,1,Sprint0.Enemies.Enemy,Goomba</obj>
+	    <obj>120,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
+	    <obj>15,6,1,Sprint0.Enemies.Enemy,Koopa</obj>
+	   <obj>165,5,1,Sprint0.Enemies.Enemy,Koopa</obj>
 	  <obj>90,4,1,Sprint0.Enemies.Enemy,Koopa</obj>
 	  <obj>185,11,1,Sprint0.Enemies.Enemy,Bowser</obj>
-	  <obj>5,11,1,Sprint0.Items.Mushroom,Mushroom</obj>
-	  <obj>7,11,1,Sprint0.Items.Fireflower,Fireflower</obj>
-	 <obj>9,11,1,Sprint0.Items.Star,Star</obj>
+	  <obj>5,11,1,Sprint0.Items.Item,Mushroom</obj>
+	  <obj>7,11,1,Sprint0.Items.Item,Fireflower</obj>
+	 <obj>9,11,1,Sprint0.Items.Item,Star</obj>
     </row>
 	  <row>
 		  <obj>11,10,2,Sprint0.Blocks.Block,BrickBlock</obj>

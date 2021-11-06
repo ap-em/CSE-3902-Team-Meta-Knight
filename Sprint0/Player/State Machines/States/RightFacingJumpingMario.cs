@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -19,8 +20,8 @@ namespace Sprint0
         private Vector2 velocity;
         private int jumpTimer = 0;
         private bool jumpHold;
-        private int currentMaxJumpTime = 5;
-        private int maxJumpTime = 10;
+        private int currentMaxJumpTime = GameUtilities.currentMaxJumpTime;
+        private int maxJumpTime = GameUtilities.maxJumpTime;
         private Mario mario;
 
         public RightFacingJumpingMario(Mario marioRef, Vector2 velocity, int jumpTimer, bool jumpHold)

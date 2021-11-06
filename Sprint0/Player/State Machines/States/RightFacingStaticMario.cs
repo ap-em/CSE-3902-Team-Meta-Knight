@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -94,7 +95,7 @@ namespace Sprint0
             }
             else 
             {
-                velocity = new Vector2(0, 9.8f);
+                velocity = new Vector2(0, GameUtilities.gravity);
             }
             
             mario.MoveSprite(velocity);

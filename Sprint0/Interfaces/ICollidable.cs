@@ -9,9 +9,10 @@ namespace Sprint0
     /*
      * A game object is defined as an object in the game that is moving, which will cause collisions.
      */
-    public interface IGameObject
+    public interface ICollidable
     {
         public Vector2 Position { get; set; }
         public ISprite Sprite { get; }
+
     }
 }

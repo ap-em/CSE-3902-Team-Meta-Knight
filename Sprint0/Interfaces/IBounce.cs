@@ -9,9 +9,12 @@ namespace Sprint0
     /*
      * A game object is defined as an object in the game that is moving, which will cause collisions.
      */
-    public interface IGameObject
+    public interface IBounce
     {
-        public Vector2 Position { get; set; }
-        public ISprite Sprite { get; }
+        public void UpBounce(Rectangle rectangle);
+        public void DownBounce(Rectangle rectangle);
+        public void RightBounce(Rectangle rectangle);
+        public void LeftBounce(Rectangle rectangle);
+
     }
 }

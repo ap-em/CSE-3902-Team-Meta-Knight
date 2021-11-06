@@ -4,6 +4,7 @@ using Sprint0.Interfaces;
 using Sprint0.Cycle;
 using Sprint0.Sprites.SpriteFactory;
 using System;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -14,12 +15,13 @@ Owen Huston
 */
 namespace Sprint0.Items
 {
-    class Item : IItem
+    class Item : IItem, IDraw, IMovable, ICollidable, IUpdate
     {
         private String ItemName;
         private ISprite ItemSprite;
+        private bool grounded = false;
 
-        private Vector2 location = new Vector2(100, 200);
+        private Vector2 location = new Vector2(GameUtilities.itemPosX, GameUtilities.itemPosY);
         public ISprite Sprite => ItemSprite;
 
         public Vector2 Position { get => location; set => throw new NotImplementedException(); }
@@ -37,7 +39,14 @@ namespace Sprint0.Items
             this.ItemSprite = SpriteFactory.Instance.GetSprite(spriteName);
 
         }
-
+        public bool GetGrounded()
+        {
+            return grounded;
+        }
+        public void SetGrounded(bool grounded)
+        {
+            this.grounded = grounded;
+        }
         public string GetItemName()
         {
             return ItemName;
@@ -54,6 +63,23 @@ namespace Sprint0.Items
         {
             Sprite.Update(); // Will have to wire this to work as intended
         }
-
+        public void ItemCollision(IMario mario)
+        {
+            switch (ItemName)
+            {
+                case "Fireflower":
+                    mario.FireflowerPower();
+                    GameObjectManager.Instance.RemoveFromObjectList(this);
+                    break;
+                case "Mushroom":
+                    mario.MushroomPower();
+                    GameObjectManager.Instance.RemoveFromObjectList(this);
+                    break;
+                case "Star":
+                    mario.StarPower();
+                    GameObjectManager.Instance.RemoveFromObjectList(this);
+                    break;
+            }
+        }
     }
 }

@@ -21,13 +21,8 @@ namespace Sprint0.Interfaces
     /*
      * This interface can be used for all blocks, which should just involve replacing the texture.
      */
-    public interface ICamera
+   public interface IDraw
     {
-        public void Update(Vector2 playerPosition);
-        public void UpdateViews(int numOfCameras);
-        public Matrix ViewMatrix { get; set; }
-        public Viewport ViewPort{ get; set; }
-        public void SetIndex(int index);
+        void Draw(SpriteBatch spriteBatch);
     }
-
 }

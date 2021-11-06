@@ -25,5 +25,6 @@ namespace Sprint0.Interfaces
     public interface IItem : IGameObject
     {
         String GetItemName();
+        void ItemCollision(IMario mario);
     }
 }

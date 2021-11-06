@@ -21,7 +21,7 @@ namespace Sprint0.Commands
     {
         Rectangle rectangle;
         IMario mario;
-        public CDamagePlayer(IMario mario, Rectangle rectangle)
+        public CDamagePlayer(IMario mario, ICollidable collided, Rectangle rectangle)
         {
             this.mario = mario;
     }

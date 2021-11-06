@@ -25,12 +25,8 @@ Owen Huston
 
         public void Execute()
         {
-            Level.Instance.Reset();
             GameObjectManager.Instance.RemoveAllObjects();
-            Game0.Instance.CreatePlayer();
-            
-
-            
+            LevelFactory.Instance.CreateLevel(LevelFactory.Instance.currentLevel);
         }
     }
 }

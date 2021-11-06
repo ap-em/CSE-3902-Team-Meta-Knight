@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -17,7 +18,7 @@ namespace Sprint0
     {
         public string ID  { get; }= "RightMovingMario";
         private Mario mario;
-        private Vector2 velocity= new Vector2(4f, 0);
+        private Vector2 velocity= new Vector2(GameUtilities.VairX, 0);
 
         public RightFacingMovingMario(Mario marioRef)
         {
@@ -96,11 +97,11 @@ namespace Sprint0
         {
             if (mario.GetGrounded())
             {
-                velocity = new Vector2(4f, 0f);
+                velocity = new Vector2(GameUtilities.VairX, 0f);
             }
             else
             {
-                velocity = new Vector2(4f, 9.8f);
+                velocity = new Vector2(GameUtilities.VairX, GameUtilities.gravity);
             }
 
             mario.MoveSprite(velocity);
