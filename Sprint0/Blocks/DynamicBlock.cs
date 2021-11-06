@@ -23,11 +23,13 @@ namespace Sprint0.Blocks
 {
     class DynamicBlock : IBlock, IGameObject, IUpdate, IDraw, ICollidable, IDynamicBlock
     {
+        private int breakBlockTimer = -1;
+        private int bounceBackTimer = -1;
         private ISprite sprite;
         private String spriteName;
         private Vector2 location = new Vector2(GameUtilities.initialBlockPosX, GameUtilities.initialBlockPosY);
 
-        public Vector2 Position { get => location; set => throw new NotImplementedException(); }
+        public Vector2 Position { get => location; set => location = value; }
 
         public ISprite Sprite => sprite;
 
@@ -55,15 +57,36 @@ namespace Sprint0.Blocks
 
         public void Update()
         {
+            if(bounceBackTimer >= 0)
+            {
+                bounceBackTimer--;
+            }
+            if(bounceBackTimer == 0)
+            {
+                Position = new Vector2(Position.X, Position.Y + 5);
+            }
+            if(breakBlockTimer >= 0)
+            {
+                breakBlockTimer--;
+            }
+            if(breakBlockTimer == 0)
+            {
+                GameObjectManager.Instance.RemoveFromObjectList(this);
+            }
             sprite.Update();
         }
         public void BreakBlock(IMario mario)
         {
-            Debug.WriteLine("working");
-            if(GetSpriteName() == "BrickBlock" && (mario.GetHealthState() == "Full" || mario.GetHealthState() == "Fire" || mario.GetHealthState() == "Star"))
+            if (bounceBackTimer < 0 && breakBlockTimer < 0)
             {
-                Debug.WriteLine(GetSpriteName());
-                GameObjectManager.Instance.RemoveFromObjectList(this);
+                bounceBackTimer = 2;
+                Position = new Vector2(Position.X, Position.Y - 5);
+            }
+            if (GetSpriteName() == "BrickBlock" && (mario.GetHealthState() == "Full" || mario.GetHealthState() == "Fire" || mario.GetHealthState() == "Star"))
+            {
+                //only set the timer if we havent already set the timer
+                if (breakBlockTimer < 0)
+                    breakBlockTimer = 4;
             }
         }
     }

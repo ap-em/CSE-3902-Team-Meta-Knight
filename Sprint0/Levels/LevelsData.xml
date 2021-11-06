@@ -45,7 +45,6 @@
     </row>
 	  <row>
 		  <obj>11,10,2,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		  <obj>13,10,1,Sprint0.Blocks.DynamicBlock,MushroomItemBlock</obj>
 		  <obj>13,10,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj>
 		  <obj>14,10,2,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
 	  </row>
