@@ -20,7 +20,7 @@ namespace Sprint0
     {
         private int maxRowLength = 1000;
         private int maxNumberOfRows = 100;
-        private IStatic[][] staticGameObjects = new IStatic[1000][];
+        private IBlock[][] staticGameObjects = new IBlock[1000][];
         //Scales dimensions of sprites for collision to accuratelly reflect their real size in game
         private static int dimensionScale = 2;
 
@@ -48,15 +48,18 @@ namespace Sprint0
             //add space for static objects on each row
             for (int i = 0; i < maxRowLength; i++)
             {
-                staticGameObjects[i] = new IStatic[maxNumberOfRows];
+                staticGameObjects[i] = new IBlock[maxNumberOfRows];
             }
         }
         public void AddToObjectList(IGameObject gameObject, int column, int row)
         {
             //add static gameObjects to array
-            if(gameObject is IStatic)
+            if(gameObject is IBlock)
             {
-                staticGameObjects[column][row] = (IStatic)gameObject;
+                staticGameObjects[column][row] = (IBlock)gameObject;
+
+                if(gameObject is IDynamicBlock)
+                    gameObjectInsertQueue.Add(gameObject);
             }
             else
             {
@@ -78,7 +81,8 @@ namespace Sprint0
                 {
                     movableGameObjects.Add((IMovable)go);
                 }
-                if(go is IDraw)
+                // dynamic blocks get drawn in during level draw so we dont need it in a list
+                if(go is IDraw && !(go is IDynamicBlock))
                 {
                     drawableGameObjects.Add((IDraw)go);
                 }
@@ -90,7 +94,8 @@ namespace Sprint0
                 {
                     Game0.Instance.AddPlayerToList((IMario)go);
                 }
-                if (go is ICollidable)
+                // need this because dynamic blocks collide in level collision not entity collision
+                if (go is ICollidable && !(go is IDynamicBlock))
                 {
                     collidableGameObjects.Add((ICollidable)go);
                 }
@@ -119,11 +124,11 @@ namespace Sprint0
                 {
                     Game0.Instance.RemovePlayerFromList((IMario)go);
                 }
-                if (go is ICollidable)
+                if (go is ICollidable && collidableGameObjects.Contains((ICollidable)go))
                 {
                     collidableGameObjects.Remove((ICollidable)go);
                 }
-                if (go is IStatic)
+                if (go is IBlock)
                 {
                     staticGameObjects[(int)(go.Position.X / 32)][(int)(go.Position.Y / 32)] = null;
                 }
@@ -202,7 +207,7 @@ namespace Sprint0
                 }
             }
         }
-        public IStatic[] GetCollidables(Vector2 position, Vector2 size)
+        public IBlock[] GetCollidables(Vector2 position, Vector2 size)
         {
 
             int width = (int)Math.Round(size.X / 32);
@@ -231,7 +236,7 @@ namespace Sprint0
             }
 
 
-            IStatic[] blocks = new IStatic[8];
+            IBlock[] blocks = new IBlock[8];
 
             /*check blocks 1 above and y + height to check below objects feet*/
 
@@ -263,10 +268,10 @@ namespace Sprint0
             //Here for implementation of collisions when neccesary
             ICommand collision;
             //Get the surronding blocks of whatever the game object is as blocks are not added to the game object list on creation.
-            IStatic[] levelCollides = GetCollidables(new Vector2 ((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y)), new Vector2(go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale));
+            IBlock[] levelCollides = GetCollidables(new Vector2 ((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y)), new Vector2(go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale));
             
             //Go through each colliding block
-            foreach (IStatic block in levelCollides)
+            foreach (IBlock block in levelCollides)
             {
 
                 //set gravity if block below gameobject is null
@@ -426,7 +431,6 @@ namespace Sprint0
                     }
                 }
             }
-
         }
     }
 }
