@@ -38,7 +38,7 @@ namespace Sprint0
         public void Jump()
         {
             mario.soundInfo.PlaySound("smb2_jump", false);
-            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(GameUtilities.Vx, -GameUtilities.Vy), 0, true);
+            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(velocity.X, -10), 0, true);
             mario.OnStateChange();
         }
         public void StopJump()
@@ -66,17 +66,22 @@ namespace Sprint0
         }
         public void UpBounce(Rectangle rectangle)
         {
-            if (!mario.GetGrounded())
+            if (!mario.GetGrounded() && rectangle.Width>velocity.X)
             {
                 mario.SetGrounded(true);
                 mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
-                StopMovingVertical();
+               StopMovingVertical();
             }
         }
         public void DownBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y + rectangle.Height);
-            velocity = new Vector2(velocity.X, 2f);
+            if (!mario.GetGrounded() && rectangle.Width > velocity.X)
+            {
+                mario.Position = new Vector2(mario.Position.X, mario.Position.Y + rectangle.Height);
+                velocity = new Vector2(velocity.X, 2f);
+            }
+            
+                
         }
         public void RightBounce(Rectangle rectangle)
         {

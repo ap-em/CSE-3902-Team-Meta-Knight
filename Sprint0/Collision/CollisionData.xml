@@ -1,55 +1,134 @@
-<Collision>
-	<row>
-		<!--Object1, Object2, Direction, Command1, Command2-->
-		
-		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Top,Sprint0.Commands.CUpBounce,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Bottom,Sprint0.Commands.CDownBounce,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Left,Sprint0.Commands.CLeftBounce,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Mario,Sprint0.Blocks.Block,Right,Sprint0.Commands.CRightBounce,Sprint0.Commands.CNothing</obj>
-		
-		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Left,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Right,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Top,Sprint0.Commands.CMarioBounce,Sprint0.Commands.CDamageEnemy</obj>
-		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Bottom,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</obj>
-		
-		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Top,Sprint0.Commands.CNothing,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Bottom,Sprint0.Commands.CNothing,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Left,Sprint0.Commands.CNothing,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Right,Sprint0.Commands.CNothing,Sprint0.Commands.CNothing</obj>
-		
+<Collision>  
+  <!-- can have a comma seperated list of commands-->
+  
+  <!--Mario vs block-->
+  <collisionInstance>
+    <obj1>Sprint0.Mario</obj1>
+    <obj2>Sprint0.Blocks.Block</obj2>
+    <direction>Top</direction>
+    <obj1Command>Sprint0.Commands.CUpBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
     
-    <!--player dynamic block -->
-    <obj>Sprint0.Mario,Sprint0.Blocks.DynamicBlock,Bottom, Sprint0.Commands.CDownBounce,Sprint0.Commands.CBreakBlock</obj>
-    <obj>Sprint0.Mario,Sprint0.Blocks.DynamicBlock,Top, Sprint0.Commands.CUpBounce,Sprint0.Commands.CNothing</obj>
-	<obj>Sprint0.Mario,Sprint0.Blocks.DynamicBlock,Left, Sprint0.Commands.CLeftBounce,Sprint0.Commands.CNothing</obj>
-	<obj>Sprint0.Mario,Sprint0.Blocks.DynamicBlock,Right, Sprint0.Commands.CRightBounce,Sprint0.Commands.CNothing</obj>
-    
-    
-    
-		<!-- Mushroom interaction-->
-		<obj>Sprint0.Mario,Sprint0.Items.Item,Sprint0.Commands.CNothing,Sprint0.Commands.CItemCollision</obj>
-		
-    <!-- fire attack collision -->
-    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Top,Sprint0.Commands.CUpBounce,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Projectile,Sprint0.Blocks.Block,Bottom,Sprint0.Commands.CUpBounce,Sprint0.Commands.CNothing</obj>
-    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Left,Sprint0.Commands.CUpBounce,Sprint0.Commands.CNothing</obj>
-    <obj>Sprint0.Projectile,Sprint0.Blocks.Block,Right,Sprint0.Commands.CUpBounce,Sprint0.Commands.CNothing</obj>
-    
-		<!--
-		<obj>Mario,Ground,Up,CMovePlayerUp,CNothing</obj>
-		<obj>Mario,Ground,Down,CMovePlayerDown,CNothing</obj>
-	  
-		<obj>Mario,Koopa,Left,CDamagePlayer,CNothing</obj>
-		<obj>Mario,Koopa,Right,CDamagePlayer,CNothing</obj>
-		<obj>Mario,Koopa,Up,CPlayerBounce,CDamageEnemy</obj>
-		<obj>Mario,Koopa,Down,CDamagePlayer,CNothing</obj>
-		<obj>Mario,ItemBlock,Left,CMoveMarioLeft,CNothing</obj>
-		<obj>Mario,ItemBlock,Right,CMoveMarioRight,CNothing</obj>
-		<obj>Mario,ItemBlock,Up,CMoveMarioUp,CNothing</obj>
-		<obj>Mario,ItemBlock,Down,CMoveMarioDown,CGetItem</obj>
-		<obj>Mario,Block,Left,CMoveMarioLeft,CNothing</obj>
-		<obj>Mario,Block,Right,CMoveMarioRight,CNothing</obj>
-		<obj>Mario,Block,Up,CMoveMarioUp,CNothing</obj>
-		<obj>Mario,Block,Down,CMoveMarioDown,CBreak</obj>--> 
-	</row>
+  <collisionInstance>
+    <obj1>Sprint0.Mario</obj1>
+    <obj2>Sprint0.Blocks.Block</obj2>
+    <direction>Bottom</direction>
+    <obj1Command>Sprint0.Commands.CDownBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  
+  <collisionInstance>
+    <obj1>Sprint0.Mario</obj1>
+    <obj2>Sprint0.Blocks.Block</obj2>
+    <direction>Left</direction>
+    <obj1Command>Sprint0.Commands.CLeftBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  
+  <collisionInstance>
+    <obj1>Sprint0.Mario</obj1>
+    <obj2>Sprint0.Blocks.Block</obj2>
+    <direction>Right</direction>
+    <obj1Command>Sprint0.Commands.CRightBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  
+  <!-- mario vs enemy -->
+  <collisionInstance>
+    <obj1>Sprint0.Mario</obj1>
+    <obj2>Sprint0.Enemies.Enemy</obj2>
+    <direction>Top</direction>
+    <obj1Command>Sprint0.Commands.CMarioBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CDamageEnemy</obj2Command>
+  </collisionInstance>
+  
+  <collisionInstance>
+    <obj1>Sprint0.Mario</obj1>
+    <obj2>Sprint0.Enemies.Enemy</obj2>
+    <direction>Bottom</direction>
+    <obj1Command>Sprint0.Commands.CDamagePlayer</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  
+    <collisionInstance>
+    <obj1>Sprint0.Mario</obj1>
+    <obj2>Sprint0.Enemies.Enemy</obj2>
+    <direction>Left</direction>
+    <obj1Command>Sprint0.Commands.CDamagePlayer</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  
+    <collisionInstance>
+    <obj1>Sprint0.Mario</obj1>
+    <obj2>Sprint0.Enemies.Enemy</obj2>
+    <direction>Right</direction>
+    <obj1Command>Sprint0.Commands.CDamagePlayer</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+
+  
+  <!-- enemy vs block-->
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Blocks.Block</obj2>
+    <direction>Top</direction>
+    <obj1Command>Sprint0.Commands.CNothing</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Blocks.Block</obj2>
+    <direction>Bottom</direction>
+    <obj1Command>Sprint0.Commands.CNothing</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Blocks.Block</obj2>
+    <direction>Left</direction>
+    <obj1Command>Sprint0.Commands.CNothing</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Blocks.Block</obj2>
+    <direction>Right</direction>
+    <obj1Command>Sprint0.Commands.CNothing</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+
+  
+  <!-- mario vs dynamic block-->
+  <collisionInstance>
+    <obj1>Sprint0.Mario</obj1>
+    <obj2>Sprint0.Blocks.DynamicBlock</obj2>
+    <direction></direction>
+    <obj1Command>Sprint0.Commands.CDownBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CBreakBlock</obj2Command>
+  </collisionInstance>
+  
+  <!-- mario vs items-->
+  
+  <collisionInstance>
+    <obj1>Sprint0.Mario</obj1>
+    <obj2>Sprint0.Items.Item</obj2>
+    <direction></direction>
+    <obj1Command>Sprint0.Commands.CNothing</obj1Command>
+    <obj2Command>Sprint0.Commands.CItemCollision</obj2Command>
+  </collisionInstance>
+  
+  <!-- projectile vs blocks-->
+  
+  <collisionInstance>
+    <obj1>Sprint0.Projectile</obj1>
+    <obj2>Sprint0.Blocks.Block</obj2>
+    <direction>Top</direction>
+    <obj1Command>Sprint0.Commands.CUpBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  
 </Collision>
