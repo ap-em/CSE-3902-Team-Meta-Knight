@@ -175,5 +175,10 @@ namespace Sprint0
         {
             return healthStateMachine.GetHealth();
         }
+
+        public void MarioBounce(Rectangle rectangle)
+        {
+            currentState.MarioBounce(rectangle);
+        }
     }
 }

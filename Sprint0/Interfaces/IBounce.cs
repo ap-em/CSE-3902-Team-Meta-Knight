@@ -15,6 +15,8 @@ namespace Sprint0
         public void DownBounce(Rectangle rectangle);
         public void RightBounce(Rectangle rectangle);
         public void LeftBounce(Rectangle rectangle);
-
+        public void MarioBounce(Rectangle rectangle);
     }
+
 }
+

@@ -145,5 +145,10 @@ namespace Sprint0
             mario.MoveSprite(velocity);
 
         }
+
+        public void MarioBounce(Rectangle rectangle)
+        {
+            velocity.Y = -12f;
+        }
     }
 }

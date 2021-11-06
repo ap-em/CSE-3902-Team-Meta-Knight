@@ -106,5 +106,10 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
         {
             currentState.Update();
         }
+
+        public void MarioBounce(Rectangle rectangle)
+        {
+            
+        }
     }
 }

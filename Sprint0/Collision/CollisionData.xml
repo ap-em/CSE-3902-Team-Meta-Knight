@@ -9,7 +9,7 @@
 		
 		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Left,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</obj>
 		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Right,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</obj>
-		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Top,Sprint0.Commands.CPlayerJumpEnemy,Sprint0.Commands.CDamageEnemy</obj>
+		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Top,Sprint0.Commands.CMarioBounce,Sprint0.Commands.CDamageEnemy</obj>
 		<obj>Sprint0.Mario,Sprint0.Enemies.Enemy,Bottom,Sprint0.Commands.CDamagePlayer,Sprint0.Commands.CNothing</obj>
 		
 		<obj>Sprint0.Enemies.Enemy,Sprint0.Blocks.Block,Top,Sprint0.Commands.CNothing,Sprint0.Commands.CNothing</obj>
@@ -19,7 +19,10 @@
 		
     
     <!--player dynamic block -->
-    <obj>Sprint0.Mario,Sprint0.Blocks.DynamicBlock,Sprint0.Commands.CDownBounce,Sprint0.Commands.CBreakBlock</obj>
+    <obj>Sprint0.Mario,Sprint0.Blocks.DynamicBlock,Bottom, Sprint0.Commands.CDownBounce,Sprint0.Commands.CBreakBlock</obj>
+    <obj>Sprint0.Mario,Sprint0.Blocks.DynamicBlock,Top, Sprint0.Commands.CUpBounce,Sprint0.Commands.CNothing</obj>
+	<obj>Sprint0.Mario,Sprint0.Blocks.DynamicBlock,Left, Sprint0.Commands.CLeftBounce,Sprint0.Commands.CNothing</obj>
+	<obj>Sprint0.Mario,Sprint0.Blocks.DynamicBlock,Right, Sprint0.Commands.CRightBounce,Sprint0.Commands.CNothing</obj>
     
     
     
