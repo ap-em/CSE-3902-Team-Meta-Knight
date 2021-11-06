@@ -23,11 +23,10 @@ namespace Sprint0.Interfaces
         String GetSpriteName();
         void MoveRight();
         void MoveLeft();
-        void SetXVelocity(int x);
-        void SetYVelocity(int y);
-        void NextSprite();
-        void PrevSprite();
+        void SetXVelocity(float x);
+        void SetYVelocity(float y);
         void Draw(SpriteBatch spriteBatch);
         void TakeDamage();
+        String GetHealth();
     }
 }

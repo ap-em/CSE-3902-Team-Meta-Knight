@@ -73,7 +73,7 @@
     <obj1>Sprint0.Enemies.Enemy</obj1>
     <obj2>Sprint0.Blocks.Block</obj2>
     <direction>Top</direction>
-    <obj1Command>Sprint0.Commands.CNothing</obj1Command>
+    <obj1Command>Sprint0.Commands.CUpBounce</obj1Command>
     <obj2Command>Sprint0.Commands.CNothing</obj2Command>
   </collisionInstance>
   
@@ -81,7 +81,7 @@
     <obj1>Sprint0.Enemies.Enemy</obj1>
     <obj2>Sprint0.Blocks.Block</obj2>
     <direction>Bottom</direction>
-    <obj1Command>Sprint0.Commands.CNothing</obj1Command>
+    <obj1Command>Sprint0.Commands.CDownBounce</obj1Command>
     <obj2Command>Sprint0.Commands.CNothing</obj2Command>
   </collisionInstance>
   
@@ -89,7 +89,7 @@
     <obj1>Sprint0.Enemies.Enemy</obj1>
     <obj2>Sprint0.Blocks.Block</obj2>
     <direction>Left</direction>
-    <obj1Command>Sprint0.Commands.CNothing</obj1Command>
+    <obj1Command>Sprint0.Commands.CLeftBounce</obj1Command>
     <obj2Command>Sprint0.Commands.CNothing</obj2Command>
   </collisionInstance>
   
@@ -97,7 +97,7 @@
     <obj1>Sprint0.Enemies.Enemy</obj1>
     <obj2>Sprint0.Blocks.Block</obj2>
     <direction>Right</direction>
-    <obj1Command>Sprint0.Commands.CNothing</obj1Command>
+    <obj1Command>Sprint0.Commands.CRightBounce</obj1Command>
     <obj2Command>Sprint0.Commands.CNothing</obj2Command>
   </collisionInstance>
 
@@ -134,6 +134,40 @@
 		<obj1Command>Sprint0.Commands.CRightBounce</obj1Command>
 		<obj2Command>Sprint0.Commands.CNothing</obj2Command>
 	</collisionInstance>
+
+  <!-- enemy vs dynamic block-->
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Blocks.DynamicBlock</obj2>
+    <direction>Top</direction>
+    <obj1Command>Sprint0.Commands.CUpBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Blocks.DynamicBlock</obj2>
+    <direction>Bottom</direction>
+    <obj1Command>Sprint0.Commands.CDownBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Blocks.DynamicBlock</obj2>
+    <direction>Left</direction>
+    <obj1Command>Sprint0.Commands.CLeftBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Blocks.DynamicBlock</obj2>
+    <direction>Right</direction>
+    <obj1Command>Sprint0.Commands.CRightBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  
   
   <!-- mario vs items-->
   

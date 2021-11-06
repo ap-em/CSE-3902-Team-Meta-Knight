@@ -11,8 +11,16 @@ namespace Sprint0.Enemies
         private Enemy enemy;
         public EnemyHealthStateMachine(Enemy enemyRef)
         {
-            health = enemyHealth.half;
             enemy = enemyRef;
+            health = enemyHealth.half;
+            if (enemy.enemyType == "Goomba")
+            {
+                health = enemyHealth.half;
+            }
+            else if(enemy.enemyType == "Koopa")
+            {
+                health = enemyHealth.full;
+            }
         }
         public void TakeDamage()
         {
@@ -23,14 +31,28 @@ namespace Sprint0.Enemies
                     break;
                 case enemyHealth.half:
                     health = enemyHealth.dead;
-                    GameObjectManager.Instance.RemoveFromObjectList(enemy);
-                    
+                    enemy.objectRemovalTimer = 8;
                     break;
                 case enemyHealth.dead:
                     //No 
                     break;
                 default:
                     break;
+            }
+            enemy.SetSprite(enemy.enemyType);
+        }
+        public String GetHealth()
+        {
+            switch (health)
+            {
+                case enemyHealth.full:
+                    return "Full";
+                case enemyHealth.half:
+                    return "Half";
+                case enemyHealth.dead:
+                    return "Dead";
+                default:
+                    return "Full";
             }
         }
     }
