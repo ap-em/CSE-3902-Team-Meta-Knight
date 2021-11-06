@@ -97,7 +97,7 @@ namespace Sprint0
             throw new NotImplementedException();
         }
 
-        public void MarioBounce(Rectangle rectangle)
+        public void BigUpBounce(Rectangle rectangle)
         {
             throw new NotImplementedException();
         }

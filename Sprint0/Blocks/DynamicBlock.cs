@@ -47,7 +47,7 @@ namespace Sprint0.Blocks
         public void SetSprite(String spriteName)
         {
             this.spriteName = spriteName;
-            this.sprite = SpriteFactory.Instance.GetSprite(spriteName);
+            sprite = SpriteFactory.Instance.GetSprite(spriteName);
         }
         
         public void Draw(SpriteBatch spriteBatch)
@@ -86,6 +86,7 @@ namespace Sprint0.Blocks
             {
                 //only set the timer if we havent already set the timer
                 if (breakBlockTimer < 0)
+                    SetSprite("BrickDebris");
                     breakBlockTimer = 4;
             }
         }

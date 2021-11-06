@@ -19,7 +19,7 @@ namespace Sprint0.Commands
 
         public void Execute()
         {
-            go.MarioBounce(rectangle);
+            go.BigUpBounce(rectangle);
         }
     }
 }
