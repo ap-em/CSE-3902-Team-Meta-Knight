@@ -123,6 +123,10 @@ namespace Sprint0
                 {
                     collidableGameObjects.Remove((ICollidable)go);
                 }
+                if (go is IStatic)
+                {
+                    staticGameObjects[(int)(go.Position.X / 32)][(int)(go.Position.Y / 32)] = null;
+                }
                 gameObjects.Remove(go);
             }
 
