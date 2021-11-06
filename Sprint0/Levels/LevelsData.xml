@@ -2,31 +2,31 @@
   <Level1>
     <row>
      <obj>2,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,12,1,Sprint0.Blocks.Block,BrickBlock</obj>
-     <obj>0,11,1,Sprint0.Blocks.Block,BrickBlock</obj>
-     <obj>0,10,1,Sprint0.Blocks.Block,BrickBlock</obj>
-     <obj>0,9,1,Sprint0.Blocks.Block,BrickBlock</obj>
-     <obj>0,8,1,Sprint0.Blocks.Block,BrickBlock</obj>
-     <obj>0,7,1,Sprint0.Blocks.Block,BrickBlock</obj>
-     <obj>0,6,1,Sprint0.Blocks.Block,BrickBlock</obj>
-     <obj>0,5,1,Sprint0.Blocks.Block,BrickBlock</obj>
-     <obj>0,4,1,Sprint0.Blocks.Block,BrickBlock</obj>
-     <obj>0,3,1,Sprint0.Blocks.Block,BrickBlock</obj>
-     <obj>0,2,1,Sprint0.Blocks.Block,BrickBlock</obj>
-     <obj>0,1,1,Sprint0.Blocks.Block,BrickBlock</obj>
-     <obj>0,0,1,Sprint0.Blocks.Block,BrickBlock</obj>
+     <obj>0,12,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+     <obj>0,11,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+     <obj>0,10,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+     <obj>0,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+     <obj>0,8,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+     <obj>0,7,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+     <obj>0,6,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+     <obj>0,5,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+     <obj>0,4,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+     <obj>0,3,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+     <obj>0,2,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+     <obj>0,1,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+     <obj>0,0,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
 
       
-		 <obj>80,8,3,Sprint0.Blocks.Block,BrickBlock</obj>
-		 <obj>79,7,1,Sprint0.Blocks.Block,BrickBlock</obj>
-		 <obj>83,7,1,Sprint0.Blocks.Block,BrickBlock</obj>
-		 <obj>80,4,1,Sprint0.Blocks.Block,BrickBlock</obj>
-		 <obj>82,4,1,Sprint0.Blocks.Block,BrickBlock</obj>
+		 <obj>80,8,3,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		 <obj>79,7,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		 <obj>83,7,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		 <obj>80,4,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		 <obj>82,4,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
 
-		 <obj>100,6,5,Sprint0.Blocks.Block,BrickBlock</obj>
-		 <obj>105,6,5,Sprint0.Blocks.Block,ItemBlock</obj>
-		 <obj>106,6,5,Sprint0.Blocks.Block,BrickBlock</obj>
-		 <obj>95,9,15,Sprint0.Blocks.Block,BrickBlock</obj>
+		 <obj>100,6,5,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		 <obj>105,6,5,Sprint0.Blocks.DynamicBlock,ItemBlock</obj>
+		 <obj>106,6,5,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		 <obj>95,9,15,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
      </row>
     <row>
       <!--xPosition, yPosition, numOfObj, Namespace.classname, spritename-->
@@ -44,10 +44,10 @@
 	 <obj>9,11,1,Sprint0.Items.Item,Star</obj>
     </row>
 	  <row>
-		  <obj>11,10,2,Sprint0.Blocks.Block,BrickBlock</obj>
-		  <obj>13,10,1,Sprint0.Blocks.Block,MushroomItemBlock</obj>
-		  <obj>13,10,1,Sprint0.Blocks.Block,ItemBlock</obj>
-		  <obj>14,10,2,Sprint0.Blocks.Block,BrickBlock</obj>
+		  <obj>11,10,2,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		  <obj>13,10,1,Sprint0.Blocks.DynamicBlock,MushroomItemBlock</obj>
+		  <obj>13,10,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj>
+		  <obj>14,10,2,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
 	  </row>
 	  <row>
       <obj>0,13,19,Sprint0.Blocks.Block,Ground</obj>
@@ -69,14 +69,14 @@
 		  <obj>50,9,1,Sprint0.Blocks.Block,UsedItemBlock</obj>
 		  <obj>51,9,1,Sprint0.Blocks.Block,UsedItemBlock</obj>
 		  
-		  <obj>134,12,1,Sprint0.Blocks.Block,BrickBlock</obj>
-		  <obj>133,12,1,Sprint0.Blocks.Block,BrickBlock</obj>
-		  <obj>132,12,1,Sprint0.Blocks.Block,BrickBlock</obj>
-		  <obj>131,12,1,Sprint0.Blocks.Block,BrickBlock</obj>
-		  <obj>134,11,1,Sprint0.Blocks.Block,BrickBlock</obj>
-		  <obj>133,11,1,Sprint0.Blocks.Block,BrickBlock</obj>
-		  <obj>132,11,1,Sprint0.Blocks.Block,BrickBlock</obj>
-		  <obj>131,11,1,Sprint0.Blocks.Block,BrickBlock</obj>
+		  <obj>134,12,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		  <obj>133,12,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		  <obj>132,12,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		  <obj>131,12,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		  <obj>134,11,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		  <obj>133,11,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		  <obj>132,11,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		  <obj>131,11,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
 		  
 		  
 		  <obj>141,12,1,Sprint0.Blocks.Block,Block</obj>

@@ -1,5 +1,4 @@
-<Collision>
-  
+<Collision>  
   <!-- can have a comma seperated list of commands-->
   
   <!--Mario vs block-->
@@ -40,7 +39,7 @@
     <obj1>Sprint0.Mario</obj1>
     <obj2>Sprint0.Enemies.Enemy</obj2>
     <direction>Top</direction>
-    <obj1Command>Sprint0.Commands.CPlayerJumpEnemy</obj1Command>
+    <obj1Command>Sprint0.Commands.CMarioBounce</obj1Command>
     <obj2Command>Sprint0.Commands.CDamageEnemy</obj2Command>
   </collisionInstance>
   
@@ -131,23 +130,5 @@
     <obj1Command>Sprint0.Commands.CUpBounce</obj1Command>
     <obj2Command>Sprint0.Commands.CNothing</obj2Command>
   </collisionInstance>
-
-
-
-<!--
-		<obj>Mario,Ground,Up,CMovePlayerUp,CNothing</obj>
-		<obj>Mario,Ground,Down,CMovePlayerDown,CNothing</obj>
-	  
-		<obj>Mario,Koopa,Left,CDamagePlayer,CNothing</obj>
-		<obj>Mario,Koopa,Right,CDamagePlayer,CNothing</obj>
-		<obj>Mario,Koopa,Up,CPlayerBounce,CDamageEnemy</obj>
-		<obj>Mario,Koopa,Down,CDamagePlayer,CNothing</obj>
-		<obj>Mario,ItemBlock,Left,CMoveMarioLeft,CNothing</obj>
-		<obj>Mario,ItemBlock,Right,CMoveMarioRight,CNothing</obj>
-		<obj>Mario,ItemBlock,Up,CMoveMarioUp,CNothing</obj>
-		<obj>Mario,ItemBlock,Down,CMoveMarioDown,CGetItem</obj>
-		<obj>Mario,Block,Left,CMoveMarioLeft,CNothing</obj>
-		<obj>Mario,Block,Right,CMoveMarioRight,CNothing</obj>
-		<obj>Mario,Block,Up,CMoveMarioUp,CNothing</obj>
-		<obj>Mario,Block,Down,CMoveMarioDown,CBreak</obj>--> 
+  
 </Collision>

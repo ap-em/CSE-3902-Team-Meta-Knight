@@ -10,7 +10,8 @@ namespace Sprint0.Commands
     class CDamageEnemy : ICommand
     {
         private Enemy enemy;
-        public CDamageEnemy(Enemy enemyRefernce, Rectangle rec)
+        private Mario mario;
+        public CDamageEnemy(Enemy enemyRefernce, Mario mario, Rectangle rec)
         {
             enemy = enemyRefernce;
         }
