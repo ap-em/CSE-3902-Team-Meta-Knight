@@ -52,6 +52,7 @@ namespace Sprint0
                     // if we are holding jump we want to increase jump time
                     if (currentMaxJumpTime < maxJumpTime)
                     {
+                        
                         currentMaxJumpTime++;
                     }
                     jumpHold = true;
@@ -74,12 +75,13 @@ namespace Sprint0
 
         public void MoveLeft()
         {
-            velocity.X = -6;
+            velocity.X = -4f;
         }
 
         public void MoveRight()
         {
-            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(6, velocity.Y), jumpTimer, jumpHold);
+            velocity.X = 4f;
+            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(velocity.X, velocity.Y), jumpTimer, jumpHold);
             mario.OnStateChange();
         }
 
@@ -116,9 +118,12 @@ namespace Sprint0
         }
         public void DownBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y + rectangle.Height);
-            jumpHold = true;
-            velocity = new Vector2(velocity.X, 4f);
+           
+                mario.Position = new Vector2(mario.Position.X, mario.Position.Y + rectangle.Height);
+                jumpHold = true;
+                velocity = new Vector2(velocity.X, 4f);
+            
+            
             
         }
         public void RightBounce(Rectangle rectangle)
@@ -129,7 +134,7 @@ namespace Sprint0
         public void LeftBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X - rectangle.Width, mario.Position.Y);
-            //StopMovingHorizontal();
+           //StopMovingHorizontal();
         }
         public void Update()
         {
@@ -147,7 +152,7 @@ namespace Sprint0
             // only apply gravity if done holding
             if (!jumpHold && !mario.GetGrounded())
             {
-                velocity = velocity + new Vector2(0, 30) * Game0.Instance.TargetElapsedTime.Milliseconds / 1000;
+                velocity = velocity + new Vector2(velocity.X, 30) * Game0.Instance.TargetElapsedTime.Milliseconds / 1000;
             }
             mario.MoveSprite(velocity);
 
