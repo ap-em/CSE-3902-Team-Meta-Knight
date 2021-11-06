@@ -21,7 +21,7 @@ Owen Huston*/
 
 namespace Sprint0.Blocks
 {
-    class Block : IGameObject, IStatic, IDraw, ICollidable
+    class Block : IBlock, IGameObject, IDraw, ICollidable
     {
         private ISprite sprite;
         private String spriteName;
