@@ -16,9 +16,9 @@ namespace Sprint0
 {
     class RightFacingMovingMario : IMarioState
     {
-        public string ID  { get; }= "RightMovingMario";
+        public string ID { get; } = "RightMovingMario";
         private Mario mario;
-        private Vector2 velocity= new Vector2(GameUtilities.VairX, 0);
+        private Vector2 velocity = new Vector2(GameUtilities.VairX, 0);
 
         public RightFacingMovingMario(Mario marioRef)
         {
@@ -38,7 +38,7 @@ namespace Sprint0
         public void Jump()
         {
             mario.soundInfo.PlaySound("smb2_jump", false);
-            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(velocity.X, -10), 0, true);
+            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(GameUtilities.Vx, -GameUtilities.Vy), 0, true);
             mario.OnStateChange();
         }
         public void StopJump()
@@ -66,32 +66,27 @@ namespace Sprint0
         }
         public void UpBounce(Rectangle rectangle)
         {
-            if (!mario.GetGrounded() && rectangle.Width>velocity.X)
+            if (!mario.GetGrounded())
             {
                 mario.SetGrounded(true);
                 mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
-               StopMovingVertical();
+                StopMovingVertical();
             }
         }
         public void DownBounce(Rectangle rectangle)
         {
-            if (!mario.GetGrounded() && rectangle.Width > velocity.X)
-            {
-                mario.Position = new Vector2(mario.Position.X, mario.Position.Y + rectangle.Height);
-                velocity = new Vector2(velocity.X, 2f);
-            }
-            
-                
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y + rectangle.Height);
+            velocity = new Vector2(velocity.X, 2f);
         }
         public void RightBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X + rectangle.Width, mario.Position.Y);
-           // StopMovingHorizontal();
+            // StopMovingHorizontal();
         }
         public void LeftBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X - rectangle.Width, mario.Position.Y);
-           // StopMovingHorizontal();
+            // StopMovingHorizontal();
         }
         public void Update()
         {
@@ -106,7 +101,6 @@ namespace Sprint0
 
             mario.MoveSprite(velocity);
         }
-
         public void MarioBounce(Rectangle rectangle)
         {
             velocity.Y = -12f;

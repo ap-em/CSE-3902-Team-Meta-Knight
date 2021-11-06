@@ -37,7 +37,7 @@ namespace Sprint0
         public void Jump()
         {
             mario.soundInfo.PlaySound("smb2_jump", false);
-            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(velocity.X, -10), 0, true);
+            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(0, -GameUtilities.Vy), 0, true);
             mario.OnStateChange();
         }
         public void StopJump()
@@ -58,11 +58,11 @@ namespace Sprint0
 
         public void StopMovingHorizontal()
         {
-            velocity.X = 0;
+            // no op
         }
         public void StopMovingVertical()
         {
-            velocity.Y=0;
+            // no op
         }
         public void UpBounce(Rectangle rectangle)
         {
@@ -82,7 +82,7 @@ namespace Sprint0
         public void RightBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X + rectangle.Width, mario.Position.Y);
-            //StopMovingHorizontal();
+            // StopMovingHorizontal();
         }
         public void LeftBounce(Rectangle rectangle)
         {
@@ -99,12 +99,11 @@ namespace Sprint0
             {
                 velocity = new Vector2(0f, GameUtilities.gravity);
             }
-         mario.MoveSprite(velocity);
+            mario.MoveSprite(velocity);
         }
-
         public void MarioBounce(Rectangle rectangle)
         {
-            velocity.Y = -10f;
+            velocity.Y = -12f;
         }
     }
 }
