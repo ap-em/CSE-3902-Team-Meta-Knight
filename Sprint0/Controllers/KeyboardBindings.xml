@@ -6,9 +6,11 @@
     <key>R,Sprint0.Commands.CReset,pressable</key>
 
     <key>A,Sprint0.Commands.CMovePlayerLeft,pressable</key>
+	<key>A,Sprint0.Commands.CMovePlayerLeft,holdable</key>
     <key>A,Sprint0.Commands.CZeroPlayerXVelocity,releasable</key>
   
     <key>D,Sprint0.Commands.CMovePlayerRight,pressable</key>
+	<key>D,Sprint0.Commands.CMovePlayerRight,holdable</key>
     <key>D,Sprint0.Commands.CZeroPlayerXVelocity,releasable</key>
 
     <key>Space,Sprint0.Commands.CPlayerJump,pressable</key>
