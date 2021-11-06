@@ -18,8 +18,8 @@ namespace Sprint0
 
     public class CollisionResponse
     {
-        public Dictionary<String, String> MoverResponse;
-        public Dictionary<String, String> TargetResponse;
+        public Dictionary<String, List<String>> MoverResponse;
+        public Dictionary<String, List<String>> TargetResponse;
         private static CollisionResponse instance;
         public static CollisionResponse Instance
         {
@@ -36,12 +36,12 @@ namespace Sprint0
         }
         public CollisionResponse()
         {
-            MoverResponse = new Dictionary<String, String>();
-            TargetResponse = new Dictionary<String, String>();
+            MoverResponse = new Dictionary<String, List<String>>();
+            TargetResponse = new Dictionary<String, List<String>>();
 
             XmlReader reader = XmlReader.Create(Path.GetFullPath("Collision\\CollisionData.xml"));
 
-            while (reader.ReadToFollowing("row"))
+            while (reader.ReadToFollowing("collisionInstance"))
             {
                 ConstructDictionary(reader.ReadSubtree());
             }
@@ -50,105 +50,94 @@ namespace Sprint0
         }
         public void ConstructDictionary(XmlReader reader)
         {
-            while (reader.ReadToFollowing("obj"))
+            String obj1 = "";
+            String obj2 = "";
+            String direction = "";
+            String obj1CommandString = "";
+            String obj2CommandString = "";
+            List<String> obj1commands = new List<String>();
+            List<String> obj2commands = new List<String>();
+
+            XmlReader initialReader = reader;
+            XmlReader subReader = initialReader;
+
+            if (subReader.ReadToFollowing("obj1"))
+                obj1 = subReader.ReadElementContentAsString();
+
+            if (subReader.ReadToFollowing("obj2"))
+                obj2 = subReader.ReadElementContentAsString();
+
+            if (subReader.ReadToFollowing("direction"))
+                direction = subReader.ReadElementContentAsString();
+
+            if (subReader.ReadToFollowing("obj1Command"))
             {
-                Console.Write("Building Dictionary");
-                //get strings
-                String objString = reader.ReadElementContentAsString();
-                String[] objValues = objString.Split(',');
+                obj1CommandString = subReader.ReadElementContentAsString();
 
-                //if there are 5 strings
-                if (objValues.Length == 5)
+                String[] commands = obj1CommandString.Split(",");
+                for (int i = 0; i < commands.Length; i++)
                 {
-                    //convert strings to ints
-                    String obj1 = objValues[0];
-                    String obj2 = objValues[1];
-                    String direction = objValues[2];
-                    String commandName1 = objValues[3];
-                    String commandName2 = objValues[4];
-
-                    //object mover = cInfoM.Invoke(new object[] )
-                    MoverResponse.Add(obj1 + obj2 + direction, commandName1);
-                    TargetResponse.Add(obj2 + obj1 + direction, commandName2);
-                }
-                //if there isnt a direction string
-                else
-                {
-                    //convert strings to ints
-                    String obj1 = objValues[0];
-                    String obj2 = objValues[1];
-                    String commandName1 = objValues[2];
-                    String commandName2 = objValues[3];
-
-                    //object mover = cInfoM.Invoke(new object[] )
-                    MoverResponse.Add(obj1 + obj2, commandName1);
-                    TargetResponse.Add(obj2 + obj1, commandName2);
+                    obj1commands.Add(commands[i]);
                 }
             }
-            reader.Close(); // Closes the local reader for the object
-        }
 
+            if (subReader.ReadToFollowing("obj2Command"))
+            {
+                obj2CommandString = subReader.ReadElementContentAsString();
+
+                String[] commands = obj2CommandString.Split(",");
+                for (int i = 0; i < commands.Length; i++)
+                {
+                    obj2commands.Add(commands[i]);
+                }
+            }
+
+            MoverResponse.Add(obj1 + obj2 + direction, obj1commands);
+            TargetResponse.Add(obj2 + obj1 + direction, obj2commands);
+
+            subReader.Close();
+            reader.Close();
+        }
         public void CollisionOccurrence(IGameObject collider, IGameObject collided, String direction, Rectangle rectangle)
         {
-            string commandName1, commandName2;
-            //command with direction
-            if (MoverResponse.TryGetValue((collider.ToString() + collided.ToString() + direction), out commandName1))
+            List<String> commandNames1 = new List<String>();
+            List<String> commandNames2 = new List<String>();
+
+            if (MoverResponse.TryGetValue((collider.ToString() + collided.ToString() + direction), out commandNames1)
+                || MoverResponse.TryGetValue((collider.ToString() + collided.ToString()), out commandNames1))
             {
-                Type t1 = Type.GetType(commandName1);
-                Type[] types1 = { Type.GetType(collider.ToString()), Type.GetType(collided.ToString()), typeof(Rectangle) };
-                object[] param1 = { collider, collided, rectangle };
+                foreach (String commandName in commandNames1)
+                {
 
-                ConstructorInfo constructorInfoObj1 = t1.GetConstructor(types1);
+                    Type t1 = Type.GetType(commandName);
+                    Type[] types1 = { Type.GetType(collider.ToString()), Type.GetType(collided.ToString()), typeof(Rectangle) };
+                    object[] param1 = { collider, collided, rectangle };
 
-                ICommand command1 = (ICommand)constructorInfoObj1.Invoke(param1);
+                    ConstructorInfo constructorInfoObj1 = t1.GetConstructor(types1);
 
-                command1.Execute();
+                    ICommand command1 = (ICommand)constructorInfoObj1.Invoke(param1);
+
+                    command1.Execute();
+                }
 
             }
-            //command without direction
-            if (MoverResponse.TryGetValue((collider.ToString() + collided.ToString()),out commandName1))
+            
+            if (TargetResponse.TryGetValue((collided.ToString() + collider.ToString() + direction), out commandNames2)
+                || TargetResponse.TryGetValue((collided.ToString() + collider.ToString()), out commandNames2))
             {
+                foreach (String commandName in commandNames2)
+                {
+                    Type t2 = Type.GetType(commandName);
+                    Type[] types2 = { Type.GetType(collided.ToString()), Type.GetType(collider.ToString()), typeof(Rectangle) };
+                    object[] param2 = { collided, collider, rectangle };
 
-                Type t1 = Type.GetType(commandName1);
-                Type[] types1 = { Type.GetType(collider.ToString()), Type.GetType(collided.ToString()), typeof(Rectangle) };
-                object[] param1 = { collider, collided, rectangle };
+                    ConstructorInfo constructorInfoObj2 = t2.GetConstructor(types2);
 
-                ConstructorInfo constructorInfoObj1 = t1.GetConstructor(types1);
+                    ICommand command2 = (ICommand)constructorInfoObj2.Invoke(param2);
 
-                ICommand command1 = (ICommand)constructorInfoObj1.Invoke(param1);
-
-                command1.Execute();
-
+                    command2.Execute();
+                }
             }
-            //command with direction
-            if (TargetResponse.TryGetValue((collided.ToString() + collider.ToString() + direction), out commandName2))
-            {
-                Type t2 = Type.GetType(commandName2);
-                Type[] types2 = { Type.GetType(collided.ToString()), Type.GetType(collider.ToString()), typeof(Rectangle) };
-                object[] param2 = { collided, collider, rectangle };
-
-                ConstructorInfo constructorInfoObj2 = t2.GetConstructor(types2);
-
-                ICommand command2 = (ICommand)constructorInfoObj2.Invoke(param2);
-
-                command2.Execute();
-
-            }
-
-            //command without direction
-            if (TargetResponse.TryGetValue((collided.ToString() + collider.ToString()), out commandName2))
-            {
-                Type t2 = Type.GetType(commandName2);
-                Type[] types2 = { Type.GetType(collided.ToString()), Type.GetType(collider.ToString()), typeof(Rectangle) };
-                object[] param2 = { collided,collider,rectangle };
-
-                ConstructorInfo constructorInfoObj2 = t2.GetConstructor(types2);
-
-                ICommand command2 = (ICommand)constructorInfoObj2.Invoke(param2);
-
-                command2.Execute();
-            }
-
         }
     }
 }
