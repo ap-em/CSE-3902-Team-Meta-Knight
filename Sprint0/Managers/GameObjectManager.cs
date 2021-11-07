@@ -172,9 +172,10 @@ namespace Sprint0
         {
             Texture2D background = Game0.Instance.Content.Load<Texture2D>("1-1");
             spriteBatch.Draw(background, new Rectangle(0, 0, 6450, 600), Color.White);
-                /*
-                 * used for debuging collidable objects around player
-                IGameObject[] b = GetCollidables(position, new Vector2(32, 64));
+                
+                // used for debuging collidable objects around player
+            /*    
+            IBlock[] b = GetCollidables(position, new Vector2(32, 48));
 
                 for(int i = 0; i<b.Length;i++)
                 {
@@ -184,7 +185,7 @@ namespace Sprint0
                     }
                 }
                 */
-
+                
             position = Level.Instance.WorldToBlockSpace(position);
             int xPos = (int)position.X;
             int yPos = (int)position.Y;
@@ -207,12 +208,15 @@ namespace Sprint0
                     }
                 }
             }
+                
         }
         public IBlock[] GetCollidables(Vector2 position, Vector2 size)
         {
 
-            int width = (int)Math.Round(size.X / 32);
-            int height = (int)Math.Round(size.Y / 32);
+
+
+            int width = (int)(size.X / 32);
+            int height = (int)(size.Y / 32);
 
             if (width == 0)
             {
