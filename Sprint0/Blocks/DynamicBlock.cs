@@ -86,8 +86,10 @@ namespace Sprint0.Blocks
             {
                 //only set the timer if we havent already set the timer
                 if (breakBlockTimer < 0)
-                    SetSprite("BrickDebris");
-                    breakBlockTimer = 4;
+                {
+                    GameObjectManager.Instance.AddToObjectList(new BlockDebris("BrickDebris", Position), 0, 0);
+                    breakBlockTimer = 2;
+                }
             }
         }
     }

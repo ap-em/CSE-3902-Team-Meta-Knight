@@ -81,8 +81,7 @@ namespace Sprint0
                 {
                     movableGameObjects.Add((IMovable)go);
                 }
-                // dynamic blocks get drawn in during level draw so we dont need it in a list
-                if(go is IDraw && !(go is IDynamicBlock))
+                if(go is IDraw)
                 {
                     drawableGameObjects.Add((IDraw)go);
                 }
@@ -128,9 +127,9 @@ namespace Sprint0
                 {
                     collidableGameObjects.Remove((ICollidable)go);
                 }
-                if (go is IBlock)
+                if (go is IDynamicBlock)
                 {
-                    staticGameObjects[(int)(go.Position.X / 32)][(int)(go.Position.Y / 32)] = null;
+   //                 staticGameObjects[(int)(go.Position.X / 32)][(int)(go.Position.Y / 32)] = null;
                 }
                 gameObjects.Remove(go);
             }
@@ -202,6 +201,8 @@ namespace Sprint0
                     else if (y > 99) y = 99;
                     if (staticGameObjects[x][y] != null)
                     {
+                        //dynamic blocks get drawn from drawable list
+                        if(!(staticGameObjects[x][y] is IDynamicBlock))
                         staticGameObjects[x][y].Draw(spriteBatch);
                     }
                 }
