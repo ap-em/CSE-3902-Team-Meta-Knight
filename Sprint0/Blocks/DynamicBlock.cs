@@ -9,6 +9,7 @@ using Sprint0.Cycle;
 using Sprint0.Sprites.SpriteFactory;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.UtilityClasses;
+using Sprint0.Items;
 
 
 /*Alex Clayton
@@ -90,6 +91,11 @@ namespace Sprint0.Blocks
                     GameObjectManager.Instance.AddToObjectList(new BlockDebris("BrickDebris", Position), 0, 0);
                     breakBlockTimer = 2;
                 }
+            }
+            else if(GetSpriteName() == "ItemBlock")
+            {
+                GameObjectManager.Instance.AddToObjectList(new Item("Mushroom", new Vector2(Position.X, Position.Y - 32)), 0, 0);
+                SetSprite("UsedItemBlock");
             }
         }
     }

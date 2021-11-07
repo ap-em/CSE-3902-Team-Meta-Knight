@@ -28,16 +28,15 @@ namespace Sprint0.Items
 
         public Item(String itemName, Vector2 position) // Should I just use the gameobject manager? Items will probably include mushroom, star, coin
         {
-            this.SetItem(itemName);
+            SetItem(itemName);
             location = position;
-            this.ItemName = itemName;
+            ItemName = itemName;
         }
 
         public void SetItem(String spriteName)
         {
-            this.ItemName = spriteName;
-            this.ItemSprite = SpriteFactory.Instance.GetSprite(spriteName);
-
+            ItemName = spriteName;
+            ItemSprite = SpriteFactory.Instance.GetSprite(spriteName);
         }
         public bool GetGrounded()
         {
