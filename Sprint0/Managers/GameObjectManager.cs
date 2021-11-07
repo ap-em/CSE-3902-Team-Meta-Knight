@@ -251,6 +251,17 @@ namespace Sprint0
             blocks[6] = staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y - 1)];
             blocks[7] = staticGameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y - 1)];
 
+
+            //if a dynamic block isnt being drawn then dont collide
+            for(int i = 0; i<8;i++)
+            {
+                if(blocks[i] is IDynamicBlock && !drawableGameObjects.Contains((IDraw)blocks[i]))
+                {
+                    blocks[i] = null;
+                }
+            }
+
+
             return blocks;
         }
 
