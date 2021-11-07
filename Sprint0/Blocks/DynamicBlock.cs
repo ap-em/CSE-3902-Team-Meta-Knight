@@ -28,6 +28,7 @@ namespace Sprint0.Blocks
         private int bounceBackTimer = -1;
         private ISprite sprite;
         private String spriteName;
+        private SoundInfo soundInfo;
         private Vector2 location = new Vector2(GameUtilities.initialBlockPosX, GameUtilities.initialBlockPosY);
 
         public Vector2 Position { get => location; set => location = value; }
@@ -36,6 +37,7 @@ namespace Sprint0.Blocks
 
         public DynamicBlock(String spriteName, Vector2 position)
         {
+            soundInfo = new SoundInfo();
             location = position;
             this.spriteName = spriteName;
             sprite = SpriteFactory.Instance.GetSprite(spriteName);
@@ -85,6 +87,7 @@ namespace Sprint0.Blocks
             }
             if (GetSpriteName() == "BrickBlock" && (mario.GetHealthState() == "Full" || mario.GetHealthState() == "Fire" || mario.GetHealthState() == "Star"))
             {
+                soundInfo.PlaySound("brickbreak", false);
                 //only set the timer if we havent already set the timer
                 if (breakBlockTimer < 0)
                 {
@@ -94,6 +97,7 @@ namespace Sprint0.Blocks
             }
             else if(GetSpriteName() == "ItemBlock")
             {
+                soundInfo.PlaySound("itemblock", false);
                 GameObjectManager.Instance.AddToObjectList(new Item("Mushroom", new Vector2(Position.X, Position.Y - 32)), 0, 0);
                 SetSprite("UsedItemBlock");
             }
