@@ -26,7 +26,7 @@ namespace Sprint0.Blocks
             location = position;
             this.spriteName = spriteName;
             sprite = SpriteFactory.Instance.GetSprite(spriteName);
-            
+
         }
 
         

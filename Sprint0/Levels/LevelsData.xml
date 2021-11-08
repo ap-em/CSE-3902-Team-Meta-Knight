@@ -175,6 +175,7 @@
 	  		  <!--Player/Enemies-->
       <row>
           <obj>2,10,1,Sprint0.Mario,Sprint0.Mario, Sprint0.Mario</obj>
+		  
           <obj>22,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
 	      <obj>40,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
 	      <obj>51,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
@@ -281,18 +282,19 @@
 	  
 		  <obj>179,12,1,Sprint0.Blocks.Block,BottomPipe</obj>
 	      <obj>179,11,1,Sprint0.Blocks.Block,TopPipe</obj>
+		  <!-- Test Flag top to test locking keys<obj>5,10,1,Sprint0.Blocks.Flag,FlagTop</obj>-->
+		  <obj>198,2,1,Sprint0.Blocks.Flag,FlagTop</obj>
+	      <obj>198,2,1,Sprint0.Blocks.Flag,FlagTop</obj>	
+	  	  <obj>198,4,1,Sprint0.Blocks.Flag,FlagPole</obj>
+  	      <obj>198,5,1,Sprint0.Blocks.Flag,FlagPole</obj>
+	      <obj>198,6,1,Sprint0.Blocks.Flag,FlagPole</obj>
+	      <obj>198,7,1,Sprint0.Blocks.Flag,FlagPole</obj>
+	      <obj>198,8,1,Sprint0.Blocks.Flag,FlagPole</obj>
+	      <obj>198,9,1,Sprint0.Blocks.Flag,FlagPole</obj>
+	      <obj>198,10,1,Sprint0.Blocks.Flag,FlagPole</obj>
+	      <obj>198,11,1,Sprint0.Blocks.Flag,FlagPole</obj>
 	  
-	      <obj>198,2,1,Sprint0.Blocks.Block,FlagTop</obj>	
-	  	  <obj>198,4,1,Sprint0.Blocks.Block,FlagPole</obj>
-  	      <obj>198,5,1,Sprint0.Blocks.Block,FlagPole</obj>
-	      <obj>198,6,1,Sprint0.Blocks.Block,FlagPole</obj>
-	      <obj>198,7,1,Sprint0.Blocks.Block,FlagPole</obj>
-	      <obj>198,8,1,Sprint0.Blocks.Block,FlagPole</obj>
-	      <obj>198,9,1,Sprint0.Blocks.Block,FlagPole</obj>
-	      <obj>198,10,1,Sprint0.Blocks.Block,FlagPole</obj>
-	      <obj>198,11,1,Sprint0.Blocks.Block,FlagPole</obj>
-	  
-	      <obj>197,3,1,Sprint0.Blocks.Block,Flag</obj>
+	      <obj>197,3,1,Sprint0.Blocks.Flag,Flag</obj>
 	  </row>
 
   </Level1>

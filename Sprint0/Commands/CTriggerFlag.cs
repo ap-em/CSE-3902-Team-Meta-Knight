@@ -1,4 +1,5 @@
-﻿using Sprint0.Interfaces;
+﻿using Microsoft.Xna.Framework;
+using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Sprint0.Commands
         IMario mario;
         IFlag flag;
 
-        public CTriggerFlag(IFlag flag,IMario mario)
+        public CTriggerFlag(IFlag flag, IMario mario, Rectangle rectangle)
         {
             this.mario = mario;
             this.flag = flag;
