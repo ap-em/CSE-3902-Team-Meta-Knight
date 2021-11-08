@@ -20,6 +20,7 @@ namespace Sprint0.Interfaces
 {
    public interface IDynamicBlock
     {
+
         void BreakBlock(IMario mario);
     }
 }

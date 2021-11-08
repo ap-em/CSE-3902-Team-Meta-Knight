@@ -9,6 +9,7 @@ namespace Sprint0.Enemies
         private enum enemyHealth { full, half, dead};
         private enemyHealth health;
         private Enemy enemy;
+        private SoundInfo soundInfo;
         public EnemyHealthStateMachine(Enemy enemyRef)
         {
             enemy = enemyRef;
@@ -21,6 +22,7 @@ namespace Sprint0.Enemies
             {
                 health = enemyHealth.full;
             }
+            soundInfo = new SoundInfo();
         }
         public void TakeDamage()
         {
@@ -32,6 +34,21 @@ namespace Sprint0.Enemies
                 case enemyHealth.half:
                     health = enemyHealth.dead;
                     enemy.objectRemovalTimer = 8;
+                    /*
+                    * This means we should have an enemy heath state machine interface with seperate machines for each enemy type
+                    * Will do later!
+                     */
+                    switch (enemy.enemyType)
+                    {
+                        case "Koopa":
+                            soundInfo.PlaySound("koopadeath", false);
+                            break;
+                        case "Goomba":
+                            soundInfo.PlaySound("goombadeath", false);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case enemyHealth.dead:
                     //No 
