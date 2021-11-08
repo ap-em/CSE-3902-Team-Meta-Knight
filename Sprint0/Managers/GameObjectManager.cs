@@ -172,19 +172,21 @@ namespace Sprint0
         {
             Texture2D background = Game0.Instance.Content.Load<Texture2D>("1-1");
             spriteBatch.Draw(background, new Rectangle(0, 0, 6450, 600), Color.White);
-                /*
-                 * used for debuging collidable objects around player
-                IGameObject[] b = GetCollidables(position, new Vector2(32, 64));
+                
+                 // used for debuging collidable objects around player
+                 /*
+                List<IBlock> b = GetCollidables(position, new Vector2(32, 48));
 
-                for(int i = 0; i<b.Length;i++)
+                for(int i = 0; i<b.Count;i++)
                 {
                     if (b[i] != null)
                     {
                         b[i].Draw(spriteBatch);
                     }
                 }
-                */
-
+                 */
+                
+            
             position = Level.Instance.WorldToBlockSpace(position);
             int xPos = (int)position.X;
             int yPos = (int)position.Y;
@@ -207,8 +209,9 @@ namespace Sprint0
                     }
                 }
             }
+            
         }
-        public IBlock[] GetCollidables(Vector2 position, Vector2 size)
+        public List<IBlock> GetCollidables(Vector2 position, Vector2 size)
         {
 
             int width = (int)Math.Round(size.X / 32);
@@ -237,23 +240,34 @@ namespace Sprint0
             }
 
 
-            IBlock[] blocks = new IBlock[8];
-
-            /*check blocks 1 above and y + height to check below objects feet*/
+            List<IBlock> blocks = new List<IBlock>();
 
 
-            blocks[0] = staticGameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y + height)];
-            blocks[1] = staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y + height)];
-            blocks[2] = staticGameObjects[(int)Math.Round(position.X + width)][(int)Math.Round(position.Y + height)];
-            blocks[3] = staticGameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y)];
-            blocks[4] = staticGameObjects[(int)Math.Round(position.X + width)][(int)Math.Round(position.Y)];
-            blocks[5] = staticGameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y - 1)];
-            blocks[6] = staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y - 1)];
-            blocks[7] = staticGameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y - 1)];
+            //add blocks directly above and below object
 
+            blocks.Add(staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y - 1)]);
+            blocks.Add(staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y + height)]);
+
+            //add blocks to the left and right of object
+
+            int xIndex = -1;
+            int yIndex = height;
+            while (xIndex <= width)
+            {
+                if (xIndex != 0)
+                {
+                    yIndex = height;
+                    while (yIndex > -1)
+                    {
+                        blocks.Add(staticGameObjects[(int)Math.Round(position.X + xIndex)][(int)Math.Round(position.Y + yIndex)]);
+                        yIndex--;
+                    }
+                }
+                xIndex++;
+            }
 
             //if a dynamic block isnt being drawn then dont collide
-            for(int i = 0; i<8;i++)
+            for(int i = 0; i<blocks.Count;i++)
             {
                 if(blocks[i] is IDynamicBlock && !drawableGameObjects.Contains((IDraw)blocks[i]))
                 {
@@ -280,7 +294,7 @@ namespace Sprint0
             //Here for implementation of collisions when neccesary
             ICommand collision;
             //Get the surronding blocks of whatever the game object is as blocks are not added to the game object list on creation.
-            IBlock[] levelCollides = GetCollidables(new Vector2 ((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y)), new Vector2(go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale));
+            List<IBlock> levelCollides = GetCollidables(new Vector2 ((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y)), new Vector2(go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale));
             
             //Go through each colliding block
             foreach (IBlock block in levelCollides)
