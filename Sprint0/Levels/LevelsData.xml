@@ -175,7 +175,7 @@
 	  		  <!--Player/Enemies-->
       <row>
           <obj>2,10,1,Sprint0.Mario,Sprint0.Mario, Sprint0.Mario</obj>
-	    <!--  <obj>22,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
+	      <obj>22,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
 	      <obj>40,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
 	      <obj>51,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
 	      <obj>52,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
@@ -189,7 +189,9 @@
 	      <obj>124,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
 	      <obj>125,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
 		  <obj>128,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
-	      <obj>129,12,1,Sprint0.Enemies.Enemy,Goomba</obj>-->
+	      <obj>129,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
+	      <obj>174,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
+		  <obj>176,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
 	  </row>
 	  		  <!--Blocks-->  
 	  <row>
@@ -209,6 +211,7 @@
 	  </row>
   
   	  <row>
+		  <obj>17,9,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj><!--Should be coin-->
           <obj>20,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
           <obj>21,9,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj>
           <obj>22,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
@@ -235,6 +238,38 @@
           <obj>129,5,2,Sprint0.Blocks.DynamicBlock,ItemBlock</obj><!--Should be coin-->
           <obj>131,5,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
           <obj>129,9,2,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+	  
+	  	  <obj>134,12,4,Sprint0.Blocks.Block,Block</obj>
+		  <obj>135,11,3,Sprint0.Blocks.Block,Block</obj>
+		  <obj>136,10,2,Sprint0.Blocks.Block,Block</obj>
+		  <obj>137,9,1,Sprint0.Blocks.Block,Block</obj>
+		  <obj>140,12,4,Sprint0.Blocks.Block,Block</obj>
+		  <obj>140,11,3,Sprint0.Blocks.Block,Block</obj>
+		  <obj>140,10,2,Sprint0.Blocks.Block,Block</obj>
+		  <obj>140,9,1,Sprint0.Blocks.Block,Block</obj>
+		  <obj>148,12,5,Sprint0.Blocks.Block,Block</obj>
+		  <obj>149,11,4,Sprint0.Blocks.Block,Block</obj>
+		  <obj>150,10,3,Sprint0.Blocks.Block,Block</obj>
+		  <obj>151,9,2,Sprint0.Blocks.Block,Block</obj>
+		  <obj>155,12,4,Sprint0.Blocks.Block,Block</obj>
+		  <obj>155,11,3,Sprint0.Blocks.Block,Block</obj>
+		  <obj>155,10,2,Sprint0.Blocks.Block,Block</obj>
+		  <obj>155,9,1,Sprint0.Blocks.Block,Block</obj>
+		  
+		  <obj>168,9,2,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		  <obj>170,9,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj><!--Should be coin-->
+		  <obj>171,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		  
+		  <obj>181,12,9,Sprint0.Blocks.Block,Block</obj>
+		  <obj>182,11,8,Sprint0.Blocks.Block,Block</obj>
+		  <obj>183,10,7,Sprint0.Blocks.Block,Block</obj>
+		  <obj>184,9,6,Sprint0.Blocks.Block,Block</obj>
+		  <obj>185,8,5,Sprint0.Blocks.Block,Block</obj>
+		  <obj>186,7,4,Sprint0.Blocks.Block,Block</obj>
+		  <obj>187,6,3,Sprint0.Blocks.Block,Block</obj>
+		  <obj>188,5,2,Sprint0.Blocks.Block,Block</obj>
+	  
+		  <obj>199,12,1,Sprint0.Blocks.Block,Block</obj>
 	  </row>
   
   </Level1>
