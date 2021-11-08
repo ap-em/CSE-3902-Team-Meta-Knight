@@ -19,7 +19,14 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            block.BreakBlock(mario);
+
+            if (mario.IsJumping())
+            {
+                block.BreakBlock(mario);
+            }
+                
+            
+            
         }
     }
 }

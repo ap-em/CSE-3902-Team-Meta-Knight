@@ -8,6 +8,7 @@ using Sprint0.Concrete_Classes.State_Machines.States;
 using Sprint0.Interfaces;
 using Sprint0.Controllers;
 using Sprint0.UtilityClasses;
+using System.Diagnostics;
 /*
 Alex Clayton
 Alex Contreras
@@ -28,6 +29,7 @@ namespace Sprint0
         private ISprite currentSprite;
         private IMarioState attack;
         private bool isGrounded;
+        public bool isJumping = false;
         public SoundInfo soundInfo;
         public Vector2 Position { get => position; set => position = value; }
 
@@ -73,6 +75,10 @@ namespace Sprint0
         {
             isGrounded = grounded;
         }
+        public bool IsJumping()
+        {
+            return isJumping;
+        }
         public void Draw(SpriteBatch spritebatch)
         {
             currentSprite.Draw(spritebatch, position);
@@ -113,10 +119,14 @@ namespace Sprint0
         public void Jump()
         {
             currentState.Jump();
+            isJumping = true;
+            Debug.WriteLine("isJumping true");
         }
         public void StopJump()
         {
             currentState.StopJump();
+            isJumping = false;
+            Debug.WriteLine("isJumping false");
         }
         public void TakeDamage()
         {
