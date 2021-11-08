@@ -12,21 +12,17 @@ Leon Cai
 Owen Tishenkel
 Owen Huston
 */
+
+/*
+ * Alexander Clayton CSE 3902 09/15/2021
+ */
 namespace Sprint0.Interfaces
 {
-    public interface IEnemy
+    /*
+     * This interface can be used for all blocks, which should just involve replacing the texture.
+     */
+   public interface IDraw
     {
-
-        void Update();
-        void FireProjectile();
-        void SetSprite(String spriteName);
-        String GetSpriteName();
-        void MoveRight();
-        void MoveLeft();
-        void SetXVelocity(float x);
-        void SetYVelocity(float y);
         void Draw(SpriteBatch spriteBatch);
-        void TakeDamage();
-        String GetHealth();
     }
 }

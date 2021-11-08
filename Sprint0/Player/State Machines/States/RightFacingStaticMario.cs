@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -35,7 +36,7 @@ namespace Sprint0
         public void Jump()
         {
             mario.soundInfo.PlaySound("smb2_jump", false);
-            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(0, -10), 0, true);
+            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(velocity.X, -10), 0, true);
             mario.OnStateChange();
         }
         public void StopJump()
@@ -56,11 +57,11 @@ namespace Sprint0
         }
         public void StopMovingHorizontal()
         {
-           // no op
+            velocity.X = 0;
         }
         public void StopMovingVertical()
         {
-            // no op
+            velocity.Y = 0;
         }
         public void UpBounce(Rectangle rectangle)
         {
@@ -79,7 +80,7 @@ namespace Sprint0
         public void RightBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X + rectangle.Width, mario.Position.Y);
-           // StopMovingHorizontal();
+           //StopMovingHorizontal();
         }
         public void LeftBounce(Rectangle rectangle)
         {
@@ -94,10 +95,15 @@ namespace Sprint0
             }
             else 
             {
-                velocity = new Vector2(0, 9.8f);
+                velocity = new Vector2(0, GameUtilities.gravity);
             }
             
             mario.MoveSprite(velocity);
+        }
+
+        public void MarioBounce(Rectangle rectangle)
+        {
+            velocity.Y = -12f;
         }
     }
 }

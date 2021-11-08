@@ -18,10 +18,9 @@ Owen Huston
  */
 namespace Sprint0.Interfaces
 {
-   public interface IBlock
+   public interface IDynamicBlock
     {
-        void Draw(SpriteBatch spriteBatch);
-        public Vector2 Position { get; set; }
-        public ISprite Sprite { get; }
+
+        void BreakBlock(IMario mario);
     }
 }

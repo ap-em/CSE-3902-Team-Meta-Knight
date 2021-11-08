@@ -23,7 +23,7 @@ namespace Sprint0
 {
     class LevelFactory 
     {
-
+        public int currentLevel = 1;
         private static LevelFactory instance;
         public static LevelFactory Instance
         {

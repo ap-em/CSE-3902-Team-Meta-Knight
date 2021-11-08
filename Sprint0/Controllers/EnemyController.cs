@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Input;
 using Sprint0.Interfaces;
 using Sprint0.Commands;
 using System.Collections;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -24,7 +25,7 @@ namespace Sprint0.Controllers
         private List<Keys> availableKeys;
         private Keys oldKey;
         private int currentTime = 0;
-        private int waitTime = 50;
+        private int waitTime =GameUtilities.waitTime;
 
         /*
          *  Initializes the Control layout

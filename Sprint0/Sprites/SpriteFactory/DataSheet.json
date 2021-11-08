@@ -417,6 +417,13 @@
     "SpriteSheet": "blocks"
   },
   {
+    "DataX": [ 304 ],
+    "DataY": [ 112 ],
+    "Data": [ 8, 8, 1 ],
+    "SpriteName": "BrickDebris",
+    "SpriteSheet": "blocks"
+  },
+  {
     "DataX": [ 0 ],
     "DataY": [ 0 ],
     "Data": [ 16, 16, 1 ],
@@ -473,6 +480,41 @@
     "SpriteSheet": "tiles"
   },
   {
+    "DataX": [ 112 ],
+    "DataY": [ 644 ],
+    "Data": [ 32, 16, 1 ],
+    "SpriteName": "BottomPipe",
+    "SpriteSheet": "TileSet"
+  },
+  {
+    "DataX": [ 112 ],
+    "DataY": [ 612 ],
+    "Data": [ 32, 16, 1 ],
+    "SpriteName": "TopPipe",
+    "SpriteSheet": "TileSet"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 588 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "FlagTop",
+    "SpriteSheet": "TileSet"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 620 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "FlagPole",
+    "SpriteSheet": "TileSet"
+  },
+  {
+    "DataX": [ 130 ],
+    "DataY": [ 46 ],
+    "Data": [ 25, 16, 1 ],
+    "SpriteName": "Flag",
+    "SpriteSheet": "tiles"
+  },
+  {
     "DataX": [ 364 ],
     "DataY": [ 188 ],
     "Data": [ 8, 8, 1 ],
@@ -482,85 +524,134 @@
   {
     "DataX": [ 0, 30 ],
     "DataY": [ 4, 4 ],
-    "Data": [ 16, 16, 2],
-    "SpriteName": "LeftMovingGoomba",
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "LeftMovingGoombaHalf",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 0, 30 ],
     "DataY": [ 4, 4 ],
-    "Data": [ 16, 16, 2],
-    "SpriteName": "RightMovingGoomba",
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "RightMovingGoombaHalf",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 0 ],
     "DataY": [ 4 ],
-    "Data": [ 16, 16, 1],
-    "SpriteName": "LeftIdleGoomba",
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "LeftIdleGoombaHalf",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 0 ],
     "DataY": [ 4 ],
-    "Data": [ 16, 16, 1],
-    "SpriteName": "RightIdleGoomba",
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "RightIdleGoombaHalf",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 60 ],
+    "DataY": [ 4 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "GoombaDead",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 90, 120 ],
     "DataY": [ 0, 0 ],
-    "Data": [ 16, 24, 2],
-    "SpriteName": "LeftMovingKoopa",
+    "Data": [ 16, 24, 2 ],
+    "SpriteName": "LeftMovingKoopaFull",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 270, 300 ],
     "DataY": [ 0, 0 ],
-    "Data": [ 16, 24, 2],
-    "SpriteName": "RightMovingKoopa",
+    "Data": [ 16, 24, 2 ],
+    "SpriteName": "RightMovingKoopaFull",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 90 ],
     "DataY": [ 0 ],
-    "Data": [ 16, 24, 1],
-    "SpriteName": "LeftIdleKoopa",
+    "Data": [ 16, 24, 1 ],
+    "SpriteName": "LeftIdleKoopaFull",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 270 ],
     "DataY": [ 0 ],
-    "Data": [ 16, 24, 1],
-    "SpriteName": "RightIdleKoopa",
+    "Data": [ 16, 24, 1 ],
+    "SpriteName": "RightIdleKoopaFull",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 150, 180 ],
+    "DataY": [ 0, 0 ],
+    "Data": [ 16, 24, 2 ],
+    "SpriteName": "LeftMovingKoopaHalf",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 240, 210 ],
+    "DataY": [ 0, 0 ],
+    "Data": [ 16, 24, 2 ],
+    "SpriteName": "RightMovingKoopaHalf",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 150 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 24, 1 ],
+    "SpriteName": "LeftIdleKoopaHalf",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 240 ],
+    "DataY": [ 0 ],
+    "Data": [ 16, 24, 1 ],
+    "SpriteName": "RightIdleKoopaHalf",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 360 ],
+    "DataY": [ 5 ],
+    "Data": [ 16, 24, 1 ],
+    "SpriteName": "KoopaDead",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 82, 122 ],
     "DataY": [ 212, 212 ],
     "Data": [ 32, 32, 2 ],
-    "SpriteName": "LeftMovingBowser",
+    "SpriteName": "LeftMovingBowserHalf",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 163, 202 ],
     "DataY": [ 212, 212 ],
-    "Data": [ 32, 32, 2],
-    "SpriteName": "RightMovingBowser",
+    "Data": [ 32, 32, 2 ],
+    "SpriteName": "RightMovingBowserHalf",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 122 ],
     "DataY": [ 212 ],
     "Data": [ 32, 32, 1 ],
-    "SpriteName": "LeftIdleBowser",
+    "SpriteName": "LeftIdleBowserHalf",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 202 ],
     "DataY": [ 212 ],
     "Data": [ 32, 32, 1 ],
-    "SpriteName": "RightIdleBowser",
+    "SpriteName": "RightIdleBowserHalf",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 82 ],
+    "DataY": [ 212 ],
+    "Data": [ 32, 32, 1 ],
+    "SpriteName": "BowserDead",
     "SpriteSheet": "enemies"
   }
 ]

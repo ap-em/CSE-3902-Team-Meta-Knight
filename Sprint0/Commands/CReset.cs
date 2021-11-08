@@ -25,7 +25,6 @@ Owen Huston
 
         public void Execute()
         {
-            Level.Instance.Reset();
             GameObjectManager.Instance.RemoveAllObjects();
             Game0.Instance.CreatePlayer();
             Game0.Instance.soundInfo.StopLoopedSound("OverworldTheme");
@@ -33,6 +32,7 @@ Owen Huston
             
 
             
+            LevelFactory.Instance.CreateLevel(LevelFactory.Instance.currentLevel);
         }
     }
 }

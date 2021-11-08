@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Sprint0.UtilityClasses;
 /*
 Alex Clayton
 Alex Contreras
@@ -17,7 +18,7 @@ namespace Sprint0
     {
         public string ID  { get; }= "RightMovingMario";
         private Mario mario;
-        private Vector2 velocity= new Vector2(4f, 0);
+        private Vector2 velocity= new Vector2(GameUtilities.VairX, 0);
 
         public RightFacingMovingMario(Mario marioRef)
         {
@@ -37,7 +38,7 @@ namespace Sprint0
         public void Jump()
         {
             mario.soundInfo.PlaySound("smb2_jump", false);
-            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(6, -10), 0, true);
+            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(velocity.X, -10), 0, true);
             mario.OnStateChange();
         }
         public void StopJump()
@@ -65,17 +66,22 @@ namespace Sprint0
         }
         public void UpBounce(Rectangle rectangle)
         {
-            if (!mario.GetGrounded())
+            if (!mario.GetGrounded() && rectangle.Width>velocity.X)
             {
                 mario.SetGrounded(true);
                 mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
-                StopMovingVertical();
+               StopMovingVertical();
             }
         }
         public void DownBounce(Rectangle rectangle)
         {
-            mario.Position = new Vector2(mario.Position.X, mario.Position.Y + rectangle.Height);
-            velocity = new Vector2(velocity.X, 2f);
+            if (!mario.GetGrounded() && rectangle.Width > velocity.X)
+            {
+                mario.Position = new Vector2(mario.Position.X, mario.Position.Y + rectangle.Height);
+                velocity = new Vector2(velocity.X, 2f);
+            }
+            
+                
         }
         public void RightBounce(Rectangle rectangle)
         {
@@ -91,14 +97,19 @@ namespace Sprint0
         {
             if (mario.GetGrounded())
             {
-                velocity = new Vector2(4f, 0f);
+                velocity = new Vector2(GameUtilities.VairX, 0f);
             }
             else
             {
-                velocity = new Vector2(4f, 9.8f);
+                velocity = new Vector2(GameUtilities.VairX, GameUtilities.gravity);
             }
 
             mario.MoveSprite(velocity);
+        }
+
+        public void MarioBounce(Rectangle rectangle)
+        {
+            velocity.Y = -12f;
         }
     }
 }

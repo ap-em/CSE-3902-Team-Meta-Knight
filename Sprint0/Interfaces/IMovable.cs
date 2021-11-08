@@ -10,7 +10,6 @@ namespace Sprint0
     {
         public Vector2 Position { get; set; }
         public ISprite Sprite { get; }
-        public void Update();
         public bool GetGrounded();
         public void SetGrounded(bool grounded);
         public void Draw(SpriteBatch spritebatch);
