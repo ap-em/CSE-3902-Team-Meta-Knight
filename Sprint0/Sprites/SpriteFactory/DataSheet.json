@@ -480,6 +480,41 @@
     "SpriteSheet": "tiles"
   },
   {
+    "DataX": [ 112 ],
+    "DataY": [ 644 ],
+    "Data": [ 32, 16, 1 ],
+    "SpriteName": "BottomPipe",
+    "SpriteSheet": "TileSet"
+  },
+  {
+    "DataX": [ 112 ],
+    "DataY": [ 612 ],
+    "Data": [ 32, 16, 1 ],
+    "SpriteName": "TopPipe",
+    "SpriteSheet": "TileSet"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 588 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "FlagTop",
+    "SpriteSheet": "TileSet"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 620 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "FlagPole",
+    "SpriteSheet": "TileSet"
+  },
+  {
+    "DataX": [ 130 ],
+    "DataY": [ 46 ],
+    "Data": [ 25, 16, 1 ],
+    "SpriteName": "Flag",
+    "SpriteSheet": "tiles"
+  },
+  {
     "DataX": [ 364 ],
     "DataY": [ 188 ],
     "Data": [ 8, 8, 1 ],
