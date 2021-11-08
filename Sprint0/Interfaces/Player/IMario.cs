@@ -39,5 +39,6 @@ namespace Sprint0
         void StopMovingHorizontal();
         void StopMovingVertical();
         String GetHealthState();
+        bool IsJumping();
     }
 }
