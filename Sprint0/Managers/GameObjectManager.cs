@@ -171,7 +171,7 @@ namespace Sprint0
         public void DrawStaticGameObjects(SpriteBatch spriteBatch, Vector2 position)
         {
             Texture2D background = Game0.Instance.Content.Load<Texture2D>("1-1");
-            spriteBatch.Draw(background, new Rectangle(0, 0, 6450, 600), Color.White);
+            spriteBatch.Draw(background, new Rectangle(0, 0, 6750, 600), Color.White);
                 
                 // used for debuging collidable objects around player
             /*    
