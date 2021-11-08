@@ -16,6 +16,7 @@ namespace Sprint0.Blocks
         private SoundInfo soundInfo;
         private Vector2 location = new Vector2(GameUtilities.initialBlockPosX, GameUtilities.initialBlockPosY);
         public Vector2 Position { get => location; set => location = value; }
+        public ISprite Sprite => sprite;
         private static int basePoints = 10;
 
         public Flag(string spriteName, Vector2 position)
@@ -25,11 +26,21 @@ namespace Sprint0.Blocks
             sprite = SpriteFactory.Instance.GetSprite(spriteName);
         }
 
-        public ISprite Sprite => sprite;
+        
 
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, location);
+        }
+        public String GetSpriteName()
+        {
+            return spriteName;
+        }
+
+        public void SetSprite(String spriteName)
+        {
+            this.spriteName = spriteName;
+            this.sprite = SpriteFactory.Instance.GetSprite(spriteName);
         }
 
         public void Win(IMario mario)
