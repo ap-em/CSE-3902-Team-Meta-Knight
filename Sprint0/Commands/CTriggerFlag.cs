@@ -1,15 +1,25 @@
-﻿using System;
+﻿using Sprint0.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Sprint0.Commands
 {
-    class CTriggerFlag
+    class CTriggerFlag:ICommand
     {
-        public CBreakBlock(IDynamicBlock block)
+        IMario mario;
+        IFlag flag;
+
+        public CTriggerFlag(IFlag flag,IMario mario)
         {
             this.mario = mario;
-            this.block = block;
+            this.flag = flag;
+
+        }
+
+        public void Execute()
+        {
+            flag.Win(mario);
         }
     }
 }

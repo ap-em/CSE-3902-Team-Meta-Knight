@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Interfaces;
+using Sprint0.Sprites.SpriteFactory;
 using Sprint0.UtilityClasses;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,27 @@ namespace Sprint0.Blocks
         private SoundInfo soundInfo;
         private Vector2 location = new Vector2(GameUtilities.initialBlockPosX, GameUtilities.initialBlockPosY);
         public Vector2 Position { get => location; set => location = value; }
+        private static int basePoints = 10;
+
+        public Flag(string spriteName, Vector2 position)
+        {
+            location = position;
+            this.spriteName = spriteName;
+            sprite = SpriteFactory.Instance.GetSprite(spriteName);
+        }
 
         public ISprite Sprite => sprite;
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            throw new NotImplementedException();
+            sprite.Draw(spriteBatch, location);
+        }
+
+        public void Win(IMario mario)
+        {
+            //Send this to wherever points are managed.
+           int points =  ((int)Math.Round(mario.Position.Y))* basePoints;
+
         }
     }
 }
