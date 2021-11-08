@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Controllers;
 using Sprint0.Interfaces;
 using Sprint0.Sprites.SpriteFactory;
 using Sprint0.UtilityClasses;
@@ -18,12 +19,14 @@ namespace Sprint0.Blocks
         public Vector2 Position { get => location; set => location = value; }
         public ISprite Sprite => sprite;
         private static int basePoints = 10;
+        KeyboardController keyboard = KeyboardController.Instance;
 
         public Flag(string spriteName, Vector2 position)
         {
             location = position;
             this.spriteName = spriteName;
             sprite = SpriteFactory.Instance.GetSprite(spriteName);
+            
         }
 
         
@@ -45,8 +48,15 @@ namespace Sprint0.Blocks
 
         public void Win(IMario mario)
         {
-            //Send this to wherever points are managed.
-           int points =  ((int)Math.Round(mario.Position.Y))* basePoints;
+            //prevents unlimited points and allows for sliding down flagpole
+            if (keyboard.lockInput == false)
+            {
+                keyboard.lockInput = true;
+                //Send this to wherever points are managed.
+                int points = ((int)Math.Round(mario.Position.Y)) * basePoints;
+            }
+           
+           
 
         }
     }
