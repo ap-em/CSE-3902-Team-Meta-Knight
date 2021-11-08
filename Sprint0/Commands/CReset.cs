@@ -28,6 +28,8 @@ Owen Huston
             Level.Instance.Reset();
             GameObjectManager.Instance.RemoveAllObjects();
             Game0.Instance.CreatePlayer();
+            Game0.Instance.soundInfo.StopLoopedSound("OverworldTheme");
+            Game0.Instance.soundInfo.PlaySound("OverworldTheme",true);
             
 
             
