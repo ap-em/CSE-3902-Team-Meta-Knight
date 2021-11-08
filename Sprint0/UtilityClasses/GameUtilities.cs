@@ -61,10 +61,11 @@ namespace Sprint0.UtilityClasses
         public static int fuseTime = 30;
         public static  int currentMaxJumpTime = 5;
         public static  int maxJumpTime = 10;
-        public static int Vx = 6;
-        public static float VxF = 6f;
+        public static int Vx = 7;
+        public static float VxF = 7f;
         public static int Vy = 10;
-        public static float VairX = 4f;
+        public static float VairX = 7f;
+        public static float VairY = -7f;
         public static float gravity = 9.8f;
         public static int invinsibleTimer = 20;
         public static int invinsibleTimerStar = 100;

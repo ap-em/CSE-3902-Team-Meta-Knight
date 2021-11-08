@@ -37,6 +37,12 @@
 /processorParam:TextureFormat=Color
 /build:blocks.png
 
+#begin brickbreak.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:brickbreak.mp3
+
 #begin characters.gif
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -68,6 +74,18 @@
 /processorParam:TextureFormat=Compressed
 /build:Font.spritefont
 
+#begin goombadeath.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:goombadeath.mp3
+
+#begin itemblock.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:itemblock.mp3
+
 #begin items.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -79,6 +97,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items.png
+
+#begin koopadeath.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:koopadeath.mp3
 
 #begin link.png
 /importer:TextureImporter
@@ -139,4 +163,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:tiles.png
+
+#begin TileSet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TileSet.png
 

@@ -64,13 +64,16 @@ namespace Sprint0
             }
            
         }
-        public void StopLoopedSound(string soundName)
+        public bool StopLoopedSound(string soundName)
         {
             SoundEffectInstance sei;
-            soundInstances.TryGetValue(soundName, out sei);
-            sei.Stop();
-            soundInstances.Remove(soundName);
-
+            if(soundInstances.TryGetValue(soundName, out sei))
+            {
+                sei.Stop();
+                soundInstances.Remove(soundName);
+                return true;
+            }
+            return false;
         }
     }
 }

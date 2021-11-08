@@ -69,14 +69,14 @@ namespace Sprint0
         }
         public void MoveLeft()
         {
-            velocity.X = -4f;
+            velocity.X = -7f;
             mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(velocity.X,velocity.Y), jumpTimer, jumpHold);
             mario.OnStateChange();
         }
 
         public void MoveRight()
         {
-            velocity.X = 4f;
+            velocity.X = 7f;
         }
         public void StopMovingHorizontal()
         {

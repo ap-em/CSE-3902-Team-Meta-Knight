@@ -185,8 +185,6 @@ namespace Sprint0
                     }
                 }
                  */
-                
-            
             position = Level.Instance.WorldToBlockSpace(position);
             int xPos = (int)position.X;
             int yPos = (int)position.Y;
@@ -209,13 +207,14 @@ namespace Sprint0
                     }
                 }
             }
-            
         }
         public List<IBlock> GetCollidables(Vector2 position, Vector2 size)
         {
 
-            int width = (int)Math.Round(size.X / 32);
-            int height = (int)Math.Round(size.Y / 32);
+
+
+            int width = (int)(size.X / 32);
+            int height = (int)(size.Y / 32);
 
             if (width == 0)
             {

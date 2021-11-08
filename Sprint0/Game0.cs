@@ -37,6 +37,7 @@ namespace Sprint0
         public List<IMario> marioInsertQueue = new List<IMario>();
         public Texture2D background;
         public SoundInfo soundInfo;
+        public bool isPaused;
 
         private static Game0 instance;
         public static Game0 Instance
@@ -70,6 +71,7 @@ namespace Sprint0
             TargetElapsedTime = TimeSpan.FromSeconds(GameUtilities.timeSpan);
 
             soundInfo.PlaySound("OverworldTheme", true);
+            isPaused = false;
 
             base.Initialize();
         }
@@ -77,6 +79,10 @@ namespace Sprint0
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
+        }
+        public void Pause()
+        {
+
         }
 
         public void AddPlayerToList(IMario mario)
@@ -129,7 +135,7 @@ namespace Sprint0
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.FromNonPremultiplied(92,148,252,255));
 
             foreach (IMario mario in marios.Keys)
             {
