@@ -176,7 +176,7 @@
 	  </row>
 	  		  <!--Player/Enemies-->
       <row>
-          <obj>2,10,2,Sprint0.Mario,Sprint0.Mario, Sprint0.Mario</obj>
+          <obj>2,10,1,Sprint0.Mario,Sprint0.Mario, Sprint0.Mario</obj>
           <obj>22,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
 	      <obj>40,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
 	      <obj>51,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
@@ -200,13 +200,13 @@
   	  <row>
 		  <obj>17,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
           <obj>20,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-          <obj>21,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj>
+          <obj>21,9,1,Sprint0.Blocks.MushroomBlock,ItemBlock</obj>
           <obj>22,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
           <obj>23,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
           <obj>24,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
           <obj>22,5,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
           <obj>77,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-          <obj>78,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj>
+          <obj>78,9,1,Sprint0.Blocks.MushroomBlock,ItemBlock</obj>
           <obj>79,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
           <obj>80,5,8,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
           <obj>91,5,3,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
@@ -217,7 +217,7 @@
           <obj>101,9,1,Sprint0.Blocks.StarBlock,BrickBlock</obj><!--Should be star-->
           <obj>106,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
           <obj>109,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
-          <obj>109,5,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj>
+          <obj>109,5,1,Sprint0.Blocks.MushroomBlock,ItemBlock</obj>
           <obj>112,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
           <obj>118,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
           <obj>121,5,3,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
