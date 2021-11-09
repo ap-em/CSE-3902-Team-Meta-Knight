@@ -1,37 +1,38 @@
 ﻿<Levels>
 	<!--Level 0 acts as our test level which we used for our first demo as well as for various testing-->
+  
+          <!--xPosition, yPosition, numOfObj, Namespace.classname, spritename-->
+      <!--if numOfObj > 1, it continues placing the same object horizontally-->
   <Level0>
     <row>
-     <obj>2,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,12,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,11,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,10,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,8,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,7,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,6,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,5,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,4,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,3,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,2,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,1,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-     <obj>0,0,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+     <obj>2,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,12,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,11,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,10,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,8,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,7,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,6,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,5,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,4,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,3,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,2,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,1,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,0,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
 
       
-		 <obj>80,8,3,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		 <obj>79,7,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		 <obj>83,7,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		 <obj>80,4,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		 <obj>82,4,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		 <obj>80,8,3,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>79,7,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>83,7,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>80,4,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>82,4,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
 
-		 <obj>100,6,5,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		 <obj>105,6,5,Sprint0.Blocks.DynamicBlock,ItemBlock</obj>
-		 <obj>106,6,5,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		 <obj>95,9,15,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		 <obj>100,6,5,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>105,6,5,Sprint0.Blocks.BrickBlock,ItemBlock</obj>
+		 <obj>106,6,5,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>95,9,15,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
      </row>
     <row>
-      <!--xPosition, yPosition, numOfObj, Namespace.classname, spritename-->
-      <!--if numOfObj > 1, it continues placing the same object horizontally-->
       <obj>2,10,1,Sprint0.Mario,Sprint0.Mario, Sprint0.Mario</obj>
       <obj>6,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
     
@@ -46,9 +47,9 @@
 	 <obj>9,11,1,Sprint0.Items.Item,Star</obj>
     </row>
 	  <row>
-		  <obj>11,10,2,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		  <obj>13,10,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj>
-		  <obj>14,10,2,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		  <obj>11,10,2,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>13,10,1,Sprint0.Blocks.BrickBlock,ItemBlock</obj>
+		  <obj>14,10,2,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
 	  </row>
 	  <row>
       <obj>0,13,19,Sprint0.Blocks.Block,Ground</obj>
@@ -70,14 +71,14 @@
 		  <obj>50,9,1,Sprint0.Blocks.Block,UsedItemBlock</obj>
 		  <obj>51,9,1,Sprint0.Blocks.Block,UsedItemBlock</obj>
 		  
-		  <obj>134,12,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		  <obj>133,12,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		  <obj>132,12,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		  <obj>131,12,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		  <obj>134,11,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		  <obj>133,11,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		  <obj>132,11,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		  <obj>131,11,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		  <obj>134,12,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>133,12,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>132,12,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>131,12,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>134,11,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>133,11,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>132,11,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>131,11,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
 		  
 		  
 		  <obj>141,12,1,Sprint0.Blocks.Block,Block</obj>
@@ -158,6 +159,7 @@
 
 	  </row>
   </Level0>
+  
   <Level1>
 	  		  <!--Ground-->
 	  <row>
@@ -196,33 +198,33 @@
 	  		  <!--Blocks-->  
   
   	  <row>
-		  <obj>17,9,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj><!--Should be coin-->
-          <obj>20,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-          <obj>21,9,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj>
-          <obj>22,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-          <obj>23,9,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj><!--Should be coin-->
-          <obj>24,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-          <obj>22,5,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj><!--Should be coin-->
-          <obj>77,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-          <obj>78,9,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj>
-          <obj>79,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-          <obj>80,5,8,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-          <obj>91,5,3,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-          <obj>94,5,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj><!--Should be coin-->
-          <obj>94,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj><!--Should be coin-->
+		  <obj>17,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
+          <obj>20,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+          <obj>21,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj>
+          <obj>22,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+          <obj>23,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
+          <obj>24,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+          <obj>22,5,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
+          <obj>77,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+          <obj>78,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj>
+          <obj>79,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+          <obj>80,5,8,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+          <obj>91,5,3,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+          <obj>94,5,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
+          <obj>94,9,1,Sprint0.Blocks.OneCoinBlock,BrickBlock</obj><!--Should be coin-->
 	      
-          <obj>100,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-          <obj>101,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj><!--Should be star-->
-          <obj>106,9,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj><!--Should be coin-->
-          <obj>109,9,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj><!--Should be coin-->
-          <obj>109,5,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj>
-          <obj>112,9,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj><!--Should be coin-->
-          <obj>118,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-          <obj>121,5,3,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-          <obj>128,5,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-          <obj>129,5,2,Sprint0.Blocks.DynamicBlock,ItemBlock</obj><!--Should be coin-->
-          <obj>131,5,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-          <obj>129,9,2,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+          <obj>100,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+          <obj>101,9,1,Sprint0.Blocks.StarBlock,BrickBlock</obj><!--Should be star-->
+          <obj>106,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
+          <obj>109,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
+          <obj>109,5,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj>
+          <obj>112,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
+          <obj>118,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+          <obj>121,5,3,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+          <obj>128,5,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+          <obj>129,5,2,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
+          <obj>131,5,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+          <obj>129,9,2,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
 	  
 	  	  <obj>134,12,4,Sprint0.Blocks.Block,Block</obj>
 		  <obj>135,11,3,Sprint0.Blocks.Block,Block</obj>
@@ -241,9 +243,9 @@
 		  <obj>155,10,2,Sprint0.Blocks.Block,Block</obj>
 		  <obj>155,9,1,Sprint0.Blocks.Block,Block</obj>
 		  
-		  <obj>168,9,2,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
-		  <obj>170,9,1,Sprint0.Blocks.DynamicBlock,ItemBlock</obj><!--Should be coin-->
-		  <obj>171,9,1,Sprint0.Blocks.DynamicBlock,BrickBlock</obj>
+		  <obj>168,9,2,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>170,9,1,Sprint0.Blocks.OneCoinBlock,ItemBlock</obj><!--Should be coin-->
+		  <obj>171,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
 		  
 		  <obj>181,12,9,Sprint0.Blocks.Block,Block</obj>
 		  <obj>182,11,8,Sprint0.Blocks.Block,Block</obj>
