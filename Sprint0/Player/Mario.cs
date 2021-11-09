@@ -37,7 +37,7 @@ namespace Sprint0
 
         public Mario(String spriteName, Vector2 position)
         {
-            camera = new Camera(Game0.Instance.marios.Count);
+            camera = new Camera(GameObjectManager.Instance.marios.Count);
             healthStateMachine = new MarioHealthStateMachine(this);
             this.position = position;
             currentState = new RightFacingStaticMario(this);
