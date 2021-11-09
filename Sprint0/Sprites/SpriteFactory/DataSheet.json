@@ -368,6 +368,34 @@
     "SpriteSheet": "mario"
   },
   {
+    "DataX": [ 363, 390 ],
+    "DataY": [ 89, 88 ],
+    "Data": [ 16, 32, 2 ],
+    "SpriteName": "RightClimbMarioFull",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 331, 361 ],
+    "DataY": [ 30, 30 ],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "RightClimbMarioHalf",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 61, 30 ],
+    "DataY": [ 30, 30 ],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "LeftClimbMarioHalf",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 1, 28 ],
+    "DataY": [ 88, 89 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "LeftClimbMarioFull",
+    "SpriteSheet": "mario"
+  },
+  {
     "DataX": [ 80, 96, 112 ],
     "DataY": [ 112, 112, 112 ],
     "Data": [ 16, 16, 3 ],
