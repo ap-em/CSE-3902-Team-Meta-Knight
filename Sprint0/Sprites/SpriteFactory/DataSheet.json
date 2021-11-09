@@ -14,16 +14,16 @@
     "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 359 ],
-    "DataY": [ 52 ],
-    "Data": [ 16, 32, 1 ],
+    "DataX": [ 359, 362 ],
+    "DataY": [ 52, 122 ],
+    "Data": [ 16, 32, 2 ],
     "SpriteName": "RightJumpingMarioStar",
     "SpriteSheet": "StarMario"
   },
   {
-    "DataX": [ 30 ],
-    "DataY": [ 52 ],
-    "Data": [ 16, 32, 1 ],
+    "DataX": [ 30, 27 ],
+    "DataY": [ 52, 122 ],
+    "Data": [ 16, 32, 2 ],
     "SpriteName": "LeftJumpingMarioStar",
     "SpriteSheet": "StarMario"
   },
@@ -70,16 +70,16 @@
     "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 209 ],
-    "DataY": [ 52 ],
-    "Data": [ 16, 32, 1 ],
+    "DataX": [ 209, 209 ],
+    "DataY": [ 52, 122 ],
+    "Data": [ 16, 32, 2 ],
     "SpriteName": "RightIdleMarioStar",
     "SpriteSheet": "StarMario"
   },
   {
-    "DataX": [ 180 ],
-    "DataY": [ 52 ],
-    "Data": [ 16, 32, 1 ],
+    "DataX": [ 180, 180 ],
+    "DataY": [ 52, 122 ],
+    "Data": [ 16, 32, 2 ],
     "SpriteName": "LeftIdleMarioStar",
     "SpriteSheet": "StarMario"
   },
@@ -170,16 +170,16 @@
     "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 239, 270, 299 ],
-    "DataY": [ 52, 52, 53 ],
-    "Data": [ 16, 32, 3 ],
+    "DataX": [ 239, 263, 299, 237, 270, 287 ], 
+    "DataY": [ 52, 122, 53, 122, 52, 123], 
+    "Data": [ 16, 32, 6 ],
     "SpriteName": "RightMovingMarioStar",
     "SpriteSheet": "StarMario"
   },
   {
-    "DataX": [ 150, 121, 90 ],
-    "DataY": [ 52, 52, 53 ],
-    "Data": [ 16, 32, 3 ],
+    "DataX": [ 150, 128, 90, 152, 121, 102], 
+    "DataY": [ 52, 122, 53, 122, 52, 123], 
+    "Data": [ 16, 32, 6 ],
     "SpriteName": "LeftMovingMarioStar",
     "SpriteSheet": "StarMario"
   },
