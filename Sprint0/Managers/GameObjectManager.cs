@@ -162,8 +162,8 @@ namespace Sprint0
         }
         public void UpdateGameObjects()
         {
-            AddObjects();
             RemoveObjects();
+            AddObjects();
             foreach (IUpdate go in updateableGameObjects)
             {
                 go.Update();
