@@ -151,12 +151,12 @@ namespace Sprint0
         public void UpdateGameObjects()
         {
             AddObjects();
-            RemoveObjects();
             foreach (IUpdate go in updateableGameObjects)
             {
                 go.Update();
             }
-            DetectCollisions(); 
+            DetectCollisions();
+            RemoveObjects();
         }
         public void DrawGameObjects(SpriteBatch spriteBatch)
         {
