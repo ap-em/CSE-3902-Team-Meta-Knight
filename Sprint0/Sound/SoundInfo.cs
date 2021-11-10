@@ -91,5 +91,12 @@ namespace Sprint0
             }
             isPaused = !isPaused;
         }
+        public void StopAllSounds()
+        {
+            foreach (KeyValuePair<string, SoundEffectInstance> seiPair in soundInstances)
+            {
+                seiPair.Value.Stop();
+            }
+        }
     }
 }

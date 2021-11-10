@@ -42,6 +42,13 @@ namespace Sprint0
                 soundInfo.ToggleSoundPause();
             }
         }
+        public void StopAllSounds()
+        {
+            foreach (SoundInfo soundInfo in activeSounds)
+            {
+                soundInfo.StopAllSounds();
+            }
+        }
         
     }
 }
