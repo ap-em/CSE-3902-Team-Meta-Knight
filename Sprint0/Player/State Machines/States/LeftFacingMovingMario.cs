@@ -17,7 +17,7 @@ namespace Sprint0
     public class LeftFacingMovingMario : IMarioState
     {
         public string ID { get; } = "LeftMovingMario";
-        private Vector2 velocity = new Vector2(-4f, 0);
+        private Vector2 velocity = new Vector2(GameUtilities.VairY, 0);
 
         private Mario mario;
 
@@ -39,7 +39,7 @@ namespace Sprint0
         public void Jump()
         {
             mario.soundInfo.PlaySound("smb2_jump", false);
-            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(-4f, -10), 0, true);
+            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(-7f, -10), 0, true);
             mario.OnStateChange();
         }
         public void StopJump()

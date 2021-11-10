@@ -69,14 +69,14 @@ namespace Sprint0
         }
         public void MoveLeft()
         {
-            velocity.X = -4f;
+            velocity.X = -7f;
             mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(velocity.X,velocity.Y), jumpTimer, jumpHold);
             mario.OnStateChange();
         }
 
         public void MoveRight()
         {
-            velocity.X = 4f;
+            velocity.X = 7f;
         }
         public void StopMovingHorizontal()
         {
@@ -142,6 +142,8 @@ namespace Sprint0
             if (!jumpHold && !mario.GetGrounded())
             {
                 velocity = velocity + new Vector2(velocity.X, 30) * Game0.Instance.TargetElapsedTime.Milliseconds / 1000;
+                if (velocity.Y >= 16)
+                    velocity.Y = 16;
             }
             mario.MoveSprite(velocity);
 

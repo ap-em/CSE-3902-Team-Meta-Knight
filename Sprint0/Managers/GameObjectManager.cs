@@ -7,8 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Sprint0.UtilityClasses;
-
-
+using Sprint0.Controllers;
 
 namespace Sprint0
 {
@@ -23,7 +22,8 @@ namespace Sprint0
         private IBlock[][] staticGameObjects = new IBlock[1000][];
         //Scales dimensions of sprites for collision to accuratelly reflect their real size in game
         private static int dimensionScale = 2;
-
+        public IMario currentDrawingMario;
+        public Dictionary<IMario, int> marios = new Dictionary<IMario, int>();
         public List<ICollidable> collidableGameObjects = new List<ICollidable>();
         public List<IDraw> drawableGameObjects= new List<IDraw>();
         public List<IUpdate> updateableGameObjects = new List<IUpdate>();
@@ -91,7 +91,8 @@ namespace Sprint0
                 }
                 if (go is IMario)
                 {
-                    Game0.Instance.AddPlayerToList((IMario)go);
+                    marios.Add((IMario)go, marios.Count);
+                    setCamera();
                 }
                 // need this because dynamic blocks collide in level collision not entity collision
                 if (go is ICollidable && !(go is IDynamicBlock))
@@ -102,6 +103,17 @@ namespace Sprint0
             }
 
             gameObjectInsertQueue.Clear();
+        }
+        public void setCamera()
+        {
+            //update camera views of all marios
+            foreach (IMario mario in marios.Keys)
+            {
+                mario.GetCamera().SetIndex(marios.GetValueOrDefault(mario));
+                mario.GetCamera().UpdateViews(marios.Count);
+                mario.SetKeyboard(ControllerLoader.Instance.SetUpPlayerKeyboard(mario, marios.GetValueOrDefault(mario)));
+            }
+            
         }
         public void RemoveObjects()
         {
@@ -119,9 +131,9 @@ namespace Sprint0
                 {
                     updateableGameObjects.Remove((IUpdate)go);
                 }
-                if (go is IMario)
+                if (go is IMario && marios.ContainsKey((IMario)go))
                 {
-                    Game0.Instance.RemovePlayerFromList((IMario)go);
+                    marios.Remove((IMario)go);
                 }
                 if (go is ICollidable && collidableGameObjects.Contains((ICollidable)go))
                 {
@@ -150,8 +162,8 @@ namespace Sprint0
         }
         public void UpdateGameObjects()
         {
-            AddObjects();
             RemoveObjects();
+            AddObjects();
             foreach (IUpdate go in updateableGameObjects)
             {
                 go.Update();
@@ -160,8 +172,8 @@ namespace Sprint0
         }
         public void DrawGameObjects(SpriteBatch spriteBatch)
         {
-            if(Game0.Instance.currentDrawingMario != null)
-            DrawStaticGameObjects(spriteBatch, Game0.Instance.currentDrawingMario.Position);
+            if(currentDrawingMario != null)
+                DrawStaticGameObjects(spriteBatch, currentDrawingMario.Position);
             
             foreach (IDraw go in drawableGameObjects)
             {
@@ -171,21 +183,20 @@ namespace Sprint0
         public void DrawStaticGameObjects(SpriteBatch spriteBatch, Vector2 position)
         {
             Texture2D background = Game0.Instance.Content.Load<Texture2D>("1-1");
-            spriteBatch.Draw(background, new Rectangle(0, 0, 6450, 600), Color.White);
+            spriteBatch.Draw(background, new Rectangle(0, 0, 6750, 600), Color.White);
                 
-                // used for debuging collidable objects around player
-            /*    
-            IBlock[] b = GetCollidables(position, new Vector2(32, 48));
+                 // used for debuging collidable objects around player
+                 /*
+                List<IBlock> b = GetCollidables(position, new Vector2(32, 48));
 
-                for(int i = 0; i<b.Length;i++)
+                for(int i = 0; i<b.Count;i++)
                 {
                     if (b[i] != null)
                     {
                         b[i].Draw(spriteBatch);
                     }
                 }
-                */
-                
+                 */
             position = Level.Instance.WorldToBlockSpace(position);
             int xPos = (int)position.X;
             int yPos = (int)position.Y;
@@ -208,9 +219,8 @@ namespace Sprint0
                     }
                 }
             }
-                
         }
-        public IBlock[] GetCollidables(Vector2 position, Vector2 size)
+        public List<IBlock> GetCollidables(Vector2 position, Vector2 size)
         {
 
 
@@ -241,23 +251,34 @@ namespace Sprint0
             }
 
 
-            IBlock[] blocks = new IBlock[8];
-
-            /*check blocks 1 above and y + height to check below objects feet*/
+            List<IBlock> blocks = new List<IBlock>();
 
 
-            blocks[0] = staticGameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y + height)];
-            blocks[1] = staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y + height)];
-            blocks[2] = staticGameObjects[(int)Math.Round(position.X + width)][(int)Math.Round(position.Y + height)];
-            blocks[3] = staticGameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y)];
-            blocks[4] = staticGameObjects[(int)Math.Round(position.X + width)][(int)Math.Round(position.Y)];
-            blocks[5] = staticGameObjects[(int)Math.Round(position.X - width)][(int)Math.Round(position.Y - 1)];
-            blocks[6] = staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y - 1)];
-            blocks[7] = staticGameObjects[(int)Math.Round(position.X + 1)][(int)Math.Round(position.Y - 1)];
+            //add blocks directly above and below object
 
+            blocks.Add(staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y - 1)]);
+            blocks.Add(staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y + height)]);
+
+            //add blocks to the left and right of object
+
+            int xIndex = -1;
+            int yIndex = height;
+            while (xIndex <= width)
+            {
+                if (xIndex != 0)
+                {
+                    yIndex = height;
+                    while (yIndex > -1)
+                    {
+                        blocks.Add(staticGameObjects[(int)Math.Round(position.X + xIndex)][(int)Math.Round(position.Y + yIndex)]);
+                        yIndex--;
+                    }
+                }
+                xIndex++;
+            }
 
             //if a dynamic block isnt being drawn then dont collide
-            for(int i = 0; i<8;i++)
+            for(int i = 0; i<blocks.Count;i++)
             {
                 if(blocks[i] is IDynamicBlock && !drawableGameObjects.Contains((IDraw)blocks[i]))
                 {
@@ -284,7 +305,7 @@ namespace Sprint0
             //Here for implementation of collisions when neccesary
             ICommand collision;
             //Get the surronding blocks of whatever the game object is as blocks are not added to the game object list on creation.
-            IBlock[] levelCollides = GetCollidables(new Vector2 ((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y)), new Vector2(go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale));
+            List<IBlock> levelCollides = GetCollidables(new Vector2 ((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y)), new Vector2(go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale));
             
             //Go through each colliding block
             foreach (IBlock block in levelCollides)
