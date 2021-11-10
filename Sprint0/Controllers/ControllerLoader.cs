@@ -43,7 +43,7 @@ namespace Sprint0.Controllers
         }
         public IKeyboardController SetUpPlayerKeyboard(IMario mario,  int index)
         {
-            IKeyboardController keyboard = new KeyboardController();
+            IKeyboardController keyboard = KeyboardController.Instance;
 
             XmlReader reader = XmlReader.Create(Path.GetFullPath("Controllers\\KeyboardBindings.xml"));
 
