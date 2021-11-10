@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Sprint0.UtilityClasses;
+using Sprint0.Controllers;
 /*
 Alex Clayton
 Alex Contreras
@@ -100,6 +101,11 @@ namespace Sprint0
                 velocity = new Vector2(0f, GameUtilities.gravity);
             }
          mario.MoveSprite(velocity);
+            if (KeyboardController.Instance.lockInput)
+            {
+                mario.currentState = new RightFacingFlagMario(mario);
+                mario.OnStateChange();
+            }
         }
 
         public void MarioBounce(Rectangle rectangle)

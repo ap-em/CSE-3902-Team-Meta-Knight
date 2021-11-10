@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Sprint0.UtilityClasses;
+using Sprint0.Controllers;
+using Sprint0.Commands;
 /*
 Alex Clayton
 Alex Contreras
@@ -96,6 +98,13 @@ namespace Sprint0
             else 
             {
                 velocity = new Vector2(0, GameUtilities.gravity);
+            }
+            if (KeyboardController.Instance.lockInput)
+            {
+                mario.currentState = new RightFacingFlagMario(mario);
+                mario.OnStateChange();
+                new CMovePlayerRight(mario).Execute();
+                
             }
             
             mario.MoveSprite(velocity);
