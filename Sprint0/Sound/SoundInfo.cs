@@ -10,11 +10,14 @@ namespace Sprint0
     {
         Dictionary<string,SoundEffect> soundEffects;
         Dictionary<string, SoundEffectInstance> soundInstances;
+        private bool isPaused;
 
         public SoundInfo()
         {
             soundEffects = new Dictionary<string, SoundEffect>();
             soundInstances = new Dictionary<string, SoundEffectInstance>();
+            isPaused = false;
+            SoundManager.Instance.AddSound(this);
         }
 
         public void PlaySound(string soundName, bool loop)
@@ -25,7 +28,7 @@ namespace Sprint0
              */
             if (!soundEffects.ContainsKey(soundName))
             {
-                soundEffects.Add(soundName,SoundFactory.Instance.GetSoundEffect(soundName));
+                soundEffects.Add(soundName, SoundFactory.Instance.GetSoundEffect(soundName));
             }
 
             /*
@@ -33,37 +36,29 @@ namespace Sprint0
              * so if the user wants a looping sound, make sure it isnt already playing.
              * If it isn't already playing, play it and store the soundeffect instance.
              */
-            if (loop)
-            {
-                if (!soundInstances.ContainsKey(soundName))
-                {
-                    SoundEffect se;
-                    soundEffects.TryGetValue(soundName, out se);
-                    SoundEffectInstance sei = se.CreateInstance();
-                    sei.IsLooped = true;
-                    sei.Play();
-                    soundInstances.Add(soundName, sei);
-                }
-                else
-                {
-                    Debug.WriteLine("ERROR: Already playing this looped sound, cannot have multiple of the same looped sound at once!");
-                }
-            }
-            else
+
+            if (!soundInstances.ContainsKey(soundName))
             {
                 SoundEffect se;
                 soundEffects.TryGetValue(soundName, out se);
-                if (se!=null)
+                SoundEffectInstance sei = se.CreateInstance();
+                if (loop)
                 {
-                    se.Play();
+                    sei.IsLooped = true;
                 }
-                else
-                {
-                    Debug.WriteLine("ERROR: Sound effect not present in list");
-                }
+                sei.Play();
+                soundInstances.Add(soundName, sei);
             }
-           
+            else
+            {
+                SoundEffectInstance sei;
+                soundInstances.TryGetValue(soundName, out sei);
+                sei.Play();
+            }
         }
+            
+           
+        
         public bool StopLoopedSound(string soundName)
         {
             SoundEffectInstance sei;
@@ -74,6 +69,27 @@ namespace Sprint0
                 return true;
             }
             return false;
+        }
+        public void ToggleSoundPause()
+        {
+            foreach (KeyValuePair<string, SoundEffectInstance> seiPair in soundInstances)
+            {
+                if (isPaused)
+                {
+                    if (seiPair.Value.State.Equals(SoundState.Paused))
+                    {
+                        seiPair.Value.Resume();
+                    }
+                }
+                else
+                {
+                    if (seiPair.Value.State.Equals(SoundState.Playing))
+                    {
+                        seiPair.Value.Pause();
+                    }
+                }
+            }
+            isPaused = !isPaused;
         }
     }
 }

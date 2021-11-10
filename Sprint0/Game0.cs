@@ -37,7 +37,11 @@ namespace Sprint0
         public List<IMario> marioInsertQueue = new List<IMario>();
         public Texture2D background;
         public SoundInfo soundInfo;
+
         public bool isPaused;
+        public static string currentSoundtrack;
+        public static float storedGameTime;
+
 
         private static Game0 instance;
         public static Game0 Instance
@@ -61,6 +65,8 @@ namespace Sprint0
             ContentInstance = Content;
             IsMouseVisible = true;
             soundInfo = new SoundInfo();
+            currentSoundtrack = "OverworldTheme";
+            storedGameTime = 0.0f;
         }
 
         protected override void Initialize()
@@ -80,7 +86,7 @@ namespace Sprint0
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
         }
-        public void Pause()
+        public void TogglePause()
         {
 
         }
