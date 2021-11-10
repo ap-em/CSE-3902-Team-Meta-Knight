@@ -76,6 +76,19 @@ namespace Sprint0.UtilityClasses
         public static int initialPosX= 100;
         public static int initialPosY = 100;
 
+        //HUD class
+        public const string MARIO = "MARIO";
+       
+        public const string WORLD = "WORLD";
+        public const string LIVES = "LIVES";
+        public const string COINS = "COINS";
+        public const string TIME = "TIME";
+        public const string WORLD_1_1 = "WORLD 1 - 1";
+        public const string GAMEOVER = "Game Over";
+        public const string TIMEUP = "Time Up";
+        public static int startTime = 600;
+        public const string TAB = "    ";
+                            
 
 
 
