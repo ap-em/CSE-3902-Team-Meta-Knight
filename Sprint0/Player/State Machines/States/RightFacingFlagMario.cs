@@ -16,7 +16,7 @@ namespace Sprint0
     class RightFacingFlagMario : IMarioState
     {
         private Mario mario;
-        public string ID { get; } = "RightIdleMario";
+        public string ID { get; } = "RightClimbMario";
         private Vector2 velocity = new Vector2(0, 0);
        
 
