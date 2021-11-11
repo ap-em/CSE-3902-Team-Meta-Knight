@@ -125,10 +125,6 @@ namespace Sprint0
                 {
                     collidableGameObjects.Remove((ICollidable)go);
                 }
-                if (go is IDynamicBlock)
-                {
-   //                 staticGameObjects[(int)(go.Position.X / 32)][(int)(go.Position.Y / 32)] = null;
-                }
                 gameObjects.Remove(go);
             }
 
@@ -160,7 +156,7 @@ namespace Sprint0
         {
             foreach (IMario mario in marios)
             {
-                DrawStaticGameObjects(spriteBatch, mario.Position);
+                DrawStaticGameObjects(spriteBatch, (IGameObject)mario);
             }
             
             foreach (IDraw go in drawableGameObjects)
@@ -168,10 +164,8 @@ namespace Sprint0
                 go.Draw(spriteBatch);
             }
         }
-        public void DrawStaticGameObjects(SpriteBatch spriteBatch, Vector2 position)
+        public void DrawStaticGameObjects(SpriteBatch spriteBatch, IGameObject gameObject)
         {
-            Texture2D background = Game0.Instance.Content.Load<Texture2D>("1-1");
-            spriteBatch.Draw(background, new Rectangle(0, 0, 6750, 600), Color.White);
                 
                  // used for debuging collidable objects around player
                  /*
@@ -185,14 +179,30 @@ namespace Sprint0
                     }
                 }
                  */
-            position = Level.Instance.WorldToBlockSpace(position);
+            Vector2 position = Level.Instance.WorldToBlockSpace(gameObject.Position);
             int xPos = (int)position.X;
             int yPos = (int)position.Y;
 
+
+            Viewport viewport = CameraManager.Instance.GetCamera(gameObject).GetViewport();
+
+            //viewport divided by block size = how many blocks we can have on screen
+            // +1 to draw one outside of screen space
+            viewport.Width /= 32;
+            viewport.Width++;
+            viewport.Height /= 32;
+            viewport.Height++;
+
+            // if xPos is behind the middle of the screen draw the screen as if he is in the middle of the screen
+            // this happens at the beginning of the level
+            if (xPos < viewport.Width / 2)
+                xPos = viewport.Width / 2; 
+
+
                 // draw only the blocks available on the screen
-            for (int x = xPos - 25; x < xPos + 25; x++)
+            for (int x = xPos - viewport.Width/2; x < xPos + viewport.Width / 2; x++)
             {
-                for (int y = yPos - 20; y < yPos + 20; y++)
+                for (int y = yPos - viewport.Height / 2; y < yPos + viewport.Height / 2; y++)
                 {
                     //make sure object is bounds of array
                     if (x < 0) x = 0;
