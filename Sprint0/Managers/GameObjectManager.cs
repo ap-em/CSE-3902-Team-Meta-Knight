@@ -153,38 +153,21 @@ namespace Sprint0
             RemoveObjects();
         }
         public void DrawGameObjects(SpriteBatch spriteBatch)
-        {
-            foreach (IMario mario in marios)
-            {
-                DrawStaticGameObjects(spriteBatch, (IGameObject)mario);
-            }
-            
+        {   
             foreach (IDraw go in drawableGameObjects)
             {
                 go.Draw(spriteBatch);
             }
         }
-        public void DrawStaticGameObjects(SpriteBatch spriteBatch, IGameObject gameObject)
+        public void DrawStaticGameObjects(SpriteBatch spriteBatch, ICamera camera)
         {
-                
-                 // used for debuging collidable objects around player
-                 /*
-                List<IBlock> b = GetCollidables(position, new Vector2(32, 48));
 
-                for(int i = 0; i<b.Count;i++)
-                {
-                    if (b[i] != null)
-                    {
-                        b[i].Draw(spriteBatch);
-                    }
-                }
-                 */
-            Vector2 position = Level.Instance.WorldToBlockSpace(gameObject.Position);
+            Vector2 position = Level.Instance.WorldToBlockSpace(camera.GetPosition());
             int xPos = (int)position.X;
             int yPos = (int)position.Y;
 
 
-            Viewport viewport = CameraManager.Instance.GetCamera(gameObject).GetViewport();
+            Viewport viewport = camera.GetViewport();
 
             //viewport divided by block size = how many blocks we can have on screen
             // +1 to draw one outside of screen space
@@ -193,16 +176,11 @@ namespace Sprint0
             viewport.Height /= 32;
             viewport.Height++;
 
-            // if xPos is behind the middle of the screen draw the screen as if he is in the middle of the screen
-            // this happens at the beginning of the level
-            if (xPos < viewport.Width / 2)
-                xPos = viewport.Width / 2; 
-
 
                 // draw only the blocks available on the screen
-            for (int x = xPos - viewport.Width/2; x < xPos + viewport.Width / 2; x++)
+            for (int x = xPos; x < xPos + viewport.Width; x++)
             {
-                for (int y = yPos - viewport.Height / 2; y < yPos + viewport.Height / 2; y++)
+                for (int y = yPos; y < yPos + viewport.Height; y++)
                 {
                     //make sure object is bounds of array
                     if (x < 0) x = 0;

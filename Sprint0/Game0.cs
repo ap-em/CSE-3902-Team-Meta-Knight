@@ -104,6 +104,7 @@ namespace Sprint0
                 spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetMatrix());
                 Texture2D background = Game0.Instance.Content.Load<Texture2D>("1-1");
                 spriteBatch.Draw(background, new Rectangle(0, 0, 6750, 600), Color.White);
+                GameObjectManager.Instance.DrawStaticGameObjects(spriteBatch, camera);
                 GameObjectManager.Instance.DrawGameObjects(spriteBatch);
                 spriteBatch.End();
                 GraphicsDevice.Viewport = tempView;

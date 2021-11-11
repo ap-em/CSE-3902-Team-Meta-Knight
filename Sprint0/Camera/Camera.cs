@@ -12,6 +12,7 @@ namespace Sprint0
 {
     class Camera : ICamera
     {
+        Vector2 position;
         IGameObject objectToFollow;
         public Matrix viewMatrix;
         public Viewport currentView;
@@ -21,11 +22,16 @@ namespace Sprint0
         {
             cameraIndex = index;
             objectToFollow = go;
+            position = CameraManager.Instance.GetCameraPosition(objectToFollow.Position);
             currentView = CameraManager.Instance.GetViewport(cameraIndex);
         }
         public int GetIndex()
         {
             return cameraIndex;
+        }
+        public Vector2 GetPosition()
+        {
+            return position;
         }
         public Matrix GetMatrix()
         {
@@ -46,7 +52,7 @@ namespace Sprint0
 
         public void Update()
         {
-            Vector2 position = CameraManager.Instance.GetCameraPosition(objectToFollow.Position);
+            position = CameraManager.Instance.GetCameraPosition(objectToFollow.Position);
 
             viewMatrix = Matrix.CreateScale(new Vector3(1, 1, 0)) *
                 Matrix.CreateTranslation(new Vector3(-position, 0));
