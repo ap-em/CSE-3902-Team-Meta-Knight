@@ -25,7 +25,6 @@ namespace Sprint0.Interfaces
     {
         public void Update();
         public int GetIndex();
-        public void SetIndex(int index);
         public Matrix GetMatrix();
         public void SetMatrix(Matrix matrix);
         public Viewport GetViewport();

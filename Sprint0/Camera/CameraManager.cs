@@ -33,15 +33,11 @@ namespace Sprint0
             defaultView = Game0.Instance.GraphicsDevice.Viewport;
         }
 
-        public void CreateCamera(IGameObject go, int index)
+        public void CreateCamera(IGameObject go)
         {
-            ICamera camera = new Camera(go, index);
+            ICamera camera = new Camera(go, cameras.Count);
             cameras.Add(go, camera);
             SetViewports();
-        }
-        void ClearLists()
-        {
-            cameras.Clear();
         }
         public void SetViewports()
         {

@@ -17,19 +17,15 @@ namespace Sprint0
         public Viewport currentView;
         public int cameraIndex;
 
-        public Camera(IGameObject go, int cameraIndex)
+        public Camera(IGameObject go, int index)
         {
-            this.cameraIndex = cameraIndex;
+            cameraIndex = index;
             objectToFollow = go;
             currentView = CameraManager.Instance.GetViewport(cameraIndex);
         }
         public int GetIndex()
         {
             return cameraIndex;
-        }
-        public void SetIndex(int index)
-        {
-            cameraIndex = index;
         }
         public Matrix GetMatrix()
         {

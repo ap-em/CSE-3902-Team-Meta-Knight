@@ -35,9 +35,8 @@ namespace Sprint0
 
         public Mario(String spriteName, Vector2 position)
         {
-            CameraManager.Instance.CreateCamera(this, CameraManager.Instance.cameras.Count);
-            PlayerKeyboardManager.Instance.CreateKeyboard(this, PlayerKeyboardManager.Instance.keyboardList.Count
-                + PlayerKeyboardManager.Instance.insertQueue.Count - PlayerKeyboardManager.Instance.removalQueue.Count);
+            CameraManager.Instance.CreateCamera(this);
+            PlayerKeyboardManager.Instance.CreateKeyboard(this);
             healthStateMachine = new MarioHealthStateMachine(this);
             this.position = position;
             currentState = new RightFacingStaticMario(this);

@@ -40,9 +40,10 @@ namespace Sprint0.Controllers
         {
 
         }
-        public void CreateKeyboard(IGameObject go, int index)
+        public void CreateKeyboard(IGameObject go)
         {
-            IKeyboardController keyboard = ControllerLoader.Instance.SetUpPlayerKeyboard((IMario)go, index);
+            IKeyboardController keyboard = ControllerLoader.Instance.SetUpPlayerKeyboard((IMario)go,
+                keyboardList.Count + insertQueue.Count - removalQueue.Count);
            
             insertQueue.Add(go, keyboard);    
         }
