@@ -51,7 +51,8 @@ namespace Sprint0
         public void ConstructDictionary(XmlReader reader)
         {
             String obj1 = "";
-            String obj2 = "";
+            String obj2String = "";
+            String[] obj2Array = null;
             String direction = "";
             String obj1CommandString = "";
             String obj2CommandString = "";
@@ -65,7 +66,10 @@ namespace Sprint0
                 obj1 = subReader.ReadElementContentAsString();
 
             if (subReader.ReadToFollowing("obj2"))
-                obj2 = subReader.ReadElementContentAsString();
+            {
+                obj2String = subReader.ReadElementContentAsString();
+                obj2Array = obj2String.Split(",");
+            }
 
             if (subReader.ReadToFollowing("direction"))
                 direction = subReader.ReadElementContentAsString();
@@ -92,8 +96,11 @@ namespace Sprint0
                 }
             }
 
-            MoverResponse.Add(obj1 + obj2 + direction, obj1commands);
-            TargetResponse.Add(obj2 + obj1 + direction, obj2commands);
+            for(int i = 0; i < obj2Array.Length; i++)
+            {
+                MoverResponse.Add(obj1 + obj2Array[i] + direction, obj1commands);
+                TargetResponse.Add(obj2Array[i] + obj1 + direction, obj2commands);
+            }
 
             subReader.Close();
             reader.Close();

@@ -1,4 +1,5 @@
-﻿using Sprint0.Interfaces;
+﻿using Sprint0.Controllers;
+using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,6 +28,7 @@ Owen Huston
         {
             GameObjectManager.Instance.RemoveAllObjects();
             LevelFactory.Instance.CreateLevel(LevelFactory.Instance.currentLevel);
+            KeyboardController.Instance.lockInput = false;
         }
     }
 }

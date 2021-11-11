@@ -1,10 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Text;
 using Sprint0.UtilityClasses;
-using Sprint0.Controllers;
 /*
 Alex Clayton
 Alex Contreras
@@ -15,13 +13,14 @@ Owen Huston
 */
 namespace Sprint0
 {
-    public class LeftFacingStaticMario : IMarioState
+    class RightFacingFlagMario : IMarioState
     {
         private Mario mario;
-        public string ID { get; } = "LeftIdleMario";
+        public string ID { get; } = "RightClimbMario";
         private Vector2 velocity = new Vector2(0, 0);
+       
 
-        public LeftFacingStaticMario(Mario marioRef)
+        public RightFacingFlagMario(Mario marioRef)
         {
             mario = marioRef;
         }
@@ -38,13 +37,14 @@ namespace Sprint0
         public void Jump()
         {
             mario.soundInfo.PlaySound("smb2_jump", false);
-            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(velocity.X, -10), 0, true);
+            mario.currentState = new RightFacingJumpingMario(mario, new Vector2(velocity.X, -10), 0, true);
             mario.OnStateChange();
         }
         public void StopJump()
         {
 
         }
+
         public void MoveLeft()
         {
             mario.currentState = new LeftFacingMovingMario(mario);
@@ -56,14 +56,13 @@ namespace Sprint0
             mario.currentState = new RightFacingMovingMario(mario);
             mario.OnStateChange();
         }
-
         public void StopMovingHorizontal()
         {
             velocity.X = 0;
         }
         public void StopMovingVertical()
         {
-            velocity.Y=0;
+            velocity.Y = 0;
         }
         public void UpBounce(Rectangle rectangle)
         {
@@ -71,7 +70,6 @@ namespace Sprint0
             {
                 mario.SetGrounded(true);
                 mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
-                //Debug.WriteLine("Nudge Static up: " + rectangle.Height);
                 StopMovingVertical();
             }
         }
@@ -83,7 +81,7 @@ namespace Sprint0
         public void RightBounce(Rectangle rectangle)
         {
             mario.Position = new Vector2(mario.Position.X + rectangle.Width, mario.Position.Y);
-            //StopMovingHorizontal();
+           //StopMovingHorizontal();
         }
         public void LeftBounce(Rectangle rectangle)
         {
@@ -92,25 +90,27 @@ namespace Sprint0
         }
         public void Update()
         {
+            //When mario hits the floor turn, he should visually spin around the flag pole
             if (mario.GetGrounded())
             {
                 velocity = new Vector2(0f, 0f);
-            }
-            else
-            {
-                velocity = new Vector2(0f, GameUtilities.gravity);
-            }
-         mario.MoveSprite(velocity);
-            if (KeyboardController.Instance.lockInput)
-            {
-                mario.currentState = new RightFacingFlagMario(mario);
+                mario.Position = new Vector2(mario.Position.X + GameUtilities.bias, mario.Position.Y);
+                mario.currentState = new LeftFacingFlagMario(mario);
                 mario.OnStateChange();
+
             }
+            else 
+            {
+                //Otherwise he keeps sliding down
+                velocity = new Vector2(0, GameUtilities.gravity);
+            }
+            
+            mario.MoveSprite(velocity);
         }
 
         public void MarioBounce(Rectangle rectangle)
         {
-            velocity.Y = -10f;
+            velocity.Y = -12f;
         }
     }
 }

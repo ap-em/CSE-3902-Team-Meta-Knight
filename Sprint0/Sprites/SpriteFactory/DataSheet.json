@@ -474,7 +474,7 @@
   },
   {
     "DataX": [ 0, 16, 32, 48 ],
-    "DataY": [ 80, 80, 80, 80 ],
+    "DataY": [ 81, 81, 81, 81 ],
     "Data": [ 16, 16, 4 ],
     "SpriteName": "Coin",
     "SpriteSheet": "items"

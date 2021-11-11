@@ -14,9 +14,10 @@ namespace Sprint0.Commands
         }
         public void Execute()
         {
-            if (!Game0.Instance.soundInfo.StopLoopedSound("OverworldTheme"))
+            
+            if (!Game0.Instance.soundInfo.StopLoopedSound(Game0.currentSoundtrack))
             {
-                Game0.Instance.soundInfo.PlaySound("OverworldTheme", true);
+                Game0.Instance.soundInfo.PlaySound(Game0.currentSoundtrack, true);
             }
             
         }
