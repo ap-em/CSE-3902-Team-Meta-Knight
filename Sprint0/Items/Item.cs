@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Interfaces;
-using Sprint0.Cycle;
 using Sprint0.Sprites.SpriteFactory;
 using System;
 using Sprint0.UtilityClasses;

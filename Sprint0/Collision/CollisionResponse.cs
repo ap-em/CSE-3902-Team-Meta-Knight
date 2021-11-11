@@ -16,7 +16,7 @@ namespace Sprint0
      * Uses 2 dictionaries to return 
      */
 
-    public class CollisionResponse
+    sealed public class CollisionResponse
     {
         public Dictionary<String, List<String>> MoverResponse;
         public Dictionary<String, List<String>> TargetResponse;

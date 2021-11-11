@@ -88,6 +88,7 @@ namespace Sprint0
         }
         public Vector2 GetCameraPosition(Vector2 playerPosition)
         {
+            //position camera based on how many cameras there are
             if (cameras.Count == 1)
             {
                 position = new Vector2(playerPosition.X - GraphicsDeviceManager.DefaultBackBufferWidth / 2,

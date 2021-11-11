@@ -20,7 +20,7 @@ Owen Huston
 */
 namespace Sprint0.Controllers
 {
-    class ControllerLoader
+    sealed class ControllerLoader
     {
         private static ControllerLoader instance;
         public static ControllerLoader Instance

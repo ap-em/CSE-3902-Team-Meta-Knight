@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class SoundFactory
+    sealed public class SoundFactory
     {
         private ContentManager content;
         private static SoundFactory _instance;

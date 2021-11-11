@@ -18,7 +18,7 @@ Owen Huston
 */
 namespace Sprint0.Sprites.SpriteFactory
 {
-    public class SpriteFactory
+    sealed public class SpriteFactory
     {
       //  GraphicsDeviceManager GraphicsDeviceManager;
 
