@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Sprint0.UtilityClasses;
+using Sprint0.Controllers;
 /*
 Alex Clayton
 Alex Contreras
@@ -144,7 +145,16 @@ namespace Sprint0
                 velocity = velocity + new Vector2(velocity.X, 30) * Game0.Instance.TargetElapsedTime.Milliseconds / 1000;
                 if (velocity.Y >= 16)
                     velocity.Y = 16;
+                if (KeyboardController.Instance.lockInput)
+                {
+                    mario.currentState = new RightFacingFlagMario(mario);
+                    mario.OnStateChange();
+
+
+                }
+
             }
+           
             mario.MoveSprite(velocity);
 
         }
