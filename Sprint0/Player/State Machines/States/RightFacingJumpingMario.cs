@@ -153,6 +153,7 @@ namespace Sprint0
 
                 }
             }
+           
             mario.MoveSprite(velocity);
 
         }

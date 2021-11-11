@@ -8,7 +8,6 @@ using System.Diagnostics;
 using System.Text;
 using Sprint0.UtilityClasses;
 using Sprint0.Controllers;
-
 namespace Sprint0
 {
     /*
@@ -149,13 +148,13 @@ namespace Sprint0
         }
         public void UpdateGameObjects()
         {
-            RemoveObjects();
             AddObjects();
             foreach (IUpdate go in updateableGameObjects)
             {
                 go.Update();
             }
-            DetectCollisions(); 
+            DetectCollisions();
+            RemoveObjects();
         }
         public void DrawGameObjects(SpriteBatch spriteBatch)
         {
