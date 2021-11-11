@@ -19,8 +19,6 @@ namespace Sprint0
         private int maxRowLength = 1000;
         private int maxNumberOfRows = 100;
         private IBlock[][] staticGameObjects = new IBlock[1000][];
-        //Scales dimensions of sprites for collision to accuratelly reflect their real size in game
-        private static int dimensionScale = 2;
         public List<IMario> marios = new List<IMario>();
         public List<ICollidable> collidableGameObjects = new List<ICollidable>();
         public List<IDraw> drawableGameObjects= new List<IDraw>();
@@ -149,7 +147,7 @@ namespace Sprint0
             {
                 go.Update();
             }
-            DetectCollisions();
+            CollisionDetection.Instance.DetectCollisions();
             RemoveObjects();
         }
         public void DrawGameObjects(SpriteBatch spriteBatch)
@@ -198,9 +196,6 @@ namespace Sprint0
         }
         public List<IBlock> GetCollidables(Vector2 position, Vector2 size)
         {
-
-
-
             int width = (int)(size.X / 32);
             int height = (int)(size.Y / 32);
 
@@ -264,186 +259,6 @@ namespace Sprint0
 
 
             return blocks;
-        }
-
-        public void DetectCollisions()
-        {
-            foreach (IMovable go in movableGameObjects)
-            {
-                LevelCollision(go);
-                EntityCollision(go);
-            }
-        }
-
-        /*Handles Level Collision for DetectCollisions method*/
-        private void LevelCollision(IMovable go)
-        {
-            //Here for implementation of collisions when neccesary
-            ICommand collision;
-            //Get the surronding blocks of whatever the game object is as blocks are not added to the game object list on creation.
-            List<IBlock> levelCollides = GetCollidables(new Vector2 ((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y)), new Vector2(go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale));
-            
-            //Go through each colliding block
-            foreach (IBlock block in levelCollides)
-            {
-
-                //set gravity if block below gameobject is null
-                if (block == levelCollides[1] && levelCollides[1] == null)
-                {
-                    go.SetGrounded(false);
-                }
-
-                //Check if the block the object is colliding with actually exists
-                if (block != null)
-                {
-                    //Create Rectangle for block and check to see if game object rectangle intersects with it
-                    Rectangle blockRec = new Rectangle((int)Math.Round(block.Position.X), (int)Math.Round(block.Position.Y), block.Sprite.width * dimensionScale, block.Sprite.height * dimensionScale);
-                    Rectangle goRec = new Rectangle((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y), go.Sprite.width * dimensionScale, go.Sprite.height * dimensionScale);
-
-                    if (goRec.Intersects(blockRec))
-                    {
-                        //Determine collision side based on how much it's intersecting in either dimension
-                        String collisionSide =GameUtilities.emptyString;
-                        Rectangle collisionRec = Rectangle.Intersect(goRec, blockRec);
-
-
-                        if (collisionRec.Top == blockRec.Top)
-                        {
-                            collisionSide = GameUtilities.top;
-
-                            /* we want it to prefer top of block when its moving downward */
-                            /* to prevent falling through the ground */
-                            if (!go.GetGrounded())
-                            {
-                                if (collisionRec.Width < collisionRec.Height - GameUtilities.bias)
-                                {
-                                    if (collisionRec.Right == blockRec.Right)
-                                    {
-                                        collisionSide = GameUtilities.right;
-                                    }
-                                    else
-                                    {
-                                        collisionSide = GameUtilities.left;
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                if (collisionRec.Width < collisionRec.Height)
-                                {
-                                    if (collisionRec.Right == blockRec.Right)
-                                    {
-                                        collisionSide = GameUtilities.right;
-                                    }
-                                    else
-                                    {
-                                        collisionSide = GameUtilities.left;
-                                    }
-                                }
-                            }
-                        }
-                        else if (collisionRec.Bottom == blockRec.Bottom)
-                        {
-                            collisionSide = GameUtilities.bottom;
-                            if (!go.GetGrounded())
-                            {
-                                if (collisionRec.Width < collisionRec.Height - GameUtilities.bias)
-                                {
-                                    if (collisionRec.Right == blockRec.Right)
-                                    {
-                                        collisionSide = GameUtilities.right;
-                                    }
-                                    else
-                                    {
-                                        collisionSide = GameUtilities.left;
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                if (collisionRec.Width < collisionRec.Height)
-                                {
-                                    if (collisionRec.Right == blockRec.Right)
-                                    {
-                                        collisionSide = GameUtilities.right;
-                                    }
-                                    else
-                                    {
-                                        collisionSide =  GameUtilities.left;
-                                    }
-                                }
-                            }
-                        }
-                        else if (collisionRec.Right == blockRec.Right)
-                        {
-                            collisionSide = GameUtilities.right;
-                        }
-                        else if (collisionRec.Right == blockRec.Right)
-                        {
-                            collisionSide = GameUtilities.left;
-                        }
-                        //Create the correct collision command based on the block and the game object and the side its collding most with
-                        collision = new CCollide((IGameObject)block, (IGameObject)go, collisionSide, collisionRec);
-                        //Execute the correct response to interfering with personal space
-                        collision.Execute();
-                    }
-                }
-            }
-        }
-
-        private void EntityCollision(IMovable go)
-        {
-            //Here for implementation of collisions when neccesary
-            ICommand collision;
-            //Rectangle for go we are looking at
-            Rectangle goRec = new Rectangle((int)go.Position.X, (int)go.Position.Y, go.Sprite.width*dimensionScale, go.Sprite.height*dimensionScale);
-            //Check each entity in gameObjects
-            foreach (ICollidable entity in collidableGameObjects)
-            {
-                if (!entity.Equals(go))
-                {
-                    //If the entity is within 5 heights of the game object we are looking at, check if it intersects
-                    if(entity.Position.Y>(goRec.Y-goRec.Height*5) && entity.Position.Y < (goRec.Y+ goRec.Height*5))
-                    {
-                        //create an entity rec for the collision here so we don't use up time creating one for every possible entity
-                        Rectangle entityRec = new Rectangle((int)entity.Position.X, (int)entity.Position.Y, entity.Sprite.width*dimensionScale, entity.Sprite.height*dimensionScale);
-                        //Do they collide?
-                        if (goRec.Intersects(entityRec))
-                        {
-                            //Determine collision side based on how much it's intersecting in either dimension
-                            String collisionSide = GameUtilities.emptyString;
-                            Rectangle collisionRec = Rectangle.Intersect(goRec, entityRec);
-                            if (collisionRec.Width >= collisionRec.Height)
-                            {
-                                if (collisionRec.Top == entityRec.Top)
-                                {
-                                    collisionSide = GameUtilities.top;
-                                }
-                                else
-                                {
-                                    collisionSide = GameUtilities.bottom;
-                                }
-                            }
-                            else
-                            {
-                                if (collisionRec.Right == entityRec.Right)
-                                {
-                                    collisionSide = GameUtilities.right;
-                                }
-                                else
-                                {
-                                    collisionSide = GameUtilities.left;
-                                }
-                            }
-                           
-                            //Create the correct collision command based on the entity and the game object and the side its collding most with
-                            collision = new CCollide((IGameObject)entity, (IGameObject)go, collisionSide,collisionRec);
-                            //Execute the correct response to interfering with personal space
-                            collision.Execute();
-                        }
-                    }
-                }
-            }
         }
     }
 }
