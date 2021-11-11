@@ -82,6 +82,10 @@ namespace Sprint0
             
             return viewport;
         }
+        public ICamera GetCamera(IGameObject gameObject)
+        {
+            return cameras.GetValueOrDefault(gameObject);
+        }
         public Vector2 GetCameraPosition(Vector2 playerPosition)
         {
             if (cameras.Count == 1)
