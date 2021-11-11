@@ -94,6 +94,7 @@ namespace Sprint0
             {
                 velocity = new Vector2(0f, 0f);
                 currentTurnTime++;
+                //Giving mario some time in this state so it is visible to the player
                 if (currentTurnTime >= GameUtilities.maxTimeFlagTurn)
                 {
                     mario.currentState = new RightFacingMovingMario(mario);
