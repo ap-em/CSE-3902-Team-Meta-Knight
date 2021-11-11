@@ -22,7 +22,6 @@ namespace Sprint0
         private Mario mario;
         private Vector2 velocity= new Vector2(GameUtilities.VairX, 0);
         private int levelEndAnimationTimer = 0;
-
         public RightFacingMovingMario(Mario marioRef)
         {
             mario = marioRef;
@@ -102,13 +101,13 @@ namespace Sprint0
             {
                 velocity = new Vector2(GameUtilities.VairX, 0f);
                 /*Once Mario reaches the castle in the end animation, this should trigger and mario should be removed and the keyboard should be 
-                 unlocked for a future mario*/
-                if (KeyboardController.Instance.lockInput)
+ unlocked for a future mario*/
+                if (PlayerKeyboardManager.Instance.GetKeyboard(mario).GetLockInput())
                 {
                     if (levelEndAnimationTimer >= GameUtilities.timeToEndingDeletion)
                     {
                         GameObjectManager.Instance.RemoveFromObjectList(mario);
-                        KeyboardController.Instance.lockInput = false;
+                        PlayerKeyboardManager.Instance.GetKeyboard(mario).SetLockInput(false);
                     }
                     levelEndAnimationTimer++;
                 }
