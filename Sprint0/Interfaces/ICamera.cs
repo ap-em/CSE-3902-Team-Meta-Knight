@@ -23,11 +23,13 @@ namespace Sprint0.Interfaces
      */
     public interface ICamera
     {
-        public void Update(Vector2 playerPosition);
-        public void UpdateViews(int numOfCameras);
-        public Matrix ViewMatrix { get; set; }
-        public Viewport ViewPort{ get; set; }
-        public void SetIndex(int index);
+        public void Update();
+        public int GetIndex();
+        public Matrix GetMatrix();
+        public void SetMatrix(Matrix matrix);
+        public Viewport GetViewport();
+        public void SetViewport(Viewport view);
+
     }
 
 }

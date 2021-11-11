@@ -5,6 +5,7 @@ using System.Text;
 using Sprint0.UtilityClasses;
 using Sprint0.Controllers;
 using Sprint0.Commands;
+using Sprint0.Interfaces;
 /*
 Alex Clayton
 Alex Contreras
@@ -99,7 +100,8 @@ namespace Sprint0
             {
                 velocity = new Vector2(0, GameUtilities.gravity);
             }
-            if (KeyboardController.Instance.lockInput)
+            IKeyboardController keyboard = PlayerKeyboardManager.Instance.GetKeyboard(mario);
+            if (keyboard != null && keyboard.GetLockInput())
             {
                 mario.currentState = new RightFacingFlagMario(mario);
                 mario.OnStateChange();

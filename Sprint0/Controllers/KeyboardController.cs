@@ -26,20 +26,6 @@ namespace Sprint0.Controllers
         public bool lockInput = false;
         /*instance used for player, allows for locking player out of controls for predefined sequences
          such as the flag pole slide on win*/
-        private static KeyboardController instance;
-        public static KeyboardController Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-
-                    instance = new KeyboardController();
-
-                }
-                return instance;
-            }
-        }
 
         /*
          *  Initializes the Control layout
@@ -74,6 +60,14 @@ namespace Sprint0.Controllers
             pressableKeyMappings.Clear();
             releasableKeyMappings.Clear();
             holdableKeyMappings.Clear();
+        }
+        public void SetLockInput(bool lockInput)
+        {
+            this.lockInput = lockInput;
+        }
+        public bool GetLockInput()
+        {
+            return lockInput;
         }
         public void Update()
         {
