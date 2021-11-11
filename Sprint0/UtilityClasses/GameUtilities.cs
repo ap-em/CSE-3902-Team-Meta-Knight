@@ -14,7 +14,7 @@ namespace Sprint0.UtilityClasses
         public static GameObjectManager gameObjectManager { get; set; }
         public static string emptyString = "";
         // magic number from GameObjectManager
-        public static int dimension = 2;
+        public static int dimensionScale = 2;
         public static int bias = 16;
         public static int backgroundWidth = 6450;
         public static int backgroundHeight = 600;
