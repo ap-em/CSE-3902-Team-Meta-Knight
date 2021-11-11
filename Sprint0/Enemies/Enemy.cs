@@ -5,7 +5,6 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
-using Sprint0.Cycle;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.SpriteFactory;
 using Sprint0.Controllers;

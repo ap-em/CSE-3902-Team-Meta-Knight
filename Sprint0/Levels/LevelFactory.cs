@@ -21,7 +21,7 @@ Owen Huston*/
 
 namespace Sprint0
 {
-    class LevelFactory 
+    sealed public class LevelFactory 
     {
         public int currentLevel = 1;
         private static LevelFactory instance;

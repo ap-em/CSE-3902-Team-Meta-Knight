@@ -14,7 +14,7 @@ using System.Xml;
 namespace Sprint0
 {
 
-    public class CollisionDetection
+    sealed public class CollisionDetection
     {
         private static CollisionDetection instance;
         public static CollisionDetection Instance

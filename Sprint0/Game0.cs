@@ -23,7 +23,7 @@ using System.Diagnostics;
  */
 namespace Sprint0
 {
-    public class Game0 : Game
+    sealed public class Game0 : Game
     {
         public Viewport tempView;
         private GraphicsDeviceManager graphics;

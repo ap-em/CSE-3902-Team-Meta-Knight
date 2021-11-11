@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class SoundManager
+    sealed public class SoundManager
     {
         /*
          * The sound manager is never used to play specific sounds, only to keep track of everyone

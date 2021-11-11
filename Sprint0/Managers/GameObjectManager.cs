@@ -14,7 +14,7 @@ namespace Sprint0
      * Game object manager keeps track of all the game objects (moving, collision causing entities), in order to update and draw them all,
      * as well as taking care of detecting their collisions
      */
-    public class GameObjectManager
+    sealed public class GameObjectManager
     {
         private int maxRowLength = 1000;
         private int maxNumberOfRows = 100;
