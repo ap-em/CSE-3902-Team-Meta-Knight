@@ -16,7 +16,7 @@ namespace Sprint0
     class RightFacingFlagMario : IMarioState
     {
         private Mario mario;
-        public string ID { get; } = "RightIdleMario";
+        public string ID { get; } = "RightClimbMario";
         private Vector2 velocity = new Vector2(0, 0);
        
 
@@ -90,15 +90,18 @@ namespace Sprint0
         }
         public void Update()
         {
+            //When mario hits the floor turn, he should visually spin around the flag pole
             if (mario.GetGrounded())
             {
                 velocity = new Vector2(0f, 0f);
-                mario.currentState = new RightFacingMovingMario(mario);
+                mario.Position = new Vector2(mario.Position.X + GameUtilities.bias, mario.Position.Y);
+                mario.currentState = new LeftFacingFlagMario(mario);
                 mario.OnStateChange();
 
             }
             else 
             {
+                //Otherwise he keeps sliding down
                 velocity = new Vector2(0, GameUtilities.gravity);
             }
             

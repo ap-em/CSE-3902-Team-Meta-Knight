@@ -17,7 +17,7 @@ namespace Sprint0
     public class LeftFacingFlagMario : IMarioState
     {
         private Mario mario;
-        public string ID { get; } = "LeftIdleMario";
+        public string ID { get; } = "LeftClimbMario";
         private Vector2 velocity = new Vector2(0, 0);
         int currentTurnTime = 0;
 
@@ -94,6 +94,7 @@ namespace Sprint0
             {
                 velocity = new Vector2(0f, 0f);
                 currentTurnTime++;
+                //Giving mario some time in this state so it is visible to the player
                 if (currentTurnTime >= GameUtilities.maxTimeFlagTurn)
                 {
                     mario.currentState = new RightFacingMovingMario(mario);
