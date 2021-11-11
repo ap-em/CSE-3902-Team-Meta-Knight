@@ -62,7 +62,7 @@ namespace Sprint0.UtilityClasses
         public static  int currentMaxJumpTime = 5;
         public static  int maxJumpTime = 10;
         public static int maxTimeFlagTurn = 10;
-        public static int timeToEndingDeletion = 50;
+        public static int timeToEndingDeletion = 25;
         public static int Vx = 7;
         public static float VxF = 7f;
         public static int Vy = 10;
