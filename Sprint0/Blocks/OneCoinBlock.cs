@@ -9,6 +9,7 @@ using Sprint0.Sprites.SpriteFactory;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.UtilityClasses;
 using Sprint0.Items;
+using Sprint0.HUD;
 
 
 /*Alex Clayton
@@ -80,7 +81,8 @@ namespace Sprint0.Blocks
             soundInfo.PlaySound("itemblock", false);
             GameObjectManager.Instance.AddToObjectList(new Item("Coin", new Vector2(Position.X, Position.Y - 32)), 0, 0);
             SetSprite("UsedItemBlock");
-            
+
+            HUDManager.Instance.GetHUD((IGameObject)mario).AddScore(100);
         }
     }
 }

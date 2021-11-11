@@ -1,4 +1,5 @@
 ﻿using Sprint0.Controllers;
+using Sprint0.HUD;
 using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,7 @@ Owen Huston
             GameObjectManager.Instance.RemoveAllObjects();
             PlayerKeyboardManager.Instance.RemoveAllKeyboards();
             CameraManager.Instance.cameras.Clear();
+            HUDManager.Instance.HUDList.Clear();
             LevelFactory.Instance.CreateLevel(LevelFactory.Instance.currentLevel);
         }
     }

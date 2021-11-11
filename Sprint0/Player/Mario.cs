@@ -9,6 +9,7 @@ using Sprint0.Interfaces;
 using Sprint0.Controllers;
 using Sprint0.UtilityClasses;
 using System.Diagnostics;
+using Sprint0.HUD;
 /*
 Alex Clayton
 Alex Contreras
@@ -37,6 +38,7 @@ namespace Sprint0
         {
             CameraManager.Instance.CreateCamera(this);
             PlayerKeyboardManager.Instance.CreateKeyboard(this);
+            HUDManager.Instance.CreateHUD(this);
             healthStateMachine = new MarioHealthStateMachine(this);
             this.position = position;
             currentState = new RightFacingStaticMario(this);
