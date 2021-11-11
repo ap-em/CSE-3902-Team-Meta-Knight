@@ -88,6 +88,8 @@ namespace Sprint0
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            CameraManager.Instance.Update();
+            PlayerKeyboardManager.Instance.Update();
             GameObjectManager.Instance.UpdateGameObjects();
         }
 
@@ -95,12 +97,11 @@ namespace Sprint0
         {
             GraphicsDevice.Clear(Color.FromNonPremultiplied(92,148,252,255));
 
-            foreach (IMario mario in GameObjectManager.Instance.marios.Keys)
+            foreach (ICamera camera in CameraManager.Instance.cameras.Values)
             {
                 tempView = GraphicsDevice.Viewport;
-                GameObjectManager.Instance.currentDrawingMario = mario;
-                GraphicsDevice.Viewport = mario.GetCamera().ViewPort;
-                spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, GameObjectManager.Instance.currentDrawingMario.GetCamera().ViewMatrix);
+                GraphicsDevice.Viewport = camera.GetViewport();
+                spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetMatrix());
                 GameObjectManager.Instance.DrawGameObjects(spriteBatch);
                 spriteBatch.End();
                 GraphicsDevice.Viewport = tempView;

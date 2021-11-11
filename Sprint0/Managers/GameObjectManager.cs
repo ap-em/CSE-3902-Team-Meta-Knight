@@ -22,8 +22,7 @@ namespace Sprint0
         private IBlock[][] staticGameObjects = new IBlock[1000][];
         //Scales dimensions of sprites for collision to accuratelly reflect their real size in game
         private static int dimensionScale = 2;
-        public IMario currentDrawingMario;
-        public Dictionary<IMario, int> marios = new Dictionary<IMario, int>();
+        public List<IMario> marios = new List<IMario>();
         public List<ICollidable> collidableGameObjects = new List<ICollidable>();
         public List<IDraw> drawableGameObjects= new List<IDraw>();
         public List<IUpdate> updateableGameObjects = new List<IUpdate>();
@@ -91,8 +90,7 @@ namespace Sprint0
                 }
                 if (go is IMario)
                 {
-                    marios.Add((IMario)go, marios.Count);
-                    setCamera();
+                    marios.Add((IMario)go);
                 }
                 // need this because dynamic blocks collide in level collision not entity collision
                 if (go is ICollidable && !(go is IDynamicBlock))
@@ -103,17 +101,6 @@ namespace Sprint0
             }
 
             gameObjectInsertQueue.Clear();
-        }
-        public void setCamera()
-        {
-            //update camera views of all marios
-            foreach (IMario mario in marios.Keys)
-            {
-                mario.GetCamera().SetIndex(marios.GetValueOrDefault(mario));
-                mario.GetCamera().UpdateViews(marios.Count);
-                mario.SetKeyboard(ControllerLoader.Instance.SetUpPlayerKeyboard(mario, marios.GetValueOrDefault(mario)));
-            }
-            
         }
         public void RemoveObjects()
         {
@@ -131,7 +118,7 @@ namespace Sprint0
                 {
                     updateableGameObjects.Remove((IUpdate)go);
                 }
-                if (go is IMario && marios.ContainsKey((IMario)go))
+                if (go is IMario && marios.Contains((IMario)go))
                 {
                     marios.Remove((IMario)go);
                 }
@@ -172,8 +159,10 @@ namespace Sprint0
         }
         public void DrawGameObjects(SpriteBatch spriteBatch)
         {
-            if(currentDrawingMario != null)
-                DrawStaticGameObjects(spriteBatch, currentDrawingMario.Position);
+            foreach (IMario mario in marios)
+            {
+                DrawStaticGameObjects(spriteBatch, mario.Position);
+            }
             
             foreach (IDraw go in drawableGameObjects)
             {

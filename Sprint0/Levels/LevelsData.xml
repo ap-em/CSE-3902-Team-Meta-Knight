@@ -176,7 +176,7 @@
 	  </row>
 	  		  <!--Player/Enemies-->
       <row>
-          <obj>2,10,1,Sprint0.Mario,Sprint0.Mario, Sprint0.Mario</obj>
+          <obj>2,10,1,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>
 		  
           <obj>22,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
 	      <obj>40,12,1,Sprint0.Enemies.Enemy,Goomba</obj>

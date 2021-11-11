@@ -18,17 +18,19 @@ Owen Huston
     /*CReset resets every state and location to what it was at startup*/
     class CReset : ICommand
     {
+        IMario mario;
 
         public CReset(IMario mario)
         {
-            
+            this.mario = mario;
         }
 
         public void Execute()
         {
             GameObjectManager.Instance.RemoveAllObjects();
+            PlayerKeyboardManager.Instance.RemoveAllKeyboards();
+            CameraManager.Instance.cameras.Clear();
             LevelFactory.Instance.CreateLevel(LevelFactory.Instance.currentLevel);
-            KeyboardController.Instance.lockInput = false;
         }
     }
 }

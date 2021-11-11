@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Text;
 using Sprint0.UtilityClasses;
 using Sprint0.Controllers;
+using Sprint0.Interfaces;
 /*
 Alex Clayton
 Alex Contreras
@@ -63,7 +64,7 @@ namespace Sprint0
         }
         public void StopMovingVertical()
         {
-            velocity.Y=0;
+            velocity.Y = 0;
         }
         public void UpBounce(Rectangle rectangle)
         {
@@ -100,13 +101,16 @@ namespace Sprint0
             {
                 velocity = new Vector2(0f, GameUtilities.gravity);
             }
-         mario.MoveSprite(velocity);
-            if (KeyboardController.Instance.lockInput)
+            mario.MoveSprite(velocity);
+            IKeyboardController keyboard = PlayerKeyboardManager.Instance.GetKeyboard(mario);
+
+            if (keyboard != null && keyboard.GetLockInput())
             {
                 mario.currentState = new RightFacingFlagMario(mario);
                 mario.OnStateChange();
             }
         }
+    
 
         public void MarioBounce(Rectangle rectangle)
         {
