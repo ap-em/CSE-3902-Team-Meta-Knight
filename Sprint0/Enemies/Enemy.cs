@@ -171,7 +171,6 @@ namespace Sprint0.Enemies
 
         public void UpBounce(Rectangle rectangle)
         {
-            Debug.WriteLine("upbounce");
             SetGrounded(true);
             Position = new Vector2(Position.X, Position.Y - rectangle.Height);
         }

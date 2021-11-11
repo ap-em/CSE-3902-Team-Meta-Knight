@@ -7,6 +7,7 @@ using Sprint0.Controllers;
 using Sprint0.Sprites;
 using Sprint0.Commands;
 using Sprint0.Blocks;
+using Sprint0.HUD;
 using Sprint0.Interfaces;
 using Sprint0.Enemies;
 using System;
@@ -91,6 +92,7 @@ namespace Sprint0
             CameraManager.Instance.Update();
             PlayerKeyboardManager.Instance.Update();
             GameObjectManager.Instance.UpdateGameObjects();
+            HUDManager.Instance.Update();
         }
 
         protected override void Draw(GameTime gameTime)
@@ -106,6 +108,7 @@ namespace Sprint0
                 spriteBatch.Draw(background, new Rectangle(0, 0, 6750, 600), Color.White);
                 GameObjectManager.Instance.DrawStaticGameObjects(spriteBatch, camera);
                 GameObjectManager.Instance.DrawGameObjects(spriteBatch);
+                HUDManager.Instance.Draw(spriteBatch);
                 spriteBatch.End();
                 GraphicsDevice.Viewport = tempView;
             }
