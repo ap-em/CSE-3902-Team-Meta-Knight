@@ -4,6 +4,7 @@ using Sprint0.Interfaces;
 using Sprint0.Sprites.SpriteFactory;
 using System;
 using Sprint0.UtilityClasses;
+using Sprint0.HUD;
 /*
 Alex Clayton
 Alex Contreras
@@ -75,6 +76,10 @@ namespace Sprint0.Items
                     break;
                 case "Star":
                     mario.StarPower();
+                    GameObjectManager.Instance.RemoveFromObjectList(this);
+                    break;
+                case "Coin":
+                    HUDManager.Instance.GetHUD((IGameObject)mario).AddScore(GameUtilities.coinVal);
                     GameObjectManager.Instance.RemoveFromObjectList(this);
                     break;
             }
