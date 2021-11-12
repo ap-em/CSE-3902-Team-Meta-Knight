@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -17,6 +17,7 @@ using Sprint0.Items;
 using Sprint0.UtilityClasses;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Sprint0.HUD;
 
 /*
  * Alex Clayton 2021 CSE 3902
@@ -33,6 +34,8 @@ namespace Sprint0
         public static ContentManager ContentInstance;
         public Texture2D background;
         public SoundInfo soundInfo;
+        private gameHUD HUD;
+      
 
         public bool isPaused;
         public static string currentSoundtrack;
@@ -63,15 +66,16 @@ namespace Sprint0
             soundInfo = new SoundInfo();
             currentSoundtrack = "OverworldTheme";
             storedGameTime = 0.0f;
+           
         }
 
         protected override void Initialize()
         {
             LevelFactory.Instance.CreateLevel(1);
-
+            font = Content.Load<SpriteFont>("Font");
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(GameUtilities.timeSpan);
-
+            HUD = new gameHUD();
             soundInfo.PlaySound("OverworldTheme", true);
             isPaused = false;
 
@@ -88,6 +92,8 @@ namespace Sprint0
         }
         protected override void Update(GameTime gameTime)
         {
+            if (HUD != null) { HUD.Update(); }
+             
             base.Update(gameTime);
             GameObjectManager.Instance.UpdateGameObjects();
         }
@@ -103,7 +109,9 @@ namespace Sprint0
                 GraphicsDevice.Viewport = mario.GetCamera().ViewPort;
                 spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, GameObjectManager.Instance.currentDrawingMario.GetCamera().ViewMatrix);
                 GameObjectManager.Instance.DrawGameObjects(spriteBatch);
+                HUD.draw(spriteBatch, font);
                 spriteBatch.End();
+            
                 GraphicsDevice.Viewport = tempView;
             }
 
