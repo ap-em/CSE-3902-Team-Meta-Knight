@@ -30,6 +30,8 @@ namespace Sprint0
         void Jump();
         void StopJump();
         void TakeDamage();
+        void InstantDeath();
+        
         void MushroomPower();
         void FireflowerPower();
         void StarPower();

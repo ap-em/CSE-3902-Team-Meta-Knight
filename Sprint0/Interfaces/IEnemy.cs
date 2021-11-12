@@ -27,6 +27,7 @@ namespace Sprint0.Interfaces
         void SetYVelocity(float y);
         void Draw(SpriteBatch spriteBatch);
         void TakeDamage();
+        void InstantDeath();
         String GetHealth();
     }
 }

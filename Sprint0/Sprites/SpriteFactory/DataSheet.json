@@ -170,15 +170,15 @@
     "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 239, 263, 299, 237, 270, 287 ], 
-    "DataY": [ 52, 122, 53, 122, 52, 123], 
+    "DataX": [ 239, 263, 299, 237, 270, 287 ],
+    "DataY": [ 52, 122, 53, 122, 52, 123 ],
     "Data": [ 16, 32, 6 ],
     "SpriteName": "RightMovingMarioStar",
     "SpriteSheet": "StarMario"
   },
   {
-    "DataX": [ 150, 128, 90, 152, 121, 102], 
-    "DataY": [ 52, 122, 53, 122, 52, 123], 
+    "DataX": [ 150, 128, 90, 152, 121, 102 ],
+    "DataY": [ 52, 122, 53, 122, 52, 123 ],
     "Data": [ 16, 32, 6 ],
     "SpriteName": "LeftMovingMarioStar",
     "SpriteSheet": "StarMario"
@@ -451,6 +451,14 @@
     "SpriteName": "Ground",
     "SpriteSheet": "tiles"
   },
+  {
+    "DataX": [ 86 ],
+    "DataY": [ 12 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "KillBox",
+    "SpriteSheet": "tiles"
+  },
+
   {
     "DataX": [ 86 ],
     "DataY": [ 12 ],

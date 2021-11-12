@@ -52,6 +52,10 @@ namespace Sprint0.Enemies
         {
             healthStateMachine.TakeDamage();
         }
+        public void InstantDeath()
+        {
+            healthStateMachine.InstantDeath();
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, enemyMovement.GetLocation());
@@ -177,17 +181,18 @@ namespace Sprint0.Enemies
 
         public void DownBounce(Rectangle rectangle)
         {
-
+            enemyMovement.Position = new Vector2(enemyMovement.Position.X, enemyMovement.Position.Y + rectangle.Height);
+            
         }
 
         public void RightBounce(Rectangle rectangle)
-        { 
-
+        {
+            enemyMovement.Position = new Vector2(enemyMovement.Position.X + rectangle.Width, enemyMovement.Position.Y);
         }
 
         public void LeftBounce(Rectangle rectangle)
         {
-
+            enemyMovement.Position = new Vector2(enemyMovement.Position.X - rectangle.Width, enemyMovement.Position.Y);
         }
 
         public void BigUpBounce(Rectangle rectangle)

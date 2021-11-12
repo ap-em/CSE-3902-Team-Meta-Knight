@@ -131,6 +131,10 @@ namespace Sprint0
         {
             healthStateMachine.TakeDamage();
         }
+        public void InstantDeath()
+        {
+            healthStateMachine.InstantDeath();
+        }
         public void MushroomPower()
         {
             healthStateMachine.MushroomPower();
