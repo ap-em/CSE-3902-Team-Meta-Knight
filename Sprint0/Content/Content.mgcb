@@ -152,6 +152,30 @@
 /processorParam:TextureFormat=Color
 /build:StarMario.png
 
+#begin Theme_1.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Theme_1.mp3
+
+#begin Theme_2.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Theme_2.mp3
+
+#begin Theme_3.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Theme_3.mp3
+
+#begin Theme_4.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Theme_4.mp3
+
 #begin tiles.png
 /importer:TextureImporter
 /processor:TextureProcessor
