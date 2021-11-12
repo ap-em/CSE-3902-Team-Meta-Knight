@@ -22,7 +22,7 @@ namespace Sprint0.Commands
         Rectangle rectangle;
         IMario mario;
         IKillBox killBox;
-        public CKillPlayer(IMario mario, IKillBox killBox, Rectangle rectangle)
+        public CKillPlayer(IKillBox killBox, IMario mario, Rectangle rectangle)
         {
             this.mario = mario;
             this.rectangle = rectangle;
@@ -34,6 +34,7 @@ namespace Sprint0.Commands
         public void Execute()
         {
             Debug.WriteLine("death");
-            killBox.Kill(mario);        }
+            killBox.Kill(mario);        
+        }
     }
 }

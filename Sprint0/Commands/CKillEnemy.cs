@@ -11,7 +11,7 @@ namespace Sprint0.Commands
     {
         private Enemy enemy;
         IKillBox killBox;
-        public CKillEnemy(Enemy enemyReference, IKillBox killBox, Rectangle rec)
+        public CKillEnemy(IKillBox killBox, Enemy enemyReference,  Rectangle rec)
         {
             enemy = enemyReference;
             this.killBox = killBox;
