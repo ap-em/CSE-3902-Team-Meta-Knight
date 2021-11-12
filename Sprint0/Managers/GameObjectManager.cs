@@ -133,7 +133,9 @@ namespace Sprint0
             gameObjectRemovalQueue.Clear();
             foreach (IGameObject go in gameObjects)
             {
-                gameObjectRemovalQueue.Add(go);
+                //dont delete mario
+                if (!(go is IMario))
+                    gameObjectRemovalQueue.Add(go);
             }
             for (int i = 0; i < maxNumberOfRows; i++)
             {

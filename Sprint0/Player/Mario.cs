@@ -22,6 +22,7 @@ namespace Sprint0
 {
     public class Mario :IMario, IGameObject, IMovable, IUpdate,IDraw, ICollidable, IBounce
     {
+        private Vector2 initialPosition;
         private MarioHealthStateMachine healthStateMachine;
         public IMarioState currentState;
         private Vector2 position = new Vector2(GameUtilities.initialPosX, GameUtilities.initialPosY);
@@ -36,6 +37,7 @@ namespace Sprint0
 
         public Mario(String spriteName, Vector2 position)
         {
+            initialPosition = position;
             CameraManager.Instance.CreateCamera(this);
             PlayerKeyboardManager.Instance.CreateKeyboard(this);
             HUDManager.Instance.CreateHUD(this);
@@ -56,7 +58,15 @@ namespace Sprint0
              * sprite from the SF every draw method. This will save performance. 
              * Since the sprite factory will return a texture2d given a unique ID, we 
              */
-            currentSprite = SpriteFactory.Instance.GetSprite(GetSpriteID(healthStateMachine, currentState));
+            if(healthStateMachine.GetHealth() == "Dead")
+            {
+                currentSprite = SpriteFactory.Instance.GetSprite("MarioDead");
+                currentState = new DeathState(this);
+            }
+            else
+            {
+                currentSprite = SpriteFactory.Instance.GetSprite(GetSpriteID(healthStateMachine, currentState));
+            }
         }
 
         /*
@@ -178,6 +188,14 @@ namespace Sprint0
         public void BigUpBounce(Rectangle rectangle)
         {
             currentState.MarioBounce(rectangle);
+        }
+        public void Reset(Vector2 position)
+        {
+            Position = position;
+            healthStateMachine.ResetHealth();
+            currentState = new RightFacingStaticMario(this);
+            OnStateChange();
+
         }
     }
 }

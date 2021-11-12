@@ -83,7 +83,15 @@ namespace Sprint0
                 {
                     Vector2 pos = new Vector2(xPos, yPos);
 
-                    Level.Instance.CreateObj(pos,objValues[3], objValues[4]);
+                    //if we already have a enough marios just reset their positions
+                    if(objValues[3] == "Sprint0.Mario" && GameObjectManager.Instance.marios.Count > i)
+                    {
+                        pos = Level.Instance.BlockToWorldSpace(pos);
+                        GameObjectManager.Instance.marios[i].Reset(pos);
+                    }
+                    else {
+                        Level.Instance.CreateObj(pos, objValues[3], objValues[4]);
+                    }
 
                     //xPos += 1 to keep spawning objects to the right
                     xPos += 1;

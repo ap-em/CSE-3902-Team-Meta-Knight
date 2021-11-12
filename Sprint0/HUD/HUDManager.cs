@@ -44,11 +44,11 @@ namespace Sprint0.HUD
                 HUD.Update();
             }
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, ICamera camera)
         {
             foreach (IHUD HUD in HUDList.Values)
             {
-                HUD.Draw(spriteBatch);
+                HUD.Draw(spriteBatch, camera);
             }
         }
     }

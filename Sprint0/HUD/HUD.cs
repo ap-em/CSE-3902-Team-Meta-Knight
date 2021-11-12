@@ -10,17 +10,25 @@ namespace Sprint0.HUD
 {
     public class HUD: IHUD
     {
+        private SpriteFont font;
         private Vector2 position;
+        private float initialPlayerPosition;
         private float maxPlayerPosition;
         private int lives = 3;
+        private int initialScore = 0;
         private int score = 0;
         private int index = 0;
+        private int initialTime = 100;
+        private float timeLeft = 100;
         private IGameObject gameObject;
+        private int counter = 0;
         public HUD(IGameObject go, int index)
         {
+            font = Game0.Instance.Content.Load<SpriteFont>("Font");
             this.index = index;
             gameObject = go;
             maxPlayerPosition = gameObject.Position.X;
+            initialPlayerPosition = gameObject.Position.X;
         }
 
         public int GetIndex()
@@ -35,24 +43,48 @@ namespace Sprint0.HUD
         public void AddScore(int increment)
         {
             score += increment;
-            Debug.WriteLine("SCORE: " + score);
         }
         public void RemoveLife()
         {
+            maxPlayerPosition = initialPlayerPosition;
+            timeLeft = initialTime;
+            score = initialScore;
             lives--;
+        }
+        public int GetLives()
+        {
+            return lives;
         }
 
         public void Update()
         {
+            timeLeft -= (float)Game0.Instance.TargetElapsedTime.TotalSeconds;
+
             if(gameObject.Position.X > maxPlayerPosition)
             {
                 AddScore(1);
                 maxPlayerPosition = gameObject.Position.X;
             }
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, ICamera camera)
         {
+            if (lives > 0)
+            {
+                int time = (int)timeLeft;
 
+                //  draw on top left of screen
+                spriteBatch.DrawString(font, "TIME LEFT: " + time.ToString(), new Vector2(camera.GetPosition().X, camera.GetPosition().Y), Color.White);
+
+                // draw on top middle of screen
+                spriteBatch.DrawString(font, "LIVES: " + lives.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y), Color.White);
+
+                //draw on top right of screen
+                spriteBatch.DrawString(font, "SCORE: " + score.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width - 100, camera.GetPosition().Y), Color.White);
+            }
+            else
+            {
+                spriteBatch.DrawString(font, "GAMEOVER: ", new Vector2(camera.GetPosition().X + camera.GetViewport().Width/ 2, camera.GetPosition().Y + camera.GetViewport().Height / 2), Color.White);
+            }
         }
     }
 }
