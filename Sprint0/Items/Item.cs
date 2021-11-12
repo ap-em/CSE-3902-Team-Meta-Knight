@@ -80,6 +80,7 @@ namespace Sprint0.Items
                     break;
                 case "Coin":
                     HUDManager.Instance.GetHUD((IGameObject)mario).AddScore(GameUtilities.coinVal);
+                    HUDManager.Instance.GetHUD((IGameObject)mario).AddCoin(1);
                     GameObjectManager.Instance.RemoveFromObjectList(this);
                     break;
             }

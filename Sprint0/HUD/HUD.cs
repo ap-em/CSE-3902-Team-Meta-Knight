@@ -16,6 +16,7 @@ namespace Sprint0.HUD
         private float maxPlayerPosition;
         private int lives = 3;
         private int initialScore = 0;
+        private int coinCount = 0;
         private int score = 0;
         private int index = 0;
         private int initialTime = 100;
@@ -44,6 +45,10 @@ namespace Sprint0.HUD
         public void AddScore(int increment)
         {
             score += increment;
+        }
+        public void AddCoin(int increment)
+        {
+            coinCount += increment;
         }
         public void RemoveLife()
         {
