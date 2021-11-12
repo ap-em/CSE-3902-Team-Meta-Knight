@@ -28,14 +28,16 @@ Owen Huston
 
         public void Execute()
         {
-            HUDManager.Instance.GetHUD((IGameObject)mario).RemoveLife();
+            //reset score and time
+            HUDManager.Instance.GetHUD((IGameObject)mario).Reset();
             GameObjectManager.Instance.RemoveAllObjects();
             Game0.Instance.soundInfo.StopLoopedSound("OverworldTheme");
 
+            //only reset level if game isnt over
             if (HUDManager.Instance.GetHUD((IGameObject)mario).GetLives() > 0)
             {
                 Game0.Instance.soundInfo.PlaySound("OverworldTheme", true);
-                LevelFactory.Instance.CreateLevel(LevelFactory.Instance.currentLevel);
+                LevelFactory.Instance.CreateLevel(HUDManager.Instance.GetHUD((IGameObject)mario).GetLevel());
             }
         }
     }

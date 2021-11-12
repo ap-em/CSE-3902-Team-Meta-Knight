@@ -66,12 +66,10 @@ namespace Sprint0
         }
         public void UpBounce(Rectangle rectangle)
         {
-            if (!mario.GetGrounded())
-            {
-                mario.SetGrounded(true);
-                mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
-                StopMovingVertical();
-            }
+            mario.SetGrounded(true);
+            mario.Position = new Vector2(mario.Position.X, mario.Position.Y - rectangle.Height);
+            //Debug.WriteLine("Nudge Static up: " + rectangle.Height);
+            StopMovingVertical();
         }
         public void DownBounce(Rectangle rectangle)
         {
