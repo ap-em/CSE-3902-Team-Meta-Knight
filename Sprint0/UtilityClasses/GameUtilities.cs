@@ -82,7 +82,8 @@ namespace Sprint0.UtilityClasses
         public static int initialPosY = 100;
 
 
-
+        //magic number for hud
+         public static double gameOverTimerFinish =3;
 
     }
 }

@@ -33,6 +33,7 @@ namespace Sprint0.Interfaces
         public void ResetCoin();
         public void AddLife();
         public void RemoveLife();
+        public void ResetLives();
         public int GetLives();
         public int GetLevel();
         public void SetLevel(int level);
