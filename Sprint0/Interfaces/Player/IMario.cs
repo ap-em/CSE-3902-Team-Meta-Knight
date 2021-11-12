@@ -38,5 +38,6 @@ namespace Sprint0
         void StopMovingVertical();
         String GetHealthState();
         bool IsJumping();
+        void Reset(Vector2 position);
     }
 }

@@ -28,17 +28,15 @@ Owen Huston
 
         public void Execute()
         {
+            HUDManager.Instance.GetHUD((IGameObject)mario).RemoveLife();
             GameObjectManager.Instance.RemoveAllObjects();
-            
-            Game0.Instance.CreatePlayer();
             Game0.Instance.soundInfo.StopLoopedSound("OverworldTheme");
-            Game0.Instance.soundInfo.PlaySound("OverworldTheme",true);
-            
-            PlayerKeyboardManager.Instance.RemoveAllKeyboards();
-            CameraManager.Instance.cameras.Clear();
-            HUDManager.Instance.HUDList.Clear();
 
-            LevelFactory.Instance.CreateLevel(LevelFactory.Instance.currentLevel);
+            if (HUDManager.Instance.GetHUD((IGameObject)mario).GetLives() > 0)
+            {
+                Game0.Instance.soundInfo.PlaySound("OverworldTheme", true);
+                LevelFactory.Instance.CreateLevel(LevelFactory.Instance.currentLevel);
+            }
         }
     }
 }

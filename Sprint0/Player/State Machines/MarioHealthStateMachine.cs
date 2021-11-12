@@ -17,6 +17,7 @@ namespace Sprint0
     {
         private IMario mario;
         private enum MarioHealth { star, fire, fireDamaged, full, fullDamaged, half, none };
+        private MarioHealth intialHealth = MarioHealth.full;
         private MarioHealth currentHealth = MarioHealth.full;
         private MarioHealth previousHealth = MarioHealth.full;
         private int invinsibleTimer = GameUtilities.invinsibleTimer;
@@ -48,6 +49,10 @@ namespace Sprint0
                 default:
                     return "Full";
             }
+        }
+        public void ResetHealth()
+        {
+            currentHealth = intialHealth;
         }
         public void TakeDamage()
         {

@@ -108,7 +108,7 @@ namespace Sprint0
                 spriteBatch.Draw(background, new Rectangle(0, 0, 6750, 600), Color.White);
                 GameObjectManager.Instance.DrawStaticGameObjects(spriteBatch, camera);
                 GameObjectManager.Instance.DrawGameObjects(spriteBatch);
-                HUDManager.Instance.Draw(spriteBatch);
+                HUDManager.Instance.Draw(spriteBatch, camera);
                 spriteBatch.End();
                 GraphicsDevice.Viewport = tempView;
             }
