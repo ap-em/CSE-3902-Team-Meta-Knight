@@ -52,6 +52,10 @@ namespace Sprint0.Enemies
         {
             healthStateMachine.TakeDamage();
         }
+        public void InstantDeath()
+        {
+            healthStateMachine.InstantDeath();
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, enemyMovement.GetLocation());

@@ -77,6 +77,11 @@ namespace Sprint0
                 mario.OnStateChange();
             }
         }
+        //Instant Death used for the KillBox under the pit
+        public void InstantDeath()
+        {
+            currentHealth = MarioHealth.none;
+        }
         public void StarPower()
         {
             invinsibleTimer = GameUtilities.invinsibleTimerStar;
