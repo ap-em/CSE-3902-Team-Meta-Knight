@@ -6,6 +6,8 @@ using System.Text;
 using Sprint0.UtilityClasses;
 using Sprint0.Controllers;
 using Sprint0.Commands;
+using Sprint0.HUD;
+using Sprint0.Interfaces;
 /*
 Alex Clayton
 Alex Contreras
@@ -106,8 +108,14 @@ namespace Sprint0
                 {
                     if (levelEndAnimationTimer >= GameUtilities.timeToEndingDeletion)
                     {
-                        GameObjectManager.Instance.RemoveFromObjectList(mario);
+                        //unlock keyboard
                         PlayerKeyboardManager.Instance.GetKeyboard(mario).SetLockInput(false);
+
+                        //load next level
+                        int newLevel = HUDManager.Instance.GetHUD((IGameObject)mario).GetLevel() + 1;
+                        HUDManager.Instance.GetHUD((IGameObject)mario).SetLevel(newLevel);
+                        ICommand reset = new CReset(mario);
+                        reset.Execute();
                     }
                     levelEndAnimationTimer++;
                 }

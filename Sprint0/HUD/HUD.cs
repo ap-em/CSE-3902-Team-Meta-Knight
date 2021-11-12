@@ -22,6 +22,7 @@ namespace Sprint0.HUD
         private float timeLeft = 100;
         private IGameObject gameObject;
         private int counter = 0;
+        private int level = 1;
         public HUD(IGameObject go, int index)
         {
             font = Game0.Instance.Content.Load<SpriteFont>("Font");
@@ -46,10 +47,13 @@ namespace Sprint0.HUD
         }
         public void RemoveLife()
         {
+            lives--;
+        }
+        public void Reset()
+        {
             maxPlayerPosition = initialPlayerPosition;
             timeLeft = initialTime;
             score = initialScore;
-            lives--;
         }
         public int GetLives()
         {
@@ -77,6 +81,7 @@ namespace Sprint0.HUD
 
                 // draw on top middle of screen
                 spriteBatch.DrawString(font, "LIVES: " + lives.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y), Color.White);
+                spriteBatch.DrawString(font, "LEVEL: " + level.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y + 100), Color.White);
 
                 //draw on top right of screen
                 spriteBatch.DrawString(font, "SCORE: " + score.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width - 100, camera.GetPosition().Y), Color.White);
@@ -85,6 +90,16 @@ namespace Sprint0.HUD
             {
                 spriteBatch.DrawString(font, "GAMEOVER: ", new Vector2(camera.GetPosition().X + camera.GetViewport().Width/ 2, camera.GetPosition().Y + camera.GetViewport().Height / 2), Color.White);
             }
+        }
+
+        public int GetLevel()
+        {
+            return level;
+        }
+
+        public void SetLevel(int level)
+        {
+            this.level = level;
         }
     }
 }

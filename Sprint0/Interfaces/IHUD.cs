@@ -30,6 +30,9 @@ namespace Sprint0.Interfaces
         public void AddScore(int increment);
         public void RemoveLife();
         public int GetLives();
+        public int GetLevel();
+        public void SetLevel(int level);
+        public void Reset();
 
     }
 

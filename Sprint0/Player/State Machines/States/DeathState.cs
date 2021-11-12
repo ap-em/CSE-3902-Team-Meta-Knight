@@ -6,6 +6,7 @@ using System.Text;
 using Sprint0.UtilityClasses;
 using Sprint0.Interfaces;
 using Sprint0.Commands;
+using Sprint0.HUD;
 /*
 Alex Clayton
 Alex Contreras
@@ -92,6 +93,7 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
             timer -= 1;
             if(timer == 0)
             {
+                HUDManager.Instance.GetHUD((IGameObject)mario).RemoveLife();
                 ICommand reset = new CReset(mario);
                 reset.Execute();
             }
