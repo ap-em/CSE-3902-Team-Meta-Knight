@@ -88,7 +88,7 @@ namespace Sprint0.UtilityClasses
         public const string TIMEUP = "Time Up";
         public static int startTime = 600;
         public const string TAB = "    ";
-                            
+        public const int FPS = 30;                    
 
 
 
