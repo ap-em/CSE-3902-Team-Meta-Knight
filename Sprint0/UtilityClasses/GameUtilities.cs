@@ -44,6 +44,7 @@ namespace Sprint0.UtilityClasses
         //magic number in item classes
         public static int itemPosX = 100;
         public static int itemPosY = 200;
+        public static int coinVal = 200;
 
         //magic number in level classes
         public static int maxRowLength = 1000;

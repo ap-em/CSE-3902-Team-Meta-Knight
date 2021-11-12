@@ -28,6 +28,8 @@ namespace Sprint0.Interfaces
         public Vector2 GetPosition();
         public void Draw(SpriteBatch spriteBatch, ICamera camera);
         public void AddScore(int increment);
+        public void AddCoin(int increment);
+
         public void RemoveLife();
         public int GetLives();
         public int GetLevel();
