@@ -29,7 +29,9 @@ namespace Sprint0.Interfaces
         public void Draw(SpriteBatch spriteBatch, ICamera camera);
         public void AddScore(int increment);
         public void AddCoin(int increment);
-
+        public int getCoinCount();
+        public void ResetCoin();
+        public void AddLife();
         public void RemoveLife();
         public int GetLives();
         public int GetLevel();

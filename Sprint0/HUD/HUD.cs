@@ -51,6 +51,18 @@ namespace Sprint0.HUD
         {
             coinCount += increment;
         }
+        public void ResetCoin()
+        {
+            coinCount = initialCoinCount;
+        }
+        public int getCoinCount()
+        {
+            return coinCount;
+        }
+        public void AddLife()
+        {
+            lives++;
+        }
         public void RemoveLife()
         {
             lives--;
@@ -60,7 +72,7 @@ namespace Sprint0.HUD
             maxPlayerPosition = initialPlayerPosition;
             timeLeft = initialTime;
             score = initialScore;
-            coinCount = initialCoinCount;
+            ResetCoin();
         }
         public int GetLives()
         {
