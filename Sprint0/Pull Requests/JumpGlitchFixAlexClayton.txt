@@ -1,0 +1,16 @@
+CODE REVIEW of Sprint-4-JumpGlitchFix “ by Alex Clayton 11/3/21:
+GameObjectManager: Still need to decouple collision from GOM. 
+But this fix moves a game object rectangle to being created only 
+when the block is not null rather than always.
+
+LeftFacingJumpingMario: Sets a velocity cap on jumping. This is a good 
+idea but im not sure if this is how it should be executed since it will require 
+velocity to be updated every time. Rather, could we create an equation where the max 
+result would equal 16? So that way the cap is constructed mathematically and can be 
+consistent across all of movement.
+
+RightFacingJumpingMario: Same thing as LeftFacingJumpingMario.
+
+Overall: Good changes. LeftFacingJumpingMario is sustainable for now but may need 
+to be changed, but it fixes the jump glitch that we previously had so it is good 
+working code. 

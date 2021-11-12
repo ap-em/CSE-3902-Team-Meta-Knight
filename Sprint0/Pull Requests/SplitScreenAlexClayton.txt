@@ -1,0 +1,27 @@
+CODE REVIEW of Sprint 4 - Kaejot- Split-Screen by Alex Clayton 11/5/21:
+KeyboardBindings.xml: Fixes velocity transfer bug. Good fix and makes it so you can 
+hold movement rather than continuously updating it.
+
+LeftFacingJumpingMario.cs: Changes X velocity to be the same as everywhere else. 
+Changes MoveRight to take in the X velocity instead of 6 to make velocity transfer 
+around. Update: Makes sure that if mario is not holding jump midair, velocity is 
+still transferred. 
+
+LeftFacingMovingMario.cs:  Changes velocity vector to match other instances, -4f for 
+movement instead of -6f. Same with jump. UpBounce: Makes sure that if mario is falling 
+and that he doesn’t clip into anything outside of his movement box. Good change and 
+probably fixed a bug that we didn’t see yet. 
+
+DownBounce: Same as above, prevents some of the clipping issues into walls.
+
+LeftFacingStaticMario.cs: Stopmovinghorizontal: Sets value instead of changing nothing. 
+Good change that makes sure stopping movement works as intended. Same is done for 
+vertical.
+
+RightFacingJumpingMario.cs: Same as above
+RightFacingMovingMario.cs: Same as above
+RightFacingStaticMario.cs: Same as above
+
+Overall: Good bug fixes, relatively minor changes involving collision but it fixes 
+velocity transfer in midair and potentially prevented a future bug we would have where 
+mario does not stop moving when he is supposed to. Sustainable for the future.

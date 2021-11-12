@@ -1,0 +1,10 @@
+CODE REVIEW of Sprint 4  Kaejot Music by Alex Clayton 11/11/21:
+
+CReset.cs: Adds the music player as something new to reset, good change and instantly 
+readable.
+
+Content.mgcb: Adds music
+Overall: New music was added (yay) and music now resets when the level is restarted. 
+Very readable code and accessible to future upgrades. Good to merge.
+
+Overall: Good code and music

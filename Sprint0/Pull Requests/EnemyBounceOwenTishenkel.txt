@@ -1,0 +1,44 @@
+CODE REVIEW of Sprint 4 – Alex Contreras – Sprint-4-Enemy-Bounce by Owen Tishenkel 11/5/21:
+
+CollisionData.xml: Switching all the blocks that should be dynamic to dynamic, 
+no issues
+
+CDamageEnemy: odd spelling for Enemy enemyRefernce, should probably be 
+enemyReference, but otherwise fine
+
+CMarioBounce: Calls Mario to do the actual bouncing, no issues.
+
+CNothing and CRemoveObject: removes unnecessary using Microsoft.Xna.Framework, no 
+issues
+
+Enemy and Projectile: throw NotImplementedException() when mario bounce is called, 
+should probably remove that and place a comment there saying it should do nothing, 
+but I suppose it will only come about through a glitch and we should know about that 
+if it happens. So no real issues, but maybe leave a comment in there to explain why 
+its there
+
+IMarioState: adding mario bounce, no issues
+
+LevelData.xml: updating needed blocks to be dynamic, no issues
+
+Mario: calls mario bounce with it’s state, no issues
+
+AttackMario: has empty mario bounce method, with no comment explaining why, should 
+add a comment but otherwise no issues
+
+Mario States LeftFacing Jumping,moving, and right facing jumping, moving, 
+static: no issues, uses 12f as velocity
+
+Mario State left facing static: uses 10f for some reason, should be consistent with 
+the rest
+
+Mario Bounce: Only issues I have with this functionality is that MarioLeftFacingStatic 
+bounces only -10f compared to every other Mario’s -12f, 
+including MarioRightFacingStatic, and throw new NotImplementedException()’s in enemy 
+and projectile for mario bounce, they should be empty with a comment saying they 
+don’t do anything, not throw an exception.
+
+OVERALL: Only minor issues, but should be fine to merge, just fix the issues I have 
+with it
+
+ALL.CS FILES' AUTHOR IS Alex Contreras

@@ -1,0 +1,31 @@
+CODE REVIEW of SPRINT4-magicNumber - gamePadController “ by Alex Clayton 11/3/21
+IGamePadController: Unnecessary and duplicate code. Use IController instead since 
+they essentially do the same thing.
+
+ControllerLoader: Adds SetUpPlayerGamePad function. Straightforward and looks good to me. 
+ReadPlayerButtons is just a reader for the buttons. I almost guarantee we can combine 
+this with the ReadPlayerKeys method using delegates I think. For now it is working code 
+but can be revised to eliminate the duplicated code code smells.
+
+GamePadBindings.xml: Looks good. Just sets up XML stuff to load in the gamepad.
+
+GamePadController.cs Looks good. Again is duplicate code from the KeyboardController 
+class, but this works for now. There might be some issues if we were to use a gamepad 
+and the keyboard at the same time, but I will test this when I get home and can use 
+both.
+
+Mario.cs: Adds the gamepad controller as an instance to be setup. Also adds gamepad to 
+the update list.
+
+MAGIC NUMBERS: Overall this is good. I really like the idea of having “GameUtilities” 
+have everything, but it makes some of this hard to read so it might be a better idea 
+to just store everything locally within the appropriate class file. This way, we can 
+easily edit and change values. I like how you organized the file based on what class 
+they are in and I think you gave detailed names, which is good. Good job overall!
+
+Overall: The magic numbers is a really good change and will be sustainable for the 
+future. It makes updating values much easier since you can update all instances at 
+once rather than having multiple spots, and it also makes our code much more readable 
+since we don’t have random numbers floating around. The gamepad controls should work 
+but I will test that when I get home and see if there are any conflicts between the 
+gamepad and controller.

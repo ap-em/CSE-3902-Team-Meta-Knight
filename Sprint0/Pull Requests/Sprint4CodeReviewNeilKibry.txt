@@ -1,0 +1,71 @@
+CODE REVIEW OF SPRINT 4 by Neil Kirby 11/11/21
+
+SEAL YOUR SINGLETON CLASSES with the Seal keyword.
+
+Game0: has a lot of games. large pile of details that game needs to know
+Is everything in game meanfully there?
+
+Game owns draw
+Current drawing Mario as a concept. It is being used as a bulletin board to do "throw it at that, go it back and get that". Need to drive it further down so it can be passed around.
+
+Should each mario own a camera?
+Or should each camera center on a mario?
+
+Game -> CameraManager -> (Centered on mario bc built into me) -> draw scene
+Have different view of who owns what.
+
+
+GOM:
+- Static space created for all the different objcets.
+
+AddToObjectList: creating collumns of IBlocks. Check memory conm 
+Optimize space by making lists.
+
+UpdateGameObjects() -> Why do we RemoveObjects first? Need to call RemoveObjects() after DetectCollisions()
+
+We have magic numbers in GOM. There is a 998, what does it mean? We hard coded knowledge about viewport size. Same with the numbers tied to viewport, fix.
+
+GOM has Draw in it. Drawing the background should be factored out.
+
+GOM wants to be a god object.
+
+GOM detecting the 9 tiles around the thing is okay.
+
+There are collisions colliding both ways.
+
+We have code that says "if we are trying to collide with ourselves, then dont"
+--> Should have an outer iteration, and inner iteration of everything lower in the list so we dont collide everything twice.
+
+Camera maybe should move draw?
+
+DrawStaticGameObjects --> Change
+
+Line 410 in GOM: We are getting a new command called collide based on a block and an object.
+Collision is done by one class, which means the command objcets should be able to figure out with everything done by collision
+
+CCollide is not table driven
+
+Collision.execute() should call on a class specific to what collision is being claled
+
+GOM -> CCollide -> GOM
+Collisions -> do any of my points cross into any of there points?
+
+CollisionResponse -> 150 lines of code with one comment
+
+Comment the code better on all the different modular sections
+
+CollisionOccurrence() --> building the key looks like a function call. Maybe do that.
+
+
+Camera.cs: Change to SetCurrentView for switch case. Properly made it's just a switch case
+The way all the different cameras are done, it's all hardcoded in and not the best.
+
+Refactor cameras.
+
+Make a CameraManager, assign it to a different player. All that is different is who update would center on.
+
+Make CameraManager handle split screen
+
+
+CCollide: Says go back to CR and do this thing. It shouldn't hairpin like that.
+CommandObject wants to be last thing on the chain. It doesn't have any value.

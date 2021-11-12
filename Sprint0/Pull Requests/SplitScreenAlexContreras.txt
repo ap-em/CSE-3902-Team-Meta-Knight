@@ -1,0 +1,32 @@
+CODE REVIEW of Sprint 4 - Owen Huston - Split-Screen by Alex Contreras 11/5/21:
+
+Camera: Good update to the Camera class, having tested out the camera and looking at UpdateViews(), the split
+screen both looks natural and works well with 1,2,3 and 4 players. Although maybe have a better more graceful
+exit if you try to put in 5 marios, as it just crashes rather than printing out an error, but that very nit
+picky, just a note about maintability.
+
+Good work with cutting the updates in half/fourth, but I wonder if those would also fall under the magic number
+catagory. I think we're probably safe here but it's def a good note to have.
+
+Good naming convention for numOfCameras, and your if-else strucutre, made the code very readable and it was 
+very simple to follow, the split screen logic was clear to me.
+
+CUseItem: It looks like we removed the mario here(making the rest of the command useless?), 
+I would just delete the command, instead of commenting out the code and having dead code, as it would improve
+both maintability and readability to clean this up.
+
+Keyboard: This is where the error occurs for more than 4 players, because there just isn't a PlayerKeyboard5,
+so I would put in a quick if statement, that just gracefully exits out with an error.
+
+Also, the keys for player 2 are clean and make sense, though players 3/4 aren't done, it makes sense to leave
+them for later, the keyboard doesn't have that much real estate as it is.
+
+Game0: The amount of code in game0 makes me uneasy, feel like we could maybe have a class that handles most
+if not all of addPlayerToList/removePlayerFromList. Kirby said that game0 should have like very little code,
+this screams coupling/cohesion to me, though I will say it works and makes sense, just a word of warning.
+
+
+OVERALL: Overall the code seems to be good, no major issues here, the only thing I think we'd have to address
+by the sprint deadline is the Code Quailty issues in Game0
+
+ALL.CS FILES' AUTHOR IS OWEN HUSTON
