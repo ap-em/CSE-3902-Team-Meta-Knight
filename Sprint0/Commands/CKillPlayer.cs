@@ -21,15 +21,19 @@ namespace Sprint0.Commands
     {
         Rectangle rectangle;
         IMario mario;
-        public CKillPlayer(IMario mario, ICollidable collided, Rectangle rectangle)
+        IKillBox killBox;
+        public CKillPlayer(IMario mario, IKillBox killBox, Rectangle rectangle)
         {
             this.mario = mario;
+            this.rectangle = rectangle;
+
+            this.killBox = killBox;
+            
     }
 
         public void Execute()
         {
             Debug.WriteLine("death");
-            mario.InstantDeath();
-        }
+            killBox.Kill(mario);        }
     }
 }

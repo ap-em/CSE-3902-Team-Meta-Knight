@@ -10,14 +10,15 @@ namespace Sprint0.Commands
     class CKillEnemy : ICommand
     {
         private Enemy enemy;
-        private Mario mario;
-        public CKillEnemy(Enemy enemyReference, Mario mario, Rectangle rec)
+        IKillBox killBox;
+        public CKillEnemy(Enemy enemyReference, IKillBox killBox, Rectangle rec)
         {
             enemy = enemyReference;
+            this.killBox = killBox;
         }
         public void Execute()
         {
-            enemy.InstantDeath();
+            killBox.Kill(enemy);
         }
     }
 }

@@ -228,7 +228,7 @@ namespace Sprint0
             //add blocks directly above and below object
 
             blocks.Add(staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y - 1)]);
-             blocks.Add(staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y + height)]);
+            blocks.Add(staticGameObjects[(int)Math.Round(position.X)][(int)Math.Round(position.Y + height)]);
 
             //add blocks to the left and right of object
 
