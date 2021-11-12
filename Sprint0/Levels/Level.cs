@@ -24,7 +24,7 @@ Owen Huston*/
 
 namespace Sprint0
 {
-    class Level
+    sealed public class Level
     {
         private int maxRowLength = GameUtilities.maxRowLength;
         private int maxNumberOfRows = GameUtilities.maxNumberOfRows;

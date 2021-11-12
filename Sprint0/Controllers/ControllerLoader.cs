@@ -20,7 +20,7 @@ Owen Huston
 */
 namespace Sprint0.Controllers
 {
-    class ControllerLoader
+    sealed class ControllerLoader
     {
         private static ControllerLoader instance;
         public static ControllerLoader Instance
@@ -44,7 +44,6 @@ namespace Sprint0.Controllers
         public IKeyboardController SetUpPlayerKeyboard(IMario mario,  int index)
         {
             IKeyboardController keyboard = new KeyboardController();
-
             XmlReader reader = XmlReader.Create(Path.GetFullPath("Controllers\\KeyboardBindings.xml"));
 
             reader.ReadToFollowing("PlayerKeyboard" + index);

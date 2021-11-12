@@ -19,6 +19,7 @@ namespace Sprint0.Controllers
 {
     class EnemyController : IKeyboardController
     {
+        private bool lockInput = false;
         private Dictionary<Keys, ICommand> pressableKeyMappings;
         private Dictionary<Keys, ICommand> releasableKeyMappings;
         private Dictionary<Keys, ICommand> holdableKeyMappings;
@@ -60,6 +61,14 @@ namespace Sprint0.Controllers
             pressableKeyMappings.Clear();
             releasableKeyMappings.Clear();
             holdableKeyMappings.Clear();
+        }
+        public void SetLockInput(bool lockInput)
+        {
+            this.lockInput = lockInput;
+        }
+        public bool GetLockInput()
+        {
+            return lockInput;
         }
         public void Update()
         {

@@ -5,7 +5,6 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
-using Sprint0.Cycle;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.SpriteFactory;
 using Sprint0.Controllers;
@@ -172,7 +171,6 @@ namespace Sprint0.Enemies
 
         public void UpBounce(Rectangle rectangle)
         {
-            Debug.WriteLine("upbounce");
             SetGrounded(true);
             Position = new Vector2(Position.X, Position.Y - rectangle.Height);
         }

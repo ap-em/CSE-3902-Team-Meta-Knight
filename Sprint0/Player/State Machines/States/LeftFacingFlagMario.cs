@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Sprint0.UtilityClasses;
-using Sprint0.Controllers;
-using Sprint0.Interfaces;
 /*
 Alex Clayton
 Alex Contreras
@@ -16,13 +14,14 @@ Owen Huston
 */
 namespace Sprint0
 {
-    public class LeftFacingStaticMario : IMarioState
+    public class LeftFacingFlagMario : IMarioState
     {
         private Mario mario;
-        public string ID { get; } = "LeftIdleMario";
+        public string ID { get; } = "LeftClimbMario";
         private Vector2 velocity = new Vector2(0, 0);
+        int currentTurnTime = 0;
 
-        public LeftFacingStaticMario(Mario marioRef)
+        public LeftFacingFlagMario(Mario marioRef)
         {
             mario = marioRef;
         }
@@ -38,9 +37,7 @@ namespace Sprint0
 
         public void Jump()
         {
-            mario.soundInfo.PlaySound("smb2_jump", false);
-            mario.currentState = new LeftFacingJumpingMario(mario, new Vector2(velocity.X, -10), 0, true);
-            mario.OnStateChange();
+            //Flag Mario cannot jump
         }
         public void StopJump()
         {
@@ -64,7 +61,7 @@ namespace Sprint0
         }
         public void StopMovingVertical()
         {
-            velocity.Y = 0;
+            velocity.Y=0;
         }
         public void UpBounce(Rectangle rectangle)
         {
@@ -96,21 +93,22 @@ namespace Sprint0
             if (mario.GetGrounded())
             {
                 velocity = new Vector2(0f, 0f);
+                currentTurnTime++;
+                //Giving mario some time in this state so it is visible to the player
+                if (currentTurnTime >= GameUtilities.maxTimeFlagTurn)
+                {
+                    mario.currentState = new RightFacingMovingMario(mario);
+                    mario.OnStateChange();
+                }
+               
+
             }
             else
             {
                 velocity = new Vector2(0f, GameUtilities.gravity);
             }
-            mario.MoveSprite(velocity);
-            IKeyboardController keyboard = PlayerKeyboardManager.Instance.GetKeyboard(mario);
-
-            if (keyboard != null && keyboard.GetLockInput())
-            {
-                mario.currentState = new RightFacingFlagMario(mario);
-                mario.OnStateChange();
-            }
+         mario.MoveSprite(velocity);
         }
-    
 
         public void MarioBounce(Rectangle rectangle)
         {

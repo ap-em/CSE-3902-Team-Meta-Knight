@@ -23,6 +23,9 @@ namespace Sprint0.Controllers
         private Dictionary<Keys, ICommand> holdableKeyMappings;
         private List<Keys> availableKeys;
         private KeyboardState oldState;
+        public bool lockInput = false;
+        /*instance used for player, allows for locking player out of controls for predefined sequences
+         such as the flag pole slide on win*/
 
         /*
          *  Initializes the Control layout
@@ -58,11 +61,21 @@ namespace Sprint0.Controllers
             releasableKeyMappings.Clear();
             holdableKeyMappings.Clear();
         }
+        public void SetLockInput(bool lockInput)
+        {
+            this.lockInput = lockInput;
+        }
+        public bool GetLockInput()
+        {
+            return lockInput;
+        }
         public void Update()
         {
             KeyboardState newState = Keyboard.GetState();
-
-
+            //Preventing player movement if keyboard is locked
+            if (lockInput == false)
+            {
+           
             foreach (Keys key in availableKeys)
             {
                 //check if key was just released
@@ -80,6 +93,7 @@ namespace Sprint0.Controllers
                 {
                     pressableKeyMappings[key].Execute();
                 }
+            }
             }
 
             oldState = newState;

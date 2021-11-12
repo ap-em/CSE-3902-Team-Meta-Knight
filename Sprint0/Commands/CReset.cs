@@ -1,4 +1,6 @@
-﻿using Sprint0.Interfaces;
+﻿using Sprint0.Controllers;
+using Sprint0.HUD;
+using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,21 +19,25 @@ Owen Huston
     /*CReset resets every state and location to what it was at startup*/
     class CReset : ICommand
     {
+        IMario mario;
 
         public CReset(IMario mario)
         {
-            
+            this.mario = mario;
         }
 
         public void Execute()
         {
             GameObjectManager.Instance.RemoveAllObjects();
+            
             Game0.Instance.CreatePlayer();
             Game0.Instance.soundInfo.StopLoopedSound("OverworldTheme");
             Game0.Instance.soundInfo.PlaySound("OverworldTheme",true);
             
+            PlayerKeyboardManager.Instance.RemoveAllKeyboards();
+            CameraManager.Instance.cameras.Clear();
+            HUDManager.Instance.HUDList.Clear();
 
-            
             LevelFactory.Instance.CreateLevel(LevelFactory.Instance.currentLevel);
         }
     }

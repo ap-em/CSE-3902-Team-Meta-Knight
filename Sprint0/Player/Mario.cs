@@ -9,6 +9,7 @@ using Sprint0.Interfaces;
 using Sprint0.Controllers;
 using Sprint0.UtilityClasses;
 using System.Diagnostics;
+using Sprint0.HUD;
 /*
 Alex Clayton
 Alex Contreras
@@ -21,8 +22,6 @@ namespace Sprint0
 {
     public class Mario :IMario, IGameObject, IMovable, IUpdate,IDraw, ICollidable, IBounce
     {
-        private ICamera camera;
-        private IKeyboardController keyboard = null;
         private MarioHealthStateMachine healthStateMachine;
         public IMarioState currentState;
         private Vector2 position = new Vector2(GameUtilities.initialPosX, GameUtilities.initialPosY);
@@ -37,7 +36,9 @@ namespace Sprint0
 
         public Mario(String spriteName, Vector2 position)
         {
-            camera = new Camera(Game0.Instance.marios.Count);
+            CameraManager.Instance.CreateCamera(this);
+            PlayerKeyboardManager.Instance.CreateKeyboard(this);
+            HUDManager.Instance.CreateHUD(this);
             healthStateMachine = new MarioHealthStateMachine(this);
             this.position = position;
             currentState = new RightFacingStaticMario(this);
@@ -89,19 +90,7 @@ namespace Sprint0
             healthStateMachine.Update();
             currentState.Update();
             currentSprite.Update();
-            if(keyboard != null)
-            keyboard.Update();
-            camera.Update(position);
         }
-        public ICamera GetCamera()
-        {
-            return camera;
-        }
-        public void SetKeyboard(IKeyboardController keyboard)
-        {
-            this.keyboard = keyboard;
-        }
-
         public void MoveSprite(Vector2 change)
         {
             position = new Vector2(position.X + change.X, position.Y + change.Y);

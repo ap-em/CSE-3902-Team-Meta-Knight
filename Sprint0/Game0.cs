@@ -7,6 +7,7 @@ using Sprint0.Controllers;
 using Sprint0.Sprites;
 using Sprint0.Commands;
 using Sprint0.Blocks;
+using Sprint0.HUD;
 using Sprint0.Interfaces;
 using Sprint0.Enemies;
 using System;
@@ -23,7 +24,7 @@ using System.Diagnostics;
  */
 namespace Sprint0
 {
-    public class Game0 : Game
+    sealed public class Game0 : Game
     {
         public Viewport tempView;
         private GraphicsDeviceManager graphics;
@@ -31,13 +32,13 @@ namespace Sprint0
         public ISprite sprite;
         public SpriteFont font;
         public static ContentManager ContentInstance;
-        public IMario currentDrawingMario;
-        public Dictionary<IMario, int> marios = new Dictionary<IMario, int>();
-        public List<IMario> marioRemovalQueue = new List<IMario>();
-        public List<IMario> marioInsertQueue = new List<IMario>();
         public Texture2D background;
         public SoundInfo soundInfo;
+
         public bool isPaused;
+        public static string currentSoundtrack;
+        public static float storedGameTime;
+
 
         private static Game0 instance;
         public static Game0 Instance
@@ -61,12 +62,13 @@ namespace Sprint0
             ContentInstance = Content;
             IsMouseVisible = true;
             soundInfo = new SoundInfo();
+            currentSoundtrack = "OverworldTheme";
+            storedGameTime = 0.0f;
         }
 
         protected override void Initialize()
         {
             LevelFactory.Instance.CreateLevel(1);
-
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(GameUtilities.timeSpan);
 
@@ -80,70 +82,33 @@ namespace Sprint0
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
         }
-        public void Pause()
+        public void TogglePause()
         {
 
-        }
-
-        public void AddPlayerToList(IMario mario)
-        {
-            marioInsertQueue.Add(mario);
-        }
-        public void RemovePlayerFromList(IMario mario)
-        {
-            marioRemovalQueue.Add(mario);
-        }
-        //only add one player at a time
-        public void AddPlayers()
-        {
-            int count = marios.Count;
-            int i = 0;
-
-            foreach(IMario mario in marioInsertQueue)
-            {
-                marios.Add(mario, count + i);
-                i++;
-            }
-            //update cameras when we add a player
-            if (i > 0)
-            {
-                foreach (IMario mario in marios.Keys)
-                {
-                    Debug.WriteLine(marios.GetValueOrDefault(mario));
-                    mario.GetCamera().SetIndex(marios.GetValueOrDefault(mario));
-                    mario.GetCamera().UpdateViews(marios.Count);
-                    mario.SetKeyboard(ControllerLoader.Instance.SetUpPlayerKeyboard(mario, marios.GetValueOrDefault(mario)));
-                }
-            }
-            marioInsertQueue.Clear();
-        }
-        public void RemovePlayers()
-        {
-            foreach (IMario mario in marioRemovalQueue)
-            {
-                marios.Remove(mario);
-            }
-            marioRemovalQueue.Clear();
         }
         protected override void Update(GameTime gameTime)
         {
-            RemovePlayers();
-            AddPlayers();
             base.Update(gameTime);
+            CameraManager.Instance.Update();
+            PlayerKeyboardManager.Instance.Update();
             GameObjectManager.Instance.UpdateGameObjects();
+            HUDManager.Instance.Update();
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.FromNonPremultiplied(92,148,252,255));
 
-            foreach (IMario mario in marios.Keys)
+            foreach (ICamera camera in CameraManager.Instance.cameras.Values)
             {
                 tempView = GraphicsDevice.Viewport;
-                currentDrawingMario = mario;
-                GraphicsDevice.Viewport = mario.GetCamera().ViewPort;
-                spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, mario.GetCamera().ViewMatrix);
+                GraphicsDevice.Viewport = camera.GetViewport();
+                spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetMatrix());
+                Texture2D background = Game0.Instance.Content.Load<Texture2D>("1-1");
+                spriteBatch.Draw(background, new Rectangle(0, 0, 6750, 600), Color.White);
+                GameObjectManager.Instance.DrawStaticGameObjects(spriteBatch, camera);
                 GameObjectManager.Instance.DrawGameObjects(spriteBatch);
+                HUDManager.Instance.Draw(spriteBatch);
                 spriteBatch.End();
                 GraphicsDevice.Viewport = tempView;
             }

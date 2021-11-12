@@ -14,7 +14,7 @@ namespace Sprint0.UtilityClasses
         public static GameObjectManager gameObjectManager { get; set; }
         public static string emptyString = "";
         // magic number from GameObjectManager
-        public static int dimension = 2;
+        public static int dimensionScale = 2;
         public static int bias = 16;
         public static int backgroundWidth = 6450;
         public static int backgroundHeight = 600;
@@ -61,6 +61,8 @@ namespace Sprint0.UtilityClasses
         public static int fuseTime = 30;
         public static  int currentMaxJumpTime = 5;
         public static  int maxJumpTime = 10;
+        public static int maxTimeFlagTurn = 10;
+        public static int timeToEndingDeletion = 25;
         public static int Vx = 7;
         public static float VxF = 7f;
         public static int Vy = 10;

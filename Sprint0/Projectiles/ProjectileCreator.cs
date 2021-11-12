@@ -24,7 +24,7 @@ Owen Huston
 
 namespace Sprint0
 {
-    public class ProjectileCreator 
+    sealed public class ProjectileCreator 
     {
         private Vector2 velocity = new Vector2(0,0);
         private int fuseTime = 30;

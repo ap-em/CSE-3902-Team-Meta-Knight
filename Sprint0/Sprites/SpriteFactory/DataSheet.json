@@ -14,16 +14,16 @@
     "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 359 ],
-    "DataY": [ 52 ],
-    "Data": [ 16, 32, 1 ],
+    "DataX": [ 359, 362 ],
+    "DataY": [ 52, 122 ],
+    "Data": [ 16, 32, 2 ],
     "SpriteName": "RightJumpingMarioStar",
     "SpriteSheet": "StarMario"
   },
   {
-    "DataX": [ 30 ],
-    "DataY": [ 52 ],
-    "Data": [ 16, 32, 1 ],
+    "DataX": [ 30, 27 ],
+    "DataY": [ 52, 122 ],
+    "Data": [ 16, 32, 2 ],
     "SpriteName": "LeftJumpingMarioStar",
     "SpriteSheet": "StarMario"
   },
@@ -70,16 +70,16 @@
     "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 209 ],
-    "DataY": [ 52 ],
-    "Data": [ 16, 32, 1 ],
+    "DataX": [ 209, 209 ],
+    "DataY": [ 52, 122 ],
+    "Data": [ 16, 32, 2 ],
     "SpriteName": "RightIdleMarioStar",
     "SpriteSheet": "StarMario"
   },
   {
-    "DataX": [ 180 ],
-    "DataY": [ 52 ],
-    "Data": [ 16, 32, 1 ],
+    "DataX": [ 180, 180 ],
+    "DataY": [ 52, 122 ],
+    "Data": [ 16, 32, 2 ],
     "SpriteName": "LeftIdleMarioStar",
     "SpriteSheet": "StarMario"
   },
@@ -170,16 +170,16 @@
     "SpriteSheet": "mario"
   },
   {
-    "DataX": [ 239, 270, 299 ],
-    "DataY": [ 52, 52, 53 ],
-    "Data": [ 16, 32, 3 ],
+    "DataX": [ 239, 263, 299, 237, 270, 287 ], 
+    "DataY": [ 52, 122, 53, 122, 52, 123], 
+    "Data": [ 16, 32, 6 ],
     "SpriteName": "RightMovingMarioStar",
     "SpriteSheet": "StarMario"
   },
   {
-    "DataX": [ 150, 121, 90 ],
-    "DataY": [ 52, 52, 53 ],
-    "Data": [ 16, 32, 3 ],
+    "DataX": [ 150, 128, 90, 152, 121, 102], 
+    "DataY": [ 52, 122, 53, 122, 52, 123], 
+    "Data": [ 16, 32, 6 ],
     "SpriteName": "LeftMovingMarioStar",
     "SpriteSheet": "StarMario"
   },
@@ -368,6 +368,34 @@
     "SpriteSheet": "mario"
   },
   {
+    "DataX": [ 363, 390 ],
+    "DataY": [ 89, 88 ],
+    "Data": [ 16, 32, 2 ],
+    "SpriteName": "RightClimbMarioFull",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 331, 361 ],
+    "DataY": [ 30, 30 ],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "RightClimbMarioHalf",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 61, 30 ],
+    "DataY": [ 30, 30 ],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "LeftClimbMarioHalf",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 1, 28 ],
+    "DataY": [ 88, 89 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "LeftClimbMarioFull",
+    "SpriteSheet": "mario"
+  },
+  {
     "DataX": [ 80, 96, 112 ],
     "DataY": [ 112, 112, 112 ],
     "Data": [ 16, 16, 3 ],
@@ -446,7 +474,7 @@
   },
   {
     "DataX": [ 0, 16, 32, 48 ],
-    "DataY": [ 80, 80, 80, 80 ],
+    "DataY": [ 81, 81, 81, 81 ],
     "Data": [ 16, 16, 4 ],
     "SpriteName": "Coin",
     "SpriteSheet": "items"

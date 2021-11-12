@@ -22,8 +22,6 @@ namespace Sprint0
         // These would be like commands in a way, since having it seleceted and pressing A, for example, would cause Mario to attack with his sword, executing the sword attack.
         void Update();
         public Vector2 Position { get; set; }
-        void SetKeyboard(IKeyboardController keyboard);
-        ICamera GetCamera();
         void Draw(SpriteBatch spritebatch);
         /*Movement Centric code, MoveDirection code changes the facing of Mario and moves him in that direction*/
         void MoveLeft();

@@ -5,7 +5,6 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Sprites;
-using Sprint0.Cycle;
 using Sprint0.Sprites.SpriteFactory;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.UtilityClasses;
@@ -22,7 +21,7 @@ Owen Huston*/
 
 namespace Sprint0.Blocks
 {
-    class DynamicBlock : IBlock, IGameObject, IUpdate, IDraw, ICollidable, IDynamicBlock
+    class StarBlock : IBlock, IGameObject, IUpdate, IDraw, ICollidable, IDynamicBlock
     {
         private int breakBlockTimer = -1;
         private int bounceBackTimer = -1;
@@ -35,7 +34,7 @@ namespace Sprint0.Blocks
 
         public ISprite Sprite => sprite;
 
-        public DynamicBlock(String spriteName, Vector2 position)
+        public StarBlock(String spriteName, Vector2 position)
         {
             soundInfo = new SoundInfo();
             location = position;
@@ -68,39 +67,18 @@ namespace Sprint0.Blocks
             {
                 Position = new Vector2(Position.X, Position.Y + 5);
             }
-            if(breakBlockTimer >= 0)
-            {
-                breakBlockTimer--;
-            }
-            if(breakBlockTimer == 0)
-            {
-                GameObjectManager.Instance.RemoveFromObjectList(this);
-            }
             sprite.Update();
         }
         public void BreakBlock(IMario mario)
         {
-            if (bounceBackTimer < 0 && breakBlockTimer < 0)
+            if (bounceBackTimer < 0)
             {
                 bounceBackTimer = 2;
                 Position = new Vector2(Position.X, Position.Y - 5);
             }
-            if (GetSpriteName() == "BrickBlock" && (mario.GetHealthState() == "Full" || mario.GetHealthState() == "Fire" || mario.GetHealthState() == "Star"))
-            {
-                soundInfo.PlaySound("brickbreak", false);
-                //only set the timer if we havent already set the timer
-                if (breakBlockTimer < 0)
-                {
-                    GameObjectManager.Instance.AddToObjectList(new BlockDebris("BrickDebris", Position), 0, 0);
-                    breakBlockTimer = 2;
-                }
-            }
-            else if(GetSpriteName() == "ItemBlock")
-            {
-                soundInfo.PlaySound("itemblock", false);
-                GameObjectManager.Instance.AddToObjectList(new Item("Mushroom", new Vector2(Position.X, Position.Y - 32)), 0, 0);
-                SetSprite("UsedItemBlock");
-            }
+            soundInfo.PlaySound("itemblock", false);
+            GameObjectManager.Instance.AddToObjectList(new Item("Star", new Vector2(Position.X, Position.Y - 32)), 0, 0);
+            SetSprite("UsedItemBlock");
         }
     }
 }

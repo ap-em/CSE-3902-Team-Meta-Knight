@@ -28,5 +28,7 @@ namespace Sprint0.Interfaces
         void RegisterHoldableKey(Keys key, ICommand command);
         void RegisterReleasableKey(Keys key, ICommand command);
         void ClearController();
+        public void SetLockInput(bool lockInput);
+        public bool GetLockInput();
     }
 }
