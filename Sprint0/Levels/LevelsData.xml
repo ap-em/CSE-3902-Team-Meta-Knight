@@ -285,9 +285,7 @@
 	  
 		  <obj>179,12,1,Sprint0.Blocks.Block,BottomPipe</obj>
 	      <obj>179,11,1,Sprint0.Blocks.Block,TopPipe</obj>
-		  <obj>5,10,1,Sprint0.Blocks.Flag,FlagTop</obj>
 		  <obj>198,2,1,Sprint0.Blocks.Flag,FlagTop</obj>
-	      <obj>198,2,1,Sprint0.Blocks.Flag,FlagTop</obj>	
 	  	  <obj>198,4,1,Sprint0.Blocks.Flag,FlagPole</obj>
   	      <obj>198,5,1,Sprint0.Blocks.Flag,FlagPole</obj>
 	      <obj>198,6,1,Sprint0.Blocks.Flag,FlagPole</obj>
