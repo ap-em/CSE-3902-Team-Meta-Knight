@@ -79,7 +79,6 @@ namespace Sprint0
                     default:
                         break;
                 }
-                mario.OnStateChange();
             }
         }
         //Instant Death used for the KillBox under the pit
@@ -92,7 +91,6 @@ namespace Sprint0
             invinsibleTimer = GameUtilities.invinsibleTimerStar;
             previousHealth = currentHealth;
             currentHealth = MarioHealth.star;
-            mario.OnStateChange();
         }
 
         public void MushroomPower()

@@ -51,10 +51,11 @@ namespace Sprint0.Enemies
         public void TakeDamage()
         {
             healthStateMachine.TakeDamage();
+            SetSprite(enemyType);
         }
         public void InstantDeath()
         {
-            healthStateMachine.InstantDeath();
+            GameObjectManager.Instance.RemoveFromObjectList(this);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
