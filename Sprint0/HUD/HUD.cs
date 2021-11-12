@@ -16,6 +16,7 @@ namespace Sprint0.HUD
         private float maxPlayerPosition;
         private int lives = 3;
         private int initialScore = 0;
+        private int initialCoinCount = 0;
         private int coinCount = 0;
         private int score = 0;
         private int index = 0;
@@ -59,6 +60,7 @@ namespace Sprint0.HUD
             maxPlayerPosition = initialPlayerPosition;
             timeLeft = initialTime;
             score = initialScore;
+            coinCount = initialCoinCount;
         }
         public int GetLives()
         {
@@ -87,6 +89,7 @@ namespace Sprint0.HUD
                 // draw on top middle of screen
                 spriteBatch.DrawString(font, "LIVES: " + lives.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y), Color.White);
                 spriteBatch.DrawString(font, "LEVEL: " + level.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y + 100), Color.White);
+                spriteBatch.DrawString(font, "COINS: " + coinCount.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width /2-100, camera.GetPosition().Y), Color.White);
 
                 //draw on top right of screen
                 spriteBatch.DrawString(font, "SCORE: " + score.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width - 100, camera.GetPosition().Y), Color.White);
