@@ -130,22 +130,30 @@ namespace Sprint0
         public void TakeDamage()
         {
             healthStateMachine.TakeDamage();
+            OnStateChange();
         }
         public void InstantDeath()
         {
-            healthStateMachine.InstantDeath();
+            if (GetHealthState() != "Dead")
+            {
+                healthStateMachine.InstantDeath();
+                OnStateChange();
+            }
         }
         public void MushroomPower()
         {
             healthStateMachine.MushroomPower();
+            OnStateChange();
         }
         public void FireflowerPower()
         {
             healthStateMachine.FirePower();
+            OnStateChange();
         }
         public void StarPower()
         {
             healthStateMachine.StarPower();
+            OnStateChange();
         }
 
         public void PrimaryAttack()
@@ -154,6 +162,7 @@ namespace Sprint0
             {
                 attack = new AttackMario(this, currentState, position);
                 attack.Attack();
+                OnStateChange();
             }
         }
         public void UpBounce(Rectangle rectangle)
@@ -175,6 +184,7 @@ namespace Sprint0
         public void Crouch()
         {
             currentState.Crouch();
+            OnStateChange();
         }
         public void StopMovingHorizontal()
         {
@@ -196,10 +206,9 @@ namespace Sprint0
         public void Reset(Vector2 position)
         {
             Position = position;
-            healthStateMachine.ResetHealth();
             currentState = new RightFacingStaticMario(this);
+            healthStateMachine.ResetHealth();
             OnStateChange();
-
         }
     }
 }

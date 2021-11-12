@@ -56,12 +56,6 @@ namespace Sprint0.Enemies
                 default:
                     break;
             }
-            enemy.SetSprite(enemy.enemyType);
-        }
-        //Instant Death used for the KillBox under the pit
-        public void InstantDeath()
-        {
-            health = enemyHealth.dead;
         }
         public String GetHealth()
         {
