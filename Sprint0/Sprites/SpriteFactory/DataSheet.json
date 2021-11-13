@@ -526,98 +526,98 @@
     "DataX": [ 0, 30 ],
     "DataY": [ 4, 4 ],
     "Data": [ 16, 16, 2 ],
-    "SpriteName": "LeftMovingGoombaHalf",
+    "SpriteName": "LeftMovingGoomba1",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 0, 30 ],
     "DataY": [ 4, 4 ],
     "Data": [ 16, 16, 2 ],
-    "SpriteName": "RightMovingGoombaHalf",
+    "SpriteName": "RightMovingGoomba1",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 0 ],
     "DataY": [ 4 ],
     "Data": [ 16, 16, 1 ],
-    "SpriteName": "LeftIdleGoombaHalf",
+    "SpriteName": "LeftIdleGoomba1",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 0 ],
     "DataY": [ 4 ],
     "Data": [ 16, 16, 1 ],
-    "SpriteName": "RightIdleGoombaHalf",
+    "SpriteName": "RightIdleGoomba1",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 60 ],
     "DataY": [ 4 ],
     "Data": [ 16, 16, 1 ],
-    "SpriteName": "GoombaDead",
+    "SpriteName": "Goomba0",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 90, 120 ],
     "DataY": [ 0, 0 ],
     "Data": [ 16, 24, 2 ],
-    "SpriteName": "LeftMovingKoopaFull",
+    "SpriteName": "LeftMovingKoopa2",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 270, 300 ],
     "DataY": [ 0, 0 ],
     "Data": [ 16, 24, 2 ],
-    "SpriteName": "RightMovingKoopaFull",
+    "SpriteName": "RightMovingKoopa2",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 90 ],
     "DataY": [ 0 ],
     "Data": [ 16, 24, 1 ],
-    "SpriteName": "LeftIdleKoopaFull",
+    "SpriteName": "LeftIdleKoopa2",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 270 ],
     "DataY": [ 0 ],
     "Data": [ 16, 24, 1 ],
-    "SpriteName": "RightIdleKoopaFull",
+    "SpriteName": "RightIdleKoopa2",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 150, 180 ],
     "DataY": [ 0, 0 ],
     "Data": [ 16, 24, 2 ],
-    "SpriteName": "LeftMovingKoopaHalf",
+    "SpriteName": "LeftMovingKoopa1",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 240, 210 ],
     "DataY": [ 0, 0 ],
     "Data": [ 16, 24, 2 ],
-    "SpriteName": "RightMovingKoopaHalf",
+    "SpriteName": "RightMovingKoopa1",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 150 ],
     "DataY": [ 0 ],
     "Data": [ 16, 24, 1 ],
-    "SpriteName": "LeftIdleKoopaHalf",
+    "SpriteName": "LeftIdleKoopa1",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 240 ],
     "DataY": [ 0 ],
     "Data": [ 16, 24, 1 ],
-    "SpriteName": "RightIdleKoopaHalf",
+    "SpriteName": "RightIdleKoopa1",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 360 ],
     "DataY": [ 5 ],
     "Data": [ 16, 24, 1 ],
-    "SpriteName": "KoopaDead",
+    "SpriteName": "Koopa0",
     "SpriteSheet": "enemies"
   },
   {

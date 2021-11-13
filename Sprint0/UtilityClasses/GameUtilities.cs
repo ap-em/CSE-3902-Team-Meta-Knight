@@ -41,6 +41,16 @@ namespace Sprint0.UtilityClasses
         //magic number in EnemyController
         public static int waitTime = 50;
 
+        //magic number in Goomba
+        public static int goombaHearts = 1;
+        public static int goombaSpeed = 1;
+        public static int goombaRemovalTimer = 7;
+
+        //magic number in Koopa
+        public static int koopaHearts = 1;
+        public static int koopaSpeed = 1;
+        public static int shellSpeed = 10;
+
         //magic number in item classes
         public static int itemPosX = 100;
         public static int itemPosY = 200;

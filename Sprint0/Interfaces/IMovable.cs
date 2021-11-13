@@ -12,6 +12,5 @@ namespace Sprint0
         public ISprite Sprite { get; }
         public bool GetGrounded();
         public void SetGrounded(bool grounded);
-        public void Draw(SpriteBatch spritebatch);
     }
 }

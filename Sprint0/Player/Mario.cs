@@ -129,8 +129,11 @@ namespace Sprint0
         }
         public void TakeDamage()
         {
-            healthStateMachine.TakeDamage();
-            OnStateChange();
+            if (healthStateMachine.GetHealth() != "Dead")
+            {
+                healthStateMachine.TakeDamage();
+                OnStateChange();
+            }
         }
         public void InstantDeath()
         {

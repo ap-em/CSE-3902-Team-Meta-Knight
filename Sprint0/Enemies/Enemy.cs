@@ -25,32 +25,40 @@ namespace Sprint0.Enemies
 {
     public class Enemy : IEnemy, IGameObject, IMovable, IUpdate, IDraw, ICollidable, IBounce
     {
+        private String direction = GameUtilities.right;
+        private bool grounded = false;
+        private Vector2 position;
+        private Vector2 velocity;
+        private IEnemyState currentState; 
         private IKeyboardController keyboard;
-        private IEnemyMovement enemyMovement;
         private ISprite sprite;
         private EnemyHealthStateMachine healthStateMachine;
         public String enemyType = GameUtilities.emptyString;
         private String spriteName = GameUtilities.emptyString;
-        private bool firing = false;
-        private int firingTimer = 4;
         public int objectRemovalTimer = -1;
 
-        public Vector2 Position { get => enemyMovement.Position; set => enemyMovement.Position = value; }
+        public Vector2 Position { get => position; set => position = value; }
 
         public ISprite Sprite => sprite;
 
         public Enemy(String spriteName, Vector2 position)
         {
+            this.position = position;
             enemyType = spriteName;
-            healthStateMachine = new EnemyHealthStateMachine(this);
-            enemyMovement = new EnemyMovement(this, position);
-            this.spriteName = enemyMovement.GetDirection() + "Idle" + enemyType + healthStateMachine.GetHealth();
+            healthStateMachine = new EnemyHealthStateMachine(NameToStateMapping.Instance.GetHealth(spriteName));
+            keyboard = ControllerLoader.Instance.SetUpEnemyKeyboard(this);
+            this.spriteName = direction + "Idle" + enemyType + healthStateMachine.GetHealth();
             sprite = SpriteFactory.Instance.GetSprite(this.spriteName);
-            keyboard = ControllerLoader.Instance.SetUpEnemyKeyboard(this); 
+
+            currentState = NameToStateMapping.Instance.GetState(spriteName, this);
+        }
+        public void SetRemovalTimer(int timer)
+        {
+            objectRemovalTimer = timer;
         }
         public void TakeDamage()
         {
-            healthStateMachine.TakeDamage();
+            currentState.TakeDamage();
             SetSprite(enemyType);
         }
         public void InstantDeath()
@@ -59,35 +67,30 @@ namespace Sprint0.Enemies
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, enemyMovement.GetLocation());
+            sprite.Draw(spriteBatch, position);
         }
-        public String GetHealth()
+        public int GetHealth()
         {
             return healthStateMachine.GetHealth();
+        }
+        public void SetHealth(int health)
+        {
+            healthStateMachine.SetHealth(health);
         }
         public void SetSprite(String enemyType)
         {
             this.enemyType = enemyType;
-            bool moving = enemyMovement.GetXVelocity() != 0 || enemyMovement.GetYVelocity() != 0;
-            String direction = enemyMovement.GetDirection();
-            if(healthStateMachine.GetHealth() == "Dead")
+
+            // create spriteName based on enemy direction, movement, type, health
+            if(healthStateMachine.GetHealth() == 0)
             {
                 spriteName = enemyType + healthStateMachine.GetHealth();
             }
-            else if (firing)
-            {
-                // spriteString = enemyMovement.GetDirection() + "Shooting" + enemy.GetEnemyType(); Get to this once we implment an enemy that has a unique attack animation  
-            }
             else
             {
-                if (moving)
-                {
-                    spriteName = enemyMovement.GetDirection() + "Moving" + enemyType + healthStateMachine.GetHealth();
-                }
-                else
-                {
-                    spriteName = enemyMovement.GetDirection() + "Idle" + enemyType + healthStateMachine.GetHealth();
-                }
+                String isMoving = (velocity.X != 0 || velocity.Y != 0) ? "Moving" : "Idle";
+                spriteName = direction + isMoving + enemyType + healthStateMachine.GetHealth();
+                spriteName = direction + isMoving + enemyType + healthStateMachine.GetHealth();
             }
 
             sprite = SpriteFactory.Instance.GetSprite(spriteName);
@@ -96,60 +99,51 @@ namespace Sprint0.Enemies
         {
             return enemyType;
         }
-        public void FireProjectile()
-        {
-            if (!firing)
-            {
-                firing = true;
-                ProjectileCreator.Instance.CreateProjectile(enemyType, enemyMovement.GetDirection(), enemyMovement.GetLocation());
-            }
-        }
-        public bool GetFiring()
-        {
-            return firing;
-        }
-        public void SetFiring(bool fire)
-        {
-            firing = fire;
-        }
 
         public void MoveRight()
         {
-            enemyMovement.MoveRight();
+            currentState.MoveRight();
             SetSprite(enemyType);
         }
 
         public void MoveLeft()
         {
-            enemyMovement.MoveLeft();
+            currentState.MoveLeft();
             SetSprite(enemyType);
+        }
+        public void Move()
+        {
+            position = new Vector2(position.X + velocity.X, position.Y + velocity.Y);
         }
 
         public void SetXVelocity(float x)
         {
-            enemyMovement.SetXVelocity(x);
+            velocity.X = x;
+            //if we are setting velocity to zero don't change direction
+            if (x != 0)
+               direction =  (x > 0) ? GameUtilities.right : GameUtilities.left;
             SetSprite(enemyType);
         }
 
         public void SetYVelocity(float y)
         {
-            enemyMovement.SetYVelocity(y);
+            velocity.Y = y;
             SetSprite(enemyType);
+        }
+        public Vector2 GetVelocity()
+        {
+            return velocity;
+        }
+        public String GetDirection()
+        {
+            return direction;
+        }
+        public void SetCurrentState(IEnemyState enemyState)
+        {
+            currentState = enemyState;
         }
         public void Update()
         {
-            // this is to reset to a different sprite after doing projectil throwing
-            // animation after a few frames
-
-            if(firing)
-            {
-                firingTimer--;
-            }
-            if (firingTimer < 0)
-            {
-                firing = false;
-                firingTimer = 4;
-            }
             if(objectRemovalTimer >= 0)
             {
                 objectRemovalTimer--;
@@ -158,47 +152,49 @@ namespace Sprint0.Enemies
             {
                 GameObjectManager.Instance.RemoveFromObjectList(this);
             }
-
-            enemyMovement.Move();
-            sprite.Update();
+            
             keyboard.Update();
+            Move();
+            sprite.Update();
         }
 
         public bool GetGrounded()
         {
-            return enemyMovement.GetGrounded();
+            return grounded;
         }
 
         public void SetGrounded(bool grounded)
         {
-            enemyMovement.SetGrounded(grounded);
+            if (grounded == false)
+                velocity.Y = GameUtilities.gravity;
+            else
+                velocity.Y = 0;
+            this.grounded = grounded;
         }
 
         public void UpBounce(Rectangle rectangle)
         {
-            SetGrounded(true);
-            Position = new Vector2(Position.X, Position.Y - rectangle.Height);
+            currentState.UpBounce(rectangle);
         }
 
         public void DownBounce(Rectangle rectangle)
         {
-            enemyMovement.Position = new Vector2(enemyMovement.Position.X, enemyMovement.Position.Y + rectangle.Height);
-            
+            currentState.DownBounce(rectangle);
         }
 
         public void RightBounce(Rectangle rectangle)
         {
-            enemyMovement.Position = new Vector2(enemyMovement.Position.X + rectangle.Width, enemyMovement.Position.Y);
+            currentState.RightBounce(rectangle);
         }
 
         public void LeftBounce(Rectangle rectangle)
         {
-            enemyMovement.Position = new Vector2(enemyMovement.Position.X - rectangle.Width, enemyMovement.Position.Y);
+            currentState.LeftBounce(rectangle);
         }
 
         public void BigUpBounce(Rectangle rectangle)
         {
-            enemyMovement.SetYVelocity(-12);
+            currentState.BigUpBounce(rectangle);
         }
 
     }

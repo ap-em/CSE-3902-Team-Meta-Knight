@@ -1,0 +1,12 @@
+﻿<Mapping>
+  <MapInstance>
+    <SpriteName>Goomba</SpriteName>
+    <StateName>Sprint0.Enemies.GoombaNormalState</StateName>
+    <Health>1</Health>
+  </MapInstance>
+  <MapInstance>
+    <SpriteName>Koopa</SpriteName>
+    <StateName>Sprint0.Enemies.KoopaNormalState</StateName>
+    <Health>1</Health>
+  </MapInstance>
+</Mapping>
