@@ -1,0 +1,17 @@
+CODE REVIEW of Sprint 4 –Jared - Sprint-4-Pause-Version2 by Leon Cai 11/12/21:
+
+CTogglePauseGame.cs: Having a Command class for execute pause can enhance readability.
+
+KeyboardBindings.xml: Just adding another key to the keyboard controller
+
+Game0: using pauseScreen class and initialize the pause class here is better than just use the 
+boolean isPaused becuase the game does not need to know such details about the state of the 
+class. The pause class is the one needed to handle that. Smart way to use the pauseScreen.isPaused 
+to control whether the game update GameObjectManager and HUD, but the potential problem is that 
+the keyboard inputs other than pause key P are still allowed. The bug is that in the game pause 
+state, player still could use A, D to change direction, and R to reset. 
+
+PauseScreen.cs:The class is easy to read. The class only draws the Pause on the screen and freeze 
+the game which is what exactly the pause class should do. 
+
+Good Job!

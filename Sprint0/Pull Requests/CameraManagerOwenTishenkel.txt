@@ -1,0 +1,25 @@
+CODE REVIEW of Sprint 4 – Owen Huston – Sprint-4-CameraManager by Owen Tishenkel 11/12/21:
+Flag: Changes the keyboard.lockInput to GetLockInput() which is just an all around 
+improvement, no issues
+
+Camera:Vastly simplifys camera code to not handle more than one camera at once and to 
+follow any type of game object, could use one or two comments but otherwise fine. 
+
+CameraManager: Handles multiple cameras allowing for splitscreen, plenty of comments, no issues
+
+CReset: updated to reset Camera Manager and Keyboard Manager, no issues
+
+EnemyController: Added Lock input and getter and setter for it, no issues
+
+KeyboardController: No longer a singleton and getters and setters for lock input
+
+PlayerKeyboardManager: Singleton that Creates and manages keyboards, could use comments 
+explaining methods no issues with actual code
+
+Rest of changes: just modifying the rest of the code to work with the new camera manager and 
+keyboard manager, no issues
+
+Overall: Some files could use more comments, but most of the changes are just improving code 
+quality and are great
+
+ALL.CS FILES' AUTHOR IS Owen Huston

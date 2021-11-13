@@ -1,0 +1,16 @@
+CODE REVIEW of Sprint 4 – Owen Tishenkel- Sprint-4-Kaejot-Coin by Leon Cai 11/12/21:
+CResetGame.cs: Specific reset for HUD. The class itself is well organized and functinally 
+correct, but there exists a reset command class already. Either combine these two command 
+classes in one or make them functionally independent.
+
+HUD.cs: Implement new features in IHUD. One thing I notice is changing "coinCount = initialCoinCount;" 
+to use "ResetCoin();" class reduce the difficulty to maintain the HUD.cs class and easier for 
+reader to know what the code does.
+
+IHUD.cs: Added more abstract classes for coins
+
+Item.cs: Add the feature that as 100 coins collected, add one life to Mario.
+
+GameUtilities.cs: Add some constant here to eliminate magic numbers.
+
+Overall: Good Job!
