@@ -35,7 +35,8 @@ namespace Sprint0
         public Texture2D background;
         public SoundInfo soundInfo;
 
-        public bool isPaused;
+
+        public PauseScreen pauseScreen;
         public static string currentSoundtrack;
         public static float storedGameTime;
 
@@ -73,7 +74,7 @@ namespace Sprint0
             TargetElapsedTime = TimeSpan.FromSeconds(GameUtilities.timeSpan);
 
             soundInfo.PlaySound("OverworldTheme", true);
-            isPaused = false;
+            pauseScreen = new PauseScreen();
 
             base.Initialize();
         }
@@ -84,21 +85,23 @@ namespace Sprint0
         }
         public void TogglePause()
         {
-
+            pauseScreen.TogglePause();
         }
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
             CameraManager.Instance.Update();
             PlayerKeyboardManager.Instance.Update();
-            GameObjectManager.Instance.UpdateGameObjects();
-            HUDManager.Instance.Update();
+            if (!pauseScreen.isPaused)
+            {
+                GameObjectManager.Instance.UpdateGameObjects();
+                HUDManager.Instance.Update();
+            }
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.FromNonPremultiplied(92,148,252,255));
-
             foreach (ICamera camera in CameraManager.Instance.cameras.Values)
             {
                 tempView = GraphicsDevice.Viewport;
@@ -109,10 +112,10 @@ namespace Sprint0
                 GameObjectManager.Instance.DrawStaticGameObjects(spriteBatch, camera);
                 GameObjectManager.Instance.DrawGameObjects(spriteBatch);
                 HUDManager.Instance.Draw(spriteBatch, camera);
+                pauseScreen.Draw(spriteBatch, camera);
                 spriteBatch.End();
                 GraphicsDevice.Viewport = tempView;
             }
-
             base.Draw(gameTime);
         }
     }
