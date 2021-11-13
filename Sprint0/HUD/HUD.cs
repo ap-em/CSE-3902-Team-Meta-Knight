@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Commands;
 using Sprint0.Interfaces;
+using Sprint0.UtilityClasses;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,6 +16,7 @@ namespace Sprint0.HUD
         private Vector2 position;
         private float initialPlayerPosition;
         private float maxPlayerPosition;
+        private int initialLives = 3;
         private int lives = 3;
         private int initialScore = 0;
         private int initialCoinCount = 0;
@@ -25,6 +28,7 @@ namespace Sprint0.HUD
         private IGameObject gameObject;
         private int counter = 0;
         private int level = 1;
+        private double gameOverTime =0;
         public HUD(IGameObject go, int index)
         {
             font = Game0.Instance.Content.Load<SpriteFont>("Font");
@@ -51,6 +55,22 @@ namespace Sprint0.HUD
         {
             coinCount += increment;
         }
+        public void ResetCoin()
+        {
+            coinCount = initialCoinCount;
+        }
+        public void ResetLives()
+        {
+            lives = initialLives;
+        }
+        public int getCoinCount()
+        {
+            return coinCount;
+        }
+        public void AddLife()
+        {
+            lives++;
+        }
         public void RemoveLife()
         {
             lives--;
@@ -60,7 +80,7 @@ namespace Sprint0.HUD
             maxPlayerPosition = initialPlayerPosition;
             timeLeft = initialTime;
             score = initialScore;
-            coinCount = initialCoinCount;
+            ResetCoin();
         }
         public int GetLives()
         {
@@ -75,6 +95,21 @@ namespace Sprint0.HUD
             {
                 AddScore(1);
                 maxPlayerPosition = gameObject.Position.X;
+            }
+            if (timeLeft == 0 && lives > 0)
+            {
+                lives--;
+                new CReset((IMario)gameObject).Execute();
+            }
+            if (lives == 0)
+            {
+                gameOverTime += Game0.Instance.TargetElapsedTime.TotalSeconds;
+                if (gameOverTime >= GameUtilities.gameOverTimerFinish)
+                {
+                    gameOverTime = 0;
+                    new CResetGame((IMario)gameObject).Execute();
+                }
+                
             }
         }
         public void Draw(SpriteBatch spriteBatch, ICamera camera)

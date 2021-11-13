@@ -45,6 +45,8 @@ namespace Sprint0.UtilityClasses
         public static int itemPosX = 100;
         public static int itemPosY = 200;
         public static int coinVal = 200;
+        public static int coinLifeExchangeVal = 100;
+
 
         //magic number in level classes
         public static int maxRowLength = 1000;
@@ -80,7 +82,8 @@ namespace Sprint0.UtilityClasses
         public static int initialPosY = 100;
 
 
-
+        //magic number for hud
+         public static double gameOverTimerFinish =3;
 
     }
 }
