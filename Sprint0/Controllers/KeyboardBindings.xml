@@ -5,6 +5,7 @@
     <key>M,Sprint0.Commands.CPauseBackgroundMusic,pressable</key>
     <key>Q,Sprint0.Commands.Quit,pressable</key>
     <key>R,Sprint0.Commands.CReset,pressable</key>
+    <key>P,Sprint0.Commands.CTogglePauseGame,pressable</key>
 
     <key>A,Sprint0.Commands.CMovePlayerLeft,pressable</key>
 	<key>A,Sprint0.Commands.CMovePlayerLeft,holdable</key>
