@@ -123,7 +123,7 @@ namespace Sprint0.HUD
 
                 // draw on top middle of screen
                 spriteBatch.DrawString(font, "LIVES: " + lives.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y), Color.White);
-                spriteBatch.DrawString(font, "LEVEL: " + level.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y + 100), Color.White);
+                spriteBatch.DrawString(font, "LEVEL: " + level.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y + 20), Color.White);
                 spriteBatch.DrawString(font, "COINS: " + coinCount.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width /2-100, camera.GetPosition().Y), Color.White);
 
                 //draw on top right of screen
