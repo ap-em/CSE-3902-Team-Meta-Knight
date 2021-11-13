@@ -16,9 +16,9 @@ namespace Sprint0
      */
     sealed public class GameObjectManager
     {
-        private int maxRowLength = 1000;
-        private int maxNumberOfRows = 100;
-        private IBlock[][] staticGameObjects = new IBlock[1000][];
+        private int maxRowLength = 220;
+        private int maxNumberOfRows = 50;
+        private IBlock[][] staticGameObjects = new IBlock[220][];
         public List<IMario> marios = new List<IMario>();
         public List<ICollidable> collidableGameObjects = new List<ICollidable>();
         public List<IDraw> drawableGameObjects= new List<IDraw>();
