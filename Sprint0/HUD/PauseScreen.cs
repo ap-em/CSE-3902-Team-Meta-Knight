@@ -7,28 +7,21 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class PauseScreen
+    public class PauseScreen : IHUDState
     {
-        public bool isPaused;
         private SpriteFont font;
         public PauseScreen()
         {
-            isPaused = false;
             font = Game0.Instance.Content.Load<SpriteFont>("Font");
             
         }
-        public void Draw(SpriteBatch spriteBatch,ICamera camera)
+        public void Update()
         {
-            if (isPaused)
-            {
-                spriteBatch.DrawString(font, "GAME PAUSED", new Vector2(camera.GetPosition().X+(camera.GetViewport().Width / 2)-(font.MeasureString("GAME PAUSED").X/2), (camera.GetViewport().Height/2)),Color.White);
-            }
 
         }
-        public void TogglePause()
+        public void Draw(SpriteBatch spriteBatch, ICamera camera)
         {
-            isPaused = !isPaused;
-            SoundManager.Instance.TogglePauseAllSounds();
+            spriteBatch.DrawString(font, "GAME PAUSED", new Vector2(camera.GetPosition().X + (camera.GetViewport().Width / 2) - (font.MeasureString("GAME PAUSED").X / 2), (camera.GetViewport().Height / 2)), Color.White);
         }
     }
 }

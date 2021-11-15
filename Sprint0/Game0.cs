@@ -36,7 +36,7 @@ namespace Sprint0
         public SoundInfo soundInfo;
 
 
-        public PauseScreen pauseScreen;
+        public bool isPaused;
         public static string currentSoundtrack;
         public static float storedGameTime;
 
@@ -74,7 +74,6 @@ namespace Sprint0
             TargetElapsedTime = TimeSpan.FromSeconds(GameUtilities.timeSpan);
 
             soundInfo.PlaySound("OverworldTheme", true);
-            pauseScreen = new PauseScreen();
 
             base.Initialize();
         }
@@ -83,18 +82,14 @@ namespace Sprint0
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
         }
-        public void TogglePause()
-        {
-            pauseScreen.TogglePause();
-        }
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            CameraManager.Instance.Update();
             PlayerKeyboardManager.Instance.Update();
-            if (!pauseScreen.isPaused)
+            if (!isPaused)
             {
                 GameObjectManager.Instance.UpdateGameObjects();
+                CameraManager.Instance.Update();
                 HUDManager.Instance.Update();
             }
         }
@@ -112,7 +107,6 @@ namespace Sprint0
                 GameObjectManager.Instance.DrawStaticGameObjects(spriteBatch, camera);
                 GameObjectManager.Instance.DrawGameObjects(spriteBatch);
                 HUDManager.Instance.Draw(spriteBatch, camera);
-                pauseScreen.Draw(spriteBatch, camera);
                 spriteBatch.End();
                 GraphicsDevice.Viewport = tempView;
             }

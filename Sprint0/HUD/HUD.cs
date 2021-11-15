@@ -12,137 +12,128 @@ namespace Sprint0.HUD
 {
     public class HUD: IHUD
     {
-        private SpriteFont font;
-        private Vector2 position;
+        private IHUDState hudState;
         private float initialPlayerPosition;
         private float maxPlayerPosition;
-        private int initialLives = 3;
-        private int lives = 3;
+        private int initialLives = 1;
+        private int lives = 1;
         private int initialScore = 0;
         private int initialCoinCount = 0;
         private int coinCount = 0;
         private int score = 0;
-        private int index = 0;
         private int initialTime = 100;
         private float timeLeft = 100;
         private IGameObject gameObject;
-        private int counter = 0;
         private int level = 1;
-        private double gameOverTime =0;
-        public HUD(IGameObject go, int index)
+        private bool paused = false;
+        private IHUDState previousState;
+        public HUD(IGameObject go)
         {
-            font = Game0.Instance.Content.Load<SpriteFont>("Font");
-            this.index = index;
+            hudState = new DefaultHUD(go, this);
             gameObject = go;
             maxPlayerPosition = gameObject.Position.X;
             initialPlayerPosition = gameObject.Position.X;
         }
+        public void TogglePause()
+        {
+            paused = !paused;
 
-        public int GetIndex()
-        {
-            return index;
+            // when we click pause save the previous state
+            // and display the pause menu
+            if (paused)
+            {
+                Game0.Instance.isPaused = true;
+                previousState = hudState;
+                hudState = new PauseScreen();
+            }
+            else
+            {
+                Game0.Instance.isPaused = false;
+                hudState = previousState;
+            }
         }
-
-        public Vector2 GetPosition()
+        public float GetTimeLeft()
         {
-            return position;
+            return timeLeft;
         }
-        public void AddScore(int increment)
+        public void SetTimeLeft(float time)
         {
-            score += increment;
+            timeLeft = time;
         }
-        public void AddCoin(int increment)
+        public int GetScore()
         {
-            coinCount += increment;
+            return score;
         }
-        public void ResetCoin()
+        public void SetScore(int score)
         {
-            coinCount = initialCoinCount;
+            this.score = score;
         }
-        public void ResetLives()
+        public void SetCoin(int coin)
         {
-            lives = initialLives;
+            score += GameUtilities.coinVal;
+            // coin = coin count add a life and reset coins
+            if (coinCount == GameUtilities.coinVal)
+            {
+                coinCount = 0;
+                lives += 1;
+            }
+            else
+            {
+                coinCount = coin;
+            }
         }
-        public int getCoinCount()
+        public int GetCoins()
         {
             return coinCount;
         }
-        public void AddLife()
+        public void SetLives(int lives)
         {
-            lives++;
-        }
-        public void RemoveLife()
-        {
-            lives--;
-        }
-        public void Reset()
-        {
-            maxPlayerPosition = initialPlayerPosition;
-            timeLeft = initialTime;
-            score = initialScore;
-            ResetCoin();
+            this.lives = lives;
+            if (this.lives == 0)
+                hudState = new GameOverScreen(gameObject, this);
         }
         public int GetLives()
         {
             return lives;
         }
-
-        public void Update()
+        public void ResetLevel()
         {
-            timeLeft -= (float)Game0.Instance.TargetElapsedTime.TotalSeconds;
-
-            if(gameObject.Position.X > maxPlayerPosition)
-            {
-                AddScore(1);
-                maxPlayerPosition = gameObject.Position.X;
-            }
-            if (timeLeft == 0 && lives > 0)
-            {
-                lives--;
-                new CReset((IMario)gameObject).Execute();
-            }
-            if (lives == 0)
-            {
-                gameOverTime += Game0.Instance.TargetElapsedTime.TotalSeconds;
-                if (gameOverTime >= GameUtilities.gameOverTimerFinish)
-                {
-                    gameOverTime = 0;
-                    new CResetGame((IMario)gameObject).Execute();
-                }
-                
-            }
+            maxPlayerPosition = initialPlayerPosition;
+            timeLeft = initialTime;
+            score = initialScore;
+            coinCount = initialCoinCount;
+            hudState = new DefaultHUD(gameObject, this);
         }
-        public void Draw(SpriteBatch spriteBatch, ICamera camera)
+        public void ResetGame()
         {
-            if (lives > 0)
-            {
-                int time = (int)timeLeft;
-
-                //  draw on top left of screen
-                spriteBatch.DrawString(font, "TIME LEFT: " + time.ToString(), new Vector2(camera.GetPosition().X, camera.GetPosition().Y), Color.White);
-
-                // draw on top middle of screen
-                spriteBatch.DrawString(font, "LIVES: " + lives.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y), Color.White);
-                spriteBatch.DrawString(font, "LEVEL: " + level.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y + 20), Color.White);
-                spriteBatch.DrawString(font, "COINS: " + coinCount.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width /2-100, camera.GetPosition().Y), Color.White);
-
-                //draw on top right of screen
-                spriteBatch.DrawString(font, "SCORE: " + score.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width - 100, camera.GetPosition().Y), Color.White);
-            }
-            else
-            {
-                spriteBatch.DrawString(font, "GAMEOVER: ", new Vector2(camera.GetPosition().X + camera.GetViewport().Width/ 2, camera.GetPosition().Y + camera.GetViewport().Height / 2), Color.White);
-            }
+            ResetLevel();
+            lives = initialLives;
+            hudState = new DefaultHUD(gameObject, this);
         }
-
         public int GetLevel()
         {
             return level;
         }
-
         public void SetLevel(int level)
         {
             this.level = level;
+        }
+        public void SetMaxPlayerPosition(float position)
+        {
+            maxPlayerPosition = position;
+        }
+
+        public float GetMaxPlayerPosition()
+        {
+            return maxPlayerPosition;
+        }
+        public void Update()
+        {
+            hudState.Update();
+        }
+        public void Draw(SpriteBatch spriteBatch, ICamera camera)
+        {
+            hudState.Draw(spriteBatch, camera);
         }
     }
 }

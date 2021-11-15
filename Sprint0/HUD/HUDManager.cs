@@ -30,7 +30,7 @@ namespace Sprint0.HUD
         }
         public void CreateHUD(IGameObject gameObject)
         {
-            IHUD HUD = new HUD(gameObject, HUDList.Count);
+            IHUD HUD = new HUD(gameObject);
             HUDList.Add(gameObject,HUD);
         }
         public IHUD GetHUD(IGameObject go)
