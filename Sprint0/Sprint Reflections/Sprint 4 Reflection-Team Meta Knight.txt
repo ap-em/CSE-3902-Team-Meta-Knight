@@ -1,0 +1,33 @@
+﻿Sprint-4 Reflection Team Meta Knight
+
+
+For sprint 4, Our team tried to learn from the experience from sprint 3 and started to have the initial plan set up on the day when the sprint was assigned. Every member decided what they wanted to do on Tuesday, 10/26.  Overall we had a good start.
+
+
+For this sprint, We mainly focus on fixing the bugs that were left from the previous sprint, mainly the bugs in collision detection and collision response. We just met one time after class for this sprint, the discussion was mostly held during the class team meeting time or via discord chat channels. Although we did not communicate that much, each teammate kept making some contributions each week.
+
+
+For the first week, we focused on the burndown chart from sprint 3 noticed in the Trello dashboard and eliminated magic numbers from existing files. Also, we tried to talk with professor Kirby about the initial plan on sprint 5 so we could have a clear goal for future work. For the second week, we started the tasks made for the current sprint like adding sounds, more enemies, and the GamePad controller. For the last week, we thought we had done most of the project and asked for the code review section. Based on professor Kirby’s review on our code, we had some code quality problems and spent some time correcting them. Overall, for this sprint, we did not wait until the last time to implement them like what we did in the  previous sprint. We spent more time improving our code and tried to find and solve bugs in our game.
+
+
+For the next sprint, since we do not have a specific task list like in sprint 1-4, we hope we could turn our ideas into manageable and practical tasks and assign them to different team members as what we did for this sprint. One thing we should improve is that we should merge or make pull requests frequently so that there are no merge conflicts and  other teammates could know which tasks are already having people to work on. 
+
+
+
+
+
+
+
+
+
+
+Burndown chart
+1.BUG: points are added for hitting unbrickable blocks.
+2. Have sounds for winning state, gameover state, and Mario dead state.
+3. Font for the HUD.
+4. Enemy changing direction when collide with other enemy or pipes.
+5. Item block should not provide item after Mario colliding with it from downside for the first time
+6. No changing Mario facing directions when in the pause state.
+7. Allow fire mario to hit the flag without error.
+8. Add star music .
+9. Flag bug where if you hit a certain point on the flag pole you don't get to the castle and instead run in place.
