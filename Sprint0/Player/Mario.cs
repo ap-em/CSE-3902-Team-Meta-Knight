@@ -119,13 +119,11 @@ namespace Sprint0
         {
             currentState.Jump();
             isJumping = true;
-            Debug.WriteLine("isJumping true");
         }
         public void StopJump()
         {
             currentState.StopJump();
             isJumping = false;
-            Debug.WriteLine("isJumping false");
         }
         public void TakeDamage()
         {

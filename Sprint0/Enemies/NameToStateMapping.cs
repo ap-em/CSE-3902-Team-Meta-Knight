@@ -26,6 +26,7 @@ namespace Sprint0
     {
         Dictionary<String, String> spriteNameToStateName = new Dictionary<String, String>();
         Dictionary<String, int> spriteNameToHealth = new Dictionary<String, int>();
+        Dictionary<String, String> spriteNameToSound = new Dictionary<string, string>();
         private static NameToStateMapping instance;
         public static NameToStateMapping Instance
         {
@@ -60,9 +61,13 @@ namespace Sprint0
                 //get health
                 reader.ReadToFollowing("Health");
                 int health = reader.ReadElementContentAsInt();
+                //get death sound
+                reader.ReadToFollowing("Sound");
+                String sound = reader.ReadElementContentAsString();
 
                 spriteNameToStateName.Add(spriteName, stateName);
                 spriteNameToHealth.Add(spriteName, health);
+                spriteNameToSound.Add(spriteName, sound);
             }
             reader.Close();
         }
@@ -83,6 +88,10 @@ namespace Sprint0
         public int GetHealth(String spriteName)
         {
             return spriteNameToHealth.GetValueOrDefault(spriteName);
+        }
+        public String GetSound(String spriteName)
+        {
+            return spriteNameToSound.GetValueOrDefault(spriteName);
         }
     }
 }

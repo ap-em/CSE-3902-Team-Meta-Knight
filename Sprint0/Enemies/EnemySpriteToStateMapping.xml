@@ -3,10 +3,12 @@
     <SpriteName>Goomba</SpriteName>
     <StateName>Sprint0.Enemies.GoombaNormalState</StateName>
     <Health>1</Health>
+    <Sound>goombadeath</Sound>
   </MapInstance>
   <MapInstance>
     <SpriteName>Koopa</SpriteName>
     <StateName>Sprint0.Enemies.KoopaNormalState</StateName>
     <Health>1</Health>
+    <Sound>koopadeath</Sound>
   </MapInstance>
 </Mapping>

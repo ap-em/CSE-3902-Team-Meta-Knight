@@ -25,6 +25,8 @@ namespace Sprint0.Enemies
 {
     public class Enemy : IEnemy, IGameObject, IMovable, IUpdate, IDraw, ICollidable, IBounce
     {
+        private String soundString;
+        private SoundInfo soundInfo;
         private String direction = GameUtilities.right;
         private bool grounded = false;
         private Vector2 position;
@@ -47,8 +49,11 @@ namespace Sprint0.Enemies
             enemyType = spriteName;
             healthStateMachine = new EnemyHealthStateMachine(NameToStateMapping.Instance.GetHealth(spriteName));
             keyboard = ControllerLoader.Instance.SetUpEnemyKeyboard(this);
-            this.spriteName = direction + "Idle" + enemyType + healthStateMachine.GetHealth();
+            this.spriteName = direction + "Idle" + enemyType + healthStateMachine.GetHealth() + "Health";
             sprite = SpriteFactory.Instance.GetSprite(this.spriteName);
+
+            soundInfo = new SoundInfo();
+            soundString = NameToStateMapping.Instance.GetSound(spriteName);
 
             currentState = NameToStateMapping.Instance.GetState(spriteName, this);
         }
@@ -58,6 +63,7 @@ namespace Sprint0.Enemies
         }
         public void TakeDamage()
         {
+            soundInfo.PlaySound(soundString, false);
             currentState.TakeDamage();
             SetSprite(enemyType);
         }
@@ -93,7 +99,7 @@ namespace Sprint0.Enemies
                 spriteName = direction + isMoving + enemyType + healthStateMachine.GetHealth();
             }
 
-            sprite = SpriteFactory.Instance.GetSprite(spriteName);
+            sprite = SpriteFactory.Instance.GetSprite(spriteName + "Health");
         }
         public String GetSpriteName()
         {
