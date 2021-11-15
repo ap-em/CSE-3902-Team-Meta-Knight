@@ -26,18 +26,13 @@ namespace Sprint0
 {
     sealed public class Game0 : Game
     {
-        public Viewport tempView;
+        private Viewport tempView;
         private GraphicsDeviceManager graphics;
-        public SpriteBatch spriteBatch;
-        public ISprite sprite;
-        public SpriteFont font;
+        private SpriteBatch spriteBatch;
         public static ContentManager ContentInstance;
         public Texture2D background;
-        public SoundInfo soundInfo;
-
 
         public bool isPaused;
-        public static string currentSoundtrack;
         public static float storedGameTime;
 
 
@@ -62,8 +57,6 @@ namespace Sprint0
             Content.RootDirectory = "Content";
             ContentInstance = Content;
             IsMouseVisible = true;
-            soundInfo = new SoundInfo();
-            currentSoundtrack = "OverworldTheme";
             storedGameTime = 0.0f;
         }
 
@@ -72,8 +65,6 @@ namespace Sprint0
             LevelFactory.Instance.CreateLevel(1);
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(GameUtilities.timeSpan);
-
-            soundInfo.PlaySound("OverworldTheme", true);
 
             base.Initialize();
         }

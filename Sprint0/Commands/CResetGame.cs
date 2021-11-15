@@ -20,8 +20,6 @@ namespace Sprint0.Commands
             //reset score, time, lives
             HUDManager.Instance.GetHUD((IGameObject)mario).ResetGame();
             GameObjectManager.Instance.RemoveAllObjects();
-            Game0.Instance.soundInfo.StopLoopedSound("OverworldTheme");
-            Game0.Instance.soundInfo.PlaySound("OverworldTheme", true);
             LevelFactory.Instance.CreateLevel(1);
         }
     }

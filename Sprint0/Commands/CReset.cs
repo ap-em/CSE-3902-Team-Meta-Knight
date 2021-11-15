@@ -31,9 +31,6 @@ Owen Huston
             //reset score and time
             HUDManager.Instance.GetHUD((IGameObject)mario).ResetLevel();
             GameObjectManager.Instance.RemoveAllObjects();
-            Game0.Instance.soundInfo.StopLoopedSound("OverworldTheme");
-
-            Game0.Instance.soundInfo.PlaySound("OverworldTheme", true);
             LevelFactory.Instance.CreateLevel(HUDManager.Instance.GetHUD((IGameObject)mario).GetLevel());
             
         }
