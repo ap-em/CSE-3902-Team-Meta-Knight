@@ -47,14 +47,13 @@ namespace Sprint0.Enemies
 
 
         public void UpBounce(Rectangle rectangle)
-        { 
+        {
 
         }
 
         public void DownBounce(Rectangle rectangle)
         {
 
-            
         }
 
         public void RightBounce(Rectangle rectangle)
@@ -72,6 +71,34 @@ namespace Sprint0.Enemies
 
         }
 
+        public void SetXVelocity(float x)
+        {
+            
+        }
+
+        public void SetYVelocity(float y)
+        {
+            
+        }
+
+        public Vector2 GetVelocity()
+        {
+            return new Vector2(0, 0);
+        }
+
+        public bool GetGrounded()
+        {
+            return false;
+        }
+
+        public void SetGrounded(bool grounded)
+        {
+
+        }
+
+        public void Update()
+        {
+            
+        }
     }
 }
-

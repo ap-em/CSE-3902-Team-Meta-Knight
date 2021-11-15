@@ -25,10 +25,10 @@ namespace Sprint0.Enemies
 {
     public class Enemy : IEnemy, IGameObject, IMovable, IUpdate, IDraw, ICollidable, IBounce
     {
+        private String soundString;
+        private SoundInfo soundInfo;
         private String direction = GameUtilities.right;
-        private bool grounded = false;
         private Vector2 position;
-        private Vector2 velocity;
         private IEnemyState currentState; 
         private IKeyboardController keyboard;
         private ISprite sprite;
@@ -47,8 +47,11 @@ namespace Sprint0.Enemies
             enemyType = spriteName;
             healthStateMachine = new EnemyHealthStateMachine(NameToStateMapping.Instance.GetHealth(spriteName));
             keyboard = ControllerLoader.Instance.SetUpEnemyKeyboard(this);
-            this.spriteName = direction + "Idle" + enemyType + healthStateMachine.GetHealth();
+            this.spriteName = direction + "Idle" + enemyType + healthStateMachine.GetHealth() + "Health";
             sprite = SpriteFactory.Instance.GetSprite(this.spriteName);
+
+            soundInfo = new SoundInfo();
+            soundString = NameToStateMapping.Instance.GetSound(spriteName);
 
             currentState = NameToStateMapping.Instance.GetState(spriteName, this);
         }
@@ -58,6 +61,7 @@ namespace Sprint0.Enemies
         }
         public void TakeDamage()
         {
+            soundInfo.PlaySound(soundString, false);
             currentState.TakeDamage();
             SetSprite(enemyType);
         }
@@ -88,12 +92,12 @@ namespace Sprint0.Enemies
             }
             else
             {
-                String isMoving = (velocity.X != 0 || velocity.Y != 0) ? "Moving" : "Idle";
+                String isMoving = (currentState.GetVelocity().X != 0 || currentState.GetVelocity().Y != 0) ? "Moving" : "Idle";
                 spriteName = direction + isMoving + enemyType + healthStateMachine.GetHealth();
                 spriteName = direction + isMoving + enemyType + healthStateMachine.GetHealth();
             }
 
-            sprite = SpriteFactory.Instance.GetSprite(spriteName);
+            sprite = SpriteFactory.Instance.GetSprite(spriteName + "Health");
         }
         public String GetSpriteName()
         {
@@ -102,37 +106,36 @@ namespace Sprint0.Enemies
 
         public void MoveRight()
         {
+            direction = GameUtilities.right;
             currentState.MoveRight();
             SetSprite(enemyType);
         }
 
         public void MoveLeft()
         {
+            direction = GameUtilities.left;
             currentState.MoveLeft();
             SetSprite(enemyType);
         }
-        public void Move()
+        public void Move(Vector2 velocity)
         {
             position = new Vector2(position.X + velocity.X, position.Y + velocity.Y);
         }
 
         public void SetXVelocity(float x)
         {
-            velocity.X = x;
-            //if we are setting velocity to zero don't change direction
-            if (x != 0)
-               direction =  (x > 0) ? GameUtilities.right : GameUtilities.left;
+            currentState.SetXVelocity(x);
             SetSprite(enemyType);
         }
 
         public void SetYVelocity(float y)
         {
-            velocity.Y = y;
+            currentState.SetXVelocity(y);
             SetSprite(enemyType);
         }
         public Vector2 GetVelocity()
         {
-            return velocity;
+            return currentState.GetVelocity();
         }
         public String GetDirection()
         {
@@ -154,22 +157,18 @@ namespace Sprint0.Enemies
             }
             
             keyboard.Update();
-            Move();
+            currentState.Update();
             sprite.Update();
         }
 
         public bool GetGrounded()
         {
-            return grounded;
+            return currentState.GetGrounded();
         }
 
         public void SetGrounded(bool grounded)
         {
-            if (grounded == false)
-                velocity.Y = GameUtilities.gravity;
-            else
-                velocity.Y = 0;
-            this.grounded = grounded;
+            currentState.SetGrounded(grounded);
         }
 
         public void UpBounce(Rectangle rectangle)

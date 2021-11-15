@@ -23,6 +23,7 @@ namespace Sprint0.Interfaces
         String GetSpriteName();
         void MoveRight();
         void MoveLeft();
+        void Move(Vector2 velocity);
         void SetXVelocity(float x);
         void SetYVelocity(float y);
         Vector2 GetVelocity();
