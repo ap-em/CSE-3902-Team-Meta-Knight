@@ -26,7 +26,8 @@ namespace Sprint0.Enemies
     public class GoombaNormalState : IEnemyState
     {
         private IEnemy enemy;
-
+        private Vector2 velocity;
+        private bool grounded;
         public GoombaNormalState(IEnemy enemy)
         {
             this.enemy = enemy;
@@ -35,44 +36,43 @@ namespace Sprint0.Enemies
         public void TakeDamage()
         {
             enemy.SetHealth(enemy.GetHealth() - 1);
-            enemy.SetXVelocity(0);
             enemy.SetCurrentState(new GoombaSquashedState());
             enemy.SetRemovalTimer(GameUtilities.goombaRemovalTimer);
         }
 
         public void MoveRight()
         {
-            enemy.SetXVelocity(GameUtilities.goombaSpeed);
+            velocity.X = GameUtilities.goombaSpeed;
         }
 
         public void MoveLeft()
         {
-            enemy.SetXVelocity(-GameUtilities.goombaSpeed);
+            velocity.X = -GameUtilities.goombaSpeed;
         }
 
 
         public void UpBounce(Rectangle rectangle)
         {
-            enemy.SetGrounded(true);
+            grounded = true;
             enemy.Position = new Vector2(enemy.Position.X, enemy.Position.Y - rectangle.Height);
         }
 
         public void DownBounce(Rectangle rectangle)
         {
             enemy.Position = new Vector2(enemy.Position.X, enemy.Position.Y + rectangle.Height);
-            
+
         }
 
         public void RightBounce(Rectangle rectangle)
         {
             enemy.Position = new Vector2(enemy.Position.X + rectangle.Width, enemy.Position.Y);
-            enemy.SetXVelocity(GameUtilities.goombaSpeed);
+            velocity.X = GameUtilities.goombaSpeed;
         }
 
         public void LeftBounce(Rectangle rectangle)
         {
             enemy.Position = new Vector2(enemy.Position.X - rectangle.Width, enemy.Position.Y);
-            enemy.SetXVelocity(-GameUtilities.goombaSpeed);
+            velocity.X = -GameUtilities.goombaSpeed;
         }
 
         public void BigUpBounce(Rectangle rectangle)
@@ -80,6 +80,39 @@ namespace Sprint0.Enemies
 
         }
 
+        public void SetXVelocity(float x)
+        {
+            velocity.X = x;
+        }
+
+        public void SetYVelocity(float y)
+        {
+            velocity.Y = y;
+        }
+
+        public Vector2 GetVelocity()
+        {
+            return velocity;
+        }
+
+        public bool GetGrounded()
+        {
+            return grounded;
+        }
+
+        public void SetGrounded(bool grounded)
+        {
+            if (grounded == false)
+                velocity.Y = GameUtilities.gravity;
+            else
+                velocity.Y = 0;
+            this.grounded = grounded;
+        }
+
+        public void Update()
+        {
+            enemy.Move(velocity);
+        }
     }
 }
 
