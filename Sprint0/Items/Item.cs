@@ -79,13 +79,9 @@ namespace Sprint0.Items
                     GameObjectManager.Instance.RemoveFromObjectList(this);
                     break;
                 case "Coin":
-                    HUDManager.Instance.GetHUD((IGameObject)mario).AddScore(GameUtilities.coinVal);
-                    HUDManager.Instance.GetHUD((IGameObject)mario).AddCoin(1);
-                    if (HUDManager.Instance.GetHUD((IGameObject)mario).getCoinCount() == GameUtilities.coinVal)
-                    {
-                        HUDManager.Instance.GetHUD((IGameObject)mario).ResetCoin();
-                        HUDManager.Instance.GetHUD((IGameObject)mario).AddLife();
-                    }
+                    IGameObject go  = (IGameObject)mario;
+                    IHUD hud = HUDManager.Instance.GetHUD(go);
+                    hud.SetCoin(hud.GetCoins() + 1);
                     GameObjectManager.Instance.RemoveFromObjectList(this);
                     break;
             }

@@ -15,9 +15,9 @@ namespace Sprint0.Commands
         public void Execute()
         {
             
-            if (!Game0.Instance.soundInfo.StopLoopedSound(Game0.currentSoundtrack))
+            if (!LevelFactory.Instance.soundInfo.StopLoopedSound(LevelFactory.Instance.currentSoundtrack))
             {
-                Game0.Instance.soundInfo.PlaySound(Game0.currentSoundtrack, true);
+                LevelFactory.Instance.soundInfo.PlaySound(LevelFactory.Instance.currentSoundtrack, true);
             }
             
         }

@@ -25,6 +25,8 @@ namespace Sprint0
     {
         public int currentLevel = 1;
         private static LevelFactory instance;
+        public SoundInfo soundInfo;
+        public String currentSoundtrack = "OverworldTheme";
         public static LevelFactory Instance
         {
             get
@@ -41,21 +43,28 @@ namespace Sprint0
 
         public LevelFactory()
         {
-
+            soundInfo = new SoundInfo();
         }
-        public void CreateLevel(int LevelNumber)
+        public void CreateLevel(int levelNumber)
+        {
+            // can possibly make xml later to create sound based on levelNumber
+            soundInfo.StopLoopedSound(currentSoundtrack);
+            soundInfo.PlaySound(currentSoundtrack, true);
+            SetupReader(levelNumber);
+        }
+        public void SetupReader(int levelNumber)
         {
 
             XmlReader reader = XmlReader.Create(Path.GetFullPath("Levels\\LevelsData.xml"));
 
             reader.ReadToFollowing("Levels");
 
-            reader.ReadToFollowing("Level" + LevelNumber);
+            reader.ReadToFollowing("Level" + levelNumber);
 
             reader = reader.ReadSubtree();
 
             int rowIndex = 0;
-            
+
             // read rows
             while (reader.ReadToFollowing("row"))
             {

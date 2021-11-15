@@ -93,9 +93,14 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
             timer -= 1;
             if(timer == 0)
             {
-                HUDManager.Instance.GetHUD((IGameObject)mario).RemoveLife();
-                ICommand reset = new CReset(mario);
-                reset.Execute();
+                IHUD hud = HUDManager.Instance.GetHUD((IGameObject)mario);
+                hud.SetLives(hud.GetLives() - 1);
+                //only reset the level if we have more lives
+                if (hud.GetLives() > 0)
+                {
+                    ICommand reset = new CReset(mario);
+                    reset.Execute();
+                }
             }
 
             mario.MoveSprite(velocity);

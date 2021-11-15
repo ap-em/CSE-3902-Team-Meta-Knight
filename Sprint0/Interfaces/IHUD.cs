@@ -23,22 +23,23 @@ namespace Sprint0.Interfaces
      */
     public interface IHUD
     {
-        public void Update();
-        public int GetIndex();
-        public Vector2 GetPosition();
-        public void Draw(SpriteBatch spriteBatch, ICamera camera);
-        public void AddScore(int increment);
-        public void AddCoin(int increment);
-        public int getCoinCount();
-        public void ResetCoin();
-        public void AddLife();
-        public void RemoveLife();
-        public void ResetLives();
+        public void TogglePause();
+        public void SetScore(int score);
+        public int GetScore();
+        public void SetTimeLeft(float time);
+        public void SetMaxPlayerPosition(float position);
+        public float GetMaxPlayerPosition();
+        public float GetTimeLeft();
+        public void SetCoin(int coin);
+        public int GetCoins();
+        public void SetLives(int lives);
         public int GetLives();
+        public void ResetLevel();
+        public void ResetGame();
+        public void Update();
+        public void Draw(SpriteBatch spriteBatch, ICamera camera);
         public int GetLevel();
         public void SetLevel(int level);
-        public void Reset();
-
     }
 
 }

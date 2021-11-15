@@ -82,7 +82,8 @@ namespace Sprint0.Blocks
             GameObjectManager.Instance.AddToObjectList(new Item("Coin", new Vector2(Position.X, Position.Y - 32)), 0, 0);
             SetSprite("UsedItemBlock");
 
-            HUDManager.Instance.GetHUD((IGameObject)mario).AddScore(100);
+            IHUD hud = HUDManager.Instance.GetHUD((IGameObject)mario);
+            hud.SetScore(hud.GetScore() + 100);
         }
     }
 }
