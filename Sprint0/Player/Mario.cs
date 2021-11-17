@@ -37,12 +37,12 @@ namespace Sprint0
 
         public Mario(String spriteName, Vector2 position)
         {
+            this.position = position;
             initialPosition = position;
-            CameraManager.Instance.CreateCamera(this);
+            CameraManager.Instance.CreateLevel2Camera(this);
             PlayerKeyboardManager.Instance.CreateKeyboard(this);
             HUDManager.Instance.CreateHUD(this);
             healthStateMachine = new MarioHealthStateMachine(this);
-            this.position = position;
             currentState = new RightFacingStaticMario(this);
             OnStateChange();
             soundInfo = new SoundInfo();
@@ -100,6 +100,10 @@ namespace Sprint0
             healthStateMachine.Update();
             currentState.Update();
             currentSprite.Update();
+            ICamera camera = CameraManager.Instance.GetCamera(this);
+
+            if (position.Y > camera.GetPosition().Y + camera.GetViewport().Height)
+                InstantDeath();
         }
         public void MoveSprite(Vector2 change)
         {
