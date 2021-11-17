@@ -39,6 +39,12 @@ namespace Sprint0
             cameras.Add(go, camera);
             SetViewports();
         }
+        public void CreateLevel2Camera(IGameObject go)
+        {
+            ICamera camera = new CameraLevel2(go, cameras.Count);
+            cameras.Add(go, camera);
+            SetViewports();
+        }
         public void SetViewports()
         {
             
