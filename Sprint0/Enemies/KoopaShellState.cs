@@ -25,6 +25,7 @@ namespace Sprint0.Enemies
 {
     public class KoopaShellState : IEnemyState
     {
+        private String ID = "KoopaShell";
         private IEnemy enemy;
         private Vector2 velocity = new Vector2(0, 0);
         private bool grounded = false;
@@ -33,19 +34,38 @@ namespace Sprint0.Enemies
             this.enemy = enemy;
 
         }
+        public String GetStateID()
+        {
+            return ID;
+        }
         public void TakeDamage()
         {
+            ToggleVelocity(1);
+        }
+        public void GetKicked(Rectangle rec)
+        {
+            Rectangle enemyRec = new Rectangle((int)enemy.Position.X, (int)enemy.Position.Y, enemy.Sprite.width * GameUtilities.dimensionScale, enemy.Sprite.height * GameUtilities.dimensionScale);
+
+            // if enemy is hit on left side kick the shell to the right, else kick to the left
+            if (rec.Left == enemyRec.Left)
+            {
+                ToggleVelocity(1);
+                enemy.SetDirection(GameUtilities.right);
+            }
+            else
+            {
+                ToggleVelocity(-1);
+                enemy.SetDirection(GameUtilities.left);
+            }
+
+        }
+        public void ToggleVelocity(int direction)
+        {
+
             // if shell isnt moving start moving when we hit it
             if (velocity.X == 0)
             {
-                if(enemy.GetDirection() == GameUtilities.right)
-                {
-                    velocity.X = GameUtilities.shellSpeed;
-                }
-                else
-                {
-                    velocity.X = -GameUtilities.shellSpeed;
-                }
+                velocity.X = GameUtilities.shellSpeed * direction;
             }
             // if shell is moving, stop moving
             else

@@ -14,8 +14,9 @@ namespace Sprint0.Interfaces
 {
     public interface IEnemyState
     {
-
+        public String GetStateID();
         public void TakeDamage();
+        public void GetKicked(Rectangle rec);
         public void MoveRight();
         public void MoveLeft();
         public void SetXVelocity(float x);

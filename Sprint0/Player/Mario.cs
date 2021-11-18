@@ -39,7 +39,7 @@ namespace Sprint0
         {
             this.position = position;
             initialPosition = position;
-            CameraManager.Instance.CreateLevel2Camera(this);
+            CameraManager.Instance.CreateCamera(this);
             PlayerKeyboardManager.Instance.CreateKeyboard(this);
             HUDManager.Instance.CreateHUD(this);
             healthStateMachine = new MarioHealthStateMachine(this);
