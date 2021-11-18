@@ -25,6 +25,7 @@ namespace Sprint0.Enemies
 {
     public class KoopaNormalState : IEnemyState
     {
+        private String ID = "KoopaNormal";
         private IEnemy enemy;
         private Vector2 velocity;
         private bool grounded;
@@ -34,10 +35,18 @@ namespace Sprint0.Enemies
             this.enemy = enemy;
 
         }
+        public String GetStateID()
+        {
+            return ID;
+        }
         public void TakeDamage()
         {
             enemy.SetHealth(enemy.GetHealth() - 1);
             enemy.SetCurrentState(new KoopaShellState(enemy));
+        }
+        public void GetKicked(Rectangle rec)
+        {
+
         }
 
         public void MoveRight()

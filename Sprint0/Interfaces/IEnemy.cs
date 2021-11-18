@@ -16,6 +16,8 @@ namespace Sprint0.Interfaces
 {
     public interface IEnemy
     {
+        public String GetStateID();
+        public void GetKicked(Rectangle rec);
         public Vector2 Position { get; set; }
         public ISprite Sprite { get; }
         void Update();
@@ -28,6 +30,7 @@ namespace Sprint0.Interfaces
         void SetYVelocity(float y);
         Vector2 GetVelocity();
         String GetDirection();
+        void SetDirection(String direction);
         void Draw(SpriteBatch spriteBatch);
         void TakeDamage();
         void InstantDeath();

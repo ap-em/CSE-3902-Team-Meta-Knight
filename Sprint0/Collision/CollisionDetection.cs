@@ -106,7 +106,16 @@ namespace Sprint0
                 {
                     Rectangle collisionRec = Rectangle.Intersect(goRec, entityRec);
 
-                    String collisionSide = GetGroundedCollision(collisionRec, entityRec);
+                    String collisionSide = GameUtilities.emptyString;
+
+                    if (!go.GetGrounded())
+                    {
+                        collisionSide = GetInAirCollision(collisionRec, entityRec);
+                    }
+                    else
+                    {
+                        collisionSide = GetGroundedCollision(collisionRec, entityRec);
+                    }
 
                     CollisionResponse.Instance.CollisionOccurrence((IGameObject)go, (IGameObject)entity, collisionSide, collisionRec);
 
@@ -143,7 +152,9 @@ namespace Sprint0
         public String GetInAirCollision(Rectangle collisionRec, Rectangle entityRec)
         {
             String collisionSide = GameUtilities.emptyString;
-            if (collisionRec.Width >= collisionRec.Height - GameUtilities.bias)
+            
+            // prefer a top or bottom collision while object is in air
+            if (collisionRec.Width >= collisionRec.Height - entityRec.Height / 2)
             {
                 if (collisionRec.Top == entityRec.Top)
                 {

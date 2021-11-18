@@ -25,6 +25,7 @@ namespace Sprint0.Enemies
 {
     public class GoombaNormalState : IEnemyState
     {
+        private String ID = "GoombaNormal";
         private IEnemy enemy;
         private Vector2 velocity;
         private bool grounded;
@@ -33,11 +34,19 @@ namespace Sprint0.Enemies
             this.enemy = enemy;
 
         }
+        public String GetStateID()
+        {
+            return ID;
+        }
         public void TakeDamage()
         {
             enemy.SetHealth(enemy.GetHealth() - 1);
             enemy.SetCurrentState(new GoombaSquashedState());
             enemy.SetRemovalTimer(GameUtilities.goombaRemovalTimer);
+        }
+        public void GetKicked(Rectangle rec)
+        {
+
         }
 
         public void MoveRight()

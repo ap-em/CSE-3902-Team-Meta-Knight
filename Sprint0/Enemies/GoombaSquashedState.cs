@@ -25,12 +25,21 @@ namespace Sprint0.Enemies
 {
     public class GoombaSquashedState : IEnemyState
     {
-
+        private String ID = "GoombaSquashed";
         public GoombaSquashedState()
         {
 
+
+        }
+        public String GetStateID()
+        {
+            return ID;
         }
         public void TakeDamage()
+        {
+
+        }
+        public void GetKicked(Rectangle rec)
         {
 
         }

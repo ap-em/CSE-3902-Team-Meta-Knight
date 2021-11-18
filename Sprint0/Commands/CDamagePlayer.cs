@@ -21,15 +21,31 @@ namespace Sprint0.Commands
     {
         Rectangle rectangle;
         IMario mario;
+        ICollidable collided;
         public CDamagePlayer(IMario mario, ICollidable collided, Rectangle rectangle)
         {
             this.mario = mario;
-    }
+            this.collided = collided;
+        }
 
         public void Execute()
         {
-            Debug.WriteLine("damage");
-            mario.TakeDamage();
+            if(collided is IEnemy)
+            {
+                IEnemy enemy = (IEnemy)collided;
+
+                
+                // if we arent a koopa shell always take damage
+                if(!enemy.GetStateID().Equals("KoopaShell"))
+                {
+                    mario.TakeDamage();
+                }
+                // if we are a koopa shell and we are moving then take damage
+                else if(enemy.GetVelocity() != new Vector2(0, 0))
+                {
+                    mario.TakeDamage();
+                }
+            }
         }
     }
 }

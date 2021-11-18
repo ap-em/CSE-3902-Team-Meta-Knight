@@ -55,6 +55,10 @@ namespace Sprint0.Enemies
 
             currentState = NameToStateMapping.Instance.GetState(spriteName, this);
         }
+        public String GetStateID()
+        {
+            return currentState.GetStateID();
+        }
         public void SetRemovalTimer(int timer)
         {
             objectRemovalTimer = timer;
@@ -63,6 +67,11 @@ namespace Sprint0.Enemies
         {
             soundInfo.PlaySound(soundString, false);
             currentState.TakeDamage();
+            SetSprite(enemyType);
+        }
+        public void GetKicked(Rectangle rec)
+        {
+            currentState.GetKicked(rec);
             SetSprite(enemyType);
         }
         public void InstantDeath()
@@ -140,6 +149,10 @@ namespace Sprint0.Enemies
         public String GetDirection()
         {
             return direction;
+        }
+        public void SetDirection(String direction)
+        {
+            this.direction = direction;
         }
         public void SetCurrentState(IEnemyState enemyState)
         {
