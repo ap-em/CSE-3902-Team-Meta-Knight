@@ -417,6 +417,55 @@
     "SpriteSheet": "blocks"
   },
   {
+    "DataX": [ 272 ],
+    "DataY": [ 128 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "UndergroundBrickBlock",
+    "SpriteSheet": "blocks"
+  },
+  {
+    "DataX": [ 304 ],
+    "DataY": [ 128 ],
+    "Data": [ 8, 8, 1 ],
+    "SpriteName": "UndergroundBrickDebris",
+    "SpriteSheet": "blocks"
+  },
+  {
+    "DataX": [ 80, 96, 112 ],
+    "DataY": [ 128, 128, 128 ],
+    "Data": [ 16, 16, 3 ],
+    "SpriteName": "UndergroundItemBlock",
+    "SpriteSheet": "blocks"
+  },
+  {
+    "DataX": [ 80, 96, 112 ],
+    "DataY": [ 128, 128, 128 ],
+    "Data": [ 16, 16, 3 ],
+    "SpriteName": "MushroomUndergroundItemBlock",
+    "SpriteSheet": "blocks"
+  },
+  {
+    "DataX": [ 80, 96, 112 ],
+    "DataY": [ 128, 128, 128 ],
+    "Data": [ 16, 16, 3 ],
+    "SpriteName": "StarUndergroundItemBlock",
+    "SpriteSheet": "blocks"
+  },
+  {
+    "DataX": [ 80, 96, 112 ],
+    "DataY": [ 128, 128, 128 ],
+    "Data": [ 16, 16, 3 ],
+    "SpriteName": "FireFlowerUndergroundItemBlock",
+    "SpriteSheet": "blocks"
+  },
+  {
+    "DataX": [ 80, 96, 112 ],
+    "DataY": [ 128, 128, 128 ],
+    "Data": [ 16, 16, 3 ],
+    "SpriteName": "CoinUndergroundItemBlock",
+    "SpriteSheet": "blocks"
+  },
+  {
     "DataX": [ 0 ],
     "DataY": [ 0 ],
     "Data": [ 16, 16, 1 ],
@@ -452,6 +501,13 @@
     "SpriteSheet": "tiles"
   },
   {
+    "DataX": [ 275 ],
+    "DataY": [ 131 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "UndergroundGround",
+    "SpriteSheet": "tiles"
+  },
+  {
     "DataX": [ 86 ],
     "DataY": [ 12 ],
     "Data": [ 16, 16, 1 ],
@@ -471,6 +527,20 @@
     "DataY": [ 63 ],
     "Data": [ 16, 16, 1 ],
     "SpriteName": "Block",
+    "SpriteSheet": "tiles"
+  },
+  {
+    "DataX": [ 360 ],
+    "DataY": [ 63 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "UndergroundBlock",
+    "SpriteSheet": "tiles"
+  },
+  {
+    "DataX": [ 309 ],
+    "DataY": [ 131 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "UndergroundFloatingGround",
     "SpriteSheet": "tiles"
   },
   {

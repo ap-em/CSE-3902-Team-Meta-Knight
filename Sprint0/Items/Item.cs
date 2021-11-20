@@ -20,6 +20,7 @@ namespace Sprint0.Items
         private String ItemName;
         private ISprite ItemSprite;
         private bool grounded = false;
+        private SoundInfo soundInfo;
 
         private Vector2 location = new Vector2(GameUtilities.itemPosX, GameUtilities.itemPosY);
         public ISprite Sprite => ItemSprite;
@@ -28,6 +29,7 @@ namespace Sprint0.Items
 
         public Item(String itemName, Vector2 position) // Should I just use the gameobject manager? Items will probably include mushroom, star, coin
         {
+            soundInfo = new SoundInfo();
             SetItem(itemName);
             location = position;
             ItemName = itemName;
@@ -67,18 +69,24 @@ namespace Sprint0.Items
             switch (ItemName)
             {
                 case "Fireflower":
+                    soundInfo.PlaySound("smb_powerup", false);
                     mario.FireflowerPower();
                     GameObjectManager.Instance.RemoveFromObjectList(this);
                     break;
                 case "Mushroom":
+                    soundInfo.PlaySound("smb_powerup", false);
                     mario.MushroomPower();
                     GameObjectManager.Instance.RemoveFromObjectList(this);
                     break;
                 case "Star":
+                    // this isn't stopping the background music for some reason? i think that StopLoopedSound() needs to be fixed as it's returning false here
+                    soundInfo.StopLoopedSound(LevelFactory.Instance.currentSoundtrack);
+                    soundInfo.PlaySound("smb_star", false);
                     mario.StarPower();
                     GameObjectManager.Instance.RemoveFromObjectList(this);
                     break;
                 case "Coin":
+                    soundInfo.PlaySound("smb_coin", false);
                     IGameObject go  = (IGameObject)mario;
                     IHUD hud = HUDManager.Instance.GetHUD(go);
                     hud.SetCoin(hud.GetCoins() + 1);
