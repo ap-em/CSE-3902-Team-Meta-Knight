@@ -9,6 +9,7 @@ using Sprint0.Sprites.SpriteFactory;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.UtilityClasses;
 using Sprint0.Items;
+using Sprint0.HUD;
 
 
 /*Alex Clayton
@@ -93,6 +94,8 @@ namespace Sprint0.Blocks
                     GameObjectManager.Instance.AddToObjectList(new BlockDebris("BrickDebris", Position), 0, 0);
                     breakBlockTimer = 2;
                 }
+                IHUD hud = HUDManager.Instance.GetHUD((IGameObject)mario);
+                hud.SetScore(hud.GetScore() + 10);
             }
         }
     }
