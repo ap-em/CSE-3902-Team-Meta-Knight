@@ -42,7 +42,7 @@ namespace Sprint0.Enemies
         {
             enemy.SetHealth(enemy.GetHealth() - 1);
             enemy.SetCurrentState(new GoombaSquashedState());
-            enemy.SetRemovalTimer(GameUtilities.goombaRemovalTimer);
+            enemy.StartRemovalTimer();
         }
         public void GetKicked(Rectangle rec)
         {

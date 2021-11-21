@@ -38,6 +38,6 @@ namespace Sprint0.Interfaces
         void SetHealth(int health);
         void SetCurrentState(IEnemyState enemyState);
         void SetGrounded(bool grounded);
-        void SetRemovalTimer(int timer);
+        void StartRemovalTimer();
     }
 }

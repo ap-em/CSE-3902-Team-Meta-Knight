@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.SpriteFactory;
 using Sprint0.Controllers;
 using Sprint0.UtilityClasses;
+using Sprint0.Timers;
 
 /*
 Alex Clayton
@@ -35,7 +36,6 @@ namespace Sprint0.Enemies
         private EnemyHealthStateMachine healthStateMachine;
         public String enemyType = GameUtilities.emptyString;
         private String spriteName = GameUtilities.emptyString;
-        public int objectRemovalTimer = -1;
 
         public Vector2 Position { get => position; set => position = value; }
 
@@ -59,9 +59,11 @@ namespace Sprint0.Enemies
         {
             return currentState.GetStateID();
         }
-        public void SetRemovalTimer(int timer)
+        public void StartRemovalTimer()
         {
-            objectRemovalTimer = timer;
+            //remove object after 100 milliseconds
+            Timer removalTimer = new Timer(100, RemoveGameObject);
+            removalTimer.StartTimer();
         }
         public void TakeDamage()
         {
@@ -160,20 +162,15 @@ namespace Sprint0.Enemies
         }
         public void Update()
         {
-            if(objectRemovalTimer >= 0)
-            {
-                objectRemovalTimer--;
-            }
-            if(objectRemovalTimer == 0)
-            {
-                GameObjectManager.Instance.RemoveFromObjectList(this);
-            }
-            
             keyboard.Update();
             currentState.Update();
             sprite.Update();
         }
 
+        public void RemoveGameObject(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            GameObjectManager.Instance.RemoveFromObjectList(this);
+        }
         public bool GetGrounded()
         {
             return currentState.GetGrounded();

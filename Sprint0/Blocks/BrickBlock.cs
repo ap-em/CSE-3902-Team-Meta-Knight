@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.UtilityClasses;
 using Sprint0.Items;
 using Sprint0.HUD;
+using Sprint0.Timers;
 
 
 /*Alex Clayton
@@ -24,8 +25,6 @@ namespace Sprint0.Blocks
 {
     class BrickBlock : IBlock, IGameObject, IUpdate, IDraw, ICollidable, IDynamicBlock
     {
-        private int breakBlockTimer = -1;
-        private int bounceBackTimer = -1;
         private ISprite sprite;
         private String spriteName;
         private SoundInfo soundInfo;
@@ -60,43 +59,43 @@ namespace Sprint0.Blocks
 
         public void Update()
         {
-            if(bounceBackTimer >= 0)
-            {
-                bounceBackTimer--;
-            }
-            if(bounceBackTimer == 0)
-            {
-                Position = new Vector2(Position.X, Position.Y + 5);
-            }
-            if(breakBlockTimer >= 0)
-            {
-                breakBlockTimer--;
-            }
-            if(breakBlockTimer == 0)
-            {
-                GameObjectManager.Instance.RemoveFromObjectList(this);
-            }
             sprite.Update();
         }
         public void BreakBlock(IMario mario)
         {
-            if (bounceBackTimer < 0 && breakBlockTimer < 0)
-            {
-                bounceBackTimer = 2;
-                Position = new Vector2(Position.X, Position.Y - 5);
-            }
+            // bounce up
+            BounceUp();
+
+            // bounce back down after 50 milliseconds
+            Timer bounceDownTimer = new Timer(50, BounceDown);
+            bounceDownTimer.StartTimer();
+
+            // if brick is breakable
             if (GetSpriteName() == "BrickBlock" && (mario.GetHealthState() == "Full" || mario.GetHealthState() == "Fire" || mario.GetHealthState() == "Star"))
             {
                 soundInfo.PlaySound("brickbreak", false);
-                //only set the timer if we havent already set the timer
-                if (breakBlockTimer < 0)
-                {
-                    GameObjectManager.Instance.AddToObjectList(new BlockDebris("BrickDebris", Position), 0, 0);
-                    breakBlockTimer = 2;
-                }
+
+                // break block after 60 milliseconds
+                Timer breakBlockTimer = new Timer(60, BreakBlock);
+                breakBlockTimer.StartTimer();
+
+                // add 10 points to score
                 IHUD hud = HUDManager.Instance.GetHUD((IGameObject)mario);
                 hud.SetScore(hud.GetScore() + 10);
             }
+        }
+        public void BounceUp()
+        {
+            Position = new Vector2(Position.X, Position.Y - 5);
+        }
+        public void BounceDown(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            Position = new Vector2(Position.X, Position.Y + 5);
+        }
+        public void BreakBlock(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            GameObjectManager.Instance.AddToObjectList(new BlockDebris("BrickDebris", Position), 0, 0);
+            GameObjectManager.Instance.RemoveFromObjectList(this);
         }
     }
 }

@@ -100,6 +100,8 @@ namespace Sprint0
             healthStateMachine.Update();
             currentState.Update();
             currentSprite.Update();
+
+            // if we are below screen kill the player
             ICamera camera = CameraManager.Instance.GetCamera(this);
 
             if (position.Y > camera.GetPosition().Y + camera.GetViewport().Height)

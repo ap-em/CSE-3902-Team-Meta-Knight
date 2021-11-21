@@ -7,11 +7,9 @@ namespace Sprint0.Enemies
     class EnemyHealthStateMachine
     {
         private int health;
-        private SoundInfo soundInfo;
         public EnemyHealthStateMachine(int health)
         {
             this.health = health;
-            soundInfo = new SoundInfo();
         }
 
         public int GetHealth()
