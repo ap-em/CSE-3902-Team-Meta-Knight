@@ -47,11 +47,11 @@ namespace Sprint0.HUD
 
             // draw on top middle of screen
             spriteBatch.DrawString(font, "LIVES: " + HUD.GetLives().ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y), Color.White);
-            spriteBatch.DrawString(font, "LEVEL: " + HUD.GetLevel().ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y + 20), Color.White);
+            spriteBatch.DrawString(font, "LEVEL: " + HUD.GetLevel().ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2 + 90, camera.GetPosition().Y), Color.White);
             spriteBatch.DrawString(font, "COINS: " + HUD.GetCoins().ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width /2-100, camera.GetPosition().Y), Color.White);
 
             //draw on top right of screen
-            spriteBatch.DrawString(font, "SCORE: " + HUD.GetScore().ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width - 100, camera.GetPosition().Y), Color.White);
+            spriteBatch.DrawString(font, "SCORE: " + HUD.GetScore().ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width - 130, camera.GetPosition().Y), Color.White);
         }
     }
 }

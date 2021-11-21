@@ -23,7 +23,10 @@ namespace Sprint0.UtilityClasses
         public static string top = "Top";
         public static string bottom = "Bottom";
         public static string worldOneOne = "1-1";
-       
+
+
+        //magic number for level
+        public static int currentLevel = 1;
 
         // magic number in Game0
         public static float timeSpan = 1/30.0f;
@@ -83,7 +86,7 @@ namespace Sprint0.UtilityClasses
         public static float VairY = -7f;
         public static float gravity = 9.8f;
         public static int invinsibleTimer = 20;
-        public static int invinsibleTimerStar = 100;
+        public static int invinsibleTimerStar = 250;
         public static int invinsibleTimerTakeDamage = 50;
         //to do : gravity part here
 
@@ -93,7 +96,7 @@ namespace Sprint0.UtilityClasses
 
 
         //magic number for hud
-         public static double gameOverTimerFinish =3;
+         public static double gameOverTimerFinish = 3.5;
 
     }
 }

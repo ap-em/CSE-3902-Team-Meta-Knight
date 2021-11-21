@@ -62,7 +62,7 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            LevelFactory.Instance.CreateLevel(1);
+            LevelFactory.Instance.CreateLevel(GameUtilities.currentLevel);
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(GameUtilities.timeSpan);
 

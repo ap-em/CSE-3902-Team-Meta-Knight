@@ -74,6 +74,18 @@
 /processorParam:TextureFormat=Compressed
 /build:Font.spritefont
 
+#begin GameoverSMB.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:GameoverSMB.png
+
 #begin goombadeath.mp3
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
@@ -133,6 +145,54 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:OverworldTheme.mp3
+
+#begin smb_1-up.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:smb_1-up.wav
+
+#begin smb_coin.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:smb_coin.wav
+
+#begin smb_flagpole.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:smb_flagpole.wav
+
+#begin smb_gameover.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:smb_gameover.wav
+
+#begin smb_mariodie.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:smb_mariodie.wav
+
+#begin smb_powerup.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:smb_powerup.wav
+
+#begin smb_stage_clear.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:smb_stage_clear.wav
+
+#begin smb_star.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:smb_star.wav
 
 #begin smb2_jump.wav
 /importer:WavImporter
