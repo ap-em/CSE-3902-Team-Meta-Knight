@@ -19,7 +19,7 @@ namespace Sprint0.Concrete_Classes.State_Machines.States
 {
     class DeathState : IMarioState
     {
-        private int timer = 50;
+        private int timer = 100;
         private Vector2 velocity;
         Mario mario;
 

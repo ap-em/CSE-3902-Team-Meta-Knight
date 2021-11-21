@@ -60,6 +60,9 @@ namespace Sprint0
              */
             if(healthStateMachine.GetHealth() == "Dead")
             {
+                // this isn't stopping the background music for some reason? i think that StopLoopedSound() needs to be fixed as it's returning false here
+                soundInfo.StopLoopedSound(LevelFactory.Instance.currentSoundtrack);
+                soundInfo.PlaySound("smb_mariodie", false);
                 currentSprite = SpriteFactory.Instance.GetSprite("MarioDead");
                 currentState = new DeathState(this);
             }
