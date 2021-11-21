@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Commands;
 using Sprint0.Interfaces;
+using Sprint0.Timers;
 using Sprint0.UtilityClasses;
 using System;
 using System.Collections.Generic;
@@ -16,28 +17,26 @@ namespace Sprint0.HUD
         private SpriteFont font;
         private Texture2D background;
         private IGameObject gameObject;
-        private IHUD HUD;
-        private double gameOverTime = 0;
+
         private SoundInfo soundInfo;
+        
         public GameOverScreen(IGameObject go, IHUD HUD)
         {
             soundInfo = new SoundInfo();
             gameObject = go;
-            this.HUD = HUD;
             font = Game0.Instance.Content.Load<SpriteFont>("Font");
+            
+            //reset after 5 seconds
+            Timer resetTimer = new Timer(2000, ResetGame);
+            resetTimer.StartTimer();
+
             background = Game0.Instance.Content.Load <Texture2D>("GameoverSMB");
 
         }
 
         public void Update()
         {
-            // wait a few seconds then reset game
-            gameOverTime += Game0.Instance.TargetElapsedTime.TotalSeconds;
-            if (gameOverTime >= GameUtilities.gameOverTimerFinish)
-            {
-                gameOverTime = 0;
-                new CResetGame((IMario)gameObject).Execute();
-            }    
+            
         }
         public void Draw(SpriteBatch spriteBatch, ICamera camera)
         {
@@ -45,6 +44,10 @@ namespace Sprint0.HUD
             soundInfo.PlaySound("smb_gameover", false);
             spriteBatch.Draw(background, new Rectangle(0, 0, 6750, 600), Color.Black);
            spriteBatch.DrawString(font, "GAMEOVER ", new Vector2(camera.GetPosition().X + camera.GetViewport().Width/ 2, camera.GetPosition().Y + camera.GetViewport().Height / 2), Color.White);
+        }
+        public void ResetGame(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            new CResetGame((IMario)gameObject).Execute();
         }
     }
 }

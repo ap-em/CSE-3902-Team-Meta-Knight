@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Sprint0.Timers;
 using Sprint0.UtilityClasses;
 /*
 Alex Clayton
@@ -20,7 +21,7 @@ namespace Sprint0
         private MarioHealth intialHealth = MarioHealth.full;
         private MarioHealth currentHealth = MarioHealth.full;
         private MarioHealth previousHealth = MarioHealth.full;
-        private int invinsibleTimer = GameUtilities.invinsibleTimer;
+        private bool invincibility = false;
 
 
         public MarioHealthStateMachine(IMario mario)
@@ -56,10 +57,16 @@ namespace Sprint0
         }
         public void TakeDamage()
         {
-            if (invinsibleTimer <= 0)
+            if (!invincibility)
             {
-                //invinsible for a few frames after taking damage
-                invinsibleTimer = GameUtilities.invinsibleTimerTakeDamage;
+
+                //invincibility for some time after taking damage
+                invincibility = true;
+
+                //do a state transition for 1000 milliseconds
+                Timer damageStateTimer = new Timer(1000, DamageStateTransition);
+                damageStateTimer.StartTimer();
+
                 switch (currentHealth)
                 {
                     case MarioHealth.star:
@@ -88,7 +95,13 @@ namespace Sprint0
         }
         public void StarPower()
         {
-            invinsibleTimer = GameUtilities.invinsibleTimerStar;
+            //invisible for some time after star power
+            invincibility = true;
+
+            //remove object after 10000 milliseconds
+            Timer invincibilityTimer = new Timer(10000, StarPowerTransition);
+            invincibilityTimer.StartTimer();
+
             previousHealth = currentHealth;
             currentHealth = MarioHealth.star;
         }
@@ -108,31 +121,29 @@ namespace Sprint0
         }
         public void Update()
         {
-            if (invinsibleTimer > 0)
+
+        }
+        public void DamageStateTransition(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            invincibility = false;
+
+            if (currentHealth == MarioHealth.fireDamaged)
             {
-                invinsibleTimer--;
+                // go to new health after taking damage animation
+                currentHealth = MarioHealth.full;
+                mario.OnStateChange();
             }
-            if(invinsibleTimer == 0) 
+            else if (currentHealth == MarioHealth.fullDamaged)
             {
-                if (currentHealth == MarioHealth.star)
-                {
-                    // go back to previous health after star power
-                    currentHealth = previousHealth;
-                    mario.OnStateChange();
-                }
-                else if(currentHealth == MarioHealth.fireDamaged)
-                {
-                    // go to new health after taking damage animation
-                    currentHealth = MarioHealth.full;
-                    mario.OnStateChange();
-                }
-                else if(currentHealth == MarioHealth.fullDamaged)
-                {
-                    // go to new health after taking damage animation
-                    currentHealth = MarioHealth.half;
-                    mario.OnStateChange();
-                }
+                // go to new health after taking damage animation
+                currentHealth = MarioHealth.half;
+                mario.OnStateChange();
             }
+        }
+        public void StarPowerTransition(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            invincibility = false;
+            currentHealth = previousHealth;
         }
     }
 }

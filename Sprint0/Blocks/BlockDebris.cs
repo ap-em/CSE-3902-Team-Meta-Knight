@@ -8,7 +8,7 @@ using Sprint0.Sprites;
 using Sprint0.Sprites.SpriteFactory;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.UtilityClasses;
-
+using Sprint0.Timers;
 
 /*Alex Clayton
 Alex Contreras
@@ -22,7 +22,6 @@ namespace Sprint0.Blocks
 {
     class BlockDebris : IGameObject, IDraw, IUpdate
     {
-        private int removalTimer = 10;
         private ISprite sprite;
         private String spriteName;
         private Vector2[] locations = new Vector2[4];
@@ -33,7 +32,12 @@ namespace Sprint0.Blocks
         public ISprite Sprite => throw new NotImplementedException();
 
         public BlockDebris(String spriteName, Vector2 position)
-        { 
+        {
+            //remove debris after 1000 millisecond
+            Timer timer = new Timer(1000, RemoveDebris);
+            timer.StartTimer();
+
+
             //top left debris location
             locations[0] = new Vector2(position.X, position.Y);
             //bottom left debris location
@@ -71,21 +75,16 @@ namespace Sprint0.Blocks
         }
         public void Update()
         {
-            if(removalTimer >= 0)
-            {
-                removalTimer--;
-            }
-            else if(removalTimer == 0)
-            {
-                GameObjectManager.Instance.RemoveFromObjectList(this);
-            }
-
-
+            //move debris chunks in different directions
             for(int i = 0; i < 4; i++)
             {
                 velocities[i].Y += 4;
                 locations[i] += velocities[i];
             }
+        }
+        public void RemoveDebris(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            GameObjectManager.Instance.RemoveFromObjectList(this);
         }
     }
 }
