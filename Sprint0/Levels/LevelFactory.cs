@@ -52,6 +52,14 @@ namespace Sprint0
             soundInfo.PlaySound(currentSoundtrack, true);
             SetupReader(levelNumber);
         }
+        public void StopTheme()
+        {
+            /*
+             * If we ever have more sounds played by this sound info, this might be changed to
+             * stop all sounds.
+             */
+            soundInfo.StopLoopedSound(currentSoundtrack);
+        }
         public void SetupReader(int levelNumber)
         {
 
