@@ -25,8 +25,8 @@ namespace Sprint0.HUD
             gameObject = go;
             font = Game0.Instance.Content.Load<SpriteFont>("Font");
             
-            //reset after 5 seconds
-            Timer resetTimer = new Timer(2000, ResetGame);
+            //reset after 8.75 seconds
+            Timer resetTimer = new Timer(GameUtilities.gameOverTimerFinish, ResetGame);
             resetTimer.StartTimer();
 
             background = Game0.Instance.Content.Load <Texture2D>("GameoverSMB");
@@ -41,7 +41,7 @@ namespace Sprint0.HUD
         {
             soundInfo.PlaySound("smb_gameover", false);
             spriteBatch.Draw(background, new Rectangle(0, 0, 6750, 600), Color.Black);
-           spriteBatch.DrawString(font, "GAMEOVER ", new Vector2(camera.GetPosition().X + camera.GetViewport().Width/ 2, camera.GetPosition().Y + camera.GetViewport().Height / 2), Color.White);
+           spriteBatch.DrawString(font, "GAMEOVER ", new Vector2(camera.GetPosition().X + camera.GetViewport().Width/ 2 - 50, camera.GetPosition().Y + camera.GetViewport().Height / 2), Color.White);
         }
         public void ResetGame(Object source, System.Timers.ElapsedEventArgs e)
         {

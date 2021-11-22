@@ -96,7 +96,7 @@ namespace Sprint0.UtilityClasses
 
 
         //magic number for hud
-         public static double gameOverTimerFinish = 3.5;
+         public static int gameOverTimerFinish = 3500;
 
     }
 }
