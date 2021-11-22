@@ -26,7 +26,7 @@ namespace Sprint0.Blocks
             location = position;
             this.spriteName = spriteName;
             sprite = SpriteFactory.Instance.GetSprite(spriteName);
-
+            soundInfo = new SoundInfo();
         }
 
         
@@ -53,6 +53,8 @@ namespace Sprint0.Blocks
             if (keyboard.GetLockInput() == false)
             {
                 keyboard.SetLockInput(true);
+                LevelFactory.Instance.StopTheme();
+                soundInfo.PlaySound("smb_stage_clear", false);
                 //Send this to wherever points are managed.
                 int points = ((int)Math.Round(mario.Position.Y)) * basePoints;
             }
