@@ -98,6 +98,8 @@ namespace Sprint0
             //invisible for some time after star power
             invincibility = true;
 
+            LevelFactory.Instance.StopTheme();
+
             //remove object after 10000 milliseconds
             Timer invincibilityTimer = new Timer(10000, StarPowerTransition);
             invincibilityTimer.StartTimer();
@@ -142,8 +144,10 @@ namespace Sprint0
         }
         public void StarPowerTransition(Object source, System.Timers.ElapsedEventArgs e)
         {
+            LevelFactory.Instance.StartTheme();
             invincibility = false;
             currentHealth = previousHealth;
+            mario.OnStateChange();
         }
     }
 }

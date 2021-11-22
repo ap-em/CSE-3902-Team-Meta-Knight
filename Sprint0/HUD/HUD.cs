@@ -15,8 +15,8 @@ namespace Sprint0.HUD
         private IHUDState hudState;
         private float initialPlayerPosition;
         private float maxPlayerPosition;
-        private int initialLives = 1;
-        private int lives = 1;
+        private int initialLives = 3;
+        private int lives = 3;
         private int initialScore = 0;
         private int initialCoinCount = 0;
         private int coinCount = 0;

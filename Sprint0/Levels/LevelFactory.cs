@@ -47,10 +47,14 @@ namespace Sprint0
         }
         public void CreateLevel(int levelNumber)
         {
+            StartTheme();
+            SetupReader(levelNumber);
+        }
+        public void StartTheme()
+        {
             // can possibly make xml later to create sound based on levelNumber
             soundInfo.StopLoopedSound(currentSoundtrack);
             soundInfo.PlaySound(currentSoundtrack, true);
-            SetupReader(levelNumber);
         }
         public void StopTheme()
         {
