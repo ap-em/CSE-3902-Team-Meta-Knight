@@ -181,7 +181,7 @@ namespace Sprint0
 
             foreach (IBlock block in levelCollides)
             {
-                //check if there are any blocks 
+                //check if there are any blocks directly below the object
                 if (block != null
                     && block.Position.Y > go.Position.Y + go.Sprite.height * GameUtilities.dimensionScale
                     && block.Position.X <= go.Position.X + go.Sprite.width * GameUtilities.dimensionScale
