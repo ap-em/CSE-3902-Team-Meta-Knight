@@ -361,6 +361,20 @@
     "SpriteSheet": "mario"
   },
   {
+    "DataX": [ 331, 361 ],
+    "DataY": [ 159, 158 ],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "RightClimbMarioFire",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 1, 28 ],
+    "DataY": [ 158, 159 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "LeftClimbMarioFire",
+    "SpriteSheet": "mario"
+  },
+  {
     "DataX": [ 80, 96, 112 ],
     "DataY": [ 112, 112, 112 ],
     "Data": [ 16, 16, 3 ],
