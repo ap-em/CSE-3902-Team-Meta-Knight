@@ -179,6 +179,17 @@
 	  </row>
 	  		  <!--Player/Enemies-->
       <row>
+        <obj>198,4,1,Sprint0.Blocks.Flag,FlagPole</obj>
+        <obj>198,5,1,Sprint0.Blocks.Flag,FlagPole</obj>
+        <obj>198,6,1,Sprint0.Blocks.Flag,FlagPole</obj>
+        <obj>198,7,1,Sprint0.Blocks.Flag,FlagPole</obj>
+        <obj>198,8,1,Sprint0.Blocks.Flag,FlagPole</obj>
+        <obj>198,9,1,Sprint0.Blocks.Flag,FlagPole</obj>
+        <obj>198,10,1,Sprint0.Blocks.Flag,FlagPole</obj>
+        <obj>198,11,1,Sprint0.Blocks.Flag,FlagPole</obj>
+
+        <obj>197,3,1,Sprint0.Blocks.Flag,Flag</obj>
+        
           <obj>2,10,1,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>
 		  
         
@@ -266,39 +277,29 @@
   
  	  		  <!--Pipes and Flag-->  
 	  <row>
-		  <obj>28,12,1,Sprint0.Blocks.Block,BottomPipe</obj>
-	      <obj>28,11,1,Sprint0.Blocks.Block,TopPipe</obj>
+		  <obj>28,12,1,Sprint0.Blocks.Pipe,BottomPipe</obj>
+	      <obj>28,11,1,Sprint0.Blocks.Pipe,TopPipe</obj>
 		  
-	      <obj>38,12,1,Sprint0.Blocks.Block,BottomPipe</obj>
-		  <obj>38,11,1,Sprint0.Blocks.Block,BottomPipe</obj>
-	      <obj>38,10,1,Sprint0.Blocks.Block,TopPipe</obj>
+	      <obj>38,12,1,Sprint0.Blocks.Pipe,BottomPipe</obj>
+		  <obj>38,11,1,Sprint0.Blocks.Pipe,BottomPipe</obj>
+	      <obj>38,10,1,Sprint0.Blocks.Pipe,TopPipe</obj>
 	  
-	  	  <obj>46,12,1,Sprint0.Blocks.Block,BottomPipe</obj>
-	  	  <obj>46,11,1,Sprint0.Blocks.Block,BottomPipe</obj>
-		  <obj>46,10,1,Sprint0.Blocks.Block,BottomPipe</obj>
-	      <obj>46,9,1,Sprint0.Blocks.Block,TopPipe</obj>
+	  	  <obj>46,12,1,Sprint0.Blocks.Pipe,BottomPipe</obj>
+	  	  <obj>46,11,1,Sprint0.Blocks.Pipe,BottomPipe</obj>
+		  <obj>46,10,1,Sprint0.Blocks.Pipe,BottomPipe</obj>
+	      <obj>46,9,1,Sprint0.Blocks.Pipe,TopPipe</obj>
 	  
-	  	  <obj>57,12,1,Sprint0.Blocks.Block,BottomPipe</obj>
-	  	  <obj>57,11,1,Sprint0.Blocks.Block,BottomPipe</obj>
-		  <obj>57,10,1,Sprint0.Blocks.Block,BottomPipe</obj>
-	      <obj>57,9,1,Sprint0.Blocks.Block,TopPipe</obj>
+	  	  <obj>57,12,1,Sprint0.Blocks.Pipe,BottomPipe</obj>
+	  	  <obj>57,11,1,Sprint0.Blocks.Pipe,BottomPipe</obj>
+		  <obj>57,10,1,Sprint0.Blocks.Pipe,BottomPipe</obj>
+	      <obj>57,9,1,Sprint0.Blocks.Pipe,TopPipe</obj>
 	  
-		  <obj>163,12,1,Sprint0.Blocks.Block,BottomPipe</obj>
-	      <obj>163,11,1,Sprint0.Blocks.Block,TopPipe</obj>
+		  <obj>163,12,1,Sprint0.Blocks.Pipe,BottomPipe</obj>
+	      <obj>163,11,1,Sprint0.Blocks.Pipe,TopPipe</obj>
 	  
-		  <obj>179,12,1,Sprint0.Blocks.Block,BottomPipe</obj>
-	      <obj>179,11,1,Sprint0.Blocks.Block,TopPipe</obj>
+		  <obj>179,12,1,Sprint0.Blocks.Pipe,BottomPipe</obj>
+	      <obj>179,11,1,Sprint0.Blocks.Pipe,TopPipe</obj>
 		  <obj>198,2,1,Sprint0.Blocks.Flag,FlagTop</obj>
-	  	  <obj>198,4,1,Sprint0.Blocks.Flag,FlagPole</obj>
-  	      <obj>198,5,1,Sprint0.Blocks.Flag,FlagPole</obj>
-	      <obj>198,6,1,Sprint0.Blocks.Flag,FlagPole</obj>
-	      <obj>198,7,1,Sprint0.Blocks.Flag,FlagPole</obj>
-	      <obj>198,8,1,Sprint0.Blocks.Flag,FlagPole</obj>
-	      <obj>198,9,1,Sprint0.Blocks.Flag,FlagPole</obj>
-	      <obj>198,10,1,Sprint0.Blocks.Flag,FlagPole</obj>
-	      <obj>198,11,1,Sprint0.Blocks.Flag,FlagPole</obj>
-	  
-	      <obj>197,3,1,Sprint0.Blocks.Flag,Flag</obj>
 	  </row>
 
   </Level1>
