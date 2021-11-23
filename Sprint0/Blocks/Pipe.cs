@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Sprint0.Blocks
 {
-    class Flag : IGameObject, IDraw, ICollidable, IFlag
+    class Pipe :  IGameObject, IDraw, ICollidable
     {
         private ISprite sprite;
         private String spriteName;
@@ -21,7 +21,7 @@ namespace Sprint0.Blocks
         private static int basePoints = 10;
         IKeyboardController keyboard;
 
-        public Flag(string spriteName, Vector2 position)
+        public Pipe(string spriteName, Vector2 position)
         {
             location = position;
             this.spriteName = spriteName;
@@ -44,23 +44,6 @@ namespace Sprint0.Blocks
         {
             this.spriteName = spriteName;
             this.sprite = SpriteFactory.Instance.GetSprite(spriteName);
-        }
-
-        public void Win(IMario mario)
-        {
-            //prevents unlimited points and allows for sliding down flagpole
-            keyboard = PlayerKeyboardManager.Instance.GetKeyboard((IGameObject)mario);
-            if (keyboard.GetLockInput() == false)
-            {
-                keyboard.SetLockInput(true);
-                LevelFactory.Instance.StopTheme();
-                soundInfo.PlaySound("smb_stage_clear", false);
-                //Send this to wherever points are managed.
-                int points = ((int)Math.Round(mario.Position.Y)) * basePoints;
-            }
-           
-           
-
         }
     }
 }

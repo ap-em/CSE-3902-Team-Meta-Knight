@@ -54,15 +54,11 @@ namespace Sprint0
             //Get the surronding blocks of whatever the game object is as blocks are not added to the game object list on creation.
             List<IBlock> levelCollides = GameObjectManager.Instance.GetCollidables(new Vector2((int)Math.Round(go.Position.X), (int)Math.Round(go.Position.Y)), new Vector2(go.Sprite.width * GameUtilities.dimensionScale, go.Sprite.height * GameUtilities.dimensionScale));
 
+            SetGrounded(levelCollides, go);
+
             //Go through each colliding block
             foreach (IBlock block in levelCollides)
             {
-
-                //set gravity if block below gameobject is null
-                if (block == levelCollides[1] && levelCollides[1] == null)
-                {
-                    go.SetGrounded(false);
-                }
 
                 //Check if the block the object is colliding with actually exists
                 if (block != null)
@@ -177,6 +173,29 @@ namespace Sprint0
                 }
             }
             return collisionSide;
+        }
+
+        public void SetGrounded(List<IBlock> levelCollides, IMovable go)
+        {
+            bool grounded = false;
+
+            foreach (IBlock block in levelCollides)
+            {
+                //check if there are any blocks directly below the object
+                if (block != null
+                    && block.Position.Y > go.Position.Y + go.Sprite.height * GameUtilities.dimensionScale
+                    && block.Position.X <= go.Position.X + go.Sprite.width * GameUtilities.dimensionScale
+                    && block.Position.X + block.Sprite.width * GameUtilities.dimensionScale >= go.Position.X)
+                {
+                    grounded = true;
+                }
+            }
+
+            // only set grounded if there are no blocks below the object
+            // grounded is set to true when it collides with the object so we don't handle that here
+            if (!grounded)
+                go.SetGrounded(false);
+
         }
     }
 }
