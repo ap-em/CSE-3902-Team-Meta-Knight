@@ -1,14 +1,14 @@
 [
   {
     "DataX": [ 359 ],
-    "DataY": [ 52 ],
+    "DataY": [ 67 ],
     "Data": [ 16, 32, 1 ],
     "SpriteName": "RightJumpingMarioFull",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 30 ],
-    "DataY": [ 52 ],
+    "DataY": [ 67 ],
     "Data": [ 16, 32, 1 ],
     "SpriteName": "LeftJumpingMarioFull",
     "SpriteSheet": "mario"
@@ -29,42 +29,42 @@
   },
   {
     "DataX": [ 359, 359 ],
-    "DataY": [ 52, 0 ],
+    "DataY": [ 67, 0 ],
     "Data": [ 17, 30, 2 ],
     "SpriteName": "RightJumpingMarioFullDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 30, 29 ],
-    "DataY": [ 52, 0 ],
+    "DataY": [ 67, 0 ],
     "Data": [ 17, 30, 2 ],
     "SpriteName": "LeftJumpingMarioFullDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 359 ],
-    "DataY": [ 0 ],
+    "DataY": [ 15 ],
     "Data": [ 17, 16, 1 ],
     "SpriteName": "RightJumpingMarioHalf",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 29 ],
-    "DataY": [ 0 ],
+    "DataY": [ 15 ],
     "Data": [ 17, 16, 1 ],
     "SpriteName": "LeftJumpingMarioHalf",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 209 ],
-    "DataY": [ 52 ],
+    "DataY": [ 67 ],
     "Data": [ 16, 32, 1 ],
     "SpriteName": "RightIdleMarioFull",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 180 ],
-    "DataY": [ 52 ],
+    "DataY": [ 67 ],
     "Data": [ 16, 32, 1 ],
     "SpriteName": "LeftIdleMarioFull",
     "SpriteSheet": "mario"
@@ -85,7 +85,7 @@
   },
   {
     "DataX": [ 209, 211 ],
-    "DataY": [ 52, 0 ],
+    "DataY": [ 67, 0 ],
     "Data": [ 16, 30, 2 ],
     "SpriteName": "RightIdleMarioFullDamaged",
     "SpriteSheet": "mario"
@@ -93,14 +93,14 @@
 
   {
     "DataX": [ 180, 181 ],
-    "DataY": [ 52, 0 ],
+    "DataY": [ 67, 0 ],
     "Data": [ 16, 30, 2 ],
     "SpriteName": "LeftIdleMarioFullDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 211 ],
-    "DataY": [ 0 ],
+    "DataY": [ 15 ],
     "Data": [ 16, 16, 1 ],
     "SpriteName": "RightIdleMarioHalf",
     "SpriteSheet": "mario"
@@ -108,21 +108,21 @@
 
   {
     "DataX": [ 181 ],
-    "DataY": [ 0 ],
+    "DataY": [ 15 ],
     "Data": [ 16, 16, 1 ],
     "SpriteName": "LeftIdleMarioHalf",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 389 ],
-    "DataY": [ 57 ],
+    "DataY": [ 72 ],
     "Data": [ 16, 22, 1 ],
     "SpriteName": "RightCrouchedMarioFull",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 0 ],
-    "DataY": [ 57 ],
+    "DataY": [ 72 ],
     "Data": [ 16, 22, 1 ],
     "SpriteName": "LeftCrouchedMarioFull",
     "SpriteSheet": "mario"
@@ -143,28 +143,28 @@
   },
   {
     "DataX": [ 389, 211 ],
-    "DataY": [ 57, 0 ],
+    "DataY": [ 72, 0 ],
     "Data": [ 16, 22, 2 ],
     "SpriteName": "RightCrouchedMarioFullDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 0, 181 ],
-    "DataY": [ 57, 0 ],
+    "DataY": [ 72, 0 ],
     "Data": [ 16, 22, 2 ],
     "SpriteName": "LeftCrouchedMarioFullDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 239, 270, 299 ],
-    "DataY": [ 52, 52, 53 ],
+    "DataY": [ 67, 67, 68 ],
     "Data": [ 16, 32, 3 ],
     "SpriteName": "RightMovingMarioFull",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 150, 121, 90 ],
-    "DataY": [ 52, 52, 53 ],
+    "DataY": [ 67, 67, 68 ],
     "Data": [ 16, 32, 3 ],
     "SpriteName": "LeftMovingMarioFull",
     "SpriteSheet": "mario"
@@ -185,63 +185,63 @@
   },
   {
     "DataX": [ 241, 270, 300 ],
-    "DataY": [ 0, 52, 0 ],
+    "DataY": [ 0, 67, 0 ],
     "Data": [ 16, 30, 3 ],
     "SpriteName": "RightMovingMarioFullDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 150, 121, 89 ],
-    "DataY": [ 0, 52, 0 ],
+    "DataY": [ 0, 67, 0 ],
     "Data": [ 16, 32, 3 ],
     "SpriteName": "LeftMovingMarioFullDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 241, 272, 300 ],
-    "DataY": [ 0, 0, 0 ],
+    "DataY": [ 15, 15, 15 ],
     "Data": [ 16, 16, 3 ],
     "SpriteName": "RightMovingMarioHalf",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 150, 121, 89 ],
-    "DataY": [ 0, 0, 0 ],
+    "DataY": [ 15, 15, 15 ],
     "Data": [ 16, 16, 3 ],
     "SpriteName": "LeftMovingMarioHalf",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 362 ],
-    "DataY": [ 122 ],
+    "DataY": [ 137 ],
     "Data": [ 16, 32, 1 ],
     "SpriteName": "RightJumpingMarioFire",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 27 ],
-    "DataY": [ 122 ],
+    "DataY": [ 137 ],
     "Data": [ 16, 32, 1 ],
     "SpriteName": "LeftJumpingMarioFire",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 362, 359 ],
-    "DataY": [ 122, 52 ],
+    "DataY": [ 137, 67 ],
     "Data": [ 16, 32, 2 ],
     "SpriteName": "RightJumpingMarioFireDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 27, 30 ],
-    "DataY": [ 122, 52 ],
+    "DataY": [ 137, 67 ],
     "Data": [ 16, 32, 2 ],
     "SpriteName": "LeftJumpingMarioFireDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 209 ],
-    "DataY": [ 122 ],
+    "DataY": [ 137 ],
     "Data": [ 16, 32, 1 ],
     "SpriteName": "RightIdleMarioFire",
     "SpriteSheet": "mario"
@@ -249,14 +249,14 @@
 
   {
     "DataX": [ 180 ],
-    "DataY": [ 122 ],
+    "DataY": [ 137 ],
     "Data": [ 16, 32, 1 ],
     "SpriteName": "LeftIdleMarioFire",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 209, 209 ],
-    "DataY": [ 122, 52 ],
+    "DataY": [ 137, 67 ],
     "Data": [ 16, 32, 2 ],
     "SpriteName": "RightIdleMarioFireDamaged",
     "SpriteSheet": "mario"
@@ -264,98 +264,98 @@
 
   {
     "DataX": [ 180, 180 ],
-    "DataY": [ 122, 52 ],
+    "DataY": [ 137, 67 ],
     "Data": [ 16, 32, 2 ],
     "SpriteName": "LeftIdleMarioFireDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 389 ],
-    "DataY": [ 127 ],
+    "DataY": [ 142 ],
     "Data": [ 16, 22, 1 ],
     "SpriteName": "RightCrouchedMarioFire",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 0 ],
-    "DataY": [ 127 ],
+    "DataY": [ 142 ],
     "Data": [ 16, 22, 1 ],
     "SpriteName": "LeftCrouchedMarioFire",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 389, 389 ],
-    "DataY": [ 127, 57 ],
+    "DataY": [ 142, 72 ],
     "Data": [ 16, 22, 1 ],
     "SpriteName": "RightCrouchedMarioFireDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 0, 0 ],
-    "DataY": [ 127, 57 ],
+    "DataY": [ 142, 72 ],
     "Data": [ 16, 22, 2 ],
     "SpriteName": "LeftCrouchedMarioFireDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 237, 263, 287 ],
-    "DataY": [ 122, 122, 123 ],
+    "DataY": [ 137, 137, 138 ],
     "Data": [ 16, 32, 3 ],
     "SpriteName": "RightMovingMarioFire",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 152, 128, 102 ],
-    "DataY": [ 122, 122, 123 ],
+    "DataY": [ 137, 137, 138 ],
     "Data": [ 16, 32, 3 ],
     "SpriteName": "LeftMovingMarioFire",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 239, 263, 299 ],
-    "DataY": [ 52, 122, 53 ],
+    "DataY": [ 67, 137, 68 ],
     "Data": [ 16, 32, 3 ],
     "SpriteName": "RightMovingMarioFireDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 150, 128, 90 ],
-    "DataY": [ 52, 122, 53 ],
+    "DataY": [ 67, 137, 68 ],
     "Data": [ 16, 32, 3 ],
     "SpriteName": "LeftMovingMarioFireDamaged",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 0 ],
-    "DataY": [ 16 ],
+    "DataY": [ 31 ],
     "Data": [ 16, 16, 1 ],
     "SpriteName": "MarioDead",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 363, 390 ],
-    "DataY": [ 89, 88 ],
+    "DataY": [ 104, 103 ],
     "Data": [ 16, 32, 2 ],
     "SpriteName": "RightClimbMarioFull",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 331, 361 ],
-    "DataY": [ 30, 30 ],
+    "DataY": [ 45, 45 ],
     "Data": [ 16, 16, 2 ],
     "SpriteName": "RightClimbMarioHalf",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 61, 30 ],
-    "DataY": [ 30, 30 ],
+    "DataY": [ 45, 45 ],
     "Data": [ 16, 16, 2 ],
     "SpriteName": "LeftClimbMarioHalf",
     "SpriteSheet": "mario"
   },
   {
     "DataX": [ 1, 28 ],
-    "DataY": [ 88, 89 ],
+    "DataY": [ 103, 104 ],
     "Data": [ 16, 32, 1 ],
     "SpriteName": "LeftClimbMarioFull",
     "SpriteSheet": "mario"

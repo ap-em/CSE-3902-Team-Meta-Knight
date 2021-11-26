@@ -4,20 +4,37 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace Sprint0.Commands
 {
     class CDamageEnemy : ICommand
     {
-        private Enemy enemy;
-        private Mario mario;
-        public CDamageEnemy(Enemy enemyRefernce, Mario mario, Rectangle rec)
+        private IEnemy enemy;
+        private ICollidable collided;
+        public CDamageEnemy(IEnemy enemyRefernce, ICollidable collided, Rectangle rec)
         {
+            this.collided = collided;
             enemy = enemyRefernce;
         }
         public void Execute()
         {
-            enemy.TakeDamage();
+
+            if(collided is IEnemy)
+            {
+                IEnemy collidedEnemy = (IEnemy)collided;
+
+                //moving koopa shells hurt enemies
+                if (collidedEnemy.GetStateID() == "KoopaShell" && enemy.GetVelocity() != new Vector2(0, 0))
+                {
+                    
+                    enemy.TakeDamage();
+                }
+            }
+            else if(collided is IMario)
+            {
+                enemy.TakeDamage();
+            }
         }
     }
 }

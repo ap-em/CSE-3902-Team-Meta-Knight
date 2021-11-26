@@ -158,6 +158,38 @@
     <obj2Command>Sprint0.Commands.CGetKicked</obj2Command>
   </collisionInstance>
 
+  <!-- enemy vs enemy -->
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Enemies.Enemy</obj2>
+    <direction>Top</direction>
+    <obj1Command>Sprint0.Commands.CDamageEnemy</obj1Command>
+    <obj2Command>Sprint0.Commands.CDamageEnemy</obj2Command>
+  </collisionInstance>
+
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Enemies.Enemy</obj2>
+    <direction>Bottom</direction>
+    <obj1Command>Sprint0.Commands.CDamageEnemy</obj1Command>
+    <obj2Command>Sprint0.Commands.CDamageEnemy</obj2Command>
+  </collisionInstance>
+
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Enemies.Enemy</obj2>
+    <direction>Left</direction>
+    <obj1Command>Sprint0.Commands.CDamageEnemy</obj1Command>
+    <obj2Command>Sprint0.Commands.CDamageEnemy</obj2Command>
+  </collisionInstance>
+
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Enemies.Enemy</obj2>
+    <direction>Right</direction>
+    <obj1Command>Sprint0.Commands.CDamageEnemy</obj1Command>
+    <obj2Command>Sprint0.Commands.CDamageEnemy</obj2Command>
+  </collisionInstance>
   
   <!-- enemy vs block-->
   <collisionInstance>
