@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Microsoft.Xna.Framework;
 using Sprint0.Timers;
 using Sprint0.UtilityClasses;
 /*
@@ -112,6 +113,8 @@ namespace Sprint0
         {
             if (currentHealth == MarioHealth.half)
             {
+                // move player up since we are transforming into big mario
+                mario.Position = new Vector2(mario.Position.X, mario.Position.Y - 16);
                 previousHealth = currentHealth;
                 currentHealth = MarioHealth.full;
             }
