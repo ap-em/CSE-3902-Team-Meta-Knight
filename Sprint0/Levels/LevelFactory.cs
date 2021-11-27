@@ -97,28 +97,41 @@ namespace Sprint0
                 //convert strings to ints
                 int xPos = Convert.ToInt32(objValues[0]);
                 int yPos = Convert.ToInt32(objValues[1]);
-                int numOfObj = Convert.ToInt32(objValues[2]);
+                
+                int xSpawnPoints = Convert.ToInt32(objValues[2]);
+                int ySpawnPoints = Convert.ToInt32(objValues[3]);
 
-                // create the number of objects specified by the second field in the xml obj element
-                for(int i=0;i<numOfObj;i++)
+                String objType = objValues[4];
+                String spriteName = objValues[5];
+
+
+                //start spawning at xPos end at xPos + number of spawn points
+                for(int x = xPos; x < xPos + xSpawnPoints; x++)
                 {
-                    Vector2 pos = new Vector2(xPos, yPos);
-
-                    //if we already have a enough marios just reset their positions
-                    if(objValues[3] == "Sprint0.Mario" && GameObjectManager.Instance.marios.Count > i)
-                    {
-                        pos = Level.Instance.BlockToWorldSpace(pos);
-                        GameObjectManager.Instance.marios[i].Reset(pos);
-                    }
-                    else {
-                        Level.Instance.CreateObj(pos, objValues[3], objValues[4]);
-                    }
-
-                    //xPos += 1 to keep spawning objects to the right
-                    xPos += 1;
+                    SpawnObject(x, yPos, objType, spriteName);
+                }
+                //start spawning at yPos end at yPos + number of spawn points
+                for (int y = yPos; y < yPos + ySpawnPoints; y++)
+                {
+                    SpawnObject(xPos, y, objType, spriteName);
                 }
             }
             reader.Close();
+        }
+        public void SpawnObject(int xPos, int yPos, String objType, String spriteName)
+        {
+            Vector2 pos = new Vector2(xPos, yPos);
+
+            //if we already have a enough marios just reset their position
+            if (objType == "Sprint0.Mario" && GameObjectManager.Instance.marios.Count > 0)
+            {
+                pos = Level.Instance.BlockToWorldSpace(pos);
+                GameObjectManager.Instance.marios[0].Reset(pos);
+            }
+            else
+            {
+                Level.Instance.CreateObj(pos, objType, spriteName);
+            }
         }
     }
 }

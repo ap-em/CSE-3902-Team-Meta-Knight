@@ -96,6 +96,9 @@ namespace Sprint0
         }
         public void StarPower()
         {
+            //grow to full health first
+            MushroomPower();
+
             //invisible for some time after star power
             invincibility = true;
 
