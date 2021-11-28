@@ -29,9 +29,10 @@ namespace Sprint0
         private Viewport tempView;
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
+        private FrameCounter frameCounter;
         public static ContentManager ContentInstance;
         public Texture2D background;
-
+        private SpriteFont font;
         public bool isPaused;
         public static float storedGameTime;
 
@@ -54,6 +55,7 @@ namespace Sprint0
         public Game0()
         {
             graphics = new GraphicsDeviceManager(this);
+           frameCounter = new FrameCounter();
             Content.RootDirectory = "Content";
             ContentInstance = Content;
             IsMouseVisible = true;
@@ -65,13 +67,12 @@ namespace Sprint0
             LevelFactory.Instance.CreateLevel(GameUtilities.currentLevel);
             IsFixedTimeStep = true;
             TargetElapsedTime = TimeSpan.FromSeconds(GameUtilities.timeSpan);
-
             base.Initialize();
         }
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+            font = Content.Load<SpriteFont>("Font");
         }
         protected override void Update(GameTime gameTime)
         {
@@ -98,9 +99,15 @@ namespace Sprint0
                 GameObjectManager.Instance.DrawStaticGameObjects(spriteBatch, camera);
                 GameObjectManager.Instance.DrawGameObjects(spriteBatch);
                 HUDManager.Instance.Draw(spriteBatch, camera);
+                // update and draw frame counter
+                var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+                frameCounter.Update(deltaTime);
+                var fps = string.Format("FPS: {0}", (int)frameCounter.AverageFramesPerSecond);
+                spriteBatch.DrawString(font, fps, new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 4 , camera.GetPosition().Y), Color.Black);
                 spriteBatch.End();
                 GraphicsDevice.Viewport = tempView;
             }
+
             base.Draw(gameTime);
         }
     }
