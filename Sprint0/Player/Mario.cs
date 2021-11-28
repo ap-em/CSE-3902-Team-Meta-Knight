@@ -39,7 +39,7 @@ namespace Sprint0
         {
             this.position = position;
             initialPosition = position;
-            CameraManager.Instance.CreateCamera(this);
+            CameraManager.Instance.CreateLevel1Camera(this);
             PlayerKeyboardManager.Instance.CreateKeyboard(this);
             HUDManager.Instance.CreateHUD(this);
             healthStateMachine = new MarioHealthStateMachine(this);
@@ -102,12 +102,6 @@ namespace Sprint0
             healthStateMachine.Update();
             currentState.Update();
             currentSprite.Update();
-
-            // if we are below screen kill the player
-            ICamera camera = CameraManager.Instance.GetCamera(this);
-
-            if (position.Y > camera.GetPosition().Y + camera.GetViewport().Height)
-                InstantDeath();
         }
         public void MoveSprite(Vector2 change)
         {
@@ -215,6 +209,7 @@ namespace Sprint0
         public void Reset(Vector2 position)
         {
             Position = position;
+            CameraManager.Instance.ResetCamera(this);
             currentState = new RightFacingStaticMario(this);
             healthStateMachine.ResetHealth();
             OnStateChange();

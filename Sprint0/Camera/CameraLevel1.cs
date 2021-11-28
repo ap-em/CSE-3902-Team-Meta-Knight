@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0
 {
-    class Camera : ICamera
+    class CameraLevel1 : ICamera
     {
         Vector2 position;
         IGameObject objectToFollow;
@@ -18,7 +18,7 @@ namespace Sprint0
         public Viewport currentView;
         public int cameraIndex;
 
-        public Camera(IGameObject go, int index)
+        public CameraLevel1(IGameObject go, int index)
         {
             cameraIndex = index;
             objectToFollow = go;
@@ -49,10 +49,30 @@ namespace Sprint0
         {
             currentView = view;
         }
+        public void Reset()
+        {
+
+        }
 
         public void Update()
         {
             position = CameraManager.Instance.GetCameraPosition(objectToFollow.Position);
+
+            //clamp to the bottom left of the level
+            if (position.X < 0)
+                position.X = 0;
+
+
+            // only move the camera when we are near the top of the screen
+            if (objectToFollow.Position.Y > GetViewport().Height / 4)
+            {
+                position.Y = 0;
+            }
+            else
+            {
+                position.Y = objectToFollow.Position.Y - GetViewport().Height / 4;
+            }
+
 
             viewMatrix = Matrix.CreateScale(new Vector3(1, 1, 0)) *
                 Matrix.CreateTranslation(new Vector3(-position, 0));

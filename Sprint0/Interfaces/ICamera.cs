@@ -30,6 +30,7 @@ namespace Sprint0.Interfaces
         public void SetMatrix(Matrix matrix);
         public Viewport GetViewport();
         public void SetViewport(Viewport view);
+        public void Reset();
 
     }
 
