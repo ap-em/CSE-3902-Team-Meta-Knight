@@ -33,9 +33,9 @@ namespace Sprint0
             defaultView = Game0.Instance.GraphicsDevice.Viewport;
         }
 
-        public void CreateCamera(IGameObject go)
+        public void CreateLevel1Camera(IGameObject go)
         {
-            ICamera camera = new Camera(go, cameras.Count);
+            ICamera camera = new CameraLevel1(go, cameras.Count);
             cameras.Add(go, camera);
             SetViewports();
         }
@@ -44,6 +44,20 @@ namespace Sprint0
             ICamera camera = new CameraLevel2(go, cameras.Count);
             cameras.Add(go, camera);
             SetViewports();
+        }
+        public void CinematicCamera(IGameObject go)
+        {
+            ICamera camera = new CinematicCamera(go, cameras.Count);
+            cameras.Add(go, camera);
+            SetViewports();
+        }
+        public void ResetCamera(IGameObject go)
+        {
+            cameras.GetValueOrDefault(go).Reset();
+        }
+        public void RemoveCamera(IGameObject go)
+        {
+            cameras.Remove(go);
         }
         public void SetViewports()
         {
@@ -94,30 +108,8 @@ namespace Sprint0
         }
         public Vector2 GetCameraPosition(Vector2 playerPosition)
         {
-            //position camera based on how many cameras there are
-            if (cameras.Count == 1)
-            {
-                position = new Vector2(playerPosition.X - GraphicsDeviceManager.DefaultBackBufferWidth / 2,
-    playerPosition.Y - GraphicsDeviceManager.DefaultBackBufferHeight / 2);
-            }
-            else if(cameras.Count == 2)
-            {
-                position = new Vector2(playerPosition.X - GraphicsDeviceManager.DefaultBackBufferWidth / 4,
-    playerPosition.Y - GraphicsDeviceManager.DefaultBackBufferHeight / 2);
-            }
-            else
-            {
-                position = new Vector2(playerPosition.X - GraphicsDeviceManager.DefaultBackBufferWidth / 4,
-       playerPosition.Y - GraphicsDeviceManager.DefaultBackBufferHeight / 4);
-            }
-            if (position.X < 0)
-            {
-                position.X = 0;
-            }
-            if (position.Y > 0)
-            {
-                position.Y = 0;
-            }
+            position = new Vector2(playerPosition.X - GraphicsDeviceManager.DefaultBackBufferWidth / 2,
+                playerPosition.Y - 3 * GraphicsDeviceManager.DefaultBackBufferHeight / 5);
             return position;
         }
 
