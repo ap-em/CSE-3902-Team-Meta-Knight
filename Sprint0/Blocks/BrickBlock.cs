@@ -71,7 +71,7 @@ namespace Sprint0.Blocks
             bounceDownTimer.StartTimer();
 
             // if brick is breakable
-            if (GetSpriteName() == "BrickBlock" && (mario.GetHealthState() == "Full" || mario.GetHealthState() == "Fire" || mario.GetHealthState() == "Star"))
+            if ((GetSpriteName() == "BrickBlock"  || GetSpriteName() == "UndergroundBrickBlock") && (mario.GetHealthState() == "Full" || mario.GetHealthState() == "Fire" || mario.GetHealthState() == "Star"))
             {
                 soundInfo.PlaySound("brickbreak", false);
 

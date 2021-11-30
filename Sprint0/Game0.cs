@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 
 /*
- * Alex Clayton 2021 CSE 3902
+ * Team MetaKnight 2021 CSE 3902
  */
 namespace Sprint0
 {
