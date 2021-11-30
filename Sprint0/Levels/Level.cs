@@ -53,6 +53,7 @@ namespace Sprint0
         {
             int rowIndex = (int)position.Y;
             int columnIndex = (int)position.X;
+            
             position = BlockToWorldSpace(position);
 
             Type t = Type.GetType(objType);

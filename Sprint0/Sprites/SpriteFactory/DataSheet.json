@@ -572,9 +572,9 @@
     "SpriteSheet": "TileSet"
   },
   {
-    "DataX": [ 0 ],
+    "DataX": [ 5 ],
     "DataY": [ 620 ],
-    "Data": [ 16, 16, 1 ],
+    "Data": [ 4, 16, 1 ],
     "SpriteName": "FlagPole",
     "SpriteSheet": "TileSet"
   },

@@ -24,6 +24,11 @@ namespace Sprint0.Blocks
         public Flag(string spriteName, Vector2 position)
         {
             location = position;
+            if(spriteName == "FlagPole")
+            {
+                location.X = location.X + 10;
+            }
+            
             this.spriteName = spriteName;
             sprite = SpriteFactory.Instance.GetSprite(spriteName);
             soundInfo = new SoundInfo();
