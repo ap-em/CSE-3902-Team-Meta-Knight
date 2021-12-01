@@ -40,7 +40,7 @@ namespace Sprint0.HUD
         public void Draw(SpriteBatch spriteBatch, ICamera camera)
         {
             soundInfo.PlaySound("smb_gameover", false);
-            spriteBatch.Draw(background, new Rectangle(0, 0, 6750, 600), Color.Black);
+            spriteBatch.Draw(background, new Rectangle(-1000, -1000, 7750, 5000), Color.Black);
            spriteBatch.DrawString(font, "GAMEOVER ", new Vector2(camera.GetPosition().X + camera.GetViewport().Width/ 2 - 50, camera.GetPosition().Y + camera.GetViewport().Height / 2), Color.White);
         }
         public void ResetGame(Object source, System.Timers.ElapsedEventArgs e)

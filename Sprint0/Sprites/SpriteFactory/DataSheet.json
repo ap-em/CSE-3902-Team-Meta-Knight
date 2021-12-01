@@ -424,6 +424,48 @@
     "SpriteSheet": "blocks"
   },
   {
+    "DataX": [ 164 ],
+    "DataY": [ 100 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "GreenBrickBlock",
+    "SpriteSheet": "TileSet"
+  },
+  {
+    "DataX": [ 147 ],
+    "DataY": [ 117 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "GreenBlock",
+    "SpriteSheet": "TileSet"
+  },
+  {
+    "DataX": [ 147 ],
+    "DataY": [ 100 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "GreenGround",
+    "SpriteSheet": "TileSet"
+  },
+  {
+    "DataX": [ 17 ],
+    "DataY": [ 100 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "CastleBrickBlock",
+    "SpriteSheet": "TileSet"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 117 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "CastleBlock",
+    "SpriteSheet": "TileSet"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 100 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "CastleGround",
+    "SpriteSheet": "TileSet"
+  },
+  {
     "DataX": [ 304 ],
     "DataY": [ 128 ],
     "Data": [ 8, 8, 1 ],
@@ -541,13 +583,6 @@
     "DataY": [ 131 ],
     "Data": [ 16, 16, 1 ],
     "SpriteName": "UndergroundFloatingGround",
-    "SpriteSheet": "tiles"
-  },
-  {
-    "DataX": [ 634 ],
-    "DataY": [ 63 ],
-    "Data": [ 16, 16, 1 ],
-    "SpriteName": "GreenBlock",
     "SpriteSheet": "tiles"
   },
   {
