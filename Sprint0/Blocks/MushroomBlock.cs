@@ -24,6 +24,7 @@ namespace Sprint0.Blocks
 {
     class MushroomBlock : IBlock, IGameObject, IUpdate, IDraw, ICollidable, IDynamicBlock
     {
+        private bool hit = false;
         private ISprite sprite;
         private String spriteName;
         private SoundInfo soundInfo;
@@ -68,10 +69,14 @@ namespace Sprint0.Blocks
             Timer bounceDownTimer = new Timer(50, BounceDown);
             bounceDownTimer.StartTimer();
 
-            soundInfo.PlaySound("itemblock", false);
-            GameObjectManager.Instance.AddToObjectList(new Item("Mushroom", new Vector2(Position.X, Position.Y - 32)), 0, 0);
-            SetSprite("UsedItemBlock");
-
+            //only hit if we haven't hit before
+            if (!hit)
+            {
+                soundInfo.PlaySound("itemblock", false);
+                GameObjectManager.Instance.AddToObjectList(new Item("Mushroom", new Vector2(Position.X, Position.Y - 32)), 0, 0);
+                SetSprite("UsedItemBlock");
+                hit = true;
+            }
         }
         public void BounceUp()
         {
