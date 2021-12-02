@@ -27,8 +27,10 @@ namespace Sprint0
         public RightFacingFlagMario(Mario marioRef)
         {
             mario = marioRef;
-            CameraManager.Instance.RemoveCamera(mario);
-            CameraManager.Instance.CinematicCamera(mario);
+            
+         
+            
+
         }
         public void Attack()
         {
@@ -99,18 +101,33 @@ namespace Sprint0
                 int newLevel = HUDManager.Instance.GetHUD((IGameObject)mario).GetLevel() + 1;
                 HUDManager.Instance.GetHUD((IGameObject)mario).SetLevel(newLevel);
                 ICommand reset = new CReset(mario);
+                CameraManager.Instance.RemoveCamera(mario);
+                CameraManager.Instance.CinematicCamera(mario);
                 reset.Execute();
+                
             }
             
             //Player regains control when mario lands on bottom of level 2
             if (mario.GetGrounded())
             {
+
+                CameraManager.Instance.RemoveCamera(mario);
+                if (GameUtilities.currentLevel == 1)
+                {
+                    CameraManager.Instance.CreateLevel1Camera(mario);
+                }
+                else
+                {
+                    CameraManager.Instance.CreateLevel2Camera(mario);
+                }
                 
+
                 velocity = new Vector2(0f, 0f);
                 mario.Position = new Vector2(mario.Position.X + GameUtilities.bias, mario.Position.Y);
-                mario.currentState = new RightFacingStaticMario(mario);
                 IKeyboardController keyboard = PlayerKeyboardManager.Instance.GetKeyboard((IGameObject)mario);
                 keyboard.SetLockInput(false);
+                mario.currentState = new RightFacingStaticMario(mario);
+                
                 mario.OnStateChange();
 
             }
