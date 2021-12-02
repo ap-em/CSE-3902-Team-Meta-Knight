@@ -73,10 +73,11 @@ namespace Sprint0
             }
             else { Debug.WriteLine("couldnt find object name to create projectile"); }
 
+            /*
             GameObjectManager.Instance.AddToObjectList(
                 new Projectile(SpriteFactory.Instance.GetSprite(spriteName),
                     position, (int)velocity.X, (int)velocity.Y, fuseTime),1,1);
-
+            */
         }
   
     }

@@ -218,9 +218,17 @@ namespace Sprint0
             {
                 position.X = width;
             }
+            else if(position.X + width >= maxRowLength)
+            {
+                position.X = maxRowLength - width - 1;
+            }
             if (position.Y - height < 1)
             {
                 position.Y = height;
+            }
+            else if(position.Y + height >= maxNumberOfRows)
+            {
+                position.Y = maxNumberOfRows - height - 1;
             }
 
 

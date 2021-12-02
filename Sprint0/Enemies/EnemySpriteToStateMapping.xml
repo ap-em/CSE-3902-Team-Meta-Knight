@@ -11,4 +11,10 @@
     <Health>1</Health>
     <Sound>koopadeath</Sound>
   </MapInstance>
+  <MapInstance>
+    <SpriteName>HammerBro</SpriteName>
+    <StateName>Sprint0.Enemies.HammerBroNormalState</StateName>
+    <Health>1</Health>
+    <Sound>koopadeath</Sound>
+  </MapInstance>
 </Mapping>

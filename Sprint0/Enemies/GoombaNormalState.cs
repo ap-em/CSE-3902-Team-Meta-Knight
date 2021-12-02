@@ -51,11 +51,13 @@ namespace Sprint0.Enemies
 
         public void MoveRight()
         {
+            enemy.SetDirection(GameUtilities.right);
             velocity.X = GameUtilities.goombaSpeed;
         }
 
         public void MoveLeft()
         {
+            enemy.SetDirection(GameUtilities.left);
             velocity.X = -GameUtilities.goombaSpeed;
         }
 
