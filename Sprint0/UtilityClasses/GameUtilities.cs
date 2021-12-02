@@ -26,7 +26,7 @@ namespace Sprint0.UtilityClasses
 
 
         //magic number for level
-        public static int currentLevel = 2;
+        public static int currentLevel = 1;
 
         // magic number in Game0
         public static float timeSpan = 1/30.0f;

@@ -210,7 +210,7 @@ namespace Sprint0
         {
             Position = position;
             CameraManager.Instance.ResetCamera(this);
-            currentState = new RightFacingStaticMario(this);
+            currentState = new RightFacingFlagMario(this);
             healthStateMachine.ResetHealth();
             OnStateChange();
         }

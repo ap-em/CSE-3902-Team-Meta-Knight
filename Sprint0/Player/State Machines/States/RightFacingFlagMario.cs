@@ -5,6 +5,8 @@ using System.Text;
 using Sprint0.UtilityClasses;
 using Sprint0.Controllers;
 using Sprint0.Interfaces;
+using Sprint0.HUD;
+using Sprint0.Commands;
 /*
 Alex Clayton
 Alex Contreras
@@ -92,12 +94,15 @@ namespace Sprint0
         }
         public void Update()
         {
-            if (mario.Position.Y > 15)
+            if (mario.Position.Y < 15)
             {
-                //Switch the level 2
+                int newLevel = HUDManager.Instance.GetHUD((IGameObject)mario).GetLevel() + 1;
+                HUDManager.Instance.GetHUD((IGameObject)mario).SetLevel(newLevel);
+                ICommand reset = new CReset(mario);
+                reset.Execute();
             }
             
-            //When mario hits the floor turn, he should visually spin around the flag pole, however he falls through the floor into lvl 2 so it doesn't happen
+            //Player regains control when mario lands on bottom of level 2
             if (mario.GetGrounded())
             {
                 

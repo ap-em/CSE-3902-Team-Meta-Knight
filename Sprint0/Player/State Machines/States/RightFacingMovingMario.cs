@@ -104,7 +104,7 @@ namespace Sprint0
                 velocity = new Vector2(GameUtilities.VairX, 0f);
                 /*Once Mario reaches the castle in the end animation, this should trigger and mario should be removed and the keyboard should be 
  unlocked for a future mario*/
-                if (PlayerKeyboardManager.Instance.GetKeyboard(mario).GetLockInput())
+                /*if (PlayerKeyboardManager.Instance.GetKeyboard(mario).GetLockInput())
                 {
                     if (levelEndAnimationTimer >= GameUtilities.timeToEndingDeletion)
                     {
@@ -118,7 +118,7 @@ namespace Sprint0
                         reset.Execute();
                     }
                     levelEndAnimationTimer++;
-                }
+                }*/
             }
             else
             {
