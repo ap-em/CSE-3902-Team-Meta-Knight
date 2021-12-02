@@ -96,7 +96,8 @@ namespace Sprint0
         }
         public void Update()
         {
-            if (mario.Position.Y < 15)
+            //If mario is below what the camera can see then swap level
+            if (mario.Position.Y > CameraManager.Instance.GetCamera(mario).GetViewport().Height+ CameraManager.Instance.GetCamera(mario).GetPosition().Y)
             {
                 int newLevel = HUDManager.Instance.GetHUD((IGameObject)mario).GetLevel() + 1;
                 HUDManager.Instance.GetHUD((IGameObject)mario).SetLevel(newLevel);
