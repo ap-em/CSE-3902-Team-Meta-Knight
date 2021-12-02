@@ -36,6 +36,10 @@ namespace Sprint0
         {
             return position;
         }
+        public void UpdateCamera2Position()
+        {
+            position = CameraManager.Instance.GetCameraPosition(objectToFollow.Position);
+        }
         public Matrix GetMatrix()
         {
             return viewMatrix;
@@ -61,6 +65,7 @@ namespace Sprint0
         }
         public void Update()
         {
+            /*
             Vector2 newCameraPosition = CameraManager.Instance.GetCameraPosition(objectToFollow.Position);
 
             //only update Y position if we are at a new highest point
@@ -70,6 +75,7 @@ namespace Sprint0
                 position.Y = newCameraPosition.Y;
             }
             position.X = newCameraPosition.X;
+            */
 
             viewMatrix = Matrix.CreateScale(new Vector3(1, 1, 0)) *
                 Matrix.CreateTranslation(new Vector3(-position, 0));
