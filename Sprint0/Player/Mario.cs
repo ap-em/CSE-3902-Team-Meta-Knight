@@ -170,6 +170,8 @@ namespace Sprint0
         }
         public void UpBounce(Rectangle rectangle)
         {
+            // level 2 camera only updates position when we land on something
+            CameraManager.Instance.GetCamera(this).UpdateCamera2Position();
             currentState.UpBounce(rectangle);
         }
         public void DownBounce(Rectangle rectangle)
