@@ -70,17 +70,15 @@ namespace Sprint0.Blocks
             Timer bounceDownTimer = new Timer(50, BounceDown);
             bounceDownTimer.StartTimer();
 
-            // if this is the correct type of block
-            if ((GetSpriteName().Equals("Ground")))
-            {
-                soundInfo.PlaySound("brickbreak", false);
+            
+            soundInfo.PlaySound("brickbreak", false);
 
-                // break block after 60 milliseconds
-                Timer breakBlockTimer = new Timer(60, BreakBlock);
-                breakBlockTimer.StartTimer();
+            // break block after 60 milliseconds
+            Timer breakBlockTimer = new Timer(60, BreakBlock);
+            breakBlockTimer.StartTimer();
 
                 
-            }
+            
         }
         public void BounceUp()
         {

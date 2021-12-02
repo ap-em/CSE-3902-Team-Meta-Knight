@@ -277,7 +277,7 @@
 		  <obj>187,6,3,0,Sprint0.Blocks.Block,Block</obj>
 		  <obj>188,5,2,0,Sprint0.Blocks.Block,Block</obj>
 	  
-		  <obj>198,12,1,0,Sprint0.Blocks.NoInteract,Block</obj>
+		  <obj>198,12,1,0,Sprint0.Blocks.CaveInBlock,Block</obj>
 	  </row>
   
  	  		  <!--Pipes and Flag-->  
