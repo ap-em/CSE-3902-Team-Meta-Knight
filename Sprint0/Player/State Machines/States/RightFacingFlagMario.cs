@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Sprint0.UtilityClasses;
+using Sprint0.Controllers;
+using Sprint0.Interfaces;
 /*
 Alex Clayton
 Alex Contreras
@@ -23,6 +25,8 @@ namespace Sprint0
         public RightFacingFlagMario(Mario marioRef)
         {
             mario = marioRef;
+            CameraManager.Instance.RemoveCamera(mario);
+            CameraManager.Instance.CinematicCamera(mario);
         }
         public void Attack()
         {
@@ -88,12 +92,16 @@ namespace Sprint0
         }
         public void Update()
         {
+            
             //When mario hits the floor turn, he should visually spin around the flag pole
             if (mario.GetGrounded())
             {
+                
                 velocity = new Vector2(0f, 0f);
                 mario.Position = new Vector2(mario.Position.X + GameUtilities.bias, mario.Position.Y);
-                mario.currentState = new LeftFacingFlagMario(mario);
+                mario.currentState = new RightFacingStaticMario(mario);
+                IKeyboardController keyboard = PlayerKeyboardManager.Instance.GetKeyboard((IGameObject)mario);
+                keyboard.SetLockInput(false);
                 mario.OnStateChange();
 
             }
