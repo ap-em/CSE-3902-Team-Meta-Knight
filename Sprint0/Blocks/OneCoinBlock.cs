@@ -25,6 +25,7 @@ namespace Sprint0.Blocks
 {
     class OneCoinBlock : IBlock, IGameObject, IUpdate, IDraw, ICollidable, IDynamicBlock
     {
+        private bool hit = false;
         private ISprite sprite;
         private String spriteName;
         private SoundInfo soundInfo;
@@ -70,9 +71,13 @@ namespace Sprint0.Blocks
             bounceDownTimer.StartTimer();
 
 
-            soundInfo.PlaySound("itemblock", false);
-            GameObjectManager.Instance.AddToObjectList(new Item("Coin", new Vector2(Position.X, Position.Y - 32)), 0, 0);
-            SetSprite("UsedItemBlock");
+            if (!hit)
+            {
+                soundInfo.PlaySound("itemblock", false);
+                GameObjectManager.Instance.AddToObjectList(new Item("Coin", new Vector2(Position.X, Position.Y - 32)), 0, 0);
+                SetSprite("UsedItemBlock");
+                hit = true;
+            }
         }
         public void BounceUp()
         {
