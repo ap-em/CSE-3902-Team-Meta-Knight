@@ -92,8 +92,12 @@ namespace Sprint0
         }
         public void Update()
         {
+            if (mario.Position.Y > 15)
+            {
+                //Switch the level 2
+            }
             
-            //When mario hits the floor turn, he should visually spin around the flag pole
+            //When mario hits the floor turn, he should visually spin around the flag pole, however he falls through the floor into lvl 2 so it doesn't happen
             if (mario.GetGrounded())
             {
                 
