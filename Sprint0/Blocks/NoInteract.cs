@@ -29,8 +29,6 @@ namespace Sprint0.Blocks
             soundInfo = new SoundInfo();
         }
 
-
-
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, location);

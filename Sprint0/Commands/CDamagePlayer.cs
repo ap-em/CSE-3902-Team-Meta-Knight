@@ -46,6 +46,12 @@ namespace Sprint0.Commands
                     mario.TakeDamage();
                 }
             }
+            if(collided is IProjectile)
+            {
+                IProjectile projectile = (IProjectile)collided;
+                if(projectile.SpriteName == "Hammer")
+                    mario.TakeDamage();
+            }
         }
     }
 }

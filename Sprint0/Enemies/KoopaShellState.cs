@@ -32,7 +32,7 @@ namespace Sprint0.Enemies
         public KoopaShellState(IEnemy enemy)
         {
             this.enemy = enemy;
-
+            enemy.SetSprite("Koopa");
         }
         public String GetStateID()
         {

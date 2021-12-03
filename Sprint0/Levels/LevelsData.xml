@@ -191,10 +191,13 @@
       <obj>198,9,1,0,Sprint0.Blocks.Flag,FlagPole</obj>
       <obj>198,10,1,0,Sprint0.Blocks.Flag,FlagPole</obj>
       <obj>198,11,1,0,Sprint0.Blocks.Flag,FlagPole</obj>
-
-      <obj>197,3,1,0,Sprint0.Blocks.Flag,Flag</obj>
+	  <obj>197,3,1,0,Sprint0.Blocks.NoInteract,FlagTop</obj>
+	  <obj>197,3,1,0,Sprint0.Blocks.NoInteract,Flag</obj>
         
       <obj>2,10,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>
+      
+      
+      <obj>5,11,1,0,Sprint0.Enemies.Enemy,HammerBro</obj>
 		  
         
       <obj>22,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>

@@ -36,7 +36,6 @@ namespace Sprint0.Enemies
         private EnemyHealthStateMachine healthStateMachine;
         public String enemyType = GameUtilities.emptyString;
         private String spriteName = GameUtilities.emptyString;
-
         public Vector2 Position { get => position; set => position = value; }
 
         public ISprite Sprite => sprite;
@@ -47,6 +46,7 @@ namespace Sprint0.Enemies
             enemyType = spriteName;
             healthStateMachine = new EnemyHealthStateMachine(NameToStateMapping.Instance.GetHealth(spriteName));
             keyboard = ControllerLoader.Instance.SetUpEnemyKeyboard(this);
+
             this.spriteName = direction + "Idle" + enemyType + healthStateMachine.GetHealth() + "Health";
             sprite = SpriteFactory.Instance.GetSprite(this.spriteName);
 
@@ -117,14 +117,12 @@ namespace Sprint0.Enemies
 
         public void MoveRight()
         {
-            direction = GameUtilities.right;
             currentState.MoveRight();
             SetSprite(enemyType);
         }
 
         public void MoveLeft()
         {
-            direction = GameUtilities.left;
             currentState.MoveLeft();
             SetSprite(enemyType);
         }
@@ -155,6 +153,7 @@ namespace Sprint0.Enemies
         public void SetDirection(String direction)
         {
             this.direction = direction;
+            SetSprite(enemyType);
         }
         public void SetCurrentState(IEnemyState enemyState)
         {

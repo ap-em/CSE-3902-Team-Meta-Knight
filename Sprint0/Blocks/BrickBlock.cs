@@ -25,6 +25,7 @@ namespace Sprint0.Blocks
 {
     class BrickBlock : IBlock, IGameObject, IUpdate, IDraw, ICollidable, IDynamicBlock
     {
+        private bool hit = false;
         private ISprite sprite;
         private String spriteName;
         private SoundInfo soundInfo;
@@ -70,18 +71,25 @@ namespace Sprint0.Blocks
             Timer bounceDownTimer = new Timer(50, BounceDown);
             bounceDownTimer.StartTimer();
 
-            // if brick is breakable
-            if ((GetSpriteName().Equals("BrickBlock")  || GetSpriteName().Equals("UndergroundBrickBlock") || GetSpriteName().Equals("GreenBrickBlock") || GetSpriteName().Equals("CastleBrickBlock")) && (mario.GetHealthState() == "Full" || mario.GetHealthState() == "Fire" || mario.GetHealthState() == "Star"))
+
+            // only hit the block if it hasn't been hit before
+            if (!hit)
             {
-                soundInfo.PlaySound("brickbreak", false);
+                // if brick is breakable
+                if (mario.GetHealthState() == "Full" || mario.GetHealthState() == "Fire" || mario.GetHealthState() == "Star")
+                {
+                    soundInfo.PlaySound("brickbreak", false);
 
-                // break block after 60 milliseconds
-                Timer breakBlockTimer = new Timer(60, BreakBlock);
-                breakBlockTimer.StartTimer();
+                    // break block after 60 milliseconds
+                    Timer breakBlockTimer = new Timer(60, BreakBlock);
+                    breakBlockTimer.StartTimer();
 
-                // add 10 points to score
-                IHUD hud = HUDManager.Instance.GetHUD((IGameObject)mario);
-                hud.SetScore(hud.GetScore() + 10);
+                    // add 10 points to score
+                    IHUD hud = HUDManager.Instance.GetHUD((IGameObject)mario);
+                    hud.SetScore(hud.GetScore() + 10);
+
+                    hit = true;
+                }
             }
         }
         public void BounceUp()

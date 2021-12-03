@@ -51,11 +51,13 @@ namespace Sprint0.Enemies
 
         public void MoveRight()
         {
+            enemy.SetDirection(GameUtilities.right);
             velocity.X = GameUtilities.koopaSpeed;
         }
 
         public void MoveLeft()
         {
+            enemy.SetDirection(GameUtilities.left);
             velocity.X = -GameUtilities.koopaSpeed;
         }
 
@@ -76,12 +78,14 @@ namespace Sprint0.Enemies
         {
             enemy.Position = new Vector2(enemy.Position.X + rectangle.Width, enemy.Position.Y);
             velocity.X = GameUtilities.koopaSpeed;
+            enemy.SetDirection(GameUtilities.right);
         }
 
         public void LeftBounce(Rectangle rectangle)
         {
             enemy.Position = new Vector2(enemy.Position.X - rectangle.Width, enemy.Position.Y);
             velocity.X = -GameUtilities.koopaSpeed;
+            enemy.SetDirection(GameUtilities.left);
         }
 
         public void BigUpBounce(Rectangle rectangle)

@@ -15,6 +15,7 @@ namespace Sprint0.Interfaces
 {
    public interface IProjectile
     {
+        public string SpriteName { get; }
         void Update();
         void Draw(SpriteBatch spriteBatch);
         void Move();
