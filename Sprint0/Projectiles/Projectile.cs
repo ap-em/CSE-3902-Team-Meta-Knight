@@ -77,8 +77,9 @@ namespace Sprint0
         public void UpBounce(Rectangle rec)
         {
             position = new Vector2(position.X, position.Y - rec.Height);
-            //lower velocity and inverse direction
-            YVelocity = (YVelocity - 0.5f) * -1;
+            //lower velocity by a 4th and inverse direction
+            YVelocity = -1*(YVelocity - YVelocity/4);
+            XVelocity = XVelocity - XVelocity / 4;
         }
         public void Update()
         {

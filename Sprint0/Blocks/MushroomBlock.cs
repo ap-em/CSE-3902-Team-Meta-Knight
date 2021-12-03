@@ -72,8 +72,18 @@ namespace Sprint0.Blocks
             //only hit if we haven't hit before
             if (!hit)
             {
+                // if mario is at full health spawn a fireflower
+                if(mario.GetHealthState() == "Full")
+                {
+                    GameObjectManager.Instance.AddToObjectList(new Item("Fireflower", new Vector2(Position.X, Position.Y - 32)), 0, 0);
+                }
+                // if mario is below full health spawn a mushroom
+                else
+                {
+                    GameObjectManager.Instance.AddToObjectList(new Item("Mushroom", new Vector2(Position.X, Position.Y - 32)), 0, 0);
+                }
+
                 soundInfo.PlaySound("itemblock", false);
-                GameObjectManager.Instance.AddToObjectList(new Item("Mushroom", new Vector2(Position.X, Position.Y - 32)), 0, 0);
                 SetSprite("UsedItemBlock");
                 hit = true;
             }

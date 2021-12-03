@@ -48,7 +48,7 @@ namespace Sprint0.UtilityClasses
         //magic number in hammerbro
         public static int hammerVelocityX = 5;
         public static int hammerVelocityY = 12;
-        public static int hammerFuse = 500;
+        public static int hammerFuse = 150;
 
         //magic number in Koopa
         public static int koopaHearts = 1;
@@ -73,9 +73,9 @@ namespace Sprint0.UtilityClasses
 
         //magic number in mario state machine
         public static int upperBounceValue = 14;
-        public static int jumpXvalue = 5;
-        public static int fireBallVelocityX = 10;
-        public static int fuseTime = 60;
+        public static Vector2 fireBallPosition = new Vector2(3,20);
+        public static int fireBallVelocityX = 15;
+        public static int fuseTime = 75;
         public static  int currentMaxJumpTime = 5;
         public static  int maxJumpTime = 10;
         public static int maxTimeFlagTurn = 10;
