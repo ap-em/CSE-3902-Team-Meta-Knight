@@ -24,10 +24,6 @@ namespace Sprint0.UtilityClasses
         public static string bottom = "Bottom";
         public static string worldOneOne = "1-1";
 
-
-        //magic number for level
-        public static int currentLevel = 1;
-
         // magic number in Game0
         public static float timeSpan = 1/30.0f;
         public static int marioInitialPosX = 50;

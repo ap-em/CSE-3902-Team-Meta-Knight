@@ -106,10 +106,11 @@ namespace Sprint0
  unlocked for a future mario*/
                 if (PlayerKeyboardManager.Instance.GetKeyboard(mario).GetLockInput())
                 {
-                    if (levelEndAnimationTimer >= GameUtilities.timeToEndingDeletion)
+                    PlayerKeyboardManager.Instance.GetKeyboard(mario).SetLockInput(false);
+                    /*if (levelEndAnimationTimer >= GameUtilities.timeToEndingDeletion)
                     {
                         //unlock keyboard
-                        PlayerKeyboardManager.Instance.GetKeyboard(mario).SetLockInput(false);
+                        
 
                         //load next level
                         int newLevel = HUDManager.Instance.GetHUD((IGameObject)mario).GetLevel() + 1;
@@ -117,7 +118,7 @@ namespace Sprint0
                         ICommand reset = new CReset(mario);
                         reset.Execute();
                     }
-                    levelEndAnimationTimer++;
+                    levelEndAnimationTimer++;*/
                 }
             }
             else

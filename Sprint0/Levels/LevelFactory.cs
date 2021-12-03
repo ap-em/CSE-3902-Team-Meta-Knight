@@ -66,6 +66,7 @@ namespace Sprint0
         }
         public void SetupReader(int levelNumber)
         {
+            currentLevel = levelNumber;
 
             XmlReader reader = XmlReader.Create(Path.GetFullPath("Levels\\LevelsData.xml"));
 

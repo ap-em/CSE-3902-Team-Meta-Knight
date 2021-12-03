@@ -102,13 +102,13 @@ namespace Sprint0
                 velocity = new Vector2(0f, GameUtilities.gravity);
             }
             mario.MoveSprite(velocity);
-            IKeyboardController keyboard = PlayerKeyboardManager.Instance.GetKeyboard(mario);
+           /* IKeyboardController keyboard = PlayerKeyboardManager.Instance.GetKeyboard(mario);
 
             if (keyboard != null && keyboard.GetLockInput())
             {
                 mario.currentState = new RightFacingFlagMario(mario);
                 mario.OnStateChange();
-            }
+            }*/
         }
     
 

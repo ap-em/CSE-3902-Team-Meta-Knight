@@ -184,9 +184,9 @@ namespace Sprint0
                 {
                     //make sure object is bounds of array
                     if (x < 0) x = 0;
-                    else if (x > 998) x = 998;
+                    else if (x > maxRowLength - 1) x = maxRowLength - 1;
                     if (y < 0) y = 0;
-                    else if (y > 99) y = 99;
+                    else if (y > maxNumberOfRows - 1) y = maxNumberOfRows - 1;
                     if (staticGameObjects[x][y] != null)
                     {
                         //dynamic blocks get drawn from drawable list
