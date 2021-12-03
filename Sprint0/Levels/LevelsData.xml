@@ -398,9 +398,9 @@
 
       <!--Player/Enemies-->
 	<row>
-		<obj>3,78,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>
+		<!--<obj>3,78,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>-->
 		<!-->For mario falling<-->
-		<!--<obj>3,1,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>-->
+		<obj>3,3,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>
     </row>
 
 

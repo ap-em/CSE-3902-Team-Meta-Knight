@@ -102,8 +102,6 @@ namespace Sprint0
                 int newLevel = HUDManager.Instance.GetHUD((IGameObject)mario).GetLevel() + 1;
                 HUDManager.Instance.GetHUD((IGameObject)mario).SetLevel(newLevel);
                 ICommand reset = new CReset(mario);
-                CameraManager.Instance.RemoveCamera(mario);
-                CameraManager.Instance.CinematicCamera(mario);
                 reset.Execute();
                 
             }
@@ -113,7 +111,7 @@ namespace Sprint0
             {
 
                 CameraManager.Instance.RemoveCamera(mario);
-                if (GameUtilities.currentLevel == 1)
+                if (LevelFactory.Instance.currentLevel == 1)
                 {
                     CameraManager.Instance.CreateLevel1Camera(mario);
                 }

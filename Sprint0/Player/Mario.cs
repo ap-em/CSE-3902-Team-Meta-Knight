@@ -208,8 +208,8 @@ namespace Sprint0
         }
         public void Reset(Vector2 position)
         {
+            Debug.WriteLine("mario reset");
             Position = position;
-            CameraManager.Instance.ResetCamera(this);
             currentState = new RightFacingFlagMario(this);
             healthStateMachine.ResetHealth();
             OnStateChange();
