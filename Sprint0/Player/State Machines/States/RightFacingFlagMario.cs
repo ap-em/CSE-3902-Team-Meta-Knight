@@ -27,9 +27,13 @@ namespace Sprint0
         public RightFacingFlagMario(Mario marioRef)
         {
             mario = marioRef;
-            mario.HealthStateMachine.Invincibility = true;
 
+            if (!CameraManager.Instance.cameras.ContainsKey(mario))
+            {
+                CameraManager.Instance.CinematicCamera(mario);
+            }
         }
+        
         public void Attack()
         {
             throw new NotImplementedException();
@@ -95,7 +99,7 @@ namespace Sprint0
         public void Update()
         {
             //If mario is below what the camera can see then swap level
-            if (mario.Position.Y > CameraManager.Instance.GetCamera(mario).GetViewport().Height+ CameraManager.Instance.GetCamera(mario).GetPosition().Y)
+            if (mario.Position.Y > CameraManager.Instance.GetCamera(mario).GetViewport().Height+ CameraManager.Instance.GetCamera(mario).GetPosition().Y && HUDManager.Instance.GetHUD((IGameObject)mario).GetLevel() == 1)
             {
                 int newLevel = HUDManager.Instance.GetHUD((IGameObject)mario).GetLevel() + 1;
                 HUDManager.Instance.GetHUD((IGameObject)mario).SetLevel(newLevel);
