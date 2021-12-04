@@ -40,7 +40,7 @@ namespace Sprint0.Enemies
         public void TakeDamage()
         {
             enemy.SetHealth(enemy.GetHealth() - 1);
-            enemy.SetCurrentState(new GoombaSquashedState());
+            enemy.CurrentState = new GoombaSquashedState();
             enemy.StartRemovalTimer();
         }
         public void GetKicked(Rectangle rec)

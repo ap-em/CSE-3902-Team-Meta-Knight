@@ -67,7 +67,7 @@ namespace Sprint0.Blocks
             BounceUp();
 
             // bounce back down after 50 milliseconds
-            TimerManager.Instance.AddToTimerList(this, new Timer(this, 50, BounceDown));
+            TimerManager.Instance.AddToTimerList(new Timer(50, BounceDown));
 
 
             if (!hit)

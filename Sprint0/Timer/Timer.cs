@@ -29,7 +29,7 @@ namespace Sprint0.Timers
         private IGameObject go;
         public IGameObject GameObject { get => go; }
         public String methodName { get => method.Method.Name; }
-        public Timer(IGameObject go, int milliseconds, Action method)
+        public Timer(int milliseconds, Action method)
         {
             this.go = go;
             this.milliseconds = milliseconds;
@@ -43,7 +43,7 @@ namespace Sprint0.Timers
             if (timePassed >= milliseconds)
             {
                 method();
-                TimerManager.Instance.RemoveFromTimerList(go, this);
+                TimerManager.Instance.RemoveFromTimerList(this);
             }
         }
     }

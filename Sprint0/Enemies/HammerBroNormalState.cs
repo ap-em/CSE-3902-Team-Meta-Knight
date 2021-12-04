@@ -34,45 +34,49 @@ namespace Sprint0.Enemies
             this.enemy = enemy;
 
             //start throwing after a second
-            TimerManager.Instance.AddToTimerList((IGameObject)enemy, new Timer((IGameObject)enemy, 5000, Throw));
+            TimerManager.Instance.AddToTimerList(new Timer(1000, Throw));
         }
         public void Throw()
         {
-            // shoot left
-            if(enemy.GetDirection() == GameUtilities.left)
+            if (enemy.GetStateID() == ID)
             {
-                GameObjectManager.Instance.AddToObjectList(
-                        new Projectile(
-                          "Hammer", enemy.Position, -GameUtilities.hammerVelocityX, -GameUtilities.hammerVelocityY, GameUtilities.hammerFuse), 1, 1);
-            }
-            //shoot right
-            else
-            {
-                GameObjectManager.Instance.AddToObjectList(
-                        new Projectile(
-                          "Hammer", enemy.Position, GameUtilities.hammerVelocityX, -GameUtilities.hammerVelocityY, GameUtilities.hammerFuse), 1, 1);
-            }
+                // shoot left
+                if (enemy.GetDirection() == GameUtilities.left)
+                {
+                    GameObjectManager.Instance.AddToObjectList(
+                            new Projectile(
+                              "Hammer", enemy.Position, -GameUtilities.hammerVelocityX, -GameUtilities.hammerVelocityY, GameUtilities.hammerFuse), 1, 1);
+                }
+                //shoot right
+                else
+                {
+                    GameObjectManager.Instance.AddToObjectList(
+                            new Projectile(
+                              "Hammer", enemy.Position, GameUtilities.hammerVelocityX, -GameUtilities.hammerVelocityY, GameUtilities.hammerFuse), 1, 1);
+                }
 
-            shootNum++;
-            //keep shooting till we hit 10 then wait
-            if(shootNum == 10)
-            {
-                //start throwing after a second
-                TimerManager.Instance.AddToTimerList((IGameObject)enemy, new Timer((IGameObject)enemy, 200, Throw));
-            }
-            else
-            {
-                shootNum = 0;
-                // wait for a random time between 500 and 2000ms
-                Random rand = new Random();
-                int waitTime = rand.Next(1000, 5000);
+                shootNum++;
+                //keep shooting till we hit 10 then wait
+                if (shootNum < 10)
+                {
+                    //start throwing after a second
+                    TimerManager.Instance.AddToTimerList(new Timer(3000, Throw));
+                }
+                else
+                {
+                    shootNum = 0;
+                    // wait for a random time between 500 and 2000ms
+                    Random rand = new Random();
+                    int waitTime = rand.Next(7000, 10000);
 
-                TimerManager.Instance.AddToTimerList((IGameObject)enemy, new Timer((IGameObject)enemy, waitTime, Wait));
+                    TimerManager.Instance.AddToTimerList(new Timer(waitTime, Wait));
+                }
             }
         }
         public void Wait()
         {
-            Throw();
+            if(enemy.GetStateID() == ID)
+                Throw();
         }
         public String GetStateID()
         {
@@ -80,9 +84,8 @@ namespace Sprint0.Enemies
         }
         public void TakeDamage()
         {
-            TimerManager.Instance.RemoveAllObjectTimers((IGameObject)enemy);
             enemy.SetHealth(enemy.GetHealth() - 1);
-            enemy.SetCurrentState(new KoopaShellState(enemy));
+            enemy.CurrentState = new KoopaShellState(enemy);
         }
         public void GetKicked(Rectangle rec)
         {

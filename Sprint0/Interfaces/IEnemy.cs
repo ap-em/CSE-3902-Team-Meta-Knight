@@ -17,6 +17,7 @@ namespace Sprint0.Interfaces
     public interface IEnemy
     {
         public bool Grounded { get; set; }
+        public IEnemyState CurrentState { get;  set; }
         public String GetStateID();
         public void GetKicked(Rectangle rec);
         public Vector2 Position { get; set; }
@@ -37,7 +38,6 @@ namespace Sprint0.Interfaces
         void InstantDeath();
         int GetHealth();
         void SetHealth(int health);
-        void SetCurrentState(IEnemyState enemyState);
         void SetGrounded(bool grounded);
         void StartRemovalTimer();
     }

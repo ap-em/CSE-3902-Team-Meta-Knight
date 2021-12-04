@@ -67,13 +67,13 @@ namespace Sprint0.Blocks
             BounceUp();
 
             // bounce back down after 50 milliseconds
-            TimerManager.Instance.AddToTimerList(this, new Timer(this, 50, BounceDown));
+            TimerManager.Instance.AddToTimerList(new Timer(50, BounceDown));
 
             
             soundInfo.PlaySound("brickbreak", false);
 
             // break block after 60 milliseconds
-            TimerManager.Instance.AddToTimerList(this, new Timer(this, 60, BreakBlock));
+            TimerManager.Instance.AddToTimerList(new Timer(60, BreakBlock));
 
                 
             

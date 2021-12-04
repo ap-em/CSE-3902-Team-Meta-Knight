@@ -197,9 +197,9 @@
       <obj>2,10,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>
       
       
-      <obj>5,11,1,0,Sprint0.Enemies.Enemy,HammerBro</obj>
+      <obj>52,11,1,0,Sprint0.Enemies.Enemy,HammerBro</obj>
 		  
-        
+        <!---
       <obj>22,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
 	    <obj>40,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
 	    <obj>51,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
@@ -218,6 +218,7 @@
 	    <obj>174,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
 			<obj>176,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
     
+    -->
     </row>
     
     <!--Blocks-->  

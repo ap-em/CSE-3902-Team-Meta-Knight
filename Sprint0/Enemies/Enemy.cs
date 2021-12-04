@@ -30,7 +30,7 @@ namespace Sprint0.Enemies
         private SoundInfo soundInfo;
         private String direction = GameUtilities.right;
         private Vector2 position;
-        private IEnemyState currentState; 
+        private IEnemyState currentState;
         private IKeyboardController keyboard;
         private ISprite sprite;
         private EnemyHealthStateMachine healthStateMachine;
@@ -41,6 +41,7 @@ namespace Sprint0.Enemies
         public Vector2 Position { get => position; set => position = value; }
 
         public ISprite Sprite => sprite;
+        public IEnemyState CurrentState { get => currentState; set => currentState = value; }
 
         public Enemy(String spriteName, Vector2 position)
         {
@@ -64,7 +65,7 @@ namespace Sprint0.Enemies
         public void StartRemovalTimer()
         {
             //remove object after 100 milliseconds
-            TimerManager.Instance.AddToTimerList(this, new Timer(this, 100, RemoveGameObject));
+            TimerManager.Instance.AddToTimerList(new Timer(100, RemoveGameObject));
         }
         public void TakeDamage()
         {
@@ -158,10 +159,6 @@ namespace Sprint0.Enemies
         {
             this.direction = direction;
             SetSprite(enemyType);
-        }
-        public void SetCurrentState(IEnemyState enemyState)
-        {
-            currentState = enemyState;
         }
         public void Update()
         {
