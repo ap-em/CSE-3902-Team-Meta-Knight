@@ -60,6 +60,36 @@
     <obj2Command>Sprint0.Commands.CNothing</obj2Command>
   </collisionInstance>
   
+   <!--Enemy vs Projectile-->
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Projectile</obj2>
+    <direction>Top</direction>
+    <obj1Command>Sprint0.Commands.CDamageEnemy</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Projectile</obj2>
+    <direction>Bottom</direction>
+    <obj1Command>Sprint0.Commands.CDamageEnemy</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Projectile</obj2>
+    <direction>Left</direction>
+    <obj1Command>Sprint0.Commands.CDamageEnemy</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  <collisionInstance>
+    <obj1>Sprint0.Enemies.Enemy</obj1>
+    <obj2>Sprint0.Projectile</obj2>
+    <direction>Right</direction>
+    <obj1Command>Sprint0.Commands.CDamageEnemy</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  
 	<!--Enemy vs KillBox-->
 	<collisionInstance>
 		<obj1>Sprint0.Enemies.Enemy</obj1>

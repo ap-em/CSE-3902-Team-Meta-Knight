@@ -135,7 +135,6 @@ namespace Sprint0.Enemies
 
         public void Update()
         {
-            Debug.WriteLine(enemy.Grounded);
             enemy.Move(velocity);
         }
     }
