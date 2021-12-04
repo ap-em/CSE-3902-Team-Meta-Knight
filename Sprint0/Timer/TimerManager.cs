@@ -116,6 +116,7 @@ namespace Sprint0.Timers
                     timersRemovalQueue.Remove(go);
                 }
             }
+            objectRemovalList.Clear();
 
             foreach (KeyValuePair<IGameObject, List<ITimer>> KeyValuePair in timersRemovalQueue)
             {

@@ -36,6 +36,8 @@ namespace Sprint0.Enemies
         private EnemyHealthStateMachine healthStateMachine;
         public String enemyType = GameUtilities.emptyString;
         private String spriteName = GameUtilities.emptyString;
+        private bool grounded = false;
+        public bool Grounded { get => grounded; set => grounded = value; }
         public Vector2 Position { get => position; set => position = value; }
 
         public ISprite Sprite => sprite;
@@ -127,7 +129,10 @@ namespace Sprint0.Enemies
         }
         public void Move(Vector2 velocity)
         {
+            if (grounded)
+                velocity.Y = 0;
             position = new Vector2(position.X + velocity.X, position.Y + velocity.Y);
+
         }
 
         public void SetXVelocity(float x)
@@ -171,7 +176,7 @@ namespace Sprint0.Enemies
         }
         public bool GetGrounded()
         {
-            return currentState.GetGrounded();
+            return grounded;
         }
 
         public void SetGrounded(bool grounded)

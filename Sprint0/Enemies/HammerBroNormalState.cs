@@ -139,14 +139,9 @@ namespace Sprint0.Enemies
             return new Vector2(0, 0);
         }
 
-        public bool GetGrounded()
-        {
-            return false;
-        }
-
         public void SetGrounded(bool grounded)
         {
-
+            enemy.Grounded = grounded;
         }
 
         public void Update()

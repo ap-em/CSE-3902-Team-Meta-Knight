@@ -16,6 +16,7 @@ namespace Sprint0.Interfaces
 {
     public interface IEnemy
     {
+        public bool Grounded { get; set; }
         public String GetStateID();
         public void GetKicked(Rectangle rec);
         public Vector2 Position { get; set; }
