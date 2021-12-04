@@ -26,7 +26,7 @@ namespace Sprint0.HUD
             font = Game0.Instance.Content.Load<SpriteFont>("Font");
 
             //reset after 8.75 seconds
-            TimerManager.Instance.AddToTimerList(go, new Timer(go, GameUtilities.gameOverTimerFinish, ResetGame));
+            TimerManager.Instance.AddToTimerList(new Timer(GameUtilities.gameOverTimerFinish, ResetGame));
 
             background = Game0.Instance.Content.Load <Texture2D>("GameoverSMB");
 

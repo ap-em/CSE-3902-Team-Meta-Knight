@@ -41,7 +41,7 @@ namespace Sprint0.Enemies
         public void TakeDamage()
         {
             enemy.SetHealth(enemy.GetHealth() - 1);
-            enemy.SetCurrentState(new KoopaShellState(enemy));
+            enemy.CurrentState = new KoopaShellState(enemy);
         }
         public void GetKicked(Rectangle rec)
         {

@@ -47,7 +47,7 @@ namespace Sprint0.UtilityClasses
 
         //magic number in hammerbro
         public static int hammerVelocityX = 5;
-        public static int hammerVelocityY = 12;
+        public static int hammerVelocityY = 20;
         public static int hammerFuse = 150;
 
         //magic number in Koopa

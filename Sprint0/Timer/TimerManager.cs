@@ -23,9 +23,9 @@ namespace Sprint0.Timers
 {
     public sealed class TimerManager
     {
-        private Dictionary<IGameObject, List<ITimer>> timerInsertQueue = new Dictionary<IGameObject, List<ITimer>>();
-        private Dictionary<IGameObject, List<ITimer>> timersRemovalQueue = new Dictionary<IGameObject, List<ITimer>>();
-        private Dictionary<IGameObject, List<ITimer>> timers = new Dictionary<IGameObject, List<ITimer>>();
+        private List<ITimer> timerInsertQueue = new List<ITimer>();
+        private List<ITimer> timerRemovalQueue = new List<ITimer>();
+        private List<ITimer> timers = new List<ITimer>();
         private List<IGameObject> objectRemovalList = new List<IGameObject>();
         private static TimerManager instance;
         public static TimerManager Instance
@@ -45,103 +45,44 @@ namespace Sprint0.Timers
         {
 
         }
-        public void AddToTimerList(IGameObject go, ITimer timer)
+        public void AddToTimerList(ITimer timer)
         {
-            // if gameObject is in queue already just add the timer to the list
-            if (timerInsertQueue.ContainsKey(go))
-            {
-                timerInsertQueue.GetValueOrDefault(go).Add(timer);
-            }
-            // if gameObject isnt in queue add it to the queue with a new list of timers
-            else
-            {
-                List<ITimer> list = new List<ITimer>();
-                list.Add(timer);
-                timerInsertQueue.Add(go, list);
-            }
+            timerInsertQueue.Add(timer);
         }
         public void AddTimers()
         {
-            foreach(KeyValuePair<IGameObject, List<ITimer>> KeyValuePair in timerInsertQueue)
+            foreach(ITimer timer in timerInsertQueue)
             {
-
-                // if timer contains gameObject key then add all the timers to that key
-                if(timers.ContainsKey(KeyValuePair.Key))
-                {
-                    foreach (ITimer timer in KeyValuePair.Value)
-                    {
-                        timers.GetValueOrDefault(KeyValuePair.Key).Add(timer);
-                    }
-                }
-                // if timer doesn't contain key add a new instance of key, value
-                else
-                {
-                    timers.Add(KeyValuePair.Key, KeyValuePair.Value);
-                }
+                timers.Add(timer);
             }
 
             timerInsertQueue.Clear();
         }
-        public void RemoveAllObjectTimers(IGameObject go)
+        public void RemoveAllTimers()
         {
-            objectRemovalList.Add(go);
-
+            timerRemovalQueue.Clear();
+            timers.Clear();
         }
-        public void RemoveFromTimerList(IGameObject go, ITimer timer)
+        public void RemoveFromTimerList(ITimer timer)
         {
-            // if the gameObject is already in queue add the timer to the list
-            if(timersRemovalQueue.ContainsKey(go))
-            {
-                timersRemovalQueue.GetValueOrDefault(go).Add(timer);
-            }
-            // if gameObject isnt in queue add it to the queue with a new list of timers
-            else
-            {
-                List<ITimer> list = new List<ITimer>();
-                list.Add(timer);
-                timersRemovalQueue.Add(go, list);
-            }
+            timerRemovalQueue.Add(timer);
         }
         public void RemoveTimers()
         {
 
-            foreach(IGameObject go in objectRemovalList)
+            foreach(ITimer timer in timerRemovalQueue)
             {
-                if(timers.ContainsKey(go))
-                {
-                    timers.Remove(go);
-                }
-                if(timersRemovalQueue.ContainsKey(go))
-                {
-                    timersRemovalQueue.Remove(go);
-                }
-            }
-            objectRemovalList.Clear();
-
-            foreach (KeyValuePair<IGameObject, List<ITimer>> KeyValuePair in timersRemovalQueue)
-            {
-                // if timer contains gameObject key then remove all the timers from that key
-                if (timers.ContainsKey(KeyValuePair.Key))
-                {
-                    // foreach timer in list remove from timers
-                    foreach (ITimer timer in KeyValuePair.Value)
-                    {
-                        timers.GetValueOrDefault(KeyValuePair.Key).Remove(timer);
-                    }
-                }
+                timers.Remove(timer);
             }
 
-            timersRemovalQueue.Clear();
+            timerRemovalQueue.Clear();
         }
         public void Update(GameTime gameTime)
         {
             AddTimers();
-            foreach(List<ITimer> timerList in timers.Values)
+            foreach(ITimer timer in timers)
             {
-                foreach(ITimer timer in timerList)
-                {
-                    timer.Update(gameTime);
-                }
+                timer.Update(gameTime);
             }
             RemoveTimers();
         }

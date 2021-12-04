@@ -126,7 +126,6 @@ namespace Sprint0
                     collidableGameObjects.Remove((ICollidable)go);
                 }
                 gameObjects.Remove(go);
-                TimerManager.Instance.RemoveAllObjectTimers(go);
             }
 
             gameObjectRemovalQueue.Clear();

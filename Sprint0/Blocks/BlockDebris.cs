@@ -34,7 +34,7 @@ namespace Sprint0.Blocks
         public BlockDebris(String spriteName, Vector2 position)
         {
             //remove debris after 1000 millisecond
-            TimerManager.Instance.AddToTimerList(this, new Timer(this, 1000, RemoveDebris));
+            TimerManager.Instance.AddToTimerList(new Timer(1000, RemoveDebris));
 
 
             //top left debris location
