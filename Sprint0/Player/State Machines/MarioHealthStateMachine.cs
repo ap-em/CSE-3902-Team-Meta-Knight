@@ -65,8 +65,7 @@ namespace Sprint0
                 invincibility = true;
 
                 //do a state transition for 1000 milliseconds
-                Timer damageStateTimer = new Timer(1000, DamageStateTransition);
-                damageStateTimer.StartTimer();
+                TimerManager.Instance.AddToTimerList((IGameObject)mario, new Timer((IGameObject) mario, 1000, DamageStateTransition));
 
                 switch (currentHealth)
                 {
@@ -105,8 +104,7 @@ namespace Sprint0
             LevelFactory.Instance.StopTheme();
 
             //remove object after 10000 milliseconds
-            Timer invincibilityTimer = new Timer(10000, StarPowerTransition);
-            invincibilityTimer.StartTimer();
+            TimerManager.Instance.AddToTimerList((IGameObject)mario, new Timer((IGameObject)mario, 10000, StarPowerTransition));
 
             previousHealth = currentHealth;
             currentHealth = MarioHealth.star;
@@ -131,7 +129,7 @@ namespace Sprint0
         {
 
         }
-        public void DamageStateTransition(Object source, System.Timers.ElapsedEventArgs e)
+        public void DamageStateTransition()
         {
             invincibility = false;
 
@@ -148,7 +146,7 @@ namespace Sprint0
                 mario.OnStateChange();
             }
         }
-        public void StarPowerTransition(Object source, System.Timers.ElapsedEventArgs e)
+        public void StarPowerTransition()
         {
             LevelFactory.Instance.StartTheme();
             invincibility = false;

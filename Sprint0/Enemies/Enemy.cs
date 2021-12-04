@@ -62,8 +62,7 @@ namespace Sprint0.Enemies
         public void StartRemovalTimer()
         {
             //remove object after 100 milliseconds
-            Timer removalTimer = new Timer(100, RemoveGameObject);
-            removalTimer.StartTimer();
+            TimerManager.Instance.AddToTimerList(this, new Timer(this, 100, RemoveGameObject));
         }
         public void TakeDamage()
         {
@@ -166,7 +165,7 @@ namespace Sprint0.Enemies
             sprite.Update();
         }
 
-        public void RemoveGameObject(Object source, System.Timers.ElapsedEventArgs e)
+        public void RemoveGameObject()
         {
             GameObjectManager.Instance.RemoveFromObjectList(this);
         }

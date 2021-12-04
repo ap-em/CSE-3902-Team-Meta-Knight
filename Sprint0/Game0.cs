@@ -18,6 +18,7 @@ using Sprint0.Items;
 using Sprint0.UtilityClasses;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Sprint0.Timers;
 
 /*
  * Team MetaKnight 2021 CSE 3902
@@ -83,6 +84,7 @@ namespace Sprint0
                 GameObjectManager.Instance.UpdateGameObjects();
                 CameraManager.Instance.Update();
                 HUDManager.Instance.Update();
+                TimerManager.Instance.Update(gameTime);
             }
         }
 

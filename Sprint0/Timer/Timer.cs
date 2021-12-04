@@ -21,27 +21,30 @@ Owen Huston*/
 
 namespace Sprint0.Timers
 {
-    class Timer
+    class Timer: ITimer
     {
-        private ElapsedEventHandler method;
-        private int milliseconds; 
-        public Timer(int milliseconds, ElapsedEventHandler method)
+        private Action method;
+        private int milliseconds;
+        private int timePassed = 0;
+        private IGameObject go;
+        public IGameObject GameObject { get => go; }
+        public String methodName { get => method.Method.Name; }
+        public Timer(IGameObject go, int milliseconds, Action method)
         {
+            this.go = go;
             this.milliseconds = milliseconds;
             this.method = method;
 
         }
-        public void StartTimer()
+        public void Update(GameTime gameTime)
         {
-            System.Timers.Timer timer = new System.Timers.Timer();
+            timePassed += gameTime.ElapsedGameTime.Milliseconds;
 
-            timer.Interval = milliseconds;
-
-            timer.Elapsed += method;
-
-            timer.AutoReset = false;
-
-            timer.Enabled = true;
+            if (timePassed >= milliseconds)
+            {
+                method();
+                TimerManager.Instance.RemoveFromTimerList(go, this);
+            }
         }
     }
 }

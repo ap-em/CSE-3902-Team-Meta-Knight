@@ -68,8 +68,7 @@ namespace Sprint0.Blocks
             BounceUp();
 
             // bounce back down after 50 milliseconds
-            Timer bounceDownTimer = new Timer(50, BounceDown);
-            bounceDownTimer.StartTimer();
+            TimerManager.Instance.AddToTimerList(this, new Timer(this, 50, BounceDown));
 
 
             // only hit the block if it hasn't been hit before
@@ -81,8 +80,7 @@ namespace Sprint0.Blocks
                     soundInfo.PlaySound("brickbreak", false);
 
                     // break block after 60 milliseconds
-                    Timer breakBlockTimer = new Timer(60, BreakBlock);
-                    breakBlockTimer.StartTimer();
+                    TimerManager.Instance.AddToTimerList(this, new Timer(this, 60, BreakBlock));
 
                     // add 10 points to score
                     IHUD hud = HUDManager.Instance.GetHUD((IGameObject)mario);
@@ -96,11 +94,11 @@ namespace Sprint0.Blocks
         {
             Position = new Vector2(Position.X, Position.Y - 5);
         }
-        public void BounceDown(Object source, System.Timers.ElapsedEventArgs e)
+        public void BounceDown()
         {
             Position = new Vector2(Position.X, Position.Y + 5);
         }
-        public void BreakBlock(Object source, System.Timers.ElapsedEventArgs e)
+        public void BreakBlock()
         {
             GameObjectManager.Instance.AddToObjectList(new BlockDebris("BrickDebris", Position), 0, 0);
             GameObjectManager.Instance.RemoveFromObjectList(this);

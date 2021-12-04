@@ -34,8 +34,7 @@ namespace Sprint0.Blocks
         public BlockDebris(String spriteName, Vector2 position)
         {
             //remove debris after 1000 millisecond
-            Timer timer = new Timer(1000, RemoveDebris);
-            timer.StartTimer();
+            TimerManager.Instance.AddToTimerList(this, new Timer(this, 1000, RemoveDebris));
 
 
             //top left debris location
@@ -82,7 +81,7 @@ namespace Sprint0.Blocks
                 locations[i] += velocities[i];
             }
         }
-        public void RemoveDebris(Object source, System.Timers.ElapsedEventArgs e)
+        public void RemoveDebris()
         {
             GameObjectManager.Instance.RemoveFromObjectList(this);
         }

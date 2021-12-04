@@ -34,10 +34,9 @@ namespace Sprint0.Enemies
             this.enemy = enemy;
 
             //start throwing after a second
-            Timer throwTimer = new Timer(5000, Throw);
-            throwTimer.StartTimer();
+            TimerManager.Instance.AddToTimerList((IGameObject)enemy, new Timer((IGameObject)enemy, 5000, Throw));
         }
-        public void Throw(Object source, System.Timers.ElapsedEventArgs e)
+        public void Throw()
         {
             // shoot left
             if(enemy.GetDirection() == GameUtilities.left)
@@ -59,8 +58,7 @@ namespace Sprint0.Enemies
             if(shootNum == 10)
             {
                 //start throwing after a second
-                Timer throwTimer = new Timer(200, Throw);
-                throwTimer.StartTimer();
+                TimerManager.Instance.AddToTimerList((IGameObject)enemy, new Timer((IGameObject)enemy, 200, Throw));
             }
             else
             {
@@ -69,13 +67,12 @@ namespace Sprint0.Enemies
                 Random rand = new Random();
                 int waitTime = rand.Next(1000, 5000);
 
-                Timer waitTimer = new Timer(waitTime, Wait);
-                waitTimer.StartTimer();
+                TimerManager.Instance.AddToTimerList((IGameObject)enemy, new Timer((IGameObject)enemy, waitTime, Wait));
             }
         }
-        public void Wait(Object source, System.Timers.ElapsedEventArgs e)
+        public void Wait()
         {
-            Throw(source, e);
+            Throw();
         }
         public String GetStateID()
         {
@@ -83,6 +80,7 @@ namespace Sprint0.Enemies
         }
         public void TakeDamage()
         {
+            TimerManager.Instance.RemoveAllObjectTimers((IGameObject)enemy);
             enemy.SetHealth(enemy.GetHealth() - 1);
             enemy.SetCurrentState(new KoopaShellState(enemy));
         }
