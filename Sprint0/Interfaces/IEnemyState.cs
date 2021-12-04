@@ -23,7 +23,6 @@ namespace Sprint0.Interfaces
         public void SetYVelocity(float y);
         public Vector2 GetVelocity();
         public void Update();
-        public bool GetGrounded();
         public void SetGrounded(bool grounded);
         public void UpBounce(Rectangle rectangle);
         public void DownBounce(Rectangle rectangle);

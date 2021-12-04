@@ -24,10 +24,9 @@ namespace Sprint0.HUD
             soundInfo = new SoundInfo();
             gameObject = go;
             font = Game0.Instance.Content.Load<SpriteFont>("Font");
-            
+
             //reset after 8.75 seconds
-            Timer resetTimer = new Timer(GameUtilities.gameOverTimerFinish, ResetGame);
-            resetTimer.StartTimer();
+            TimerManager.Instance.AddToTimerList(new Timer(GameUtilities.gameOverTimerFinish, ResetGame));
 
             background = Game0.Instance.Content.Load <Texture2D>("GameoverSMB");
 
@@ -43,7 +42,7 @@ namespace Sprint0.HUD
             spriteBatch.Draw(background, new Rectangle(-1000, -1000, 7750, 5000), Color.Black);
            spriteBatch.DrawString(font, "GAMEOVER ", new Vector2(camera.GetPosition().X + camera.GetViewport().Width/ 2 - 50, camera.GetPosition().Y + camera.GetViewport().Height / 2), Color.White);
         }
-        public void ResetGame(Object source, System.Timers.ElapsedEventArgs e)
+        public void ResetGame()
         {
             new CResetGame((IMario)gameObject).Execute();
         }

@@ -24,10 +24,6 @@ namespace Sprint0.UtilityClasses
         public static string bottom = "Bottom";
         public static string worldOneOne = "1-1";
 
-
-        //magic number for level
-        public static int currentLevel = 1;
-
         // magic number in Game0
         public static float timeSpan = 1/30.0f;
         public static int marioInitialPosX = 50;
@@ -48,6 +44,11 @@ namespace Sprint0.UtilityClasses
         public static int goombaHearts = 1;
         public static int goombaSpeed = 1;
         public static int goombaRemovalTimer = 7;
+
+        //magic number in hammerbro
+        public static int hammerVelocityX = 5;
+        public static int hammerVelocityY = 20;
+        public static int hammerFuse = 150;
 
         //magic number in Koopa
         public static int koopaHearts = 1;
@@ -72,9 +73,9 @@ namespace Sprint0.UtilityClasses
 
         //magic number in mario state machine
         public static int upperBounceValue = 14;
-        public static int jumpXvalue = 5;
-        public static int fireBallVelocityX = 10;
-        public static int fuseTime = 30;
+        public static Vector2 fireBallPosition = new Vector2(3,20);
+        public static int fireBallVelocityX = 15;
+        public static int fuseTime = 75;
         public static  int currentMaxJumpTime = 5;
         public static  int maxJumpTime = 10;
         public static int maxTimeFlagTurn = 10;

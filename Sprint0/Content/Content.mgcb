@@ -43,6 +43,18 @@
 /processorParam:Quality=Best
 /build:brickbreak.mp3
 
+#begin bullet_bill.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:bullet_bill.png
+
 #begin characters.gif
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -92,6 +104,18 @@
 /processorParam:Quality=Best
 /build:goombadeath.mp3
 
+#begin hammer_bro.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:hammer_bro.png
+
 #begin itemblock.mp3
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
@@ -127,18 +151,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:link.png
-
-#begin mario.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:mario.png
 
 #begin Mario.png
 /importer:TextureImporter

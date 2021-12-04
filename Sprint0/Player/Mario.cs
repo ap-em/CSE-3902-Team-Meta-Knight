@@ -34,12 +34,13 @@ namespace Sprint0
         public Vector2 Position { get => position; set => position = value; }
 
         public ISprite Sprite => currentSprite;
+        public MarioHealthStateMachine HealthStateMachine { get => healthStateMachine; }
 
         public Mario(String spriteName, Vector2 position)
         {
             this.position = position;
             initialPosition = position;
-            CameraManager.Instance.CreateLevel1Camera(this);
+            CameraManager.Instance.CinematicCamera(this);
             PlayerKeyboardManager.Instance.CreateKeyboard(this);
             HUDManager.Instance.CreateHUD(this);
             healthStateMachine = new MarioHealthStateMachine(this);
@@ -170,6 +171,8 @@ namespace Sprint0
         }
         public void UpBounce(Rectangle rectangle)
         {
+            // level 2 camera only updates position when we land on something
+            CameraManager.Instance.GetCamera(this).UpdateCamera2Position();
             currentState.UpBounce(rectangle);
         }
         public void DownBounce(Rectangle rectangle)
@@ -209,7 +212,7 @@ namespace Sprint0
         public void Reset(Vector2 position)
         {
             Position = position;
-            CameraManager.Instance.ResetCamera(this);
+            isGrounded = false;
             currentState = new RightFacingFlagMario(this);
             healthStateMachine.ResetHealth();
             OnStateChange();

@@ -7,6 +7,8 @@ using Sprint0.Interfaces;
 using Sprint0.Sprites;
 using Sprint0.Enemies;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.UtilityClasses;
+using Sprint0.Sprites.SpriteFactory;
 
 /*
 Alex Clayton
@@ -24,19 +26,21 @@ namespace Sprint0
     public class Projectile : IProjectile, IGameObject, IDraw, IUpdate, IMovable, ICollidable, IBounce
     {
         private int fuseTime;
+        private string spriteName;
         private ISprite sprite;
         private float XVelocity;
         private float YVelocity;
         private Vector2 position;
         private bool grounded = false;
-        private float gravity = 5f;
         public Vector2 Position { get => this.position; set => throw new NotImplementedException(); }
 
         public ISprite Sprite => sprite;
-        public Projectile(ISprite sprite, 
+        public String SpriteName { get => spriteName; }
+        public Projectile(String spriteName, 
             Vector2 location, float XVelocity, float YVelocity, int fuseTime)
         {
-            this.sprite = sprite;
+            this.spriteName = spriteName;
+            this.sprite = SpriteFactory.Instance.GetSprite(spriteName);
             this.XVelocity = XVelocity;
             this.YVelocity = YVelocity;
             this.fuseTime = fuseTime;
@@ -58,7 +62,8 @@ namespace Sprint0
         {
             if(!grounded)
             {
-                position = new Vector2(position.X + XVelocity, position.Y + YVelocity + gravity);
+                position = new Vector2(position.X + XVelocity, position.Y + YVelocity );
+                YVelocity++;
             }
             else 
             {
@@ -72,12 +77,14 @@ namespace Sprint0
         public void UpBounce(Rectangle rec)
         {
             position = new Vector2(position.X, position.Y - rec.Height);
-            //lower velocity and inverse direction
-            YVelocity = (YVelocity + 0.5f) * -1;
+            //lower velocity by a 4th and inverse direction
+            YVelocity = -1*(YVelocity - YVelocity/4);
+            XVelocity = XVelocity - XVelocity / 4;
         }
         public void Update()
         {
             Move();
+            sprite.Update();
             if (fuseTime < 0) GameObjectManager.Instance.RemoveFromObjectList(this);
             fuseTime--;
         }

@@ -24,6 +24,7 @@ namespace Sprint0.Blocks
 {
     class StarBlock : IBlock, IGameObject, IUpdate, IDraw, ICollidable, IDynamicBlock
     {
+        private bool hit = false;
         private ISprite sprite;
         private String spriteName;
         private SoundInfo soundInfo;
@@ -65,19 +66,22 @@ namespace Sprint0.Blocks
             BounceUp();
 
             // bounce back down after 50 milliseconds
-            Timer bounceDownTimer = new Timer(50, BounceDown);
-            bounceDownTimer.StartTimer();
+            TimerManager.Instance.AddToTimerList(new Timer(50, BounceDown));
 
 
-            soundInfo.PlaySound("itemblock", false);
-            GameObjectManager.Instance.AddToObjectList(new Item("Star", new Vector2(Position.X, Position.Y - 32)), 0, 0);
-            SetSprite("UsedItemBlock");
+            if (!hit)
+            {
+                soundInfo.PlaySound("itemblock", false);
+                GameObjectManager.Instance.AddToObjectList(new Item("Star", new Vector2(Position.X, Position.Y - 32)), 0, 0);
+                SetSprite("UsedItemBlock");
+                hit = true;
+            }
         }
         public void BounceUp()
         {
             Position = new Vector2(Position.X, Position.Y - 5);
         }
-        public void BounceDown(Object source, System.Timers.ElapsedEventArgs e)
+        public void BounceDown()
         {
             Position = new Vector2(Position.X, Position.Y + 5);
         }

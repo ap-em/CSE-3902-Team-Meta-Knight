@@ -8,6 +8,8 @@ using System.Diagnostics;
 using System.Text;
 using Sprint0.UtilityClasses;
 using Sprint0.Controllers;
+using Sprint0.Timers;
+
 namespace Sprint0
 {
     /*
@@ -184,9 +186,9 @@ namespace Sprint0
                 {
                     //make sure object is bounds of array
                     if (x < 0) x = 0;
-                    else if (x > 998) x = 998;
+                    else if (x > maxRowLength - 1) x = maxRowLength - 1;
                     if (y < 0) y = 0;
-                    else if (y > 99) y = 99;
+                    else if (y > maxNumberOfRows - 1) y = maxNumberOfRows - 1;
                     if (staticGameObjects[x][y] != null)
                     {
                         //dynamic blocks get drawn from drawable list
@@ -218,9 +220,17 @@ namespace Sprint0
             {
                 position.X = width;
             }
+            else if(position.X + width >= maxRowLength)
+            {
+                position.X = maxRowLength - width - 1;
+            }
             if (position.Y - height < 1)
             {
                 position.Y = height;
+            }
+            else if(position.Y + height >= maxNumberOfRows)
+            {
+                position.Y = maxNumberOfRows - height - 1;
             }
 
 

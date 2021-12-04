@@ -24,6 +24,7 @@ namespace Sprint0.Blocks
 {
     class MushroomBlock : IBlock, IGameObject, IUpdate, IDraw, ICollidable, IDynamicBlock
     {
+        private bool hit = false;
         private ISprite sprite;
         private String spriteName;
         private SoundInfo soundInfo;
@@ -65,19 +66,32 @@ namespace Sprint0.Blocks
             BounceUp();
 
             // bounce back down after 50 milliseconds
-            Timer bounceDownTimer = new Timer(50, BounceDown);
-            bounceDownTimer.StartTimer();
+            TimerManager.Instance.AddToTimerList(new Timer(50, BounceDown));
 
-            soundInfo.PlaySound("itemblock", false);
-            GameObjectManager.Instance.AddToObjectList(new Item("Mushroom", new Vector2(Position.X, Position.Y - 32)), 0, 0);
-            SetSprite("UsedItemBlock");
+            //only hit if we haven't hit before
+            if (!hit)
+            {
+                // if mario is at full health spawn a fireflower
+                if(mario.GetHealthState() == "Full")
+                {
+                    GameObjectManager.Instance.AddToObjectList(new Item("Fireflower", new Vector2(Position.X, Position.Y - 32)), 0, 0);
+                }
+                // if mario is below full health spawn a mushroom
+                else
+                {
+                    GameObjectManager.Instance.AddToObjectList(new Item("Mushroom", new Vector2(Position.X, Position.Y - 32)), 0, 0);
+                }
 
+                soundInfo.PlaySound("itemblock", false);
+                SetSprite("UsedItemBlock");
+                hit = true;
+            }
         }
         public void BounceUp()
         {
             Position = new Vector2(Position.X, Position.Y - 5);
         }
-        public void BounceDown(Object source, System.Timers.ElapsedEventArgs e)
+        public void BounceDown()
         {
             Position = new Vector2(Position.X, Position.Y + 5);
         }

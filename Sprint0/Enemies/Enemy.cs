@@ -30,16 +30,18 @@ namespace Sprint0.Enemies
         private SoundInfo soundInfo;
         private String direction = GameUtilities.right;
         private Vector2 position;
-        private IEnemyState currentState; 
+        private IEnemyState currentState;
         private IKeyboardController keyboard;
         private ISprite sprite;
         private EnemyHealthStateMachine healthStateMachine;
         public String enemyType = GameUtilities.emptyString;
         private String spriteName = GameUtilities.emptyString;
-
+        private bool grounded = false;
+        public bool Grounded { get => grounded; set => grounded = value; }
         public Vector2 Position { get => position; set => position = value; }
 
         public ISprite Sprite => sprite;
+        public IEnemyState CurrentState { get => currentState; set => currentState = value; }
 
         public Enemy(String spriteName, Vector2 position)
         {
@@ -47,6 +49,7 @@ namespace Sprint0.Enemies
             enemyType = spriteName;
             healthStateMachine = new EnemyHealthStateMachine(NameToStateMapping.Instance.GetHealth(spriteName));
             keyboard = ControllerLoader.Instance.SetUpEnemyKeyboard(this);
+
             this.spriteName = direction + "Idle" + enemyType + healthStateMachine.GetHealth() + "Health";
             sprite = SpriteFactory.Instance.GetSprite(this.spriteName);
 
@@ -54,16 +57,16 @@ namespace Sprint0.Enemies
             soundString = NameToStateMapping.Instance.GetSound(spriteName);
 
             currentState = NameToStateMapping.Instance.GetState(spriteName, this);
+            SetSprite(enemyType);
         }
         public String GetStateID()
         {
             return currentState.GetStateID();
         }
-        public void StartRemovalTimer()
+        public void StartRemovalTimer(int milliseconds)
         {
             //remove object after 100 milliseconds
-            Timer removalTimer = new Timer(100, RemoveGameObject);
-            removalTimer.StartTimer();
+            TimerManager.Instance.AddToTimerList(new Timer(milliseconds, RemoveGameObject));
         }
         public void TakeDamage()
         {
@@ -117,20 +120,21 @@ namespace Sprint0.Enemies
 
         public void MoveRight()
         {
-            direction = GameUtilities.right;
             currentState.MoveRight();
             SetSprite(enemyType);
         }
 
         public void MoveLeft()
         {
-            direction = GameUtilities.left;
             currentState.MoveLeft();
             SetSprite(enemyType);
         }
         public void Move(Vector2 velocity)
         {
+            if (grounded)
+                velocity.Y = 0;
             position = new Vector2(position.X + velocity.X, position.Y + velocity.Y);
+
         }
 
         public void SetXVelocity(float x)
@@ -155,10 +159,8 @@ namespace Sprint0.Enemies
         public void SetDirection(String direction)
         {
             this.direction = direction;
-        }
-        public void SetCurrentState(IEnemyState enemyState)
-        {
-            currentState = enemyState;
+            if(currentState != null)
+                SetSprite(enemyType);
         }
         public void Update()
         {
@@ -167,13 +169,13 @@ namespace Sprint0.Enemies
             sprite.Update();
         }
 
-        public void RemoveGameObject(Object source, System.Timers.ElapsedEventArgs e)
+        public void RemoveGameObject()
         {
             GameObjectManager.Instance.RemoveFromObjectList(this);
         }
         public bool GetGrounded()
         {
-            return currentState.GetGrounded();
+            return grounded;
         }
 
         public void SetGrounded(bool grounded)

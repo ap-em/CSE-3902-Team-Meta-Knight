@@ -334,6 +334,13 @@
   },
   {
     "DataX": [ 363, 390 ],
+    "DataY": [ 174, 173 ],
+    "Data": [ 16, 32, 2 ],
+    "SpriteName": "RightClimbMarioFire",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 363, 390 ],
     "DataY": [ 104, 103 ],
     "Data": [ 16, 32, 2 ],
     "SpriteName": "RightClimbMarioFull",
@@ -358,6 +365,13 @@
     "DataY": [ 103, 104 ],
     "Data": [ 16, 32, 1 ],
     "SpriteName": "LeftClimbMarioFull",
+    "SpriteSheet": "mario"
+  },
+  {
+    "DataX": [ 1, 28 ],
+    "DataY": [ 173, 174 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "LeftClimbMarioFire",
     "SpriteSheet": "mario"
   },
   {
@@ -724,6 +738,62 @@
     "Data": [ 16, 24, 1 ],
     "SpriteName": "Koopa0Health",
     "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 138 ],
+    "DataY": [ 124 ],
+    "Data": [ 24, 31, 1 ],
+    "SpriteName": "RightIdleHammerBro1Health",
+    "SpriteSheet": "hammer_bro"
+  },
+  {
+    "DataX": [ 30 ],
+    "DataY": [ 124 ],
+    "Data": [ 24, 31, 1 ],
+    "SpriteName": "LeftIdleHammerBro1Health",
+    "SpriteSheet": "hammer_bro"
+  },
+  {
+    "DataX": [ 25 ],
+    "DataY": [ 0 ],
+    "Data": [ 25, 17, 1 ],
+    "SpriteName": "RightIdleBulletBill1Health",
+    "SpriteSheet": "bullet_bill"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 0 ],
+    "Data": [ 25, 17, 1 ],
+    "SpriteName": "LeftIdleBulletBill1Health",
+    "SpriteSheet": "bullet_bill"
+  },
+  {
+    "DataX": [ 25 ],
+    "DataY": [ 0 ],
+    "Data": [ 25, 17, 1 ],
+    "SpriteName": "RightMovingBulletBill1Health",
+    "SpriteSheet": "bullet_bill"
+  },
+  {
+    "DataX": [ 0 ],
+    "DataY": [ 0 ],
+    "Data": [ 25, 17, 1 ],
+    "SpriteName": "LeftMovingBulletBill1Health",
+    "SpriteSheet": "bullet_bill"
+  },
+  {
+    "DataX": [ 30 ],
+    "DataY": [ 124 ],
+    "Data": [ 24, 31, 1 ],
+    "SpriteName": "HammerBro0Health",
+    "SpriteSheet": "hammer_bro"
+  },
+  {
+    "DataX": [ 323, 343, 363, 381 ],
+    "DataY": [ 137, 137, 137, 137 ],
+    "Data": [ 16, 16, 4 ],
+    "SpriteName": "Hammer",
+    "SpriteSheet": "hammer_bro"
   },
   {
     "DataX": [ 82, 122 ],

@@ -33,6 +33,10 @@ namespace Sprint0
         {
             return position;
         }
+        public void UpdateCamera2Position()
+        {
+
+        }
         public Matrix GetMatrix()
         {
             return viewMatrix;

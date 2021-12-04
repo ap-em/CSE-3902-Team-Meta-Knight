@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.SpriteFactory;
 using Sprint0.Controllers;
 using Sprint0.UtilityClasses;
+using Sprint0.Timers;
 
 /*
 Alex Clayton
@@ -23,16 +24,34 @@ Owen Huston
 
 namespace Sprint0.Enemies
 {
-    public class KoopaNormalState : IEnemyState
+    public class BulletBillNormalState : IEnemyState
     {
-        private String ID = "KoopaNormal";
+        private String ID = "BulletBillNormalState";
         private IEnemy enemy;
-        private Vector2 velocity = new Vector2(0, GameUtilities.gravity);
-
-        public KoopaNormalState(IEnemy enemy)
+        private Vector2 velocity = new Vector2(-5, GameUtilities.gravity);
+        public BulletBillNormalState(IEnemy enemy)
         {
+            
             this.enemy = enemy;
-
+            enemy.Grounded = true;
+            enemy.SetDirection(GameUtilities.left);
+            //start throwing after a second
+            TimerManager.Instance.AddToTimerList(new Timer(8000, SwitchDirection));
+        }
+        public void SwitchDirection()
+        {
+            if (enemy.GetDirection() == GameUtilities.left)
+            {
+                velocity = new Vector2(-velocity.X, velocity.Y);
+                enemy.SetDirection(GameUtilities.right);
+            }
+            else
+            {
+                velocity = new Vector2(-velocity.X, velocity.Y);
+                enemy.SetDirection(GameUtilities.left);
+            }
+            
+            TimerManager.Instance.AddToTimerList(new Timer(8000, SwitchDirection));
         }
         public String GetStateID()
         {
@@ -40,8 +59,9 @@ namespace Sprint0.Enemies
         }
         public void TakeDamage()
         {
-            enemy.SetHealth(enemy.GetHealth() - 1);
-            enemy.CurrentState = new KoopaShellState(enemy);
+            velocity.X = 1;
+            enemy.Grounded = false;
+            enemy.StartRemovalTimer(3000);
         }
         public void GetKicked(Rectangle rec)
         {
@@ -50,41 +70,32 @@ namespace Sprint0.Enemies
 
         public void MoveRight()
         {
-            enemy.SetDirection(GameUtilities.right);
-            velocity.X = GameUtilities.koopaSpeed;
+
         }
 
         public void MoveLeft()
         {
-            enemy.SetDirection(GameUtilities.left);
-            velocity.X = -GameUtilities.koopaSpeed;
+            
         }
 
 
         public void UpBounce(Rectangle rectangle)
         {
-            enemy.Grounded = true;
-            enemy.Position = new Vector2(enemy.Position.X, enemy.Position.Y - rectangle.Height);
+
         }
 
         public void DownBounce(Rectangle rectangle)
         {
-            enemy.Position = new Vector2(enemy.Position.X, enemy.Position.Y + rectangle.Height);
 
         }
-
         public void RightBounce(Rectangle rectangle)
         {
-            enemy.Position = new Vector2(enemy.Position.X + rectangle.Width, enemy.Position.Y);
-            velocity.X = GameUtilities.koopaSpeed;
-            enemy.SetDirection(GameUtilities.right);
+
         }
 
         public void LeftBounce(Rectangle rectangle)
         {
-            enemy.Position = new Vector2(enemy.Position.X - rectangle.Width, enemy.Position.Y);
-            velocity.X = -GameUtilities.koopaSpeed;
-            enemy.SetDirection(GameUtilities.left);
+
         }
 
         public void BigUpBounce(Rectangle rectangle)
@@ -94,23 +105,22 @@ namespace Sprint0.Enemies
 
         public void SetXVelocity(float x)
         {
-            velocity.X = x;
+            
         }
 
         public void SetYVelocity(float y)
         {
-            velocity.Y = y;
+            
         }
 
         public Vector2 GetVelocity()
         {
-            return velocity;
+            return new Vector2(0, 0);
         }
-
 
         public void SetGrounded(bool grounded)
         {
-            enemy.Grounded = grounded;
+
         }
 
         public void Update()
@@ -119,5 +129,3 @@ namespace Sprint0.Enemies
         }
     }
 }
-
-

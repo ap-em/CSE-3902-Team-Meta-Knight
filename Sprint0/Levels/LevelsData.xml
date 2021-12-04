@@ -195,8 +195,22 @@
 	  <obj>197,3,1,0,Sprint0.Blocks.NoInteract,Flag</obj>
         
       <obj>2,10,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>
-		  
-        
+      
+      
+      <obj>52,11,1,0,Sprint0.Enemies.Enemy,HammerBro</obj>
+      
+      <obj>15,10,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
+      <obj>20,9,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
+      <obj>25,8,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
+      <obj>30,7,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
+      <obj>35,6,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
+      <obj>40,5,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
+      <obj>45,4,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
+      <obj>50,3,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
+      <obj>55,2,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
+      <obj>60,1,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
+      <obj>65,0,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
+      
       <obj>22,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
 	    <obj>40,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
 	    <obj>51,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
@@ -398,9 +412,11 @@
 
       <!--Player/Enemies-->
 	<row>
-		<obj>3,78,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>
+		<!--<obj>3,78,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>-->
 		<!-->For mario falling<-->
-		<!--<obj>3,1,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>-->
+		<obj>3,3,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>
+  
+  
     </row>
 
 
