@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Controllers;
 using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,8 @@ namespace Sprint0.Commands
         public void Execute()
         {
 
-            if (mario.IsJumping())
-            {
+            if (mario.IsJumping() || PlayerKeyboardManager.Instance.GetKeyboard((IGameObject)mario).GetLockInput()==true)
+            { 
                 block.BreakBlock(mario);
             }
                 

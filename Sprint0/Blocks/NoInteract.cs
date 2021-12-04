@@ -10,6 +10,7 @@ using System.Text;
 
 namespace Sprint0.Blocks
 {
+
     class NoInteract :  IGameObject, IDraw
     {
         private ISprite sprite;
@@ -29,12 +30,12 @@ namespace Sprint0.Blocks
             soundInfo = new SoundInfo();
         }
 
-        
 
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, location);
         }
+        
         public String GetSpriteName()
         {
             return spriteName;
