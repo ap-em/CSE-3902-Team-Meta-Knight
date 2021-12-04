@@ -8,6 +8,8 @@ using System.Diagnostics;
 using System.Text;
 using Sprint0.UtilityClasses;
 using Sprint0.Controllers;
+using Sprint0.Timers;
+
 namespace Sprint0
 {
     /*
@@ -124,6 +126,7 @@ namespace Sprint0
                     collidableGameObjects.Remove((ICollidable)go);
                 }
                 gameObjects.Remove(go);
+                TimerManager.Instance.RemoveAllObjectTimers(go);
             }
 
             gameObjectRemovalQueue.Clear();

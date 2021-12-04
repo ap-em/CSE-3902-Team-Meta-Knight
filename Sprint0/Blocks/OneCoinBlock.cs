@@ -67,8 +67,7 @@ namespace Sprint0.Blocks
             BounceUp();
 
             // bounce back down after 50 milliseconds
-            Timer bounceDownTimer = new Timer(50, BounceDown);
-            bounceDownTimer.StartTimer();
+            TimerManager.Instance.AddToTimerList(this, new Timer(this, 50, BounceDown));
 
 
             if (!hit)
@@ -83,7 +82,7 @@ namespace Sprint0.Blocks
         {
             Position = new Vector2(Position.X, Position.Y - 5);
         }
-        public void BounceDown(Object source, System.Timers.ElapsedEventArgs e)
+        public void BounceDown()
         {
             Position = new Vector2(Position.X, Position.Y + 5);
         }

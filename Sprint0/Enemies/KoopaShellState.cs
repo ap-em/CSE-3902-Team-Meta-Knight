@@ -27,8 +27,7 @@ namespace Sprint0.Enemies
     {
         private String ID = "KoopaShell";
         private IEnemy enemy;
-        private Vector2 velocity = new Vector2(0, 0);
-        private bool grounded = false;
+        private Vector2 velocity = new Vector2(0, GameUtilities.gravity);
         public KoopaShellState(IEnemy enemy)
         {
             this.enemy = enemy;
@@ -87,7 +86,7 @@ namespace Sprint0.Enemies
 
         public void UpBounce(Rectangle rectangle)
         {
-            grounded = true;
+            enemy.Grounded = true;
             enemy.Position = new Vector2(enemy.Position.X, enemy.Position.Y - rectangle.Height);
         }
 
@@ -129,22 +128,14 @@ namespace Sprint0.Enemies
             return velocity;
         }
 
-        public bool GetGrounded()
-        {
-            return grounded;
-        }
-
         public void SetGrounded(bool grounded)
-        {
-            if (grounded == false)
-                velocity.Y = GameUtilities.gravity;
-            else
-                velocity.Y = 0;
-            this.grounded = grounded;
+        { 
+            enemy.Grounded = grounded;
         }
 
         public void Update()
         {
+            Debug.WriteLine(enemy.Grounded);
             enemy.Move(velocity);
         }
     }
