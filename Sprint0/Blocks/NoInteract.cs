@@ -10,7 +10,8 @@ using System.Text;
 
 namespace Sprint0.Blocks
 {
-    class NoInteract : IGameObject, IDraw
+
+    class NoInteract :  IGameObject, IDraw
     {
         private ISprite sprite;
         private String spriteName;
@@ -30,11 +31,11 @@ namespace Sprint0.Blocks
         }
 
 
-
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, location);
         }
+        
         public String GetSpriteName()
         {
             return spriteName;

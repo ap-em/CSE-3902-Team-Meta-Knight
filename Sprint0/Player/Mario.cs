@@ -38,7 +38,8 @@ namespace Sprint0
         public Mario(String spriteName, Vector2 position)
         {
             this.position = position;
-            initialPosition = position;      
+            initialPosition = position;
+            CameraManager.Instance.CreateLevel1Camera(this);
             PlayerKeyboardManager.Instance.CreateKeyboard(this);
             HUDManager.Instance.CreateHUD(this);
             healthStateMachine = new MarioHealthStateMachine(this);
