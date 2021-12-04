@@ -35,6 +35,15 @@ namespace Sprint0.Commands
             {
                 enemy.TakeDamage();
             }
+            else if(collided is IProjectile)
+            {
+                IProjectile projectile = (IProjectile)collided;
+
+                if(projectile.SpriteName == "fireball")
+                {
+                    enemy.TakeDamage();
+                }
+            }
         }
     }
 }
