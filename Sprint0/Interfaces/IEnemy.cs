@@ -39,6 +39,6 @@ namespace Sprint0.Interfaces
         int GetHealth();
         void SetHealth(int health);
         void SetGrounded(bool grounded);
-        void StartRemovalTimer();
+        void StartRemovalTimer(int milliseconds);
     }
 }

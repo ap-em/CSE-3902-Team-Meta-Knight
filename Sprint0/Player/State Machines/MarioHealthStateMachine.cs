@@ -15,7 +15,7 @@ Owen Huston
 */
 namespace Sprint0
 {
-    class MarioHealthStateMachine
+    public class MarioHealthStateMachine
     {
         private IMario mario;
         private enum MarioHealth { star, fire, fireDamaged, full, fullDamaged, half, none };
@@ -23,6 +23,7 @@ namespace Sprint0
         private MarioHealth currentHealth = MarioHealth.full;
         private MarioHealth previousHealth = MarioHealth.full;
         private bool invincibility = false;
+        public bool Invincibility { get => invincibility; set => invincibility = value; }
 
 
         public MarioHealthStateMachine(IMario mario)

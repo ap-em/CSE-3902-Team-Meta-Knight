@@ -27,9 +27,7 @@ namespace Sprint0
         public RightFacingFlagMario(Mario marioRef)
         {
             mario = marioRef;
-            
-         
-            
+            mario.HealthStateMachine.Invincibility = true;
 
         }
         public void Attack()
@@ -109,7 +107,7 @@ namespace Sprint0
             //Player regains control when mario lands on bottom of level 2
             if (mario.GetGrounded())
             {
-
+                mario.HealthStateMachine.Invincibility = false;
                 CameraManager.Instance.RemoveCamera(mario);
                 if (LevelFactory.Instance.currentLevel == 1)
                 {
