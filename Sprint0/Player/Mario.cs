@@ -34,16 +34,17 @@ namespace Sprint0
         public Vector2 Position { get => position; set => position = value; }
 
         public ISprite Sprite => currentSprite;
+        public MarioHealthStateMachine HealthStateMachine { get => healthStateMachine; }
 
         public Mario(String spriteName, Vector2 position)
         {
             this.position = position;
             initialPosition = position;
-            CameraManager.Instance.CreateLevel1Camera(this);
+            CameraManager.Instance.CinematicCamera(this);
             PlayerKeyboardManager.Instance.CreateKeyboard(this);
             HUDManager.Instance.CreateHUD(this);
             healthStateMachine = new MarioHealthStateMachine(this);
-            currentState = new RightFacingStaticMario(this);
+            currentState = new RightFacingFlagMario(this);
             OnStateChange();
             soundInfo = new SoundInfo();
         }

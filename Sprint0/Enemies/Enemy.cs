@@ -57,15 +57,16 @@ namespace Sprint0.Enemies
             soundString = NameToStateMapping.Instance.GetSound(spriteName);
 
             currentState = NameToStateMapping.Instance.GetState(spriteName, this);
+            SetSprite(enemyType);
         }
         public String GetStateID()
         {
             return currentState.GetStateID();
         }
-        public void StartRemovalTimer()
+        public void StartRemovalTimer(int milliseconds)
         {
             //remove object after 100 milliseconds
-            TimerManager.Instance.AddToTimerList(new Timer(100, RemoveGameObject));
+            TimerManager.Instance.AddToTimerList(new Timer(milliseconds, RemoveGameObject));
         }
         public void TakeDamage()
         {
@@ -158,7 +159,8 @@ namespace Sprint0.Enemies
         public void SetDirection(String direction)
         {
             this.direction = direction;
-            SetSprite(enemyType);
+            if(currentState != null)
+                SetSprite(enemyType);
         }
         public void Update()
         {
