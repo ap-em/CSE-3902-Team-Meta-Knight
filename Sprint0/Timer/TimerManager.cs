@@ -24,6 +24,7 @@ namespace Sprint0.Timers
     public sealed class TimerManager
     {
         private bool removeAll = false;
+        private List<ITimer> PrevInsertQueue = new List<ITimer>();
         private List<ITimer> timerInsertQueue = new List<ITimer>();
         private List<ITimer> timerRemovalQueue = new List<ITimer>();
         private List<ITimer> timers = new List<ITimer>();
@@ -50,13 +51,20 @@ namespace Sprint0.Timers
         {
             timerInsertQueue.Add(timer);
         }
+        public void AddPrevInsertQueue()
+        {
+            foreach (ITimer timer in PrevInsertQueue)
+            {
+                timers.Add(timer);
+            }
+        }
         public void AddTimers()
         {
             foreach(ITimer timer in timerInsertQueue)
             {
+                PrevInsertQueue.Add(timer);
                 timers.Add(timer);
             }
-
             timerInsertQueue.Clear();
         }
         public void RemoveAllTimers()
@@ -90,8 +98,10 @@ namespace Sprint0.Timers
             {
                 timerRemovalQueue.Clear();
                 timers.Clear();
+                AddPrevInsertQueue();
                 removeAll = false;
             }
+            PrevInsertQueue.Clear();
             RemoveTimers();
         }
     }
