@@ -33,7 +33,7 @@ namespace Sprint0.HUD
                 HUD.SetMaxPlayerPosition(gameObject.Position.X);
             }
             // if we run out of time we die
-            if (HUD.GetTimeLeft() == 0)
+            if (HUD.GetTimeLeft() <= 0)
             {
                 IMario mario = (IMario)gameObject;
                 mario.InstantDeath();
