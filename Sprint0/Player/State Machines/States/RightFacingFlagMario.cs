@@ -26,7 +26,10 @@ namespace Sprint0
 
         public RightFacingFlagMario(Mario marioRef)
         {
+
             mario = marioRef;
+
+            mario.HealthStateMachine.Invincibility = true;
 
             if (!CameraManager.Instance.cameras.ContainsKey(mario))
             {

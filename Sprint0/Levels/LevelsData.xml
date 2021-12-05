@@ -5,157 +5,157 @@
   
   <Level0>
     <row>
-     <obj>2,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-     <obj>0,12,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-     <obj>0,11,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-     <obj>0,10,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-     <obj>0,9,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-     <obj>0,8,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-     <obj>0,7,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-     <obj>0,6,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-     <obj>0,5,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-     <obj>0,4,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-     <obj>0,3,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-     <obj>0,2,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-     <obj>0,1,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-     <obj>0,0,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>2,9,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,12,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,11,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,10,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,9,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,8,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,7,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,6,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,5,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,4,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,3,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,2,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,1,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+     <obj>0,0,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
 
       
-		 <obj>80,8,3,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		 <obj>79,7,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		 <obj>83,7,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		 <obj>80,4,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		 <obj>82,4,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>80,8,3,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>79,7,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>83,7,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>80,4,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>82,4,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
 
-		 <obj>100,6,5,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		 <obj>105,6,5,Sprint0.Blocks.BrickBlock,ItemBlock</obj>
-		 <obj>106,6,5,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		 <obj>95,9,15,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>100,6,5,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>105,6,5,0,Sprint0.Blocks.BrickBlock,ItemBlock</obj>
+		 <obj>106,6,5,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		 <obj>95,9,15,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
      </row>
     <row>
-      <obj>2,10,1,Sprint0.Mario,Sprint0.Mario, Sprint0.Mario</obj>
-      <obj>6,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
+      <obj>2,10,1,0,Sprint0.Mario,Sprint0.Mario, Sprint0.Mario</obj>
+      <obj>6,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
     
-      <obj>85,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
-	    <obj>120,12,1,Sprint0.Enemies.Enemy,Goomba</obj>
-	    <obj>15,6,1,Sprint0.Enemies.Enemy,Koopa</obj>
-	   <obj>165,5,1,Sprint0.Enemies.Enemy,Koopa</obj>
-	  <obj>90,4,1,Sprint0.Enemies.Enemy,Koopa</obj>
-	  <obj>185,11,1,Sprint0.Enemies.Enemy,Bowser</obj>
-	  <obj>5,11,1,Sprint0.Items.Item,Mushroom</obj>
-	  <obj>7,11,1,Sprint0.Items.Item,Fireflower</obj>
-	 <obj>9,11,1,Sprint0.Items.Item,Star</obj>
+      <obj>85,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
+	    <obj>120,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
+	    <obj>15,6,1,0,Sprint0.Enemies.Enemy,Koopa</obj>
+	   <obj>165,5,1,0,Sprint0.Enemies.Enemy,Koopa</obj>
+	  <obj>90,4,1,0,Sprint0.Enemies.Enemy,Koopa</obj>
+	 <!-- <obj>185,11,1,0,Sprint0.Enemies.Enemy,Bowser</obj> -->
+	  <obj>5,11,1,0,Sprint0.Items.Item,Mushroom</obj>
+	  <obj>7,11,1,0,Sprint0.Items.Item,Fireflower</obj>
+	 <obj>9,11,1,0,Sprint0.Items.Item,Star</obj>
     </row>
 	  <row>
-		  <obj>11,10,2,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		  <obj>13,10,1,Sprint0.Blocks.BrickBlock,ItemBlock</obj>
-		  <obj>14,10,2,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>11,10,2,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>13,10,1,0,Sprint0.Blocks.BrickBlock,ItemBlock</obj>
+		  <obj>14,10,2,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
 	  </row>
 	  <row>
-      <obj>0,13,19,Sprint0.Blocks.Block,Ground</obj>
-	  <obj>22,13,30,Sprint0.Blocks.Block,Ground</obj>
-	  <obj>56,13,150,Sprint0.Blocks.Block,Ground</obj>
+      <obj>0,13,19,0,Sprint0.Blocks.Block,Ground</obj>
+	  <obj>22,13,30,0,Sprint0.Blocks.Block,Ground</obj>
+	  <obj>56,13,150,0,Sprint0.Blocks.Block,Ground</obj>
 	  </row>
 	  <row>
-	  <obj>0,14,19,Sprint0.Blocks.Block,Ground</obj>
-      <obj>22,14,30,Sprint0.Blocks.Block,Ground</obj>
-	  <obj>56,14,150,Sprint0.Blocks.Block,Ground</obj>
+	  <obj>0,14,19,0,Sprint0.Blocks.Block,Ground</obj>
+      <obj>22,14,30,0,Sprint0.Blocks.Block,Ground</obj>
+	  <obj>56,14,150,0,Sprint0.Blocks.Block,Ground</obj>
 	  </row>
 	  <row>
-		  <obj>50,12,1,Sprint0.Blocks.Block,UsedItemBlock</obj>
-		  <obj>51,12,1,Sprint0.Blocks.Block,UsedItemBlock</obj>
-		  <obj>50,11,1,Sprint0.Blocks.Block,UsedItemBlock</obj>
-		  <obj>51,11,1,Sprint0.Blocks.Block,UsedItemBlock</obj>
-		  <obj>50,10,1,Sprint0.Blocks.Block,UsedItemBlock</obj>
-		  <obj>51,10,1,Sprint0.Blocks.Block,UsedItemBlock</obj>
-		  <obj>50,9,1,Sprint0.Blocks.Block,UsedItemBlock</obj>
-		  <obj>51,9,1,Sprint0.Blocks.Block,UsedItemBlock</obj>
+		  <obj>50,12,1,0,Sprint0.Blocks.Block,UsedItemBlock</obj>
+		  <obj>51,12,1,0,Sprint0.Blocks.Block,UsedItemBlock</obj>
+		  <obj>50,11,1,0,Sprint0.Blocks.Block,UsedItemBlock</obj>
+		  <obj>51,11,1,0,Sprint0.Blocks.Block,UsedItemBlock</obj>
+		  <obj>50,10,1,0,Sprint0.Blocks.Block,UsedItemBlock</obj>
+		  <obj>51,10,1,0,Sprint0.Blocks.Block,UsedItemBlock</obj>
+		  <obj>50,9,1,0,Sprint0.Blocks.Block,UsedItemBlock</obj>
+		  <obj>51,9,1,0,Sprint0.Blocks.Block,UsedItemBlock</obj>
 		  
-		  <obj>134,12,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		  <obj>133,12,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		  <obj>132,12,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		  <obj>131,12,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		  <obj>134,11,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		  <obj>133,11,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		  <obj>132,11,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
-		  <obj>131,11,1,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>134,12,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>133,12,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>132,12,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>131,12,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>134,11,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>133,11,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>132,11,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
+		  <obj>131,11,1,0,Sprint0.Blocks.BrickBlock,BrickBlock</obj>
 		  
 		  
-		  <obj>141,12,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>142,12,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>142,11,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>143,12,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>143,11,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>143,10,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>144,12,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>144,11,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>144,10,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>144,9,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>145,12,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>145,11,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>145,10,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>145,9,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>145,8,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>146,12,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>146,11,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>146,10,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>146,9,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>146,8,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>151,12,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>151,11,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>151,10,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>151,9,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>151,8,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>151,7,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>151,6,1,Sprint0.Blocks.Block,Block</obj>
-		  <obj>151,5,1,Sprint0.Blocks.Block,Block</obj>
+		  <obj>141,12,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>142,12,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>142,11,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>143,12,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>143,11,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>143,10,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>144,12,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>144,11,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>144,10,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>144,9,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>145,12,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>145,11,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>145,10,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>145,9,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>145,8,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>146,12,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>146,11,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>146,10,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>146,9,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>146,8,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>151,12,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>151,11,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>151,10,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>151,9,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>151,8,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>151,7,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>151,6,1,0,Sprint0.Blocks.Block,Block</obj>
+		  <obj>151,5,1,0,Sprint0.Blocks.Block,Block</obj>
 
 
-		  <obj>171,12,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>172,12,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>172,11,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>173,12,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>173,11,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>173,10,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>174,12,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>174,11,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>174,10,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>174,9,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>175,12,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>175,11,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>175,10,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>175,9,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>175,8,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>176,12,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>176,11,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>176,10,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>176,9,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>176,8,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>176,7,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>177,12,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>177,11,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>177,10,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>177,9,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>177,8,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>177,7,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>177,6,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>178,12,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>178,11,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>178,10,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>178,9,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>178,8,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>178,7,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>178,6,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>178,5,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>179,12,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>179,11,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>179,10,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>179,9,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>179,8,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>179,7,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>179,6,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>179,5,1,Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>179,4,1,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>171,12,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>172,12,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>172,11,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>173,12,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>173,11,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>173,10,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>174,12,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>174,11,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>174,10,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>174,9,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>175,12,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>175,11,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>175,10,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>175,9,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>175,8,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>176,12,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>176,11,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>176,10,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>176,9,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>176,8,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>176,7,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>177,12,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>177,11,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>177,10,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>177,9,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>177,8,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>177,7,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>177,6,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>178,12,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>178,11,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>178,10,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>178,9,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>178,8,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>178,7,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>178,6,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>178,5,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>179,12,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>179,11,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>179,10,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>179,9,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>179,8,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>179,7,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>179,6,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>179,5,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
+		  <obj>179,4,1,0,Sprint0.Blocks.Block,GreenBlock</obj>
 
 	  </row>
   </Level0>
@@ -197,19 +197,8 @@
       <obj>2,10,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>
       
       
-      <obj>52,11,1,0,Sprint0.Enemies.Enemy,HammerBro</obj>
       
-      <obj>15,10,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
-      <obj>20,9,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
-      <obj>25,8,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
-      <obj>30,7,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
-      <obj>35,6,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
-      <obj>40,5,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
-      <obj>45,4,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
-      <obj>50,3,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
-      <obj>55,2,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
-      <obj>60,1,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
-      <obj>65,0,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
+      
       
       <obj>22,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
 	    <obj>40,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
@@ -415,7 +404,14 @@
 		<!--<obj>3,78,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>-->
 		<!-->For mario falling<-->
 		<obj>3,3,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>
+		
+	  <obj>35,50,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
+      <obj>40,40,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
+      <obj>55,30,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
+      <obj>60,20,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
+      <obj>35,10,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
   
+	  <obj>13,26,1,0,Sprint0.Enemies.Enemy,HammerBro</obj>
   
     </row>
 

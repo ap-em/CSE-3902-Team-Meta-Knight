@@ -33,7 +33,6 @@ namespace Sprint0
         private FrameCounter frameCounter;
         public static ContentManager ContentInstance;
         public Texture2D background;
-        private SpriteFont font;
         public bool isPaused;
         public static float storedGameTime;
 
@@ -73,7 +72,7 @@ namespace Sprint0
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            font = Content.Load<SpriteFont>("Font");
+            frameCounter.LoadContent();
         }
         protected override void Update(GameTime gameTime)
         {
@@ -101,13 +100,10 @@ namespace Sprint0
                 GameObjectManager.Instance.DrawStaticGameObjects(spriteBatch, camera);
                 GameObjectManager.Instance.DrawGameObjects(spriteBatch);
                 HUDManager.Instance.Draw(spriteBatch, camera);
-                // update and draw frame counter
-                var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-                frameCounter.Update(deltaTime);
-                var fps = string.Format("FPS: {0}", (int)frameCounter.AverageFramesPerSecond);
-                spriteBatch.DrawString(font, fps, new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 4 , camera.GetPosition().Y), Color.Black);
-                spriteBatch.End();
+                frameCounter.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
+                frameCounter.Draw(spriteBatch, camera);
                 GraphicsDevice.Viewport = tempView;
+                spriteBatch.End();
             }
 
             base.Draw(gameTime);
