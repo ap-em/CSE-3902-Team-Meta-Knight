@@ -406,13 +406,13 @@
 		<!--<obj>3,78,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>-->
 		<!-->For mario falling<-->
 		<obj>3,3,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>
-		
+		<!--
 	  <obj>35,50,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
       <obj>40,40,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
       <obj>55,30,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
       <obj>60,20,1,0,Sprint0.Enemies.Enemy,BulletBill</obj> 
       <obj>35,10,1,0,Sprint0.Enemies.Enemy,BulletBill</obj>  
-  
+  -->
 	  <obj>13,26,1,0,Sprint0.Enemies.Enemy,HammerBro</obj>
   
     </row>

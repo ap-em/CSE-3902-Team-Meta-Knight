@@ -62,8 +62,6 @@ namespace Sprint0
         {
             position = CameraManager.Instance.GetCameraPosition(objectToFollow.Position);
 
-            Debug.WriteLine("cinematicCamPos: " + position);
-
             viewMatrix = Matrix.CreateScale(new Vector3(1, 1, 0)) *
                 Matrix.CreateTranslation(new Vector3(-position, 0));
         }
