@@ -352,7 +352,9 @@
 		  <obj>15,63,4,0,Sprint0.Blocks.Block,UndergroundBlock</obj>
 		  <obj>24,68,3,0,Sprint0.Blocks.Block,UndergroundBlock</obj>
 		  <obj>25,64,2,0,Sprint0.Blocks.Block,UndergroundBlock</obj>
-		  <obj>6,59,21,0,Sprint0.Blocks.BrickBlock,UndergroundBrickBlock</obj>
+		  <obj>6,59,19,0,Sprint0.Blocks.BrickBlock,UndergroundBrickBlock</obj>
+		  <obj>25,59,1,0,Sprint0.Blocks.MushroomBlock,UndergroundBrickBlock</obj>
+		  <obj>26,59,1,0,Sprint0.Blocks.BrickBlock,UndergroundBrickBlock</obj>
 		  
 		  <!--Second Area-->
 		  <obj>9,55,3,0, Sprint0.Blocks.Block,GreenBlock</obj>
@@ -375,12 +377,12 @@
 		  <obj>6,21,1,0,Sprint0.Blocks.BrickBlock,GreenBrickBlock</obj>
 		  <obj>8,21,1,0,Sprint0.Blocks.BrickBlock,GreenBrickBlock</obj>
 		  <obj>10,21,1,0,Sprint0.Blocks.BrickBlock,GreenBrickBlock</obj>
-		  <obj>12,21,1,0,Sprint0.Blocks.BrickBlock,GreenBrickBlock</obj>
+		  <obj>12,21,1,0,Sprint0.Blocks.MushroomBlock,GreenBrickBlock</obj>
 		  <obj>14,21,1,0,Sprint0.Blocks.BrickBlock,GreenBrickBlock</obj>
 		  <obj>16,21,1,0,Sprint0.Blocks.BrickBlock,GreenBrickBlock</obj>
 		  <obj>18,21,1,0,Sprint0.Blocks.BrickBlock,GreenBrickBlock</obj>
 		  <obj>20,21,1,0,Sprint0.Blocks.BrickBlock,GreenBrickBlock</obj>
-		  <obj>22,21,1,0,Sprint0.Blocks.BrickBlock,GreenBrickBlock</obj>
+		  <obj>22,21,1,0,Sprint0.Blocks.MushroomBlock,GreenBrickBlock</obj>
 		  <obj>24,21,1,0,Sprint0.Blocks.BrickBlock,GreenBrickBlock</obj>
 		  
 		  <!--Third Area-->
@@ -390,7 +392,7 @@
 		  <obj>10,13,1,0, Sprint0.Blocks.Block,CastleBlock</obj>
 		  <obj>20,11,1,0, Sprint0.Blocks.Block,CastleBlock</obj>
 		  <obj>15,12,1,0, Sprint0.Blocks.Block,CastleBlock</obj>
-		  <obj>8,7,1,0, Sprint0.Blocks.Block,CastleBlock</obj>
+		  <obj>10,7,1,0, Sprint0.Blocks.Block,CastleBlock</obj>
 		  <obj>26,7,1,0, Sprint0.Blocks.Block,CastleBlock</obj>
 		  <obj>21,5,1,0, Sprint0.Blocks.Block,CastleBlock</obj>
 		  <obj>13,5,1,0, Sprint0.Blocks.Block,CastleBlock</obj>
