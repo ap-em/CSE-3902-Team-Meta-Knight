@@ -38,8 +38,6 @@ namespace Sprint0.Interfaces
         public void ResetGame();
         public void Update();
         public void Draw(SpriteBatch spriteBatch, ICamera camera);
-        public int GetLevel();
-        public void SetLevel(int level);
     }
 
 }
