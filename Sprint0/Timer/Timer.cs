@@ -39,7 +39,6 @@ namespace Sprint0.Timers
         public void Update(GameTime gameTime)
         {
             timePassed += gameTime.ElapsedGameTime.Milliseconds;
-            Debug.WriteLine("timer time passed: " + timePassed);
 
             if (timePassed >= milliseconds)
             {
