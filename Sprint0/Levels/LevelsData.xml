@@ -163,6 +163,7 @@
   <Level1>
     <!--Ground-->
     <row>
+		<obj>0,0,0,20,Sprint0.Blocks.KillBox,KillBox</obj>
       <obj>0,13,69,0,Sprint0.Blocks.Block,Ground</obj>
 			<obj>69,15,2,0,Sprint0.Blocks.KillBox,KillBox</obj>
       <obj>71,13,15,0,Sprint0.Blocks.Block,Ground</obj>
@@ -402,8 +403,8 @@
 		  <obj>13,5,1,0, Sprint0.Blocks.Block,CastleBlock</obj>
 		  
 		  
-		  <obj>6,1,21,1,Sprint0.Blocks.BrickBlock,CastleBrickBlock</obj>
-
+		  <obj>6,0,21,1,Sprint0.Blocks.BrickBlock,CastleBrickBlock</obj>
+		  <obj>10,0,1,0,Sprint0.Enemies.Enemy,Bowser</obj>
 		  <obj>6,0,22,0,Sprint0.Blocks.ThemeBox,Theme_4</obj>
 	  </row>
 

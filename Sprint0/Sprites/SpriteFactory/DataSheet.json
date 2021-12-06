@@ -1,6 +1,6 @@
 [
   {
-    "DataX": [ 138, 170  ],
+    "DataX": [ 138, 170 ],
     "DataY": [ 157, 157 ],
     "Data": [ 25, 25, 2 ],
     "SpriteName": "ChargedEnemyWanderStateRight",
@@ -868,35 +868,91 @@
     "DataX": [ 82, 122 ],
     "DataY": [ 212, 212 ],
     "Data": [ 32, 32, 2 ],
-    "SpriteName": "LeftMovingBowserHalf",
+    "SpriteName": "LeftMovingBowser3Health",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 163, 202 ],
     "DataY": [ 212, 212 ],
     "Data": [ 32, 32, 2 ],
-    "SpriteName": "RightMovingBowserHalf",
+    "SpriteName": "RightMovingBowser3Health",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 122 ],
     "DataY": [ 212 ],
     "Data": [ 32, 32, 1 ],
-    "SpriteName": "LeftIdleBowserHalf",
+    "SpriteName": "LeftIdleBowser3Health",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 202 ],
     "DataY": [ 212 ],
     "Data": [ 32, 32, 1 ],
-    "SpriteName": "RightIdleBowserHalf",
+    "SpriteName": "RightIdleBowser3Health",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 82, 122 ],
+    "DataY": [ 212, 212 ],
+    "Data": [ 32, 32, 2 ],
+    "SpriteName": "LeftMovingBowser2Health",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 163, 202 ],
+    "DataY": [ 212, 212 ],
+    "Data": [ 32, 32, 2 ],
+    "SpriteName": "RightMovingBowser2Health",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 122 ],
+    "DataY": [ 212 ],
+    "Data": [ 32, 32, 1 ],
+    "SpriteName": "LeftIdleBowser2Health",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 202 ],
+    "DataY": [ 212 ],
+    "Data": [ 32, 32, 1 ],
+    "SpriteName": "RightIdleBowser2Health",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 82, 122 ],
+    "DataY": [ 212, 212 ],
+    "Data": [ 32, 32, 2 ],
+    "SpriteName": "LeftMovingBowser1Health",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 163, 202 ],
+    "DataY": [ 212, 212 ],
+    "Data": [ 32, 32, 2 ],
+    "SpriteName": "RightMovingBowser1Health",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 122 ],
+    "DataY": [ 212 ],
+    "Data": [ 32, 32, 1 ],
+    "SpriteName": "LeftIdleBowser1Health",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 202 ],
+    "DataY": [ 212 ],
+    "Data": [ 32, 32, 1 ],
+    "SpriteName": "RightIdleBowser1Health",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 82 ],
     "DataY": [ 212 ],
     "Data": [ 32, 32, 1 ],
-    "SpriteName": "BowserDead",
+    "SpriteName": "Bowser0Health",
     "SpriteSheet": "enemies"
   }
 ]
