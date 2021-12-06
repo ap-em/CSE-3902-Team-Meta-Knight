@@ -23,4 +23,10 @@
     <Health>1</Health>
     <Sound>koopadeath</Sound>
   </MapInstance>
+	<MapInstance>
+		<SpriteName>Bowser</SpriteName>
+		<StateName>Sprint0.Enemies.BowserNormalState</StateName>
+		<Health>3</Health>
+		<Sound>goombadeath</Sound>
+	</MapInstance>
 </Mapping>

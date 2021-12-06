@@ -29,6 +29,37 @@
 		<obj1Command>Sprint0.Commands.CNothing</obj1Command>
 		<obj2Command>Sprint0.Commands.CKillPlayer</obj2Command>
 	</collisionInstance>
+	
+	<!--Mario vs ThemeBox-->
+	<collisionInstance>
+		<obj1>Sprint0.Mario</obj1>
+		<obj2>Sprint0.Blocks.ThemeBox</obj2>
+		<direction>Top</direction>
+		<obj1Command>Sprint0.Commands.CNothing</obj1Command>
+		<obj2Command>Sprint0.Commands.CPlayTheme</obj2Command>
+	</collisionInstance>
+	<collisionInstance>
+		<obj1>Sprint0.Mario</obj1>
+		<obj2>Sprint0.Blocks.ThemeBox</obj2>
+		<direction>Bottom</direction>
+		<obj1Command>Sprint0.Commands.CNothing</obj1Command>
+		<obj2Command>Sprint0.Commands.CPlayTheme</obj2Command>
+	</collisionInstance>
+	<collisionInstance>
+		<obj1>Sprint0.Mario</obj1>
+		<obj2>Sprint0.Blocks.ThemeBox</obj2>
+		<direction>Left</direction>
+		<obj1Command>Sprint0.Commands.CNothing</obj1Command>
+		<obj2Command>Sprint0.Commands.CPlayTheme</obj2Command>
+	</collisionInstance>
+	<collisionInstance>
+		<obj1>Sprint0.Mario</obj1>
+		<obj2>Sprint0.Blocks.ThemeBox</obj2>
+		<direction>Right</direction>
+		<obj1Command>Sprint0.Commands.CNothing</obj1Command>
+		<obj2Command>Sprint0.Commands.CPlayTheme</obj2Command>
+	</collisionInstance>
+	
   
   <!--Mario vs Projectile-->
   <collisionInstance>
@@ -200,7 +231,7 @@
     <obj2>Sprint0.Enemies.Enemy</obj2>
     <direction>Bottom</direction>
     <obj1Command>Sprint0.Commands.CDamagePlayer</obj1Command>
-    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+    <obj2Command>Sprint0.Commands.CGetKicked</obj2Command>
   </collisionInstance>
   
     <collisionInstance>

@@ -44,7 +44,7 @@ Owen Huston
             IKeyboardController keyboard = PlayerKeyboardManager.Instance.GetKeyboard((IGameObject)mario);
             keyboard.SetLockInput(true);
 
-            LevelFactory.Instance.CreateLevel(HUDManager.Instance.GetHUD((IGameObject)mario).GetLevel());
+            LevelFactory.Instance.CreateLevel(LevelFactory.Instance.currentLevel);
 
         }
     }

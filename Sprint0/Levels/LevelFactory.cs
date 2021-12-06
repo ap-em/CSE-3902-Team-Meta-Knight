@@ -9,6 +9,7 @@ using Sprint0.Sprites;
 using Sprint0.Sprites.SpriteFactory;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
+using Sprint0.Levels;
 
 
 /*Alex Clayton
@@ -47,8 +48,32 @@ namespace Sprint0
         }
         public void CreateLevel(int levelNumber)
         {
-            StartTheme();
+            
             SetupReader(levelNumber);
+            switch (levelNumber){
+                 case 1:
+                    Background.Instance.ChangeBackground("1-1", new Rectangle(0, 0, 6750, 600));
+                    ChangeTheme("OverworldTheme");
+                    break;
+                case 2:
+
+                    Background.Instance.ChangeBackground("black", new Rectangle(-1000, -1000, 6000, 6000));
+                   ChangeTheme("Theme_1");
+
+                    Background.Instance.ChangeBackground("black", new Rectangle(-1000, -1000, 6000, 6000));
+                    break;
+            }
+            StartTheme();
+
+
+        }
+        public void ChangeTheme(String themeName)
+        {
+            currentSoundtrack = themeName;
+        }
+        public String currentTrack()
+        {
+            return currentSoundtrack;
         }
         public void StartTheme()
         {

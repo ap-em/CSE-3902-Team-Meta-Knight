@@ -19,6 +19,7 @@ using Sprint0.UtilityClasses;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Sprint0.Timers;
+using Sprint0.Levels;
 
 /*
  * Team MetaKnight 2021 CSE 3902
@@ -33,7 +34,6 @@ namespace Sprint0
         private FrameCounter frameCounter;
         public static ContentManager ContentInstance;
         public Texture2D background;
-        private SpriteFont font;
         public bool isPaused;
         public static float storedGameTime;
 
@@ -73,7 +73,7 @@ namespace Sprint0
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            font = Content.Load<SpriteFont>("Font");
+            frameCounter.LoadContent();
         }
         protected override void Update(GameTime gameTime)
         {
@@ -90,24 +90,21 @@ namespace Sprint0
 
         protected override void Draw(GameTime gameTime)
         {
+            
             GraphicsDevice.Clear(Color.FromNonPremultiplied(92,148,252,255));
             foreach (ICamera camera in CameraManager.Instance.cameras.Values)
             {
                 tempView = GraphicsDevice.Viewport;
                 GraphicsDevice.Viewport = camera.GetViewport();
                 spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetMatrix());
-                Texture2D background = Game0.Instance.Content.Load<Texture2D>("1-1");
-                spriteBatch.Draw(background, new Rectangle(0, 0, 6750, 600), Color.White);
+                Background.Instance.Draw(spriteBatch);
                 GameObjectManager.Instance.DrawStaticGameObjects(spriteBatch, camera);
                 GameObjectManager.Instance.DrawGameObjects(spriteBatch);
                 HUDManager.Instance.Draw(spriteBatch, camera);
-                // update and draw frame counter
-                var deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-                frameCounter.Update(deltaTime);
-                var fps = string.Format("FPS: {0}", (int)frameCounter.AverageFramesPerSecond);
-                spriteBatch.DrawString(font, fps, new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 4 , camera.GetPosition().Y), Color.Black);
-                spriteBatch.End();
+                frameCounter.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
+                frameCounter.Draw(spriteBatch, camera);
                 GraphicsDevice.Viewport = tempView;
+                spriteBatch.End();
             }
 
             base.Draw(gameTime);

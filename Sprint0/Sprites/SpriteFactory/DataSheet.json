@@ -1,5 +1,47 @@
 [
   {
+    "DataX": [ 138, 170 ],
+    "DataY": [ 157, 157 ],
+    "Data": [ 25, 25, 2 ],
+    "SpriteName": "ChargedEnemyWanderStateRight",
+    "SpriteSheet": "charger"
+  },
+  {
+    "DataX": [ 557, 589 ],
+    "DataY": [ 157, 157 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "ChargedEnemyWanderStateLeft",
+    "SpriteSheet": "charger"
+  },
+  {
+    "DataX": [ 138, 170 ],
+    "DataY": [ 157, 157 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "ChargedEnemyChargeStateRight",
+    "SpriteSheet": "charger"
+  },
+  {
+    "DataX": [ 557, 589 ],
+    "DataY": [ 157, 157 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "ChargedEnemyChargeStateLeft",
+    "SpriteSheet": "charger"
+  },
+  {
+    "DataX": [ 138, 170 ],
+    "DataY": [ 157, 157 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "ChargedEnemyAttackStateRight",
+    "SpriteSheet": "charger"
+  },
+  {
+    "DataX": [ 557, 589 ],
+    "DataY": [ 157, 157 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "ChargedEnemyAttackStateLeft",
+    "SpriteSheet": "charger"
+  },
+  {
     "DataX": [ 359 ],
     "DataY": [ 67 ],
     "Data": [ 16, 32, 1 ],
@@ -570,7 +612,34 @@
     "SpriteName": "KillBox",
     "SpriteSheet": "tiles"
   },
-
+  {
+    "DataX": [ 86 ],
+    "DataY": [ 12 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "Theme_1",
+    "SpriteSheet": "black"
+  },
+  {
+    "DataX": [ 86 ],
+    "DataY": [ 12 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "Theme_2",
+    "SpriteSheet": "black"
+  },
+  {
+    "DataX": [ 86 ],
+    "DataY": [ 12 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "Theme_3",
+    "SpriteSheet": "black"
+  },
+  {
+    "DataX": [ 86 ],
+    "DataY": [ 12 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "Theme_4",
+    "SpriteSheet": "black"
+  },
   {
     "DataX": [ 86 ],
     "DataY": [ 12 ],
@@ -735,7 +804,7 @@
   {
     "DataX": [ 360 ],
     "DataY": [ 5 ],
-    "Data": [ 16, 24, 1 ],
+    "Data": [ 16, 14, 1 ],
     "SpriteName": "Koopa0Health",
     "SpriteSheet": "enemies"
   },
@@ -796,38 +865,24 @@
     "SpriteSheet": "hammer_bro"
   },
   {
-    "DataX": [ 82, 122 ],
-    "DataY": [ 212, 212 ],
-    "Data": [ 32, 32, 2 ],
-    "SpriteName": "LeftMovingBowserHalf",
-    "SpriteSheet": "enemies"
-  },
-  {
-    "DataX": [ 163, 202 ],
-    "DataY": [ 212, 212 ],
-    "Data": [ 32, 32, 2 ],
-    "SpriteName": "RightMovingBowserHalf",
-    "SpriteSheet": "enemies"
-  },
-  {
     "DataX": [ 122 ],
     "DataY": [ 212 ],
     "Data": [ 32, 32, 1 ],
-    "SpriteName": "LeftIdleBowserHalf",
+    "SpriteName": "LeftIdleBowser3Health",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 202 ],
     "DataY": [ 212 ],
     "Data": [ 32, 32, 1 ],
-    "SpriteName": "RightIdleBowserHalf",
+    "SpriteName": "RightIdleBowser3Health",
     "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 82 ],
     "DataY": [ 212 ],
     "Data": [ 32, 32, 1 ],
-    "SpriteName": "BowserDead",
+    "SpriteName": "Bowser0Health",
     "SpriteSheet": "enemies"
   }
 ]
