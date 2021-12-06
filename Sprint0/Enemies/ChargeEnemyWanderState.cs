@@ -141,7 +141,7 @@ namespace Sprint0.Enemies
             {
                 if (viewBox.Contains(mario.Position))
                 {
-                    enemy.SetCurrentState(new ChargeEnemyChargeState(enemy));
+                    enemy.SetCurrentState(new ChargeEnemyChargeState(enemy, direction));
                 }
             }
         }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
+using Sprint0.Timers;
+using Sprint0.UtilityClasses;
 
 namespace Sprint0.Enemies
 {
@@ -12,11 +14,28 @@ namespace Sprint0.Enemies
         private string ID = "ChargeEnemyAttackState";
         private static int attackTime = 600;
         private Vector2 velocity;
+        private static int speed = 5;
         private bool grounded;
+        private string direction;
+        Timer attackTimer;
 
-        public ChargeEnemyAttackState(IEnemy enemyRef)
+        public ChargeEnemyAttackState(IEnemy enemyRef, string directionRef)
         {
             enemy = enemyRef;
+            direction = directionRef;
+            if (direction==GameUtilities.right)
+            {
+                velocity = new Vector2(speed, 0);
+            }
+            else
+            {
+                velocity = new Vector2(-speed, 0);
+            }
+            attackTimer = new Timer(attackTime, EndAttack);
+        }
+        public void EndAttack(object source, System.Timers.ElapsedEventArgs e)
+        {
+            enemy.SetCurrentState(new ChargeEnemyWanderState(enemy));
         }
         public void BigUpBounce(Rectangle rectangle)
         {

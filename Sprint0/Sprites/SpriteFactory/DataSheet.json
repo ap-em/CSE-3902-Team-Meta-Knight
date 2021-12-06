@@ -3,8 +3,43 @@
     "DataX": [ 359 ],
     "DataY": [ 67 ],
     "Data": [ 16, 32, 1 ],
-    "SpriteName": "RightJumpingMarioFull",
-    "SpriteSheet": "mario"
+    "SpriteName": "ChargedEnemyWanderStateRight",
+    "SpriteSheet": "charger"
+  },
+  {
+    "DataX": [ 359 ],
+    "DataY": [ 67 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "ChargedEnemyWanderStateLeft",
+    "SpriteSheet": "charger"
+  },
+  {
+    "DataX": [ 359 ],
+    "DataY": [ 67 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "ChargedEnemyChargeStateRight",
+    "SpriteSheet": "charger"
+  },
+  {
+    "DataX": [ 359 ],
+    "DataY": [ 67 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "ChargedEnemyChargeStateLeft",
+    "SpriteSheet": "charger"
+  },
+  {
+    "DataX": [ 359 ],
+    "DataY": [ 67 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "ChargedEnemyAttackStateRight",
+    "SpriteSheet": "charger"
+  },
+  {
+    "DataX": [ 359 ],
+    "DataY": [ 67 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "ChargedEnemyAttackStateLeft",
+    "SpriteSheet": "charger"
   },
   {
     "DataX": [ 30 ],
@@ -747,8 +782,8 @@
     "SpriteSheet": "hammer_bro"
   },
   {
-    "DataX": [ 323, 343, 363, 381],
-    "DataY": [ 137, 137, 137, 137],
+    "DataX": [ 323, 343, 363, 381 ],
+    "DataY": [ 137, 137, 137, 137 ],
     "Data": [ 16, 16, 4 ],
     "SpriteName": "Hammer",
     "SpriteSheet": "hammer_bro"

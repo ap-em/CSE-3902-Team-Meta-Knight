@@ -14,11 +14,13 @@ namespace Sprint0.Enemies
         private static int chargeTime = 2000;
         private bool grounded;
         private IEnemy enemy;
+        private string direction;
 
-        public ChargeEnemyChargeState(IEnemy enemyRef)
+        public ChargeEnemyChargeState(IEnemy enemyRef, string directionRef)
         {
             enemy = enemyRef;
             chargeTimer = new Timer(chargeTime, FinishCharging);
+            direction = directionRef;
         }
 
         public void BigUpBounce(Rectangle rectangle)
@@ -98,7 +100,7 @@ namespace Sprint0.Enemies
 
         private void FinishCharging(object source, System.Timers.ElapsedEventArgs e)
         {
-            enemy.SetCurrentState(new ChargeEnemyAttackState(enemy));
+            enemy.SetCurrentState(new ChargeEnemyAttackState(enemy, direction));
         }
 
         public void Update()
