@@ -65,17 +65,18 @@ namespace Sprint0
         }
         public void Update()
         {
-            /*
+            
             Vector2 newCameraPosition = CameraManager.Instance.GetCameraPosition(objectToFollow.Position);
-
+            /*
             //only update Y position if we are at a new highest point
             if (objectToFollow.Position.Y <= maxPlayerYPosition)
             {
                 maxPlayerYPosition = objectToFollow.Position.Y;
                 position.Y = newCameraPosition.Y;
             }
-            position.X = newCameraPosition.X;
             */
+            position.X = newCameraPosition.X;
+            
 
             viewMatrix = Matrix.CreateScale(new Vector3(1, 1, 0)) *
                 Matrix.CreateTranslation(new Vector3(-position, 0));
