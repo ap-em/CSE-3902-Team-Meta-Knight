@@ -403,7 +403,7 @@
 		  <obj>13,5,1,0, Sprint0.Blocks.Block,CastleBlock</obj>
 		  
 		  
-		  <obj>6,0,21,1,Sprint0.Blocks.BrickBlock,CastleBrickBlock</obj>
+		  <obj>6,2,21,1,Sprint0.Blocks.BrickBlock,CastleBrickBlock</obj>
 		  <obj>10,0,1,0,Sprint0.Enemies.Enemy,Bowser</obj>
 		  <obj>6,0,22,0,Sprint0.Blocks.ThemeBox,Theme_4</obj>
 	  </row>
