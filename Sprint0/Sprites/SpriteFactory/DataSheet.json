@@ -56,6 +56,13 @@
     "SpriteSheet": "enemies"
   },
   {
+    "DataX": [ 60 ],
+    "DataY": [ 4 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "Bomber0Health",
+    "SpriteSheet": "enemies"
+  },
+  {
     "DataX": [ 359 ],
     "DataY": [ 67 ],
     "Data": [ 16, 32, 1 ],

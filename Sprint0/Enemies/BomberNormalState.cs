@@ -16,27 +16,32 @@ namespace Sprint0.Enemies
         private string direction;
         private Timer bombTimer;
         private Timer directionTimer;
-        private bool isGrounded;
         private static string ID = "BomberNormalState";
+        private bool isSquished = false;
 
         public BomberNormalState(IEnemy enemyRef)
         {
             enemy = enemyRef;
-            velocity = new Vector2(-GameUtilities.bomberSpeed, 0);
+            velocity = new Vector2(-GameUtilities.bomberSpeed, GameUtilities.gravity);
             direction = GameUtilities.left;
-            isGrounded = true;
             bombTimer = new Timer(GameUtilities.bomberAtackInterval, DropBomb);
             directionTimer = new Timer(GameUtilities.bomberDirectionChangeInterval, SwitchDirection);
             TimerManager.Instance.AddToTimerList(bombTimer);
             TimerManager.Instance.AddToTimerList(directionTimer);
+            enemy.Grounded = true;
+
         }
         private void DropBomb()
         {
-            GameObjectManager.Instance.AddToObjectList(
+            if (enemy.GetHealth()>0 && !isSquished)
+            {
+                GameObjectManager.Instance.AddToObjectList(
                             new Projectile(
                               "Hammer", enemy.Position, 0, 0, GameUtilities.hammerFuse), 1, 1);
-            bombTimer = new Timer(GameUtilities.bomberAtackInterval, DropBomb);
-            TimerManager.Instance.AddToTimerList(bombTimer);
+                bombTimer = new Timer(GameUtilities.bomberAtackInterval, DropBomb);
+                TimerManager.Instance.AddToTimerList(bombTimer);
+            }
+
         }
         private void SwitchDirection()
         {
@@ -117,7 +122,11 @@ namespace Sprint0.Enemies
 
         public void TakeDamage()
         {
-            enemy.TakeDamage();
+            velocity.X = 1;
+            enemy.Grounded = false;
+            enemy.SetHealth(0);
+            enemy.StartRemovalTimer(3000);
+            isSquished = true;
         }
 
         public void UpBounce(Rectangle rectangle)
@@ -128,6 +137,7 @@ namespace Sprint0.Enemies
 
         public void Update()
         {
+            
             enemy.Move(velocity);
         }
     }
