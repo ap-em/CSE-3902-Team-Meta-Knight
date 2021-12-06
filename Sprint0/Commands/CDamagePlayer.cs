@@ -34,14 +34,13 @@ namespace Sprint0.Commands
             {
                 IEnemy enemy = (IEnemy)collided;
 
-                
                 // if we arent a koopa shell always take damage
                 if(!enemy.GetStateID().Equals("KoopaShell"))
                 {
                     mario.TakeDamage();
                 }
                 // if we are a koopa shell and we are moving then take damage
-                else if(enemy.GetVelocity() != new Vector2(0, 0))
+                else if(enemy.GetVelocity().X != 0)
                 {
                     mario.TakeDamage();
                 }
