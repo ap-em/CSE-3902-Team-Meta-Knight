@@ -200,7 +200,7 @@
     <obj2>Sprint0.Enemies.Enemy</obj2>
     <direction>Bottom</direction>
     <obj1Command>Sprint0.Commands.CDamagePlayer</obj1Command>
-    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+    <obj2Command>Sprint0.Commands.CGetKicked</obj2Command>
   </collisionInstance>
   
     <collisionInstance>

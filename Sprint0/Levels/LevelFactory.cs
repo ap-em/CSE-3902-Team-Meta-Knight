@@ -24,7 +24,7 @@ namespace Sprint0
 {
     sealed public class LevelFactory 
     {
-        public int currentLevel = 2;
+        public int currentLevel = 1;
         private static LevelFactory instance;
         public SoundInfo soundInfo;
         public String currentSoundtrack = "OverworldTheme";
