@@ -356,6 +356,8 @@
 		  <obj>25,59,1,0,Sprint0.Blocks.MushroomBlock,UndergroundBrickBlock</obj>
 		  <obj>26,59,1,0,Sprint0.Blocks.BrickBlock,UndergroundBrickBlock</obj>
 		  
+		  <obj>6,58,22,0,Sprint0.Blocks.ThemeBox,Theme_2</obj>
+		  
 		  <!--Second Area-->
 		  <obj>9,55,3,0, Sprint0.Blocks.Block,GreenBlock</obj>
 		  <obj>15,55,3,0, Sprint0.Blocks.Block,GreenBlock</obj>
@@ -384,6 +386,8 @@
 		  <obj>20,21,1,0,Sprint0.Blocks.BrickBlock,GreenBrickBlock</obj>
 		  <obj>22,21,1,0,Sprint0.Blocks.MushroomBlock,GreenBrickBlock</obj>
 		  <obj>24,21,1,0,Sprint0.Blocks.BrickBlock,GreenBrickBlock</obj>
+
+		  <obj>6,20,22,0,Sprint0.Blocks.ThemeBox,Theme_3</obj>
 		  
 		  <!--Third Area-->
 		  <obj>26,16,1,0, Sprint0.Blocks.Block,CastleBlock</obj>
@@ -399,6 +403,8 @@
 		  
 		  
 		  <obj>6,1,21,1,Sprint0.Blocks.BrickBlock,CastleBrickBlock</obj>
+
+		  <obj>6,0,22,0,Sprint0.Blocks.ThemeBox,Theme_4</obj>
 	  </row>
 
       <!--Player/Enemies-->
