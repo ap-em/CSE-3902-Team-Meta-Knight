@@ -10,7 +10,7 @@ _________
     Jared          israel.93@buckeyemail.osu.edu         (206)755 4675
     Leon           cai.855@buckeyemail.osu.edu           (614)849 5255
     Owen           tishenkel.4@buckeyemail.osu.edu
-    Owen           huston.213@buckeyemail.osu.edu
+    Owen           huston.213@buckeyemail.osu.edu	 (419)956 2026
 _____
 **PROGRAM DESCRIPTION**
 
