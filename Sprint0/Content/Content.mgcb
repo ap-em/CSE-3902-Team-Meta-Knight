@@ -67,6 +67,18 @@
 /processorParam:TextureFormat=Color
 /build:characters.gif
 
+#begin charger.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:charger.png
+
 #begin enemies.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -259,6 +271,18 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Theme_4.mp3
+
+#begin thwomp.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:thwomp.png
 
 #begin tiles.png
 /importer:TextureImporter
