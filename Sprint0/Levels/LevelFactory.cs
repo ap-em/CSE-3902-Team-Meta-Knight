@@ -68,6 +68,10 @@ namespace Sprint0
         {
             currentSoundtrack = themeName;
         }
+        public String currentTrack()
+        {
+            return currentSoundtrack;
+        }
         public void StartTheme()
         {
             // can possibly make xml later to create sound based on levelNumber
