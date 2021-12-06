@@ -140,9 +140,13 @@ Mario World 1-1: https://www.spriters-resource.com/nes/supermariobros/sheet/2059
 
 Mario Universe: http://www.mariouniverse.com/sprites-nes-smb/
 
-Enemies & Bosses:https://www.spriters-resource.com/snes/smarioworld/sheet/143269/
+Chargin' Chuck sprite:https://www.spriters-resource.com/snes/smarioworld/sheet/143269/
 
 Sound info: https://themushroomkingdom.net/media/smb/wav
+
+Hammer bro sprite: https://www.deviantart.com/koopshikinggeoshi/art/SMW-SMM-Hammer-Bros-560586678
+
+
 
 
 
