@@ -33,7 +33,7 @@ namespace Sprint0.Commands
 
         public void Execute()
         {
-            Debug.WriteLine("death");
+            Debug.WriteLine("New Theme");
             block.PlayTheme(mario);
         }
     }
