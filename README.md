@@ -1,4 +1,4 @@
-# Game Name Here!(Jump Mario)
+# Vertical Mario!
 ### developed by CSE-3902-Meta-Knight
 _________
 **CONTACT INFO**
