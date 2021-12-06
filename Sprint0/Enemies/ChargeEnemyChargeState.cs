@@ -98,9 +98,9 @@ namespace Sprint0.Enemies
             throw new NotImplementedException();
         }
 
-        private void FinishCharging(object source, System.Timers.ElapsedEventArgs e)
+        private void FinishCharging()
         {
-            enemy.SetCurrentState(new ChargeEnemyAttackState(enemy, direction));
+            enemy.CurrentState = new ChargeEnemyAttackState(enemy, direction);
         }
 
         public void Update()

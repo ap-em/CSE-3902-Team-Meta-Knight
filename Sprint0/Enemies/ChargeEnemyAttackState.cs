@@ -11,7 +11,7 @@ namespace Sprint0.Enemies
     class ChargeEnemyAttackState : IEnemyState
     {
         private IEnemy enemy;
-        private string ID = "ChargeEnemyAttackState";
+        public  string ID = "ChargeEnemyAttackState";
         private static int attackTime = 600;
         private Vector2 velocity;
         private static int speed = 5;
@@ -33,9 +33,9 @@ namespace Sprint0.Enemies
             }
             attackTimer = new Timer(attackTime, EndAttack);
         }
-        public void EndAttack(object source, System.Timers.ElapsedEventArgs e)
+        public void EndAttack()
         {
-            enemy.SetCurrentState(new ChargeEnemyWanderState(enemy));
+            enemy.CurrentState=new ChargeEnemyWanderState(enemy);
         }
         public void BigUpBounce(Rectangle rectangle)
         {
