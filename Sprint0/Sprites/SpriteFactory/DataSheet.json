@@ -865,20 +865,6 @@
     "SpriteSheet": "hammer_bro"
   },
   {
-    "DataX": [ 82, 122 ],
-    "DataY": [ 212, 212 ],
-    "Data": [ 32, 32, 2 ],
-    "SpriteName": "LeftMovingBowser3Health",
-    "SpriteSheet": "enemies"
-  },
-  {
-    "DataX": [ 163, 202 ],
-    "DataY": [ 212, 212 ],
-    "Data": [ 32, 32, 2 ],
-    "SpriteName": "RightMovingBowser3Health",
-    "SpriteSheet": "enemies"
-  },
-  {
     "DataX": [ 122 ],
     "DataY": [ 212 ],
     "Data": [ 32, 32, 1 ],
@@ -890,62 +876,6 @@
     "DataY": [ 212 ],
     "Data": [ 32, 32, 1 ],
     "SpriteName": "RightIdleBowser3Health",
-    "SpriteSheet": "enemies"
-  },
-  {
-    "DataX": [ 82, 122 ],
-    "DataY": [ 212, 212 ],
-    "Data": [ 32, 32, 2 ],
-    "SpriteName": "LeftMovingBowser2Health",
-    "SpriteSheet": "enemies"
-  },
-  {
-    "DataX": [ 163, 202 ],
-    "DataY": [ 212, 212 ],
-    "Data": [ 32, 32, 2 ],
-    "SpriteName": "RightMovingBowser2Health",
-    "SpriteSheet": "enemies"
-  },
-  {
-    "DataX": [ 122 ],
-    "DataY": [ 212 ],
-    "Data": [ 32, 32, 1 ],
-    "SpriteName": "LeftIdleBowser2Health",
-    "SpriteSheet": "enemies"
-  },
-  {
-    "DataX": [ 202 ],
-    "DataY": [ 212 ],
-    "Data": [ 32, 32, 1 ],
-    "SpriteName": "RightIdleBowser2Health",
-    "SpriteSheet": "enemies"
-  },
-  {
-    "DataX": [ 82, 122 ],
-    "DataY": [ 212, 212 ],
-    "Data": [ 32, 32, 2 ],
-    "SpriteName": "LeftMovingBowser1Health",
-    "SpriteSheet": "enemies"
-  },
-  {
-    "DataX": [ 163, 202 ],
-    "DataY": [ 212, 212 ],
-    "Data": [ 32, 32, 2 ],
-    "SpriteName": "RightMovingBowser1Health",
-    "SpriteSheet": "enemies"
-  },
-  {
-    "DataX": [ 122 ],
-    "DataY": [ 212 ],
-    "Data": [ 32, 32, 1 ],
-    "SpriteName": "LeftIdleBowser1Health",
-    "SpriteSheet": "enemies"
-  },
-  {
-    "DataX": [ 202 ],
-    "DataY": [ 212 ],
-    "Data": [ 32, 32, 1 ],
-    "SpriteName": "RightIdleBowser1Health",
     "SpriteSheet": "enemies"
   },
   {

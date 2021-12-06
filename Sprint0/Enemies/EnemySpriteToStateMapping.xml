@@ -27,6 +27,6 @@
 		<SpriteName>Bowser</SpriteName>
 		<StateName>Sprint0.Enemies.BowserNormalState</StateName>
 		<Health>3</Health>
-		<Sound>bowserdeath</Sound>
+		<Sound>goombadeath</Sound>
 	</MapInstance>
 </Mapping>
