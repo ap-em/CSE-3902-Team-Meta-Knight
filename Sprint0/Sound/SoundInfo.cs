@@ -53,7 +53,10 @@ namespace Sprint0
             {
                 SoundEffectInstance sei;
                 soundInstances.TryGetValue(soundName, out sei);
-                sei.Play();
+                if (sei != null)
+                {
+                    sei.Play();
+                }
             }
         }
             

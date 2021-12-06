@@ -31,7 +31,7 @@ namespace Sprint0.Enemies
             {
                 velocity = new Vector2(-speed, 0);
             }
-            attackTimer = new Timer(attackTime, EndAttack);
+            attackTimer = new Timer(GameUtilities.chargeEnemyAttackTime, EndAttack);
         }
         public void EndAttack()
         {
@@ -59,7 +59,7 @@ namespace Sprint0.Enemies
 
         public string GetStateID()
         {
-            throw new NotImplementedException();
+            return ID;
         }
 
         public Vector2 GetVelocity()

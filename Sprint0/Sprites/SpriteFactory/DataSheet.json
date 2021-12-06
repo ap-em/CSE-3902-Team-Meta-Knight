@@ -1,45 +1,59 @@
 [
   {
-    "DataX": [ 138, 170 ],
-    "DataY": [ 157, 157 ],
-    "Data": [ 25, 25, 2 ],
-    "SpriteName": "ChargedEnemyWanderStateRight",
-    "SpriteSheet": "charger"
+    "DataX": [ 0, 30 ],
+    "DataY": [ 4, 4 ],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "RightIdleChargeEnemy1Health",
+    "SpriteSheet": "enemies"
   },
   {
-    "DataX": [ 557, 589 ],
-    "DataY": [ 157, 157 ],
-    "Data": [ 16, 32, 1 ],
-    "SpriteName": "ChargedEnemyWanderStateLeft",
-    "SpriteSheet": "charger"
+    "DataX": [ 0, 30 ],
+    "DataY": [ 4, 4 ],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "RightMovingChargeEnemy1Health",
+    "SpriteSheet": "enemies"
   },
   {
-    "DataX": [ 138, 170 ],
-    "DataY": [ 157, 157 ],
-    "Data": [ 16, 32, 1 ],
-    "SpriteName": "ChargedEnemyChargeStateRight",
-    "SpriteSheet": "charger"
+    "DataX": [ 0, 30 ],
+    "DataY": [ 4, 4 ],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "LeftIdleChargeEnemy1Health",
+    "SpriteSheet": "enemies"
   },
   {
-    "DataX": [ 557, 589 ],
-    "DataY": [ 157, 157 ],
-    "Data": [ 16, 32, 1 ],
-    "SpriteName": "ChargedEnemyChargeStateLeft",
-    "SpriteSheet": "charger"
+    "DataX": [ 0, 30 ],
+    "DataY": [ 4, 4 ],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "LeftMovingChargeEnemy1Health",
+    "SpriteSheet": "enemies"
   },
   {
-    "DataX": [ 138, 170 ],
-    "DataY": [ 157, 157 ],
-    "Data": [ 16, 32, 1 ],
-    "SpriteName": "ChargedEnemyAttackStateRight",
-    "SpriteSheet": "charger"
+    "DataX": [ 0, 30 ],
+    "DataY": [ 4, 4 ],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "RightIdleBomber1Health",
+    "SpriteSheet": "enemies"
   },
   {
-    "DataX": [ 557, 589 ],
-    "DataY": [ 157, 157 ],
-    "Data": [ 16, 32, 1 ],
-    "SpriteName": "ChargedEnemyAttackStateLeft",
-    "SpriteSheet": "charger"
+    "DataX": [ 0, 30 ],
+    "DataY": [ 4, 4 ],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "RightMovingBomber1Health",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 0, 30 ],
+    "DataY": [ 4, 4 ],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "LeftIdleBomber1Health",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 0, 30 ],
+    "DataY": [ 4, 4 ],
+    "Data": [ 16, 16, 2 ],
+    "SpriteName": "LeftMovingBomber1Health",
+    "SpriteSheet": "enemies"
   },
   {
     "DataX": [ 359 ],

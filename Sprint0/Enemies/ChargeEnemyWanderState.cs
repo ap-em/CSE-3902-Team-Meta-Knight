@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Sprint0.UtilityClasses;
 using Sprint0.Timers;
+using System.Diagnostics;
 
 namespace Sprint0.Enemies 
 {
@@ -16,15 +17,17 @@ namespace Sprint0.Enemies
         private string direction;
         private Timer walkDirectionTimer;
         private bool grounded;
-        private static int waitTime = 2000;
-        private static Vector2 viewBoxDimensions = new Vector2(200, 50);
+        private static Vector2 viewBoxDimensions = new Vector2(300, -300);
         Rectangle viewBox;
 
         public ChargeEnemyWanderState(IEnemy enemyRef)
         {
+            Debug.WriteLine("WANDER STATE INITIALIZED");
             this.enemy = enemyRef;
             direction = GameUtilities.right;
-            walkDirectionTimer = new Timer(waitTime, SwitchDirection);
+            walkDirectionTimer = new Timer(GameUtilities.chargeEnemyDirectionWait, SwitchDirection);
+            TimerManager.Instance.AddToTimerList(walkDirectionTimer);
+            velocity = new Vector2(GameUtilities.chargeEnemySpeed, 0);
             
         }
 
@@ -45,7 +48,6 @@ namespace Sprint0.Enemies
 
         public void GetKicked(Rectangle rec)
         {
-            throw new NotImplementedException();
         }
 
         public string GetStateID()
@@ -60,7 +62,11 @@ namespace Sprint0.Enemies
 
         public void LeftBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
+            Debug.WriteLine("LEFT BOUNCE");
+
+            enemy.Position = new Vector2(enemy.Position.X - rectangle.Width, enemy.Position.Y);
+            direction = GameUtilities.right;
+            velocity.X = GameUtilities.chargeEnemySpeed;
         }
 
         public void MoveLeft()
@@ -77,6 +83,8 @@ namespace Sprint0.Enemies
 
         private void SwitchDirection()
         {
+            Debug.WriteLine("SWITCH DIRECTION");
+
             if (direction==GameUtilities.right)
             {
                 direction = GameUtilities.left;
@@ -89,14 +97,18 @@ namespace Sprint0.Enemies
                 velocity.X = GameUtilities.chargeEnemySpeed;
                 enemy.SetDirection(direction);
             }
-            walkDirectionTimer = new Timer(waitTime, SwitchDirection);
+            walkDirectionTimer = new Timer(GameUtilities.chargeEnemyDirectionWait, SwitchDirection);
+            TimerManager.Instance.AddToTimerList(walkDirectionTimer);
 
         }
 
         public void RightBounce(Rectangle rectangle)
         {
+            Debug.WriteLine("RIGHT BOUNCE");
+
             enemy.Position = new Vector2(enemy.Position.X + rectangle.Width, enemy.Position.Y);
-            velocity.X = GameUtilities.chargeEnemySpeed;
+            direction = GameUtilities.left;
+            velocity.X = -GameUtilities.chargeEnemySpeed;
         }
 
         public void SetGrounded(bool grounded)
@@ -110,12 +122,12 @@ namespace Sprint0.Enemies
 
         public void SetXVelocity(float x)
         {
-            velocity.X = x;
+            //velocity.X = x;
         }
 
         public void SetYVelocity(float y)
         {
-            velocity.Y = y;
+            //velocity.Y = y;
         }
 
         public void TakeDamage()
@@ -133,12 +145,20 @@ namespace Sprint0.Enemies
         public void Update()
         {
             enemy.Move(velocity);
+            int directionAdjust = 1;
             //Should the width be negative if the enemy is facing left? This is easy to solve, if direction is left, make the width negative.
-            viewBox = new Rectangle((int)enemy.Position.X, (int)enemy.Position.Y, viewBox.Width, viewBox.Height);
+            if (direction==GameUtilities.left)
+            {
+                directionAdjust = -1;
+            }
+            viewBox = new Rectangle((int)enemy.Position.X, (int)enemy.Position.Y+100, (int)viewBoxDimensions.X*directionAdjust, (int)viewBoxDimensions.Y);
             foreach (IMario mario in GameObjectManager.Instance.marios)
             {
+                Debug.WriteLine("Enemy Pos: "+enemy.Position+" Rectange Coords: " + viewBox.X + ", " + viewBox.Y + " Mario Pos: " + mario.Position);
                 if (viewBox.Contains(mario.Position))
                 {
+                    Debug.WriteLine("I SEE YOU");
+
                     enemy.CurrentState=new ChargeEnemyChargeState(enemy, direction);
   
                 }
