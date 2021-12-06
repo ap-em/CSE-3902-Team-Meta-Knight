@@ -27,6 +27,7 @@ namespace Sprint0.Enemies
 {
     public class BowserNormalState : IEnemyState
     {
+        private String initialId = "BowserNormalState";
         private String ID = "BowserNormalState";
         private int health = 3;
         private IEnemy enemy;
@@ -41,7 +42,7 @@ namespace Sprint0.Enemies
         }
         public void Throw()
         {
-            if (enemy.GetStateID() == "BowserNormalState")
+            if (enemy.GetStateID() == initialId)
             {
                 // shoot left
                 if (enemy.GetDirection() == GameUtilities.left)
