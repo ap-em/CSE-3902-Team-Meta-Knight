@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
+using Sprint0.Timers;
 
 namespace Sprint0.Enemies
 {
-    class ChargeEnemySquashedState : IEnemyState
+    class BomberNormalState : IEnemyState
     {
-        IEnemy enemy;
-        public ChargeEnemySquashedState(IEnemy enemyRef)
+        private IEnemy enemy;
+        private Vector2 velocity;
+
+
+        public BomberNormalState(IEnemy enemyRef)
         {
             enemy = enemyRef;
         }
@@ -19,11 +23,6 @@ namespace Sprint0.Enemies
         }
 
         public void DownBounce(Rectangle rectangle)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool GetGrounded()
         {
             throw new NotImplementedException();
         }
@@ -90,7 +89,7 @@ namespace Sprint0.Enemies
 
         public void Update()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

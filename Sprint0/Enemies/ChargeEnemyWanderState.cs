@@ -3,8 +3,8 @@ using Sprint0.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Sprint0.Timers;
 using Sprint0.UtilityClasses;
+using Sprint0.Timers;
 
 namespace Sprint0.Enemies 
 {
@@ -25,7 +25,6 @@ namespace Sprint0.Enemies
             this.enemy = enemyRef;
             direction = GameUtilities.right;
             walkDirectionTimer = new Timer(waitTime, SwitchDirection);
-            walkDirectionTimer.StartTimer();
             
         }
 
@@ -76,7 +75,7 @@ namespace Sprint0.Enemies
             //velocity.X = GameUtilities.chargeEnemySpeed;
         }
 
-        private void SwitchDirection(Object Source, System.Timers.ElapsedEventArgs e)
+        private void SwitchDirection()
         {
             if (direction==GameUtilities.right)
             {
@@ -91,7 +90,7 @@ namespace Sprint0.Enemies
                 enemy.SetDirection(direction);
             }
             walkDirectionTimer = new Timer(waitTime, SwitchDirection);
-            walkDirectionTimer.StartTimer();
+
         }
 
         public void RightBounce(Rectangle rectangle)
@@ -122,8 +121,7 @@ namespace Sprint0.Enemies
         public void TakeDamage()
         {
             enemy.SetHealth(enemy.GetHealth() - 1);
-            enemy.SetCurrentState(new ChargeEnemySquashedState());
-            enemy.StartRemovalTimer();
+            enemy.CurrentState=new ChargeEnemySquashedState(enemy);
         }
 
         public void UpBounce(Rectangle rectangle)
@@ -141,7 +139,8 @@ namespace Sprint0.Enemies
             {
                 if (viewBox.Contains(mario.Position))
                 {
-                    enemy.SetCurrentState(new ChargeEnemyChargeState(enemy, direction));
+                    enemy.CurrentState=new ChargeEnemyChargeState(enemy, direction);
+  
                 }
             }
         }
