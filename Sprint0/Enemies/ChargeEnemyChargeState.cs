@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
 using Sprint0.Timers;
+using Sprint0.UtilityClasses;
 
 namespace Sprint0.Enemies
 {
@@ -11,15 +13,16 @@ namespace Sprint0.Enemies
     {
         private string ID = "ChargeEnemyChargeState";
         private Timer chargeTimer;
-        private static int chargeTime = 2000;
         private bool grounded;
         private IEnemy enemy;
         private string direction;
 
         public ChargeEnemyChargeState(IEnemy enemyRef, string directionRef)
         {
+            Debug.WriteLine("CHARGE STATE");
+
             enemy = enemyRef;
-            chargeTimer = new Timer(chargeTime, FinishCharging);
+            chargeTimer = new Timer(GameUtilities.chargeEnemyChargeTime, FinishCharging);
             direction = directionRef;
         }
 

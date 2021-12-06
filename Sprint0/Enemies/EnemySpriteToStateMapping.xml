@@ -6,6 +6,18 @@
     <Sound>goombadeath</Sound>
   </MapInstance>
   <MapInstance>
+    <SpriteName>Bomber</SpriteName>
+    <StateName>Sprint0.Enemies.BomberNormalState</StateName>
+    <Health>1</Health>
+    <Sound>goombadeath</Sound>
+  </MapInstance>
+  <MapInstance>
+    <SpriteName>ChargeEnemy</SpriteName>
+    <StateName>Sprint0.Enemies.ChargeEnemyWanderState</StateName>
+    <Health>1</Health>
+    <Sound>goombadeath</Sound>
+  </MapInstance>
+  <MapInstance>
     <SpriteName>Koopa</SpriteName>
     <StateName>Sprint0.Enemies.KoopaNormalState</StateName>
     <Health>1</Health>

@@ -196,11 +196,9 @@
 	  <obj>197,3,1,0,Sprint0.Blocks.NoInteract,Flag</obj>
         
       <obj>2,10,1,0,Sprint0.Mario,Sprint0.Mario,Sprint0.Mario</obj>
-      
-      
-      
-      
-      
+
+
+
       <obj>22,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
 	    <obj>40,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
 	    <obj>51,12,1,0,Sprint0.Enemies.Enemy,Goomba</obj>
@@ -346,6 +344,7 @@
 		  
 		  <!--First Area-->
 		  <obj>14,79,7,0,Sprint0.Blocks.Block,UndergroundBlock</obj>
+      
 		  <obj>15,78,5,0,Sprint0.Blocks.Block,UndergroundBlock</obj>
 		  <obj>6,74,6,0,Sprint0.Blocks.Block,UndergroundBlock</obj>
 		  <obj>16,72,6,0,Sprint0.Blocks.Block,UndergroundBlock</obj>
@@ -356,8 +355,10 @@
 		  <obj>6,59,19,0,Sprint0.Blocks.BrickBlock,UndergroundBrickBlock</obj>
 		  <obj>25,59,1,0,Sprint0.Blocks.MushroomBlock,UndergroundBrickBlock</obj>
 		  <obj>26,59,1,0,Sprint0.Blocks.BrickBlock,UndergroundBrickBlock</obj>
-		  
-		  <obj>6,58,22,0,Sprint0.Blocks.ThemeBox,Theme_2</obj>
+      <obj>13,62,1,0,Sprint0.Enemies.Enemy,Bomber</obj>
+      <obj>25,62,1,0,Sprint0.Enemies.Enemy,Bomber</obj>
+
+      <obj>6,58,22,0,Sprint0.Blocks.ThemeBox,Theme_2</obj>
 		  
 		  <!--Second Area-->
 		  <obj>9,55,3,0, Sprint0.Blocks.Block,GreenBlock</obj>
