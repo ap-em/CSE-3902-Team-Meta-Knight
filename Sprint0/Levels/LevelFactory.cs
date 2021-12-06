@@ -9,6 +9,7 @@ using Sprint0.Sprites;
 using Sprint0.Sprites.SpriteFactory;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
+using Sprint0.Levels;
 
 
 /*Alex Clayton
@@ -49,6 +50,16 @@ namespace Sprint0
         {
             StartTheme();
             SetupReader(levelNumber);
+            switch (levelNumber){
+                 case 1:
+                    Background.Instance.ChangeBackground("1-1", new Rectangle(0, 0, 6750, 600));
+                    break;
+                case 2:
+                    Background.Instance.ChangeBackground("Very_Black_screen", new Rectangle(-1000, -1000, 6000, 6000));
+                    break;
+            }
+               
+
         }
         public void StartTheme()
         {

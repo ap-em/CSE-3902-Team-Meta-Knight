@@ -19,6 +19,7 @@ using Sprint0.UtilityClasses;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Sprint0.Timers;
+using Sprint0.Levels;
 
 /*
  * Team MetaKnight 2021 CSE 3902
@@ -89,14 +90,14 @@ namespace Sprint0
 
         protected override void Draw(GameTime gameTime)
         {
+            
             GraphicsDevice.Clear(Color.FromNonPremultiplied(92,148,252,255));
             foreach (ICamera camera in CameraManager.Instance.cameras.Values)
             {
                 tempView = GraphicsDevice.Viewport;
                 GraphicsDevice.Viewport = camera.GetViewport();
                 spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetMatrix());
-                Texture2D background = Game0.Instance.Content.Load<Texture2D>("1-1");
-                spriteBatch.Draw(background, new Rectangle(0, 0, 6750, 600), Color.White);
+                Background.Instance.Draw(spriteBatch);
                 GameObjectManager.Instance.DrawStaticGameObjects(spriteBatch, camera);
                 GameObjectManager.Instance.DrawGameObjects(spriteBatch);
                 HUDManager.Instance.Draw(spriteBatch, camera);
