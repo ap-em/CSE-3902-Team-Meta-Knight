@@ -56,8 +56,11 @@ namespace Sprint0
                     ChangeTheme("OverworldTheme");
                     break;
                 case 2:
-                    Background.Instance.ChangeBackground("Very_Black_screen", new Rectangle(-1000, -1000, 6000, 6000));
+
+                    Background.Instance.ChangeBackground("black", new Rectangle(-1000, -1000, 6000, 6000));
                    ChangeTheme("Theme_1");
+
+                    Background.Instance.ChangeBackground("black", new Rectangle(-1000, -1000, 6000, 6000));
                     break;
             }
             StartTheme();

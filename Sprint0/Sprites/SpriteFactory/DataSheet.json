@@ -42,6 +42,13 @@
     "SpriteSheet": "charger"
   },
   {
+    "DataX": [ 359 ],
+    "DataY": [ 67 ],
+    "Data": [ 16, 32, 1 ],
+    "SpriteName": "RightJumpingMarioFull",
+    "SpriteSheet": "mario"
+  },
+  {
     "DataX": [ 30 ],
     "DataY": [ 67 ],
     "Data": [ 16, 32, 1 ],
