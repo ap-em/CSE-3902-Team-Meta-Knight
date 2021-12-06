@@ -48,7 +48,7 @@ namespace Sprint0.Commands
             if(collided is IProjectile)
             {
                 IProjectile projectile = (IProjectile)collided;
-                if(projectile.SpriteName == "Hammer")
+                if(projectile.SpriteName == "Hammer" || projectile.SpriteName == "Bowser_Fire")
                     mario.TakeDamage();
             }
         }

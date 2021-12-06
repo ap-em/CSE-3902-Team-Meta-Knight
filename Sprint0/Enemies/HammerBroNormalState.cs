@@ -60,14 +60,14 @@ namespace Sprint0.Enemies
                 if (shootNum < 10)
                 {
                     //start throwing after a second
-                    TimerManager.Instance.AddToTimerList(new Timer(2000, Throw));
+                    TimerManager.Instance.AddToTimerList(new Timer(4000, Throw));
                 }
                 else
                 {
                     shootNum = 0;
-                    // wait for a random time between 500 and 2000ms
+                    // wait for a random time 
                     Random rand = new Random();
-                    int waitTime = rand.Next(5000, 7000);
+                    int waitTime = rand.Next(5000, 6000);
 
                     TimerManager.Instance.AddToTimerList(new Timer(waitTime, Wait));
                 }

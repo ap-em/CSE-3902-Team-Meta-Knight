@@ -32,7 +32,7 @@ namespace Sprint0
         private float YVelocity;
         private Vector2 position;
         private bool grounded = false;
-        public Vector2 Position { get => this.position; set => throw new NotImplementedException(); }
+        public Vector2 Position { get => this.position; set => position = value; }
 
         public ISprite Sprite => sprite;
         public String SpriteName { get => spriteName; }
@@ -63,7 +63,8 @@ namespace Sprint0
             if(!grounded)
             {
                 position = new Vector2(position.X + XVelocity, position.Y + YVelocity );
-                YVelocity++;
+                if(YVelocity < 5)
+                    YVelocity++;
             }
             else 
             {
@@ -78,8 +79,8 @@ namespace Sprint0
         {
             position = new Vector2(position.X, position.Y - rec.Height);
             //lower velocity by a 4th and inverse direction
-            YVelocity = -1*(YVelocity - YVelocity/4);
-            XVelocity = XVelocity - XVelocity / 4;
+            if(YVelocity > 4)
+                YVelocity = -1*(YVelocity - YVelocity/4);
         }
         public void Update()
         {
@@ -91,17 +92,19 @@ namespace Sprint0
 
         public void DownBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
+
         }
 
         public void RightBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
+            Position = new Vector2(Position.X + rectangle.Width, Position.Y);
+            XVelocity = -XVelocity;
         }
 
         public void LeftBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
+            Position = new Vector2(Position.X - rectangle.Width, Position.Y);
+            XVelocity = -XVelocity;
         }
 
         public void BigUpBounce(Rectangle rectangle)

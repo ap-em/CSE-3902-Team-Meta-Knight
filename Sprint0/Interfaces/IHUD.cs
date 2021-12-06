@@ -38,6 +38,7 @@ namespace Sprint0.Interfaces
         public void ResetGame();
         public void Update();
         public void Draw(SpriteBatch spriteBatch, ICamera camera);
+        public void WinGame();
     }
 
 }

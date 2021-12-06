@@ -111,6 +111,10 @@ namespace Sprint0.HUD
             hudState = new DefaultHUD(gameObject, this);
 
         }
+        public void WinGame()
+        {
+            hudState = new WinScreen(gameObject, this);
+        }
         public void SetMaxPlayerPosition(float position)
         {
             maxPlayerPosition = position;

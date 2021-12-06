@@ -42,6 +42,7 @@ namespace Sprint0.Commands
                 if(projectile.SpriteName == "fireball")
                 {
                     enemy.TakeDamage();
+                    GameObjectManager.Instance.RemoveFromObjectList((IGameObject)collided);
                 }
             }
         }

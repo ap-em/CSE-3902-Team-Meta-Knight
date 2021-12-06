@@ -431,10 +431,33 @@
   
   <collisionInstance>
     <obj1>Sprint0.Projectile</obj1>
-    <obj2>Sprint0.Blocks.Block</obj2>
+    <obj2>Sprint0.Blocks.Block,Sprint0.Blocks.BrickBlock</obj2>
     <direction>Top</direction>
     <obj1Command>Sprint0.Commands.CUpBounce</obj1Command>
     <obj2Command>Sprint0.Commands.CNothing</obj2Command>
   </collisionInstance>
   
+  <collisionInstance>
+    <obj1>Sprint0.Projectile</obj1>
+    <obj2>Sprint0.Blocks.Block,Sprint0.Blocks.BrickBlock</obj2>
+    <direction>Bottom</direction>
+    <obj1Command>Sprint0.Commands.CDownBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  
+  <collisionInstance>
+    <obj1>Sprint0.Projectile</obj1>
+    <obj2>Sprint0.Blocks.Block,Sprint0.Blocks.BrickBlock</obj2>
+    <direction>Left</direction>
+    <obj1Command>Sprint0.Commands.CLeftBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
+  
+  <collisionInstance>
+    <obj1>Sprint0.Projectile</obj1>
+    <obj2>Sprint0.Blocks.Block,Sprint0.Blocks.BrickBlock</obj2>
+    <direction>Right</direction>
+    <obj1Command>Sprint0.Commands.CRightBounce</obj1Command>
+    <obj2Command>Sprint0.Commands.CNothing</obj2Command>
+  </collisionInstance>
 </Collision>
