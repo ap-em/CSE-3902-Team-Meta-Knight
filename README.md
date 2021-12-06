@@ -17,6 +17,10 @@ _____
 As of Sprint 2, this program implements Link, link movement, primitive attacking and item placement, enemy movement, cyclable enemies, cyclable blocks, cyclable, a quit button and a partial reset button.
 
 For SPRINT 3, our program changes all The Legend of Zelda sprites to Mario. Camera, GameObjectManager, Collision detection, and collision response classes are also implemented in this sprint. 
+
+For SPRINT 4, we fixed bugs in our collision detection and response, implementing HUD, coins, game states, sounds, flag pole, and getting rid of magic numbers.
+
+For SPRINT 5, we added new level to our game, new camera for vertical level, FPS Counter, new enemies, and smooth level transition.
 _________
 
 **MOTIVATION**
@@ -64,6 +68,9 @@ https://trello.com/invite/b/OLUchs6g/d35f919f9ac1f47cc808b14c6c7c94a5/sprint-3
 
 SPRINT 4:
 https://trello.com/b/G4vRS2Um/sprint-4
+
+SPRINT 5:
+https://trello.com/b/GTntpLxy/sprint-5
 
 _____
 
@@ -114,6 +121,8 @@ Trello Board link: https://trello.com/invite/b/G4vRS2Um/5d41fa9832b6fe1503d9e97f
 
 In this initial meeting, we created a trello board for the sprint and went through the requirements on the website, creating cards for all the tasks outlined by the assignment, although we had created the majority in class on Monday. We also created a Burndown column for leftover tasks that needed to be addressed from previous sprints, such as bugs and issues brought up in the grading of sprint 3. We then went through as a team and assigned ourselves to tasks we felt comfortable doing, trying to obtain an even distribution of work. Afterwards, we discussed how we might approach some of the tasks differently compared to previous sprints, noting that the last sprint was fairly last-minute and how some didn’t get enough work in at the end. We also noted that it would be best to try to get the burndown column completely done before the main tasks, compared to last sprint where it was done concurrently, and to start work earlier than the previous sprint.
 
+SPRINT 5 Meetings
+
 _________
 
 
@@ -130,4 +139,11 @@ dungeon: http://www.zeldagalaxy.com/wp-content/img/sprites/nes/loz/tiles-dungeon
 Mario World 1-1: https://www.spriters-resource.com/nes/supermariobros/sheet/20592/
 
 Mario Universe: http://www.mariouniverse.com/sprites-nes-smb/
+
+Enemies & Bosses:https://www.spriters-resource.com/snes/smarioworld/sheet/143269/
+
+Sound info: https://themushroomkingdom.net/media/smb/wav
+
+
+
 
