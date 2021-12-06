@@ -33,6 +33,7 @@ namespace Sprint0.Blocks
         {
             if (LevelFactory.Instance.currentTrack() != spriteName)
             {
+                LevelFactory.Instance.StopTheme();
                 LevelFactory.Instance.ChangeTheme(spriteName);
                 LevelFactory.Instance.StartTheme();
             }
