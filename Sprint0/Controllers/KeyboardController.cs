@@ -23,7 +23,7 @@ namespace Sprint0.Controllers
         private Dictionary<Keys, ICommand> holdableKeyMappings;
         private List<Keys> availableKeys;
         private KeyboardState oldState;
-        public bool lockInput = false;
+        public bool lockInput = true;
         /*instance used for player, allows for locking player out of controls for predefined sequences
          such as the flag pole slide on win*/
 
