@@ -48,18 +48,25 @@ namespace Sprint0
         }
         public void CreateLevel(int levelNumber)
         {
-            StartTheme();
+            
             SetupReader(levelNumber);
             switch (levelNumber){
                  case 1:
                     Background.Instance.ChangeBackground("1-1", new Rectangle(0, 0, 6750, 600));
+                    ChangeTheme("OverworldTheme");
                     break;
                 case 2:
                     Background.Instance.ChangeBackground("Very_Black_screen", new Rectangle(-1000, -1000, 6000, 6000));
+                   ChangeTheme("Theme_1");
                     break;
             }
-               
+            StartTheme();
 
+
+        }
+        public void ChangeTheme(String themeName)
+        {
+            currentSoundtrack = themeName;
         }
         public void StartTheme()
         {
