@@ -732,6 +732,13 @@
     "SpriteSheet": "enemies"
   },
   {
+    "DataX": [ 364 ],
+    "DataY": [ 188 ],
+    "Data": [ 8, 8, 1 ],
+    "SpriteName": "Bowser_Fire",
+    "SpriteSheet": "enemies"
+  },
+  {
     "DataX": [ 0, 30 ],
     "DataY": [ 4, 4 ],
     "Data": [ 16, 16, 2 ],
