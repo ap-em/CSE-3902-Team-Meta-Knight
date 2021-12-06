@@ -126,8 +126,11 @@ SPRINT 5 Meetings
 _________
 
 
+Initial Planning Meeting 11/16/21 https://osu.zoom.us/recording/detail?meeting_id=71aHc8AGTrCG2hGrFoe27g%3D%3D
 
+Final Meeting for Sprint 5 12/5/21 https://osu.zoom.us/rec/share/wgZmaWTVgxBKoWIbxLGuCbjWv44ponNAahqac0G4vkro0prmEQ5N-K0TRSlSJ2sB.UBCOZsPJQ-ZBR-lj
 
+Trello Board link: https://trello.com/invite/b/GTntpLxy/37406fc11e8a25826847cac25ceb93b6/sprint-5
 ______
 **CREDITS**  
 Sprites sheets taken from https://www.spriters-resource.com/nes/legendofzelda/
