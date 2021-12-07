@@ -28,6 +28,13 @@
     "SpriteSheet": "enemies"
   },
   {
+    "DataX": [ 60 ],
+    "DataY": [ 4 ],
+    "Data": [ 16, 16, 1 ],
+    "SpriteName": "ChargeEnemy0Health",
+    "SpriteSheet": "enemies"
+  },
+  {
     "DataX": [ 0, 30 ],
     "DataY": [ 4, 4 ],
     "Data": [ 16, 16, 2 ],

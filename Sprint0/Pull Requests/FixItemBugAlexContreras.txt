@@ -1,0 +1,17 @@
+CODE REVIEW of Sprint-5  "Fixed ItemBlock Bug" by Alex Contreras 12/3/21:
+
+BrickBlock: Greatly simplified BrickBlock, great readability with the taking out of the checking of the block, 
+given any block in this class will be a brick block, good move.
+
+Fixing the bug by just adding a hit boolean is elegant and simple. Maybe there's a better way, but this seems 
+like the perfect fix to me.
+
+Star,mushroom,coin block: All these classes seem to be just ulitizing the hit boolean like the brickblock so 
+everything seems good here.
+
+Good use of comments to let the reader know what your code is doing even if it's fairly simple, good increase 
+of readability and of maintainability for the future
+
+Overall: Great fix and excellent code
+
+ALL.CS FILES' AUTHOR IS OWEN HUSTON

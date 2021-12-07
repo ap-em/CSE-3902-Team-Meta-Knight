@@ -1,0 +1,23 @@
+CODE REVIEW of Sprint-5-Camera2 by Owen Tishenkel 12/1/21:
+
+CameraLevel1: Our original camera, good at what it does, all this really does is rename it, no issues.
+
+CameraLevel2: Camera 1 but it doesn’t follow the player back down when they jump above a certain amount, 
+it plus the kill below a certain level lends difficulty to vertical mario, good but makes it a bit too difficult, 
+implementing Alex’s suggestion from the meeting to have it update to have mario’s y level when he lands on a block 
+as the new limit would make it easier while maintaining the difficulty. Same quality as level 1’s camera with only 
+minor changes, also the kill mario if below a certain y-level code is very nice, good amount of comments, no issues
+Camera Manager: Changes revolve around the addition of more than 1 type of camera, methods that create each camera 
+and stripping out of the multiple camera code. Streamlines Camera Manager and probably a wise decision not to make 
+a single method that creates different camera’s based on input, as we tend to know which type of camera we need and 
+only need specific ones at specific times. Could use more comments, i.e. one job comments, for each method but otherwise 
+
+good
+Cinematic Camera: Follows mario without doing anything fancy, requires a lot less code than the rest so it makes sense 
+that it’s the shortest. Good quality, simple enough that every bit of code is self-explanatory.
+
+Mario:Swapping location of kill mario if below camera to specifically be in camera level 2 makes sense as it make the 
+camera less likely to murder the player if it ever messes up with the cinematic or level 1 camera, and the killboxes 
+already handle killing in level 1, only strips out code that is placed somewhere else so no issues.
+
+ALL.CS FILES' AUTHOR IS Owen Huston

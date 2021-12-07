@@ -1,0 +1,17 @@
+CODE REVIEW of Sprint-5-Sprint-5-OwenCameraUpdate by Owen Tishenkel 12/3/21:
+
+CReset.cs: Adjusting the reset command to reset the camera to a cinematic camera until the object it is following 
+hits the ground is a change that simplifies many internal camera manipulations that were done in flag mario.
+
+Game0: Building off the current level when initializing rather than the game utilities initial level
+
+LevelData: Changing to falling mario for level 2, simple change already planned for
+GameObjectManager: Removing magic numbers, good change.
+
+Mario.cs/Rightfacingflagmario: removing the camera reset and camera switch from mario to shift to cReset, already 
+talked about it
+
+GameUtilities: Removing Current level from it, makes sense bc we have to update that and we should never update 
+anything in game utilities
+
+ALL.CS FILES' AUTHOR IS Owen Huston
