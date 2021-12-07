@@ -16,6 +16,7 @@ namespace Sprint0.Enemies
         private bool grounded;
         private IEnemy enemy;
         private string direction;
+        private Vector2 velocity;
 
         public ChargeEnemyChargeState(IEnemy enemyRef, string directionRef)
         {
@@ -23,7 +24,9 @@ namespace Sprint0.Enemies
 
             enemy = enemyRef;
             chargeTimer = new Timer(GameUtilities.chargeEnemyChargeTime, FinishCharging);
+            TimerManager.Instance.AddToTimerList(chargeTimer);
             direction = directionRef;
+            velocity = new Vector2(0, GameUtilities.gravity);
         }
 
         public void BigUpBounce(Rectangle rectangle)
@@ -53,7 +56,7 @@ namespace Sprint0.Enemies
 
         public Vector2 GetVelocity()
         {
-            throw new NotImplementedException();
+            return velocity;
         }
 
         public void LeftBounce(Rectangle rectangle)
@@ -63,12 +66,12 @@ namespace Sprint0.Enemies
 
         public void MoveLeft()
         {
-            throw new NotImplementedException();
+            //
         }
 
         public void MoveRight()
         {
-            throw new NotImplementedException();
+            //
         }
 
         public void RightBounce(Rectangle rectangle)
@@ -78,17 +81,15 @@ namespace Sprint0.Enemies
 
         public void SetGrounded(bool grounded)
         {
-            throw new NotImplementedException();
+            this.grounded = grounded;
         }
 
         public void SetXVelocity(float x)
         {
-            throw new NotImplementedException();
         }
 
         public void SetYVelocity(float y)
         {
-            throw new NotImplementedException();
         }
 
         public void TakeDamage()
@@ -98,7 +99,8 @@ namespace Sprint0.Enemies
 
         public void UpBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
+            grounded = true;
+            enemy.Position = new Vector2(enemy.Position.X, enemy.Position.Y - rectangle.Height);
         }
 
         private void FinishCharging()

@@ -25,13 +25,14 @@ namespace Sprint0.Enemies
             direction = directionRef;
             if (direction==GameUtilities.right)
             {
-                velocity = new Vector2(speed, 0);
+                velocity = new Vector2(speed, GameUtilities.gravity);
             }
             else
             {
-                velocity = new Vector2(-speed, 0);
+                velocity = new Vector2(-speed, GameUtilities.gravity);
             }
             attackTimer = new Timer(GameUtilities.chargeEnemyAttackTime, EndAttack);
+            TimerManager.Instance.AddToTimerList(attackTimer);
         }
         public void EndAttack()
         {
@@ -54,7 +55,6 @@ namespace Sprint0.Enemies
 
         public void GetKicked(Rectangle rec)
         {
-            throw new NotImplementedException();
         }
 
         public string GetStateID()
@@ -94,27 +94,28 @@ namespace Sprint0.Enemies
 
         public void SetXVelocity(float x)
         {
-            throw new NotImplementedException();
+
         }
 
         public void SetYVelocity(float y)
         {
-            throw new NotImplementedException();
         }
 
         public void TakeDamage()
         {
-            throw new NotImplementedException();
+            enemy.SetHealth(0);
+            enemy.StartRemovalTimer(3000);
         }
 
         public void UpBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
+            grounded = true;
+            enemy.Position = new Vector2(enemy.Position.X, enemy.Position.Y - rectangle.Height);
         }
 
         public void Update()
         {
-            throw new NotImplementedException();
+            enemy.Move(velocity);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Sprint0.Enemies
         private string direction;
         private Timer walkDirectionTimer;
         private bool grounded;
-        private static Vector2 viewBoxDimensions = new Vector2(300, -300);
+        private static Vector2 viewBoxDimensions = new Vector2(600, 600);
         Rectangle viewBox;
 
         public ChargeEnemyWanderState(IEnemy enemyRef)
@@ -151,7 +151,7 @@ namespace Sprint0.Enemies
             {
                 directionAdjust = -1;
             }
-            viewBox = new Rectangle((int)enemy.Position.X, (int)enemy.Position.Y+100, (int)viewBoxDimensions.X*directionAdjust, (int)viewBoxDimensions.Y);
+            viewBox = new Rectangle((int)enemy.Position.X, (int)enemy.Position.Y-100, (int)viewBoxDimensions.X*directionAdjust, (int)viewBoxDimensions.Y);
             foreach (IMario mario in GameObjectManager.Instance.marios)
             {
                 Debug.WriteLine("Enemy Pos: "+enemy.Position+" Rectange Coords: " + viewBox.X + ", " + viewBox.Y + " Mario Pos: " + mario.Position);

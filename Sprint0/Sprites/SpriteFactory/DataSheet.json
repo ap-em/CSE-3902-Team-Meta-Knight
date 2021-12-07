@@ -31,6 +31,13 @@
     "DataX": [ 0, 30 ],
     "DataY": [ 4, 4 ],
     "Data": [ 16, 16, 2 ],
+    "SpriteName": "ChargeEnemy0Health",
+    "SpriteSheet": "enemies"
+  },
+  {
+    "DataX": [ 0, 30 ],
+    "DataY": [ 4, 4 ],
+    "Data": [ 16, 16, 2 ],
     "SpriteName": "RightIdleBomber1Health",
     "SpriteSheet": "enemies"
   },
