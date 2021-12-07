@@ -1,38 +1,38 @@
 [
   {
-    "DataX": [ 0, 30 ],
-    "DataY": [ 4, 4 ],
-    "Data": [ 16, 16, 2 ],
+    "DataX": [ 231 ],
+    "DataY": [ 157 ],
+    "Data": [ 25, 25, 1 ],
     "SpriteName": "RightIdleChargeEnemy1Health",
-    "SpriteSheet": "enemies"
+    "SpriteSheet": "charger"
   },
   {
-    "DataX": [ 0, 30 ],
-    "DataY": [ 4, 4 ],
-    "Data": [ 16, 16, 2 ],
+    "DataX": [ 138, 170 ],
+    "DataY": [ 157, 157 ],
+    "Data": [ 25, 25, 2 ],
     "SpriteName": "RightMovingChargeEnemy1Health",
-    "SpriteSheet": "enemies"
+    "SpriteSheet": "charger"
   },
   {
-    "DataX": [ 0, 30 ],
-    "DataY": [ 4, 4 ],
-    "Data": [ 16, 16, 2 ],
+    "DataX": [ 352 ],
+    "DataY": [ 157 ],
+    "Data": [ 25, 25, 1 ],
     "SpriteName": "LeftIdleChargeEnemy1Health",
-    "SpriteSheet": "enemies"
-  },
+    "SpriteSheet": "charger"
+  }, 
   {
-    "DataX": [ 0, 30 ],
-    "DataY": [ 4, 4 ],
-    "Data": [ 16, 16, 2 ],
+    "DataX": [ 11, 43 ],
+    "DataY": [ 157, 157 ],
+    "Data": [ 25, 25, 2 ],
     "SpriteName": "LeftMovingChargeEnemy1Health",
-    "SpriteSheet": "enemies"
+    "SpriteSheet": "charger"
   },
   {
-    "DataX": [ 60 ],
-    "DataY": [ 4 ],
-    "Data": [ 16, 16, 1 ],
+    "DataX": [ 91 ],
+    "DataY": [ 157 ],
+    "Data": [ 25, 25, 1 ],
     "SpriteName": "ChargeEnemy0Health",
-    "SpriteSheet": "enemies"
+    "SpriteSheet": "charger"
   },
   {
     "DataX": [ 0, 30 ],
