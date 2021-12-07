@@ -1,0 +1,44 @@
+Sprint-5 Reflection Team Meta Knight
+
+For sprint 5, our team worked on our own features which we had some brief ideas in the early semester, so it didn’t take 
+that much time for us to come up with a fun idea. We started to work on this sprint as soon as we sent Professor Kirby 
+the detailed information about our vertical Mario.
+ 
+In this sprint, we had our initial team meeting on 11/16/21 and a final meeting on 12/5/21 via zoom, besides these two 
+meetings we mainly discussed our progress during class meeting time or via discord channel. Although we did not do many 
+video meetings, we talked about our own problems efficiently in the discord channel and would get help in short times. At 
+this time, we reminded our teammates to do code reviews earlier to make sure we do not lose points because of lack of code 
+review.
+ 
+For the first week, we focused on the burndown chart from sprint 4 noticed in the Trello dashboard and some new bugs 
+while adding more enemies to the game. Also, we wrote the detailed plan on sprint 5 to Professor Kirby to make sure we 
+can get to our new features after fixing existing bugs. For the second week, we slowed our steps because it was 
+Thanksgiving break. We had a nice break and were back to work that weekend, specifically, we fixed damage transition 
+sprites, added moving koopa shells, and a feature spawning multiple objects along the y-axis. For the third week, we 
+mainly focused on creating vertical Mario. Things we did related to our new features are new camera, new level, new 
+sprites, new game states, level transitions, and new enemies. Also, we made small changes about timers and fps counters. 
+For the last week before the demo, our team had our final meeting on Sunday night to talk about how to improve our game 
+and existing bugs so far. We worked on the final boss for vertical Mario, enemy AI, and more enemies to make the game more 
+challenging.
+ 
+Our teammates did an excellent job for this sprint. We could see improvements in our coding as we reach the end of 
+semester. And most important, we get used to working with groups and sharing ideas with others, which is an essential 
+skill when we go to industry.
+
+
+
+
+
+
+Burndown chart:
+
+A bug that occurs when you hold jump near a wall
+A bug when you’re little mario and you’re doing the wall jump clip, you can clip into blocks
+Make a pause/resume and mute button
+Pause Screen UI
+Make items move up when you hit the block
+A bug that occurs when you run past the flag pole instead of jump and go down it
+Implementation of gamepad for the game
+Make sound for enemies dying
+For recreation of 1-1 would have to make the underground area with a pipe transition
+Make Bowser's fire, not the same fireballs that come from fire flower mario  
