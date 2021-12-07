@@ -35,7 +35,8 @@ namespace Sprint0.HUD
         }
         public void Draw(SpriteBatch spriteBatch, ICamera camera)
         {
-            soundInfo.PlaySound("smb_gameover", false);
+            LevelFactory.Instance.StopTheme();
+            soundInfo.PlaySound("smb_stage_clear", false);
             spriteBatch.Draw(background, new Rectangle(-1000, -1000, 7750, 5000), Color.Black);
             spriteBatch.DrawString(font, "CREDITS \n\n Alex Contreras \n\n Owen Huston \n\n Alex Clayton \n\n Owen Tishenkel \n\n Jared Israel \n\n Leon Cai", new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2 - 50, camera.GetPosition().Y + camera.GetViewport().Height / 2 - 100), Color.White);
         }
