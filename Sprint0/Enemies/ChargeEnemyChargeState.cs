@@ -94,7 +94,9 @@ namespace Sprint0.Enemies
 
         public void TakeDamage()
         {
-           
+            enemy.SetHealth(enemy.GetHealth() - 1);
+            enemy.CurrentState = new ChargeEnemySquashedState(enemy);
+            enemy.StartRemovalTimer(100);
         }
 
         public void UpBounce(Rectangle rectangle)
@@ -105,7 +107,10 @@ namespace Sprint0.Enemies
 
         private void FinishCharging()
         {
-            enemy.CurrentState = new ChargeEnemyAttackState(enemy, direction);
+            if (enemy.GetHealth()>0)
+            {
+                enemy.CurrentState = new ChargeEnemyAttackState(enemy, direction);
+            }
         }
 
         public void Update()

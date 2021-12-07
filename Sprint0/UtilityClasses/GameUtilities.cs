@@ -43,10 +43,11 @@ namespace Sprint0.UtilityClasses
         //magic number in ChargeEnemy
         public static int chargeEnemySpeed=1;
         public static int chargeEnemyRemovalTimer = 7;
-        public static int chargeEnemyAttackTime = 600;
-        public static int chargeEnemyAttackSpeed = 5;
-        public static int chargeEnemyChargeTime = 1500;
+        public static int chargeEnemyAttackTime = 1000;
+        public static int chargeEnemyAttackSpeed = 10;
+        public static int chargeEnemyChargeTime = 2000;
         public static int chargeEnemyDirectionWait = 2000;
+        public static int chargeEnemyVerticalSightAdjust = 50;
 
         //magic number in Bomber
         public static int bomberSpeed = 1;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Sprint0.Interfaces;
@@ -12,7 +13,6 @@ namespace Sprint0.Enemies
     {
         private IEnemy enemy;
         public  string ID = "ChargeEnemyAttackState";
-        private static int attackTime = 600;
         private Vector2 velocity;
         private static int speed = 5;
         private bool grounded;
@@ -36,16 +36,18 @@ namespace Sprint0.Enemies
         }
         public void EndAttack()
         {
-            enemy.CurrentState=new ChargeEnemyWanderState(enemy);
+            if (enemy.GetHealth()>0)
+            {
+                enemy.CurrentState = new ChargeEnemyWanderState(enemy);
+
+            }
         }
         public void BigUpBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
         }
 
         public void DownBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
         }
 
         public bool GetGrounded()
@@ -69,7 +71,7 @@ namespace Sprint0.Enemies
 
         public void LeftBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
+            Debug.WriteLine("ATTACK LEFT BOUNCE");
         }
 
         public void MoveLeft()
@@ -84,7 +86,8 @@ namespace Sprint0.Enemies
 
         public void RightBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
+            Debug.WriteLine("ATTACK RIGHT BOUNCE");
+
         }
 
         public void SetGrounded(bool grounded)
@@ -103,8 +106,9 @@ namespace Sprint0.Enemies
 
         public void TakeDamage()
         {
-            enemy.SetHealth(0);
-            enemy.StartRemovalTimer(3000);
+            enemy.SetHealth(enemy.GetHealth() - 1);
+            enemy.CurrentState = new ChargeEnemySquashedState(enemy);
+            enemy.StartRemovalTimer(100);
         }
 
         public void UpBounce(Rectangle rectangle)
