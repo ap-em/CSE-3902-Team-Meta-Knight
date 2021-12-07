@@ -44,15 +44,16 @@ namespace Sprint0.UtilityClasses
         public static int chargeEnemySpeed=1;
         public static int chargeEnemyRemovalTimer = 7;
         public static int chargeEnemyAttackTime = 1000;
-        public static int chargeEnemyAttackSpeed = 10;
+        public static int chargeEnemyAttackSpeed = 15;
         public static int chargeEnemyChargeTime = 2000;
-        public static int chargeEnemyDirectionWait = 2000;
+        public static int chargeEnemyDirectionWait = 4000;
         public static int chargeEnemyVerticalSightAdjust = 50;
 
         //magic number in Bomber
         public static int bomberSpeed = 1;
         public static int bomberAtackInterval = 2000;
         public static int bomberDirectionChangeInterval = 6000;
+        public static int bombFuse = 75;
 
         //magic number in Goomba
         public static int goombaHearts = 1;

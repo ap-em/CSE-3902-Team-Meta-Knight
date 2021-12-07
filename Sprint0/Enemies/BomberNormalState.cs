@@ -37,7 +37,7 @@ namespace Sprint0.Enemies
             {
                 GameObjectManager.Instance.AddToObjectList(
                             new Projectile(
-                              "Hammer", enemy.Position, 0, 0, GameUtilities.hammerFuse), 1, 1);
+                              "Hammer", enemy.Position, 0, 0, GameUtilities.bombFuse), 1, 1);
                 bombTimer = new Timer(GameUtilities.bomberAtackInterval, DropBomb);
                 TimerManager.Instance.AddToTimerList(bombTimer);
             }
@@ -125,7 +125,7 @@ namespace Sprint0.Enemies
             velocity.X = 1;
             enemy.Grounded = false;
             enemy.SetHealth(0);
-            enemy.StartRemovalTimer(3000);
+            enemy.StartRemovalTimer(150);
             isSquished = true;
         }
 
