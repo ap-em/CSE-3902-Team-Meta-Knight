@@ -32,13 +32,18 @@ skill when we go to industry.
 
 Burndown chart:
 
-A bug that occurs when you hold jump near a wall
-A bug when you’re little mario and you’re doing the wall jump clip, you can clip into blocks
-Make a pause/resume and mute button
-Pause Screen UI
-Make items move up when you hit the block
-A bug that occurs when you run past the flag pole instead of jump and go down it
-Implementation of gamepad for the game
-Make sound for enemies dying
-For recreation of 1-1 would have to make the underground area with a pipe transition
-Make Bowser's fire, not the same fireballs that come from fire flower mario  
+1. A bug that occurs when you hold jump near a wall
+2. A bug when you’re little mario and you’re doing the wall jump clip, you can clip into blocks
+3. Make a pause/resume and mute button
+4. Pause Screen UI
+5. Make items move up when you hit the block
+6. A bug that occurs when you run past the flag pole instead of jump and go down it
+7. Implementation of gamepad for the game
+8. For recreation of 1-1 would have to make the underground area with a pipe transition
+9. Make Bowser's fire, not the same fireballs that come from fire flower mario  
+10. Bowser currently floats
+11. Small mario can't kick the shell, he dies
+12. The final screen has the victory song loop forever
+13. We didn't add sound for enemies getting stomped
+14. We didn't add sound for fireball coming out
+15. We didn't add sound for mario getting hurt
