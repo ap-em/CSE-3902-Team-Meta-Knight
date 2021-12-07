@@ -145,13 +145,17 @@ namespace Sprint0.Enemies
         public void Update()
         {
             enemy.Move(velocity);
-            int directionAdjust = 1;
+            int directionAdjust;
             //Should the width be negative if the enemy is facing left? This is easy to solve, if direction is left, make the width negative.
             if (direction==GameUtilities.left)
             {
                 directionAdjust = -1;
             }
-            viewBox = new Rectangle((int)enemy.Position.X, (int)enemy.Position.Y-100, (int)viewBoxDimensions.X*directionAdjust, (int)viewBoxDimensions.Y);
+            else
+            {
+                directionAdjust = 1;
+            }
+            viewBox = new Rectangle((int)enemy.Position.X, (int)enemy.Position.Y, (int)viewBoxDimensions.X*directionAdjust, (int)viewBoxDimensions.Y);
             foreach (IMario mario in GameObjectManager.Instance.marios)
             {
                 Debug.WriteLine("Enemy Pos: "+enemy.Position+" Rectange Coords: " + viewBox.X + ", " + viewBox.Y + " Mario Pos: " + mario.Position);
