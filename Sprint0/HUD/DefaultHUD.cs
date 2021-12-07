@@ -19,7 +19,7 @@ namespace Sprint0.HUD
         {
             gameObject = go;
             this.HUD = HUD;
-            font = Game0.Instance.Content.Load<SpriteFont>("Font");
+            font = Game0.Instance.Content.Load<SpriteFont>("FontHUD");
         }
 
         public void Update()
@@ -43,15 +43,15 @@ namespace Sprint0.HUD
         {
             int time = (int)HUD.GetTimeLeft();
             //  draw on top left of screen
-            spriteBatch.DrawString(font, "TIME LEFT: " + time.ToString(), new Vector2(camera.GetPosition().X, camera.GetPosition().Y), Color.White);
+            spriteBatch.DrawString(font, "TIME LEFT: " + time.ToString(), new Vector2(camera.GetPosition().X, camera.GetPosition().Y+3), Color.White);
 
             // draw on top middle of screen
-            spriteBatch.DrawString(font, "LIVES: " + HUD.GetLives().ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y), Color.White);
-            spriteBatch.DrawString(font, "LEVEL: " + LevelFactory.Instance.currentLevel.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2 + 90, camera.GetPosition().Y), Color.White);
-            spriteBatch.DrawString(font, "COINS: " + HUD.GetCoins().ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width /2-100, camera.GetPosition().Y), Color.White);
+            spriteBatch.DrawString(font, "LIVES: " + HUD.GetLives().ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2, camera.GetPosition().Y+3), Color.White);
+            spriteBatch.DrawString(font, "LEVEL: " + LevelFactory.Instance.currentLevel.ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width / 2 + 100, camera.GetPosition().Y+3), Color.White);
+            spriteBatch.DrawString(font, "COINS: " + HUD.GetCoins().ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width /2-100, camera.GetPosition().Y+3), Color.White);
 
             //draw on top right of screen
-            spriteBatch.DrawString(font, "SCORE: " + HUD.GetScore().ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width - 130, camera.GetPosition().Y), Color.White);
+            spriteBatch.DrawString(font, "SCORE: " + HUD.GetScore().ToString(), new Vector2(camera.GetPosition().X + camera.GetViewport().Width - 130, camera.GetPosition().Y+3), Color.White);
         }
     }
 }
