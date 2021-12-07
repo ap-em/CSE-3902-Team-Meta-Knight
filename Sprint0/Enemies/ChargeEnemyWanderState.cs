@@ -17,7 +17,7 @@ namespace Sprint0.Enemies
         private string direction;
         private Timer walkDirectionTimer;
         private bool grounded;
-        private static Vector2 viewBoxDimensions = new Vector2(300, -300);
+        private static Vector2 viewBoxDimensions = new Vector2(300, 100);
         Rectangle viewBox;
 
         public ChargeEnemyWanderState(IEnemy enemyRef)
@@ -134,6 +134,7 @@ namespace Sprint0.Enemies
         {
             enemy.SetHealth(enemy.GetHealth() - 1);
             enemy.CurrentState=new ChargeEnemySquashedState(enemy);
+            enemy.StartRemovalTimer(100);
         }
 
         public void UpBounce(Rectangle rectangle)
@@ -145,19 +146,15 @@ namespace Sprint0.Enemies
         public void Update()
         {
             enemy.Move(velocity);
-            int directionAdjust = 1;
+            int directionAdjust;
             //Should the width be negative if the enemy is facing left? This is easy to solve, if direction is left, make the width negative.
-            if (direction==GameUtilities.left)
-            {
-                directionAdjust = -1;
-            }
-            viewBox = new Rectangle((int)enemy.Position.X, (int)enemy.Position.Y+100, (int)viewBoxDimensions.X*directionAdjust, (int)viewBoxDimensions.Y);
+            directionAdjust = (direction == GameUtilities.left) ? 1 : 0;
+
+            viewBox = new Rectangle((int)(enemy.Position.X-(directionAdjust*viewBoxDimensions.X)), (int)enemy.Position.Y-GameUtilities.chargeEnemyVerticalSightAdjust, (int)viewBoxDimensions.X, (int)viewBoxDimensions.Y);
             foreach (IMario mario in GameObjectManager.Instance.marios)
             {
-                Debug.WriteLine("Enemy Pos: "+enemy.Position+" Rectange Coords: " + viewBox.X + ", " + viewBox.Y + " Mario Pos: " + mario.Position);
                 if (viewBox.Contains(mario.Position))
                 {
-                    Debug.WriteLine("I SEE YOU");
 
                     enemy.CurrentState=new ChargeEnemyChargeState(enemy, direction);
   

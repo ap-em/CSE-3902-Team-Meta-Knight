@@ -9,88 +9,76 @@ namespace Sprint0.Enemies
     class ChargeEnemySquashedState : IEnemyState
     {
         IEnemy enemy;
+        private string ID = "ChargeEnemySquashedState";
         public ChargeEnemySquashedState(IEnemy enemyRef)
         {
             enemy = enemyRef;
         }
         public void BigUpBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
         }
 
         public void DownBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
         }
 
         public bool GetGrounded()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public void GetKicked(Rectangle rec)
         {
-            throw new NotImplementedException();
         }
 
         public string GetStateID()
         {
-            throw new NotImplementedException();
+            return ID;
         }
 
         public Vector2 GetVelocity()
         {
-            throw new NotImplementedException();
+            return Vector2.Zero;
         }
 
         public void LeftBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
         }
 
         public void MoveLeft()
         {
-            throw new NotImplementedException();
         }
 
         public void MoveRight()
         {
-            throw new NotImplementedException();
         }
 
         public void RightBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
         }
 
         public void SetGrounded(bool grounded)
         {
-            throw new NotImplementedException();
         }
 
         public void SetXVelocity(float x)
         {
-            throw new NotImplementedException();
         }
 
         public void SetYVelocity(float y)
         {
-            throw new NotImplementedException();
         }
 
         public void TakeDamage()
         {
-            throw new NotImplementedException();
         }
 
         public void UpBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
         }
 
         public void Update()
         {
-            throw new NotImplementedException();
         }
     }
 }
