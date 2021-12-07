@@ -57,6 +57,7 @@ namespace Sprint0.Enemies
 
         public void GetKicked(Rectangle rec)
         {
+            velocity = new Vector2(0, GameUtilities.gravity);
         }
 
         public string GetStateID()
@@ -71,7 +72,9 @@ namespace Sprint0.Enemies
 
         public void LeftBounce(Rectangle rectangle)
         {
-            Debug.WriteLine("ATTACK LEFT BOUNCE");
+            enemy.Position = new Vector2(enemy.Position.X - rectangle.Width, enemy.Position.Y);
+
+            velocity = new Vector2(0, GameUtilities.gravity);
         }
 
         public void MoveLeft()
@@ -86,7 +89,9 @@ namespace Sprint0.Enemies
 
         public void RightBounce(Rectangle rectangle)
         {
-            Debug.WriteLine("ATTACK RIGHT BOUNCE");
+            enemy.Position = new Vector2(enemy.Position.X + rectangle.Width, enemy.Position.Y);
+
+            velocity = new Vector2(0, GameUtilities.gravity);
 
         }
 

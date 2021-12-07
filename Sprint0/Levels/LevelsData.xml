@@ -356,7 +356,7 @@
 		  <obj>6,59,19,0,Sprint0.Blocks.BrickBlock,UndergroundBrickBlock</obj>
 		  <obj>25,59,1,0,Sprint0.Blocks.MushroomBlock,UndergroundBrickBlock</obj>
 		  <obj>26,59,1,0,Sprint0.Blocks.BrickBlock,UndergroundBrickBlock</obj>
-      <obj>13,62,1,0,Sprint0.Enemies.Enemy,Bomber</obj>
+      <obj>14,62,1,0,Sprint0.Enemies.Enemy,Bomber</obj>
       <obj>25,62,1,0,Sprint0.Enemies.Enemy,Bomber</obj>
 
       <obj>6,58,22,0,Sprint0.Blocks.ThemeBox,Theme_2</obj>
@@ -369,14 +369,22 @@
 		  <obj>10,51,5,0, Sprint0.Blocks.Block,GreenBlock</obj>
 		  <obj>18,51,5,0, Sprint0.Blocks.Block,GreenBlock</obj>
 
-		  <obj>23,47,4,0, Sprint0.Blocks.Block,GreenBlock</obj>
+
+      <obj>23,47,4,0, Sprint0.Blocks.Block,GreenBlock</obj>
 		  <obj>23,44,4,0, Sprint0.Blocks.Block,GreenBlock</obj>
 		  <obj>6,43,10,0, Sprint0.Blocks.Block,GreenBlock</obj>
-		  
-		  <obj>6,39,3,0, Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>6,35,2,0, Sprint0.Blocks.Block,GreenBlock</obj>
+      <obj>10,42,1,0,Sprint0.Enemies.Enemy,ChargeEnemy</obj>
+
+
+      <obj>8,38,19,0, Sprint0.Blocks.Block,GreenBlock</obj>
+      <obj>16,37,1,0,Sprint0.Enemies.Enemy,ChargeEnemy</obj>
+
+      <obj>12,32,1,0,Sprint0.Enemies.Enemy,ChargeEnemy</obj>
+      <obj>6,33,18,0, Sprint0.Blocks.Block,GreenBlock</obj>
+      
 		  <obj>6,31,1,0, Sprint0.Blocks.Block,GreenBlock</obj>
-		  <obj>10,28,10,0, Sprint0.Blocks.Block,GreenBlock</obj>
+
+      <obj>10,28,10,0, Sprint0.Blocks.Block,GreenBlock</obj>
 		  <obj>21,25,6,0, Sprint0.Blocks.Block,GreenBlock</obj>
 
 		  <obj>6,21,1,0,Sprint0.Blocks.BrickBlock,GreenBrickBlock</obj>

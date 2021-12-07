@@ -38,12 +38,12 @@ namespace Sprint0.Enemies
 
         public void DownBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
+
         }
 
         public bool GetGrounded()
         {
-            throw new NotImplementedException();
+            return grounded;
         }
 
         public void GetKicked(Rectangle rec)
@@ -62,11 +62,11 @@ namespace Sprint0.Enemies
 
         public void LeftBounce(Rectangle rectangle)
         {
-            Debug.WriteLine("LEFT BOUNCE");
+            Debug.WriteLine(" WANDER LEFT BOUNCE");
 
             enemy.Position = new Vector2(enemy.Position.X - rectangle.Width, enemy.Position.Y);
-            direction = GameUtilities.right;
-            velocity.X = GameUtilities.chargeEnemySpeed;
+            direction = GameUtilities.left;
+            velocity.X = -GameUtilities.chargeEnemySpeed;
         }
 
         public void MoveLeft()
@@ -104,11 +104,11 @@ namespace Sprint0.Enemies
 
         public void RightBounce(Rectangle rectangle)
         {
-            Debug.WriteLine("RIGHT BOUNCE");
+            Debug.WriteLine(" WANDER LEFT BOUNCE");
 
             enemy.Position = new Vector2(enemy.Position.X + rectangle.Width, enemy.Position.Y);
-            direction = GameUtilities.left;
-            velocity.X = -GameUtilities.chargeEnemySpeed;
+            direction = GameUtilities.right;
+            velocity.X = GameUtilities.chargeEnemySpeed;
         }
 
         public void SetGrounded(bool grounded)

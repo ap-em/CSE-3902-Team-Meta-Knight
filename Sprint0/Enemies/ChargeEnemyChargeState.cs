@@ -31,7 +31,6 @@ namespace Sprint0.Enemies
 
         public void BigUpBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
         }
 
         public void DownBounce(Rectangle rectangle)
@@ -46,12 +45,11 @@ namespace Sprint0.Enemies
 
         public void GetKicked(Rectangle rec)
         {
-            throw new NotImplementedException();
         }
 
         public string GetStateID()
         {
-            throw new NotImplementedException();
+            return ID;
         }
 
         public Vector2 GetVelocity()
@@ -61,7 +59,8 @@ namespace Sprint0.Enemies
 
         public void LeftBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
+            Debug.WriteLine(" charge LEFT BOUNCE");
+
         }
 
         public void MoveLeft()
@@ -76,7 +75,8 @@ namespace Sprint0.Enemies
 
         public void RightBounce(Rectangle rectangle)
         {
-            throw new NotImplementedException();
+            Debug.WriteLine("Charge right BOUNCE");
+
         }
 
         public void SetGrounded(bool grounded)
