@@ -346,6 +346,7 @@
 		  <obj>14,79,7,0,Sprint0.Blocks.Block,UndergroundBlock</obj>
       
 		  <obj>15,78,5,0,Sprint0.Blocks.Block,UndergroundBlock</obj>
+		  <obj>26,75,1,0,Sprint0.Blocks.MushroomBlock,UndergroundBrickBlock</obj>
 		  <obj>6,74,6,0,Sprint0.Blocks.Block,UndergroundBlock</obj>
 		  <obj>16,72,6,0,Sprint0.Blocks.Block,UndergroundBlock</obj>
 		  <obj>6,68,7,0,Sprint0.Blocks.Block,UndergroundBlock</obj>
