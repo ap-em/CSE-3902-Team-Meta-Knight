@@ -1,0 +1,14 @@
+CODE REVIEW of Sprint-5  "Fixed Flag Bug" by Alex Contreras 12/3/21:
+
+NoInteract: Good idea to make a block that is able to be seen but not collidable, not only good in this context, 
+but for further use else where, like maybe a level loader block? 
+
+The addition of the soundInfo, seems strange to me, I could see how it could be used? but a good idea to not have 
+code that we're most likely not going to use. 
+
+Maybe a comment about what the block class is for would make it clearer that we just want a block can be seen and 
+not collidable; though no interact is trying to commiuncate that a good comment never hurts readability.
+
+Overall: Great fix, and a good class to use for the future
+
+ALL.CS FILES' AUTHOR IS OWEN TISHENKEL

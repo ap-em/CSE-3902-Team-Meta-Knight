@@ -1,0 +1,17 @@
+CODE REVIEW of Sprint-5-NewSoundsAndGameOver by Owen Huston 10/18/21:
+
+DefaultHUD: I like the new formatting it looks alot cleaner now.
+
+GameOverScreen: I think soundInfo.StopLoopedSound and soundInfo.PlaySound can both be 
+moved to the constructor instead of draw since draw is called every frame and we don't 
+need to stop and play sound every frame.
+
+Item: Added sounds to items, looks good.
+
+DataSheet: Lots of new sprites, love to see it.
+
+GameUtilites: currentLevel should probably be renamed to something like "level1" because it is a 
+static int. While our currentLevel might be changing throughout the game currentLevel in GameUtilites 
+would still be 1 because it is static.
+
+ALL.CS FILES' AUTHOR IS Alex Contreras

@@ -1,0 +1,19 @@
+CODE REVIEW OF Sprint-5-Owen by Leon Cai 12/3 2021
+DateSheet.json: adjusting mario sprites so it is more similar to real Mario game when Mario takes damage.
+
+CDamageEnemy.cs: Changing from only Mario collide with enemy to both Mario and shell(enemy) can collide with enemy 
+to do damage by using if else conditions. Looks good to me.
+
+Enemy.cs: In Enemy.cs class, instead of setting facing direction in each moveRight(), moveLeft() method, The direction 
+issue handles by setDirection method which reduces duplicate code. The payoff is that in enemy state classes, we need to 
+call the enemy class to set the direction.
+
+HammerBroNormalState.cs: Good job! I really like the way setting the waitingtime of throwing hammer to become random 
+which makes the game more challenging. Also, without using the enemy AI, in the update(), it is smart to keep track of 
+Mario position to determine the face direction of the enemy.
+
+LevelFactory.cs: Using a new method SpawnObject instead of directly doing it in the body enhances the readabiliy. 
+Because new feature spawning objects along the y axis is added, having a method to create object can reduce duplicate 
+code. Good job!
+
+ALL.CS FILES' AUTHOR IS Owen Huston
